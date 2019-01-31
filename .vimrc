@@ -44,7 +44,6 @@ noremap <Right> <Nop>
 
 "Numbers left side
 set nu  " Set current line  number
-set rnu " Show relative number
 set numberwidth=5
 set nostartofline 
 set linespace=3
@@ -73,7 +72,6 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set noerrorbells " No sound in the editor
-set ai " set Auto indent
 
 "Move code blocks 
 vnoremap < <gv " better indentation
@@ -81,12 +79,11 @@ vnoremap > >gv " better indentation
 
 " Nice colors and color scheme
 set t_Co=256
-colorscheme minimalist
+colorscheme  minimalist
 
 " Vim bars
 set laststatus=2 "Status line On
 set noshowmode " Lightline plugin take care of the modes
-set title
 
 " Change between buffers
 " (,n - Next Buffer, ,b - previous buffer, ,d - delete buffer)
@@ -100,7 +97,6 @@ nnoremap <leader>l :ls<CR>
 " Search usage 
 set hls is " Highlight and show a line under words search
 set ic
-set incsearch
 set history=300
 set wildmenu " Makig a suggestion menu in searches and autocomlition in :
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -112,9 +108,9 @@ set timeoutlen=1000 ttimeoutlen=5
 
 " ------------------------ Plugins Configurations -------------------
 
-" light line plugin
+" light line plugin configurations
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
+    \ 'colorscheme': 'jellybeans',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
@@ -142,7 +138,7 @@ function! LightlineFugitive()
     return ''
 endfunction
 
-" NERDTree Plugin config
+" NERDTree Plugin configurations
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
