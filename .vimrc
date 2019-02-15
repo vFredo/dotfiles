@@ -10,11 +10,9 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins that wnated to install via name and name of repositorie
+" Plugins wanted to install via name and name of repositorie
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'zefei/vim-wintabs'
-Plugin 'itchyny/lightline.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
@@ -24,11 +22,12 @@ filetype plugin indent on
 
 " Important keybiding
 :let mapleader = ","
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :q!<CR>
-nnoremap <leader>e :e **/*
 nnoremap <leader>f :NERDTreeToggle<CR>
+
+" Better navigation in the page go up 3 lines and down 3 lines 
+" With Ctrl + e and Ctrl + y
+nnoremap <C-e> <C-e><C-e><C-e>
+nnoremap <C-y> <C-y><C-y><C-y>
 
 " Better navigation in panes
 map <C-j> <C-W>j
@@ -44,6 +43,7 @@ noremap <Right> <Nop>
 
 "Numbers left side
 set nu  " Set current line  number
+set rnu " Set relative numbers
 set numberwidth=5
 set nostartofline 
 set linespace=3
@@ -51,6 +51,7 @@ set linespace=3
 "Max character width
 set textwidth=80
 set colorcolumn=+1
+set scrolloff=3 " Keep visible the lines below/above the cursor in the window
 
 "Syntax highlighting
 :se cursorline
@@ -81,10 +82,6 @@ vnoremap > >gv " better indentation
 set t_Co=256
 colorscheme  minimalist
 
-" Vim bars
-set laststatus=2 "Status line On
-set noshowmode " Lightline plugin take care of the modes
-
 " Change between buffers
 " (,n - Next Buffer, ,b - previous buffer, ,d - delete buffer)
 " (,l - List of buffers)
@@ -108,37 +105,9 @@ set timeoutlen=1000 ttimeoutlen=5
 
 " ------------------------ Plugins Configurations -------------------
 
-" light line plugin configurations
-let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ],
-    \   'right': [ [ 'lineinfo'],
-    \              [ 'percent' ],
-    \              [ 'filetype', 'fileencoding' ] ]
-    \ },
-    \ 'component': {
-    \   'lineinfo': ' %3l:%-2v',
-    \ },
-    \ 'component_function': {
-    \   'readonly': 'LightlineReadonly',
-    \   'fugitive': 'LightlineFugitive'
-    \ },
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' }
-    \ }
-
-" Function for making the fonts look good in lightline status bar
-function! LightlineFugitive()
-    if exists('*fugitive#head')
-        let branch = fugitive#head()
-        return branch !=# '' ? ' '.branch : ''
-    endif
-    return ''
-endfunction
-
 " NERDTree Plugin configurations
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeShowHidden=1
 
