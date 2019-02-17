@@ -13,7 +13,7 @@ call vundle#begin()
 " Plugins wanted to install via name and name of repositorie
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'kaicataldo/material.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 
@@ -23,6 +23,16 @@ filetype plugin indent on
 " Important keybiding
 :let mapleader = ","
 nnoremap <leader>f :NERDTreeToggle<CR>
+
+" Change between buffers
+" (,n - Next Buffer, ,b - previous buffer, ,d - delete buffer)
+" (,l - List of buffers) (,b [file name] - open a buffer with that filename)
+nnoremap <leader>m :bn<CR>
+nnoremap <leader>n :bp<CR>
+nnoremap <leader>b :b 
+nnoremap <leader>d :bd<CR>
+nnoremap <leader>D :bd!<CR>
+nnoremap <leader>l :ls<CR>
 
 " Better navigation in the page go up 3 lines and down 3 lines 
 " With Ctrl + e and Ctrl + y
@@ -35,6 +45,10 @@ map <C-k> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
+"Move code blocks 
+vnoremap < <gv " better indentation
+vnoremap > >gv " better indentation
+
 " Delte all arrows commands
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -42,7 +56,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 "Numbers left side
-set nu  " Set current line  number
+set nu  " Set current line number
 set rnu " Set relative numbers
 set numberwidth=5
 set nostartofline 
@@ -51,7 +65,7 @@ set linespace=3
 "Max character width
 set textwidth=80
 set colorcolumn=+1
-set scrolloff=3 " Keep visible the lines below/above the cursor in the window
+set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
 "Syntax highlighting
 :se cursorline
@@ -74,22 +88,10 @@ set shiftround
 set expandtab
 set noerrorbells " No sound in the editor
 
-"Move code blocks 
-vnoremap < <gv " better indentation
-vnoremap > >gv " better indentation
-
-" Nice colors and color scheme
-set t_Co=256
-colorscheme  minimalist
-
-" Change between buffers
-" (,n - Next Buffer, ,b - previous buffer, ,d - delete buffer)
-" (,l - List of buffers)
-nnoremap <leader>n :bn<CR>
-nnoremap <leader>b :bp<CR>
-nnoremap <leader>d :bd<CR>
-nnoremap <leader>D :bd!<CR>
-nnoremap <leader>l :ls<CR>
+" Nice colors and material color scheme
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " Search usage 
 set hls is " Highlight and show a line under words search
@@ -109,5 +111,12 @@ set timeoutlen=1000 ttimeoutlen=5
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Show hidden files in the NERDTree
 let NERDTreeShowHidden=1
+
+" Material theme setup
+let g:material_theme_style = 'dark'
+let g:material_terminal_italics = 1
+set background=dark
+colorscheme material
 
