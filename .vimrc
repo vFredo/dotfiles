@@ -20,7 +20,7 @@ Plugin 'scrooloose/nerdtree'
 call vundle#end()
 filetype plugin indent on
 
-" Important keybiding
+" Important keybidings
 :let mapleader = ","
 nnoremap <leader>f :NERDTreeToggle<CR>
 
@@ -33,6 +33,15 @@ nnoremap <leader>b :b
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>D :bd!<CR>
 nnoremap <leader>l :ls<CR>
+
+" Install on Ubuntu vim-gtk or vim-gnome for this to work
+" Check is need it to install with vim --version | grep clipboard 
+" (+clipboard or +xterm_clipboard has to appear if not, install)
+" CentOS/Redhay install vim-X11
+" This is for copying text from vim to the desktop clipboard"
+vnoremap <leader>c "+y
+" For cut text from vim to the desktop clipboard
+vnoremap <leader>x "+d
 
 " Better navigation in the page go up 3 lines and down 3 lines 
 " With Ctrl + e and Ctrl + y
@@ -49,15 +58,9 @@ map <C-L> <C-W>l
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
-" Delte all arrows commands
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
 "Numbers left side
 set nu  " Set current line number
-set rnu " Set relative numbers
+set rnu " Set relative number
 set numberwidth=5
 set nostartofline 
 set linespace=3
@@ -95,7 +98,7 @@ endif
 
 " Search usage 
 set hls is " Highlight and show a line under words search
-set ic
+set ic " Ignore text case
 set history=300
 set wildmenu " Makig a suggestion menu in searches and autocomlition in :
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -105,16 +108,17 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
 " Making transition modes more fast
 set timeoutlen=1000 ttimeoutlen=5
 
+
 " ------------------------ Plugins Configurations -------------------
 
-" NERDTree Plugin configurations
+" NERDTree Plugin configurations 
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Show hidden files in the NERDTree
 let NERDTreeShowHidden=1
 
-" Material theme setup
+" Material theme configuration
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
 set background=dark
