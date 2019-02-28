@@ -13,7 +13,6 @@ call vundle#begin()
 " Plugins wanted to install via name and name of repositorie
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
-Plugin 'kaicataldo/material.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
