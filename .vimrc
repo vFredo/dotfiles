@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
 Plugin 'kaicataldo/material.vim'
+Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 
@@ -118,8 +119,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Show hidden files in the NERDTree
 let NERDTreeShowHidden=1
 
-" Material theme configuration
-let g:material_theme_style = 'dark'
-let g:material_terminal_italics = 1
+" Gruvbox theme configuration
 set background=dark
-colorscheme material
+colorscheme gruvbox

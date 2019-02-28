@@ -22,3 +22,10 @@ fi
 
 mkdir -p ~/.vim/autolad ~/.vim/bundle && \
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+#If you are in a gnome terminal,Tilix terminal, iTerm or pathogen termina
+# https://github.com/Mayccoll/Gogh
+# bash -c  "$(wget -qO- https://git.io/vQgMr)"
+# Then pic a theme
+# Preinstalations 
+# sudo apt-get install dconf-cli
