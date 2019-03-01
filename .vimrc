@@ -1,6 +1,6 @@
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
-" Reloafing .vimrc file
+" Reloading .vimrc file
 autocmd! bufwritepost .vimrc source %
 
 set nocompatible
@@ -10,7 +10,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins wanted to install via name and name of repositorie
+" Plugins wanted to install via name and name of repository
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
 Plugin 'morhetz/gruvbox'
