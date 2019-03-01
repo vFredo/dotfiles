@@ -48,13 +48,13 @@ vnoremap <leader>x "+d
 nnoremap <C-e> <C-e><C-e><C-e>
 nnoremap <C-y> <C-y><C-y><C-y>
 
-" Better navigation in panes
+" Better navigation between panes
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-"Move code blocks 
+"Move code blocks more easily
 vnoremap < <gv " better indentation
 vnoremap > >gv " better indentation
 
@@ -91,7 +91,7 @@ set shiftround
 set expandtab
 set noerrorbells " No sound in the editor
 
-" Search usage 
+" Search in vim 
 set hls is " Highlight and show a line under words search
 set ic " Ignore text case
 set history=300
@@ -100,15 +100,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
 
-" Making transition modes more fast
+" Making transition between modes more fast
 set timeoutlen=1000 ttimeoutlen=5
 
 " Nice looking colors in terminal
-
-" This is only necessary if you use set termguicolors and tmux
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 if (has("termguicolors"))
   set termguicolors
 endif
