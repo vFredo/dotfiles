@@ -91,11 +91,6 @@ set shiftround
 set expandtab
 set noerrorbells " No sound in the editor
 
-" Nice colors and material color scheme
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " Search usage 
 set hls is " Highlight and show a line under words search
 set ic " Ignore text case
@@ -108,16 +103,20 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj
 " Making transition modes more fast
 set timeoutlen=1000 ttimeoutlen=5
 
+" Nice looking colors in terminal
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " ------------------------ Plugins Configurations -------------------
 
-" NERDTree Plugin configurations 
+" --- NERDTree Plugin configurations ---
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Show hidden files in the NERDTree
 let NERDTreeShowHidden=1
 
-" Gruvbox theme configuration
+" --- Gruvbox theme configuration ---
 set background=dark
 colorscheme gruvbox
