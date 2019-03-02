@@ -29,7 +29,6 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 " (,l - List of buffers) (,b [file name] - open a buffer with that filename)
 nnoremap <leader>m :bn<CR>
 nnoremap <leader>n :bp<CR>
-nnoremap <leader>b :b 
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>D :bd!<CR>
 nnoremap <leader>l :ls<CR>
@@ -60,7 +59,6 @@ vnoremap > >gv " better indentation
 
 "Numbers left side
 set nu  " Set current line number
-set rnu " Set relative number
 set numberwidth=5
 set nostartofline 
 set linespace=3
@@ -120,3 +118,6 @@ let NERDTreeShowHidden=1
 " --- Gruvbox theme configuration ---
 set background=dark
 colorscheme gruvbox
+" --- Wintabs Plugin configuration ---
+let g:wintabs_display='statusline'
+
