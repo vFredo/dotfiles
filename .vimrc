@@ -10,7 +10,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" For Github repo 'username/repository'
+" For Github repos 'username/repository'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
 Plugin 'morhetz/gruvbox'
@@ -26,18 +26,17 @@ filetype plugin indent on
 nnoremap <leader>f :NERDTreeToggle<CR>
 
 " Change between buffers
-" (,n - Next Buffer, ,b - previous buffer, ,d - delete buffer)
-" (,l - List of buffers) (,b [file name] - open a buffer with that filename)
+" (,n - Next Buffer, ,b - Previous Buffer, ,d - Delete Buffer)
 nnoremap <leader>m :bn<CR>
 nnoremap <leader>n :bp<CR>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>D :bd!<CR>
-nnoremap <leader>l :ls<CR>
 
-" Install on Ubuntu vim-gtk or vim-gnome for this to work
-" Check is need it to install with vim --version | grep clipboard 
-" (+clipboard or +xterm_clipboard has to appear if not, install)
-" CentOS/Redhay install vim-X11
+" Install on Ubuntu vim-gtk or vim-gnome for this to work.
+" Check if is need it to install: vim --version | grep clipboard 
+" (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
+" In CentOS/Redhay install vim-X11
+
 " This is for copying text from vim to the desktop clipboard"
 vnoremap <leader>c "+y
 " For cut text from vim to the desktop clipboard
@@ -70,14 +69,14 @@ set colorcolumn=+1
 set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
 " Title configuration
-" Set title of the current buffet
+" Set title of the current buffer
 autocmd BufEnter * let &titlestring = expand("%:@")
 set title " Title of the current file working
-set titleold= " Give the title back
+set titleold= " Set last little to the current screen when is not in vim
 
 
 "Syntax highlighting
-:se cursorline
+set cursorline
 syntax enable
 
 " Wrap
@@ -89,7 +88,7 @@ set ruler "Show cursor position all the time
 set bs=2 "Backspace normal again
 set spr
 
-"Soft tabs, 4 spaces
+" Tabs configurations: Soft tabs, 4 spaces
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -121,7 +120,6 @@ endif
 " ------------------------ Plugins Configurations -------------------
 
 " --- NERDTree Plugin configurations ---
-
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
