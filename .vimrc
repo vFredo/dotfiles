@@ -10,12 +10,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugins wanted to install via name and name of repository
+" For Github repo 'username/repository'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
 Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
+Plugin 'alvan/vim-closetag'
 
 call vundle#end()
 filetype plugin indent on
@@ -68,6 +69,13 @@ set textwidth=80
 set colorcolumn=+1
 set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
+" Title configuration
+" Set title of the current buffet
+autocmd BufEnter * let &titlestring = expand("%:@")
+set title " Title of the current file working
+set titleold= " Give the title back
+
+
 "Syntax highlighting
 :se cursorline
 syntax enable
@@ -89,10 +97,14 @@ set shiftround
 set expandtab
 set noerrorbells " No sound in the editor
 
-" Search in vim 
+" Search configuration
 set hls is " Highlight and show a line under words search
 set ic " Ignore text case
 set history=300
+autocmd InsertLeave * : setlocal hlsearch " The hl words are no longer hl
+autocmd InsertEnter * : setlocal nohlsearch " The hl of the words come again
+
+" Wildmenu configuration
 set wildmenu " Makig a suggestion menu in searches and autocomlition in :
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store
@@ -109,6 +121,7 @@ endif
 " ------------------------ Plugins Configurations -------------------
 
 " --- NERDTree Plugin configurations ---
+
 " Close vim if the only window open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -118,6 +131,11 @@ let NERDTreeShowHidden=1
 " --- Gruvbox theme configuration ---
 set background=dark
 colorscheme gruvbox
+
 " --- Wintabs Plugin configuration ---
 let g:wintabs_display='statusline'
+let g:wintabs_ui_buffer_name_format='%o %t'
+
+" --- Closetag Plugin configuration ---
+let g:closetag_filetypes = 'html,xhtml,phtml'
 
