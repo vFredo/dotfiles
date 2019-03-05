@@ -13,7 +13,7 @@ call vundle#begin()
 " For Github repos 'username/repository'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
-Plugin 'morhetz/gruvbox'
+Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'alvan/vim-closetag'
@@ -21,15 +21,18 @@ Plugin 'alvan/vim-closetag'
 call vundle#end()
 filetype plugin indent on
 
+" Config mouse
+set mouse=a
+
 " Important keybidings
 :let mapleader = ","
 nnoremap <leader>f :NERDTreeToggle<CR>
 
 " Change between buffers
 " (,n - Next Buffer, ,b - Previous Buffer, ,d - Delete Buffer)
-nnoremap <leader>m :bn<CR>
-nnoremap <leader>n :bp<CR>
-nnoremap <leader>d :bd<CR>
+nnoremap <leader>m :WintabsNext<CR>
+nnoremap <leader>n :WintabsPrevious<CR>
+nnoremap <leader>d :WintabsClose<CR>
 nnoremap <leader>D :bd!<CR>
 
 " Install on Ubuntu vim-gtk or vim-gnome for this to work.
@@ -126,13 +129,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Show hidden files in the NERDTree
 let NERDTreeShowHidden=1
 
-" --- Gruvbox theme configuration ---
+" --- Quatum theme configuration ---
 set background=dark
-colorscheme gruvbox
+let g:quantum_black=1
+let g:quantum_italics=1
+colorscheme quantum
 
 " --- Wintabs Plugin configuration ---
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format='%o %t'
+let g:wintabs_ui_buffer_name_format='%o.%t'
 
 " --- Closetag Plugin configuration ---
 let g:closetag_filetypes = 'html,xhtml,phtml'
