@@ -13,7 +13,7 @@ call vundle#begin()
 " For Github repos 'username/repository'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'zefei/vim-wintabs'
-Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'alvan/vim-closetag'
@@ -129,15 +129,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Show hidden files in the NERDTree
 let NERDTreeShowHidden=1
 
-" --- Quatum theme configuration ---
+" --- Gruvbox theme configuration ---
 set background=dark
-let g:quantum_black=1
-let g:quantum_italics=1
-colorscheme quantum
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " --- Wintabs Plugin configuration ---
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format='%o.%t'
+let g:wintabs_ui_buffer_name_format='%o)%t'
 
 " --- Closetag Plugin configuration ---
 let g:closetag_filetypes = 'html,xhtml,phtml'
