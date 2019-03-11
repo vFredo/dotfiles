@@ -136,7 +136,7 @@ colorscheme gruvbox
 
 " --- Wintabs Plugin configuration ---
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format='%o)%t'
+let g:wintabs_ui_buffer_name_format='%o) %t'
 
 " --- Closetag Plugin configuration ---
 let g:closetag_filetypes = 'html,xhtml,phtml'
