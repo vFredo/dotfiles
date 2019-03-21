@@ -107,7 +107,7 @@ autocmd InsertLeave * : setlocal hlsearch " The hl words are no longer hl
 autocmd InsertEnter * : setlocal nohlsearch " The hl of the words come again
 
 " Wildmenu configuration
-set wildmenu " Makig a suggestion menu in searches and autocomlition in :
+set wildmenu " Makig a suggestion menu in searches and autocomlition in : menu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj

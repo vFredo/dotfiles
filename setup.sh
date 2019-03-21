@@ -25,7 +25,7 @@ mkdir -p ~/.vim/autolad ~/.vim/bundle && \
 
 # ---- Preinstalations for terminal Theme-----
 # sudo apt-get install dconf-cli
-# If you are in a gnome terminal,Tilix terminal, iTerm or pathogen terminal
+# If you are in a gnome terminal, Tilix terminal, iTerm or pathogen terminal
 
 # https://github.com/Mayccoll/Gogh
 # bash -c  "$(wget -qO- https://git.io/vQgMr)"
