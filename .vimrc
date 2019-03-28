@@ -17,6 +17,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'alvan/vim-closetag'
+Plugin 'xuhdev/vim-latex-live-preview'
 
 call vundle#end()
 filetype plugin indent on
@@ -140,4 +141,8 @@ let g:wintabs_ui_buffer_name_format='%o) %t'
 
 " --- Closetag Plugin configuration ---
 let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" --- Live preview Latex Plugin ---
+nnoremap <leader>l :LLPStartPreview<CR>
+nnoremap <leader>L :LLPStartPreview 
 
