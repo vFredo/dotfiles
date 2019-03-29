@@ -20,7 +20,7 @@ then
     fi
 fi
 
-mkdir -p ~/.vim/autolad ~/.vim/bundle && \
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # ---- Preinstalations for terminal Theme-----
