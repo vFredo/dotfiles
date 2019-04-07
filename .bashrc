@@ -127,3 +127,10 @@ open(){
     xdg-open "$@">/dev/null 2>&1
 }
 
+# Base16 Shell
+# Theme instalattion process https://github.com/chriskempson/base16-shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
