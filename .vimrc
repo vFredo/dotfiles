@@ -12,7 +12,6 @@ call vundle#begin()
 
 " For Github repos 'username/repository'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'zefei/vim-wintabs'
 Plugin 'dikiaap/minimalist'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
@@ -26,14 +25,14 @@ filetype plugin indent on
 set mouse=a
 
 " Important keybidings
-:let mapleader = ","
+let mapleader = ","
 nnoremap <leader>f :NERDTreeToggle<CR>
 
 " Change between buffers
 " (,n - Next Buffer, ,b - Previous Buffer, ,d - Delete Buffer)
-nnoremap <leader>m :WintabsNext<CR>
-nnoremap <leader>n :WintabsPrevious<CR>
-nnoremap <leader>d :WintabsClose<CR>
+nnoremap <leader>m :bn<CR>
+nnoremap <leader>n :bp<CR>
+nnoremap <leader>d :bd<CR>
 nnoremap <leader>D :bd!<CR>
 
 " Install on Ubuntu vim-gtk or vim-gnome for this to work.
@@ -86,7 +85,7 @@ syntax enable
 " Wrap
 set fo-=t " don't automatically text when typing
 set backspace=indent,eol,start
-set hidden " Hidden Buffers
+set hidden " For have files open without displaying on the screeen (Buffers)
 set autoread
 set ruler "Show cursor position all the time
 set bs=2 "Backspace normal again
@@ -132,10 +131,6 @@ let NERDTreeShowHidden=1
 
 " --- Minimalist theme configuration ---
 colorscheme minimalist
-
-" --- Wintabs Plugin configuration ---
-let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format='%o) %t'
 
 " --- Closetag Plugin configuration ---
 let g:closetag_filetypes = 'html,xhtml,phtml'

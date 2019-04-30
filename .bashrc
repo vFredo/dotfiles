@@ -127,6 +127,11 @@ open(){
     xdg-open "$@">/dev/null 2>&1
 }
 
+# Open javeriana folder
+javeriana(){
+    cd ~/Documents/Universidad/Javeriana/
+}
+
 # Base16 Shell
 # Theme instalattion process https://github.com/chriskempson/base16-shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
