@@ -67,8 +67,6 @@ set nostartofline
 set linespace=3
 
 "Max character width
-set textwidth=80
-set colorcolumn=+1
 set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
 " Title configuration
