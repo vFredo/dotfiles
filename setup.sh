@@ -10,6 +10,7 @@ then
         ln -sf "$(pwd)"/.vimrc /"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/.bashrc /"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/.profile /"$(whoami)"/.profile
+        ln -sf "$(pwd)"/polybar.sh /home/"$(whoami)"/.config/polybar/polybar.sh
 
         # Not Root
     else
@@ -17,6 +18,7 @@ then
         ln -sf "$(pwd)"/.vimrc /home/"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/.bashrc /home/"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/.profile /home/"$(whoami)"/.profile
+        ln -sf "$(pwd)"/polybar.sh /home/"$(whoami)"/.config/polybar/polybar.sh
     fi
 fi
 
