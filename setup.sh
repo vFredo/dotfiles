@@ -40,6 +40,10 @@ then
 
     # Copy Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
+
+    # Copy modules spotify for polybar
+    cp -r "$(pwd)"/.config/polybar/spotify ~/.config/polybar/
+
 fi
 
 # ---- Preinstalations for terminal Theme-----
