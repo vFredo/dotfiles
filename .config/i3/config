@@ -189,7 +189,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/airplane.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-starup-id compton -f
+exec_always --no-startup-id compton -f
 
 # assing a workspace for applications
 for_window [class="Spotify"] move to workspace $workspace3
