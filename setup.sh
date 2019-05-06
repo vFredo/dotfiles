@@ -3,6 +3,9 @@
 # If it is a Linux Base operating system
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
+    # Create folders need it
+    mkdir ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/zathura ~/.fonts
+
     #Ask if is root
     if [ "root" = "$(whoami)" ]
     then
@@ -10,7 +13,12 @@ then
         ln -sf "$(pwd)"/.vimrc /"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/.bashrc /"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/.profile /"$(whoami)"/.profile
-        ln -sf "$(pwd)"/polybar.sh /home/"$(whoami)"/.config/polybar/polybar.sh
+        ln -sf "$(pwd)"/.config/polybar/launch.sh /"$(whoami)"/.config/polybar/launch.sh
+        ln -sf "$(pwd)"/.config/polybar/config /"$(whoami)"/.config/polybar/config
+        ln -sf "$(pwd)"/.config/i3/config /"$(whoami)"/.config/i3/config
+        ln -sf "$(pwd)"/.config/rofi/config.rasi /"$(whoami)"/.config/rofi/config.rasi
+        ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /"$(whoami)"/.config/rofi/flat-orange.rasi
+        ln -sf "$(pwd)"/.config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
 
         # Not Root
     else
@@ -18,12 +26,21 @@ then
         ln -sf "$(pwd)"/.vimrc /home/"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/.bashrc /home/"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/.profile /home/"$(whoami)"/.profile
-        ln -sf "$(pwd)"/polybar.sh /home/"$(whoami)"/.config/polybar/polybar.sh
+        ln -sf "$(pwd)"/.config/polybar/launch.sh /home/"$(whoami)"/.config/polybar/launch.sh
+        ln -sf "$(pwd)"/.config/polybar/config /home/"$(whoami)"/.config/polybar/config
+        ln -sf "$(pwd)"/.config/i3/config /home/"$(whoami)"/.config/i3/config
+        ln -sf "$(pwd)"/.config/rofi/config.rasi /home/"$(whoami)"/.config/rofi/config.rasi
+        ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /home/"$(whoami)"/.config/rofi/flat-orange.rasi
+        ln -sf "$(pwd)"/.config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
     fi
-fi
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    # Intalling Vundle Package Manager
+    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    # Copy Fonts
+    cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
+fi
 
 # ---- Preinstalations for terminal Theme-----
 # sudo apt-get install dconf-cli
