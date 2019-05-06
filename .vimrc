@@ -15,7 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'dikiaap/minimalist'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
-Plugin 'alvan/vim-closetag'
+Plugin 'SirVer/ultisnips'
 Plugin 'lervag/vimtex'
 
 call vundle#end()
@@ -58,7 +58,6 @@ vnoremap > >gv " better indentation
 
 "Numbers left side
 set nu  " Set current line number
-set nostartofline 
 set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
 " Title configuration
@@ -116,8 +115,10 @@ let NERDTreeShowHidden=1
 " --- Minimalist theme configuration ---
 colorscheme minimalist
 
-" --- Closetag Plugin configuration ---
-let g:closetag_filetypes = 'html,xhtml,phtml'
+" --- Ultisnips Plugin configuration ---
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " --- Vimtex Plugin cofiguration ---
 let g:tex_flavor='latex'

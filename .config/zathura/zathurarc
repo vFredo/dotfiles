@@ -1,0 +1,25 @@
+# Basic Setup
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 10
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+set highlight-transparency 1.0
+
+# Theme
+set default-bg "#282828"
+set default-fg "#d5d2be"
+set inputbar-bg "#282828"
+set inputbar-fg "#d5d2be"
+set statusbar-bg "#282828"
+set statusbar-fg "#d5d2be"
+
+set index-bg "#282828"
+set index-fg "#d5d2be"
+set index-active-bg "#282828"
+set index-active-fg "#d5d2be"
+
+set recolor true
+set recolor-lightcolor "#202020"
+set recolor-darkcolor "#d5d2be"
