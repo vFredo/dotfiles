@@ -122,6 +122,10 @@ parse_git_branch() {
 
 export PS1=" \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 
+# Betterlock Screen for i3
+# https://github.com/pavanjadhaw/betterlockscreen
+export PATH="${PATH}:${HOME}/.local/bin/"
+
 # Open files on terminal with xdg-open with alias open
 open(){
     xdg-open "$@">/dev/null 2>&1
@@ -139,5 +143,3 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-# Export betterlockscreen to path
-export PATH="${PATH}:${HOME}/.local/bin/"

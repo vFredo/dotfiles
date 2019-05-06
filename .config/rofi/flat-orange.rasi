@@ -6,7 +6,7 @@
 
 /* global settings and color variables */
 * {
-   maincolor:        #ed8712;
+   maincolor:        #6182B8;
    highlight:        bold #ed8712;
    urgentcolor:      #e53714;
 
