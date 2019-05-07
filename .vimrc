@@ -142,10 +142,12 @@ let g:tex_conceal='abdmg'
 map <leader>l <plug>(vimtex-compile)
 
 " --- Bufferline Plugin configuration ---
-let g:bufferline_echo = 0
+set laststatus=2
+let g:bufferline_show_bufnr = 0
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
+
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
     \ .bufferline#get_status_string()
 
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
