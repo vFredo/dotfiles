@@ -12,7 +12,8 @@ call vundle#begin()
 
 " For Github repos 'username/repository'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'dikiaap/minimalist'
+Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'bling/vim-bufferline'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
@@ -58,6 +59,7 @@ vnoremap > >gv " better indentation
 
 "Numbers left side
 set nu  " Set current line number
+set rnu " Set relative numbers
 set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
 " Title configuration
@@ -94,7 +96,7 @@ autocmd InsertLeave * : setlocal hlsearch " The hl words are no longer hl
 autocmd InsertEnter * : setlocal nohlsearch " The hl of the words come again
 
 " Wildmenu configuration
-set wildmenu " Makig a suggestion menu in searches and autocomlition in : menu
+set wildmenu " Makig a suggestion menu in searches and autocompletition in :menu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
@@ -104,7 +106,7 @@ set timeoutlen=1000 ttimeoutlen=5
 
 " Nice looking colors in terminal
 if (has("termguicolors"))
-  set termguicolors
+    set termguicolors
 endif
 
 " ------------------------ Plugins Configurations -------------------
@@ -112,8 +114,12 @@ endif
 " --- NERDTree Plugin configurations ---
 let NERDTreeShowHidden=1
 
-" --- Minimalist theme configuration ---
-colorscheme minimalist
+" --- Material theme configuration ---
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
+set background=dark
+colorscheme hybrid_reverse
 
 " --- Ultisnips Plugin configuration ---
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -124,8 +130,22 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+
+augroup MyVimtex
+  autocmd!
+  autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
+augroup END
+
 " Make symbols and special characters view nice or invisible in .tex files
 set conceallevel=1
 let g:tex_conceal='abdmg'
-map <leader>l :VimtexCompile<CR>
+map <leader>l <plug>(vimtex-compile)
 
+" --- Bufferline Plugin configuration ---
+let g:bufferline_echo = 0
+autocmd VimEnter *
+    \ let &statusline='%{bufferline#refresh_status()}'
+    \ .bufferline#get_status_string()
+
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''

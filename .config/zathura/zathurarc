@@ -5,7 +5,6 @@ set statusbar-v-padding 0
 set page-padding 10
 set window-title-basename "true"
 set selection-clipboard "clipboard"
-set highlight-transparency 1.0
 
 # Theme
 set default-bg "#282828"
