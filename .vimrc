@@ -131,11 +131,6 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 
-augroup MyVimtex
-  autocmd!
-  autocmd User VimtexEventQuit call vimtex#latexmk#clean(0)
-augroup END
-
 " Make symbols and special characters view nice or invisible in .tex files
 set conceallevel=1
 let g:tex_conceal='abdmg'
@@ -147,6 +142,7 @@ let g:bufferline_echo = 0
 let g:bufferline_show_bufnr = 0
 let g:bufferline_active_buffer_left = ''
 let g:bufferline_active_buffer_right = ''
+let g:bufferline_modified = ' +'
 
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
