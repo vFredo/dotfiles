@@ -1,6 +1,5 @@
 # ---------- i3 config file (v4) ----------
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!  
 # Mod to windows key
 set $mod Mod4
 
@@ -190,5 +189,5 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id compton -f
 
 # assing a workspace for applications
-for_window [class="Spotify"] move to workspace $workspace3
+for_window [class="Spotify"] move to workspace $workspace5
 
