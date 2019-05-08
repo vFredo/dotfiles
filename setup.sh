@@ -4,7 +4,7 @@
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
     # Create folders need it
-    mkdir ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/zathura ~/.fonts
+    mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/zathura ~/.fonts ~/.scripts
 
     #Ask if is root
     if [ "root" = "$(whoami)" ]
@@ -19,6 +19,7 @@ then
         ln -sf "$(pwd)"/.config/rofi/config.rasi /"$(whoami)"/.config/rofi/config.rasi
         ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /"$(whoami)"/.config/rofi/flat-orange.rasi
         ln -sf "$(pwd)"/.config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
+        ln -sf "$(pwd)"/.scripts/extract-file /"$(whoami)"/.scripts/extract-file
 
         # Not Root
     else
@@ -32,6 +33,7 @@ then
         ln -sf "$(pwd)"/.config/rofi/config.rasi /home/"$(whoami)"/.config/rofi/config.rasi
         ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /home/"$(whoami)"/.config/rofi/flat-orange.rasi
         ln -sf "$(pwd)"/.config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
+        ln -sf "$(pwd)"/.scripts/extract-file /home/"$(whoami)"/.scripts/extract-file
     fi
 
     # Intalling Vundle Package Manager

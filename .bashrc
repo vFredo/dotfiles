@@ -128,6 +128,9 @@ export PS1=" \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 # https://github.com/pavanjadhaw/betterlockscreen
 export PATH="${PATH}:${HOME}/.local/bin/"
 
+# Adding self-made scripts
+export PATH="${PATH}:${HOME}/.scripts/"
+
 # Open javeriana folder
 javeriana(){
     cd ~/Documents/Universidad/Javeriana/
