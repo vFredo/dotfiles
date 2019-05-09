@@ -4,7 +4,6 @@ autocmd! bufwritepost .vimrc source %
 autocmd! VimResized * wincmd =
 
 " ------------- Vundle configuration -------------------
-
 set nocompatible
 filetype off
 
@@ -110,6 +109,8 @@ set timeoutlen=1000 ttimeoutlen=5
 if (has("termguicolors"))
     set termguicolors
 endif
+
+set spr
 
 " ------------------- Plugins Configurations -------------------
 
