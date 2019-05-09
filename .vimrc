@@ -127,6 +127,11 @@ colorscheme hybrid_reverse
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsSnippetsDir="~/Dotfiles/vimSnips"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/Dotfiles/vimSnips']
+
+" Edit vertical ultisnips edition
+let g:UltiSnipsEditSplit="vertical"
 
 " --------------- Vimtex Plugin cofiguration --------------------
 let g:tex_flavor='latex'
