@@ -132,7 +132,7 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.scripts/"
 
 # Open javeriana folder
-javeriana(){
+ja(){
     cd ~/Documents/Universidad/Javeriana/
 }
 
