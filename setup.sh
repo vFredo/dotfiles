@@ -40,17 +40,19 @@ then
     mkdir -p ~/.vim/autoload ~/.vim/bundle && \
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-    # Copy Fonts
+    # Copy all Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
 
     # Copy modules spotify for polybar
     cp -r "$(pwd)"/.config/polybar/spotify ~/.config/polybar/
 
+    # Installing vim plugins
+    vim +PluginInstall +qall
 fi
 
 # ---- Preinstalations for terminal Theme-----
 # sudo apt-get install dconf-cli
-# If you are in a gnome terminal, Tilix terminal, iTerm or pathogen terminal
+# If you are in a gnome-terminal, Tilix terminal or pathogen terminal
 
 # https://github.com/Mayccoll/Gogh
 # bash -c  "$(wget -qO- https://git.io/vQgMr)"
