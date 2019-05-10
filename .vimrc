@@ -5,14 +5,12 @@ autocmd! VimResized * wincmd =
 
 " ------------- Vundle configuration -------------------
 set nocompatible
-filetype off
-
-" Set the runtime path to include Vundle and initialize
+filetype off " Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'kaicataldo/material.vim'
 Plugin 'bling/vim-bufferline'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
@@ -26,7 +24,7 @@ filetype plugin indent on
 
 let mapleader = ","
 nnoremap <leader>f :NERDTreeToggle<CR>
-nnoremap <leader>l <plug>(vimtex-compile)
+nnoremap <leader>l :VimtexCompile<CR>
 
 " Change between buffers
 " (,m - Next Buffer, ,n - Previous Buffer, ,d - Delete Buffer)
@@ -74,6 +72,7 @@ set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 " Syntax highlighting
 set cursorline
 syntax enable
+set spr
 
 " Wrap
 set fo-=t " Don't automatically text when typing
@@ -110,19 +109,16 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-set spr
-
 " ------------------- Plugins Configurations -------------------
 
 " ---------------- NERDTree Plugin configurations --------------
 let NERDTreeShowHidden=1
 
-" ---------------- Material theme configuration -----------------
-let g:enable_bold_font = 1
-let g:enable_italic_font = 1
-let g:hybrid_transparent_background = 1
+" ---------------- Onedark theme configuration -----------------
 set background=dark
-colorscheme hybrid_reverse
+let g:material_theme_style = 'dark'
+let g:material_terminal_italics = 1
+colorscheme material
 
 " --------------- Ultisnips Plugin configuration ----------------
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -150,6 +146,7 @@ let g:bufferline_active_buffer_left = ''
 let g:bufferline_active_buffer_right = ''
 let g:bufferline_modified = ' +'
 
+" Plugin on the status line
 set laststatus=2
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
