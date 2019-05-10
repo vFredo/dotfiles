@@ -20,6 +20,7 @@ then
         ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /"$(whoami)"/.config/rofi/flat-orange.rasi
         ln -sf "$(pwd)"/.config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /"$(whoami)"/.scripts/extract-file
+        ln -sf "$(pwd)"/.latexmkrc /"$(whoami)"/.latexmkrc
 
         # Not Root
     else
@@ -34,11 +35,15 @@ then
         ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /home/"$(whoami)"/.config/rofi/flat-orange.rasi
         ln -sf "$(pwd)"/.config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /home/"$(whoami)"/.scripts/extract-file
+        ln -sf "$(pwd)"/.latexmkrc /home/"$(whoami)"/.latexmkrc
     fi
 
     # Intalling Vundle Package Manager
     mkdir -p ~/.vim/autoload ~/.vim/bundle && \
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    # Installing vim plugins
+    vim +PluginInstall +qall
 
     # Copy all Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
@@ -46,8 +51,6 @@ then
     # Copy modules spotify for polybar
     cp -r "$(pwd)"/.config/polybar/spotify ~/.config/polybar/
 
-    # Installing vim plugins
-    vim +PluginInstall +qall
 fi
 
 # ---- Preinstalations for terminal Theme-----
