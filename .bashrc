@@ -135,6 +135,7 @@ export PATH="${PATH}:${HOME}/.scripts/"
 alias ja='cd ~/Documents/Universidad/Javeriana/'
 alias jat='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
 alias jate='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
+alias vimc='vim ~/.vimrc'
 
 
 

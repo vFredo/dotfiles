@@ -24,26 +24,25 @@ filetype plugin indent on
 " ------------------- Keybindings -------------------
 
 let mapleader = ","
+
+" Plugin bindings
 nnoremap <leader>f :NERDTreeToggle<CR>
 nnoremap <leader>l :VimtexCompile<CR>
 
 " Change between buffers
-" (,m - Next Buffer, ,n - Previous Buffer, ,d - Delete Buffer)
 nnoremap <leader>m :bn<CR>
 nnoremap <leader>n :bp<CR>
 nnoremap <leader>d :bd<CR>
 
-" Install on Ubuntu vim-gtk or vim-gnome for this to work.
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
-" In CentOS/Redhay install vim-X11
+" Requiered for ubuntu(vim-gtk/vim-gnome) or CentOs/Redhat(vim-X11)
 
 " Copy to clipboard (",c") and paste to clipboard(",x")
 vnoremap <leader>c "+y
 vnoremap <leader>x "+d
 
 " Better navigation in the page go up 3 lines and down 3 lines 
-" With Ctrl + e and Ctrl + y
 nnoremap <S-e> <C-e><C-e><C-e>
 nnoremap <S-y> <C-y><C-y><C-y>
 
@@ -59,16 +58,16 @@ vnoremap > >gv " better indentation
 
 " ------------------- Basic vim configuration ----------------------
 
-" Number Line
-set nu  " Set current line number
-set rnu " Set relative numbers
-set scrolloff=2 " Keep visible the lines below/above the cursor in the window
-
 " Title configuration
 " Set title of the current buffer
 " autocmd BufEnter * let &titlestring = expand("%:@")
 " set title " Title of the current file working
 " set titleold= " Set last little to the current screen when is not in vim
+
+" Number Line
+set nu  " Set current line number
+set rnu " Set relative numbers
+set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 
 " Syntax highlighting
 set cursorline
@@ -101,7 +100,7 @@ autocmd InsertEnter * : setlocal nohlsearch " The hl words are no longer hl
 " Wildmenu configuration
 set wildmenu " Makig a suggestion menu in searches and autocompletition in :menu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=.DS_Store
+set wildignore+=.DS_Store,*.pdf
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Making transitions between modes more fast
@@ -152,15 +151,20 @@ let g:bufferline_active_buffer_left = ''
 let g:bufferline_active_buffer_right = ''
 let g:bufferline_modified = ' +'
 
-" Plugin on the status line
+" Show buffers on the status line
 set laststatus=2
 autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
     \ .bufferline#get_status_string()
 
 " --------------- Polyglot Plugin configuration ---------------
+
+"  Vimtex plugin take care of it
 let g:polyglot_disabled = ['latex']
+
+" Sintax color on the i3 config file
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
