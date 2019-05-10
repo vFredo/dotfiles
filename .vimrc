@@ -16,6 +16,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 Plugin 'lervag/vimtex'
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -72,7 +73,9 @@ set scrolloff=2 " Keep visible the lines below/above the cursor in the window
 " Syntax highlighting
 set cursorline
 syntax enable
-set spr
+
+" Puts vertical windows to right, instead of left and down instead of up
+set splitbelow splitright
 
 " Wrap
 set fo-=t " Don't automatically text when typing
@@ -114,7 +117,7 @@ endif
 " ---------------- NERDTree Plugin configurations --------------
 let NERDTreeShowHidden=1
 
-" ---------------- Onedark theme configuration -----------------
+" ---------------- Material theme configuration -----------------
 set background=dark
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
@@ -139,6 +142,9 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
+" Deliting all the temp files that make the compiler latexmk
+autocmd VimLeave *.tex !latexmk -c %
+
 " --------------- Bufferline Plugin configuration ---------------
 let g:bufferline_echo = 0
 let g:bufferline_show_bufnr = 0
@@ -152,3 +158,9 @@ autocmd VimEnter *
     \ let &statusline='%{bufferline#refresh_status()}'
     \ .bufferline#get_status_string()
 
+" --------------- Polyglot Plugin configuration ---------------
+let g:polyglot_disabled = ['latex']
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end

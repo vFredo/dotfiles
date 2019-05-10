@@ -131,10 +131,12 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 # Adding self-made scripts
 export PATH="${PATH}:${HOME}/.scripts/"
 
-# Open javeriana folder
-ja(){
-    cd ~/Documents/Universidad/Javeriana/
-}
+# Own aliases
+alias ja='cd ~/Documents/Universidad/Javeriana/'
+alias jat='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
+alias jate='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
+
+
 
 # Base16 Shell
 # Theme instalattion process https://github.com/chriskempson/base16-shell

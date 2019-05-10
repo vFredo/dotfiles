@@ -1,0 +1,4 @@
+# Don't push temp files of vim
+*.swp
+*.swo
+
