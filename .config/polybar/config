@@ -179,10 +179,10 @@ interval = 3.0
 ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
-label-connected =
+label-connected = Connected
 
 format-disconnected = <label-disconnected>
-label-disconnected = %{A1:nm-connection-editor:}  not connected%{A}
+label-disconnected = %{A1:nm-connection-editor:}  Not connected%{A}
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 
@@ -191,6 +191,9 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground}
+
+format-packet-loss = <ramp-signal> <label-packet-loss>
+label-packet-loss = Warning
 
 [module/eth]
 type = internal/network

@@ -132,12 +132,14 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.scripts/"
 
 # Own aliases
-alias ja='cd ~/Documents/Universidad/Javeriana/'
-alias jat='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
-alias jate='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
+alias d='cd ~/Documents'
+alias j='cd ~/Documents/Universidad/Javeriana/'
+alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
+alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
 alias vimc='vim ~/.vimrc'
-
-
+alias vimpc='vim ~/.config/polybar/config'
+alias vimi3='vim ~/.config/i3/config'
+alias vimb='vim ~/.bashrc'
 
 # Base16 Shell
 # Theme instalattion process https://github.com/chriskempson/base16-shell
