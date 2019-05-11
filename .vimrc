@@ -10,13 +10,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'kaicataldo/material.vim'
-Plugin 'bling/vim-bufferline'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 Plugin 'lervag/vimtex'
-Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -27,12 +25,11 @@ let mapleader = ","
 
 " Plugin bindings
 nnoremap <leader>f :NERDTreeToggle<CR>
-nnoremap <leader>l :VimtexCompile<CR>
+nnoremap <leader>c :VimtexCompile<CR>
 
 " Change between buffers
-nnoremap <leader>m :bn<CR>
-nnoremap <leader>n :bp<CR>
 nnoremap <leader>d :bd<CR>
+nnoremap <leader>l :ls<CR>:b 
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
@@ -84,9 +81,9 @@ set autoread " When a file is change outside vim, it read it again
 set ruler "Show cursor position all the time
 
 " Tabs configurations: Soft tabs, 4 spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
 set expandtab
 set noerrorbells " No sound on the editor
@@ -116,11 +113,11 @@ endif
 " ---------------- NERDTree Plugin configurations --------------
 let NERDTreeShowHidden=1
 
-" ---------------- Material theme configuration -----------------
+" ---------------- Gruvbox theme configuration -----------------
 set background=dark
-let g:material_theme_style = 'dark'
-let g:material_terminal_italics = 1
-colorscheme material
+let g:gruvbox_contrast_dark = 'dark'
+let g:gruvbox_italic = 1
+colorscheme gruvbox
 
 " --------------- Ultisnips Plugin configuration ----------------
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -140,31 +137,6 @@ let g:vimtex_quickfix_mode=0
 " Symbols and special characters view nice or invisible in .tex files
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
 " Deliting all the temp files that make the compiler latexmk
 autocmd VimLeave *.tex !latexmk -c %
-
-" --------------- Bufferline Plugin configuration ---------------
-let g:bufferline_echo = 0
-let g:bufferline_show_bufnr = 0
-let g:bufferline_active_buffer_left = ''
-let g:bufferline_active_buffer_right = ''
-let g:bufferline_modified = ' +'
-
-" Show buffers on the status line
-set laststatus=2
-autocmd VimEnter *
-    \ let &statusline='%{bufferline#refresh_status()}'
-    \ .bufferline#get_status_string()
-
-" --------------- Polyglot Plugin configuration ---------------
-
-"  Vimtex plugin take care of it
-let g:polyglot_disabled = ['latex']
-
-" Sintax color on the i3 config file
-aug i3config_ft_detection
-  au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-aug end
 
