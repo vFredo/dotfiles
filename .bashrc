@@ -132,7 +132,9 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.scripts/"
 
 # Own aliases
-alias d='cd ~/Documents'
+alias dc='cd ~/Documents'
+alias dw='cd ~/Downloads'
+alias dot='cd ~/Dotfiles'
 alias j='cd ~/Documents/Universidad/Javeriana/'
 alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
 alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'

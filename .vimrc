@@ -115,7 +115,7 @@ let NERDTreeShowHidden=1
 
 " ---------------- Gruvbox theme configuration -----------------
 set background=dark
-let g:gruvbox_contrast_dark = 'dark'
+let g:gruvbox_contrast_dark = 'meidum'
 let g:gruvbox_italic = 1
 colorscheme gruvbox
 

@@ -7,7 +7,7 @@ set window-title-basename "true"
 set selection-clipboard "clipboard"
 
 # Theme
-set default-bg "#282828"
+set default-bg "#404040"
 set default-fg "#d5d2be"
 set inputbar-bg "#282828"
 set inputbar-fg "#d5d2be"
@@ -20,5 +20,5 @@ set index-active-bg "#282828"
 set index-active-fg "#d5d2be"
 
 set recolor true
-set recolor-lightcolor "#202020"
+set recolor-lightcolor "#282828"
 set recolor-darkcolor "#d5d2be"
