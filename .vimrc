@@ -108,18 +108,17 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-" ------------------- Plugins Configurations -------------------
+" ---------------------- Plugins Configurations -----------------------
 
-" ---------------- NERDTree Plugin configurations --------------
+" ---------------- NERDTree Plugin configurations ----------------------
 let NERDTreeShowHidden=1
 
-" ---------------- Gruvbox theme configuration -----------------
+" ----------------- Gruvbox Plugin theme configuration -----------------
 set background=dark
-let g:gruvbox_contrast_dark = 'meidum'
 let g:gruvbox_italic = 1
 colorscheme gruvbox
 
-" --------------- Ultisnips Plugin configuration ----------------
+" --------------------- Ultisnips Plugin configuration ----------------
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -129,7 +128,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/Dotfiles/vimSnips']
 " Edit vertical ultisnips edition
 let g:UltiSnipsEditSplit="vertical"
 
-" --------------- Vimtex Plugin cofiguration --------------------
+" --------------------- Vimtex Plugin cofiguration --------------------
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
@@ -137,6 +136,7 @@ let g:vimtex_quickfix_mode=0
 " Symbols and special characters view nice or invisible in .tex files
 set conceallevel=1
 let g:tex_conceal='abdmg'
+
 " Deliting all the temp files that make the compiler latexmk
 autocmd VimLeave *.tex !latexmk -c %
 

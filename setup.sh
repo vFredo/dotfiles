@@ -53,9 +53,8 @@ then
 
 fi
 
-# ---- Preinstalations for terminal Theme-----
+# ---- Preinstalations for terminal Theme (gnome-terminal/Tilix/pathogen terminal) -----
 # sudo apt-get install dconf-cli
-# If you are in a gnome-terminal, Tilix terminal or pathogen terminal
 
-# https://github.com/Mayccoll/Gogh
+# Nice Themes: https://github.com/Mayccoll/Gogh 
 # bash -c  "$(wget -qO- https://git.io/vQgMr)"
