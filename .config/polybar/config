@@ -192,9 +192,6 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground}
 
-format-packet-loss = <ramp-signal> <label-packet-loss>
-label-packet-loss = Warning
-
 [module/eth]
 type = internal/network
 interface = enp3s0
@@ -292,7 +289,6 @@ menu-3-0 = suspend
 menu-3-0-exec = systemctl suspend
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
-
 
 ; Neeed to install dbus-python (pip install dbus-python)
 [module/spotify]
