@@ -9,18 +9,18 @@ filetype off " Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'morhetz/gruvbox'
-Plugin 'scrooloose/nerdtree'
-Plugin 'SirVer/ultisnips'
-Plugin 'lervag/vimtex'
+Plugin 'VundleVim/Vundle.vim'   " Plugin manager
+Plugin 'morhetz/gruvbox'        " Theme of vim
+Plugin 'jiangmiao/auto-pairs'   " Autocomplete brackets and pharenthesis
+Plugin 'scrooloose/nerdtree'    " File manager for vim
+Plugin 'SirVer/ultisnips'       " Useful snippets
+Plugin 'lervag/vimtex'          " Latex compiler and syntax
+Plugin 'tpope/vim-commentary'   " Comment lines more easely
 
 call vundle#end()
 filetype plugin indent on
 
 " ------------------- Keybindings -------------------
-
 let mapleader = ","
 
 " Plugin bindings
@@ -81,9 +81,9 @@ set autoread " When a file is change outside vim, it read it again
 set ruler "Show cursor position all the time
 
 " Tabs configurations: Soft tabs, 4 spaces
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set shiftround
 set expandtab
 set noerrorbells " No sound on the editor
@@ -113,9 +113,9 @@ endif
 " ---------------- NERDTree Plugin configurations ----------------------
 let NERDTreeShowHidden=1
 
-" ----------------- Gruvbox Plugin theme configuration -----------------
+" ----------------- Nord Plugin theme configuration -----------------
 set background=dark
-let g:gruvbox_italic = 1
+let g:gruvbox_italic=1
 colorscheme gruvbox
 
 " --------------------- Ultisnips Plugin configuration ----------------
