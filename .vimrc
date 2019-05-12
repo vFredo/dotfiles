@@ -39,10 +39,6 @@ nnoremap <leader>l :ls<CR>:b
 vnoremap <leader>c "+y
 vnoremap <leader>x "+d
 
-" Better navigation in the page go up 3 lines and down 3 lines 
-nnoremap <S-e> <C-e><C-e><C-e>
-nnoremap <S-y> <C-y><C-y><C-y>
-
 " Better navigation between panes
 map <C-j> <C-W>j
 map <C-k> <C-W>k
