@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'   " Plugin manager
-Plugin 'morhetz/gruvbox'        " Theme of vim
+Plugin 'morhetz/gruvbox'        " Theme of my file config
 Plugin 'jiangmiao/auto-pairs'   " Autocomplete brackets and pharenthesis
 Plugin 'scrooloose/nerdtree'    " File manager for vim
 Plugin 'SirVer/ultisnips'       " Useful snippets
@@ -35,8 +35,8 @@ nnoremap <leader>l :ls<CR>:b
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
 " Requiered for ubuntu(vim-gtk/vim-gnome) or CentOs/Redhat(vim-X11)
 
-" Copy to clipboard (",c") and paste to clipboard(",x")
-vnoremap <leader>c "+y
+" Copy to clipboard (",y") and paste to clipboard(",x")
+vnoremap <leader>y "+y
 vnoremap <leader>x "+d
 
 " Better navigation between panes
