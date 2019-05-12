@@ -44,7 +44,7 @@ bindsym $mod+minus split h
 
 # split in vertical orientation
 bindsym $mod+slash split v
-#
+
 # Lockscreen
 # betterlockscreen --update "Path of the image for the lock screen"
 bindsym $mod+x exec betterlockscreen --lock blur
@@ -107,7 +107,7 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-# ------ i3 systems bindings to logout and reload -----
+# ------------ i3 systems bindings to logout and reload -----------
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -160,20 +160,20 @@ for_window [class="^.*"] border pixel 3
 # finds out, if available)
 
 # bar {
-#    font pango:DejaVu Sans Mono, Awesome 9
-#    status_command i3status
-#
-#    colors {
-#        background $bg-color
-#        separator #757575
-#        #                  border             background         text
-#        focused_workspace  $bg-color          $bg-color          $text-color
-#        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-#        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-#    }
+#     font pango:DejaVu Sans Mono, Awesome 9
+#     status_command i3status
+
+#     colors {
+#         background $bg-color
+#         separator #757575
+#         #                  border             background         text
+#         focused_workspace  $bg-color          $bg-color          $text-color
+#         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#     }
 # }
 
-# start rofi 
+# Start rofi 
 bindsym $mod+d exec --no-startup-id rofi -show run -lines 4
 
 # Screen brightness controls

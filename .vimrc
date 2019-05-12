@@ -16,6 +16,7 @@ Plugin 'scrooloose/nerdtree'    " File manager for vim
 Plugin 'SirVer/ultisnips'       " Useful snippets
 Plugin 'lervag/vimtex'          " Latex compiler and syntax
 Plugin 'tpope/vim-commentary'   " Comment lines more easely
+Plugin 'sheerun/vim-polyglot'   " Multiple syntaxis for languages
 
 call vundle#end()
 filetype plugin indent on
@@ -135,4 +136,15 @@ let g:tex_conceal='abdmg'
 
 " Deliting all the temp files that make the compiler latexmk
 autocmd VimLeave *.tex !latexmk -c %
+
+" --------------------- Polyglot Plugin cofiguration --------------------
+
+" Show i3 syntax
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
+
+" Disabled latex syntax (Vimtex take care of it)
+let g:polyglot_disabled = ['latex']
 
