@@ -113,7 +113,8 @@ try:
             artist = label_with_font.format(font=font, label=artist)
             song = label_with_font.format(font=font, label=song)
 
-        print(output.format(artist=artist, song=song, play_pause=play_pause))
+        # artist=artist, song=song if you want the artist and the song back
+        print(output.format(artist="", song="", play_pause=play_pause))
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):

@@ -50,7 +50,7 @@ font-0 = Fira Code Medium:size=9;2
 font-1 = MaterialIcons:size=11;3
 font-2 = FontAwesome:size=11;3
 
-modules-left = i3 previous next spotify cpu memory 
+modules-left = i3 previous spotify next cpu memory 
 modules-center = date
 modules-right = backlight-acpi pulseaudio wlan eth xkeyboard battery powermenu
 
@@ -295,7 +295,7 @@ menu-3-1-exec = menu-open-0
 type = custom/script
 intervarl = 5
 format = <label>
-exec = python ~/.config/polybar/spotify/spotify.py -f '{play_pause} {song} - {artist}' -p ','
+exec = python ~/.config/polybar/spotify/spotify.py -f '{play_pause} {song}{artist}' -p ',' -t 15
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
 [module/previous]
