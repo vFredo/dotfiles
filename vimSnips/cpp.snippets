@@ -3,6 +3,12 @@ snippet todo "TODO comment" b
 endsnippet
 
 snippet "in?c?l?u?d?e?" "Include a library" rb
-#include <$1>
-$0
+#include $0
+endsnippet
+
+snippet main "Main Method" bA
+int main(){
+	$0
+	return 0;
+}
 endsnippet
