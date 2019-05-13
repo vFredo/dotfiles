@@ -294,22 +294,32 @@ menu-3-1-exec = menu-open-0
 [module/spotify]
 type = custom/script
 intervarl = 5
+
+format-padding = 0
 format = <label>
-exec = python ~/.config/polybar/spotify/spotify.py -f '{play_pause} {song}{artist}' -p ',' -t 15
+
+exec = python ~/.config/polybar/spotify/spotify.py -f '{play_pause}{song}{artist}' -p ','
+
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
 [module/previous]
 type = custom/script
 interval = 5
+
 format = <label>
+
 exec = python ~/.config/polybar/spotify/previous_next.py -p ''
+
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 
 [module/next]
 type = custom/script
 interval = 5
+
 format = <label>
+
 exec = python ~/.config/polybar/spotify/previous_next.py -p ''
+
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
 [settings]
