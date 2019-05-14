@@ -17,7 +17,7 @@ Plug 'sheerun/vim-polyglot'   " Multiple syntaxis for languages
 
 call plug#end()
 
-" ------------------- Keybindings -------------------------
+" --------------------------- Keybindings -------------------------
 let mapleader = ","
 
 " Plugin bindings
@@ -31,7 +31,7 @@ noremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
-" Requiered for ubuntu(vim-gtk/vim-gnome) or CentOs/Redhat(vim-X11)
+" Requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11)
 
 " Copy to clipboard (",y") and paste to clipboard(",x")
 vnoremap <leader>y "+y
@@ -47,16 +47,22 @@ noremap <C-l> <C-W>l
 vnoremap < <gv
 vnoremap > >gv 
 
-" ------------------- Basic vim configuration ----------------------
+" Consistent movement
+noremap gh ^
+noremap gl $
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 
-" Number Line
+" ------------------- Basic Vim configuration ----------------------
+
+syntax enable
+
+" Number configuration
 set number          " Set current line number
 set relativenumber  " Set relative numbers
 set scrolloff=2     " Keep visible the lines below/above the cursor in the window
-
-" Syntax highlighting
-set cursorline
-syntax enable
 
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
@@ -76,7 +82,7 @@ set expandtab
 
 " Search configuration
 set hlsearch is " Highlight search and go to the patttern search
-set smartcase " Don't ignore capital cases when search
+set nosmartcase " Don't ignore capital cases when search
 autocmd InsertEnter * : setlocal nohlsearch " The hl words are no longer on Insert Mode
 autocmd InsertLeave * : setlocal hlsearch " Comes again the hl words on Normal Mode
 
@@ -125,7 +131,7 @@ autocmd VimLeave *.tex !latexmk -c %
 
 " --------------------- Polyglot Plugin cofiguration --------------------
 
-" Show i3 syntax
+" Show i3 config syntax
 aug i3config_ft_detection
   au!
   au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
