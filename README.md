@@ -5,6 +5,7 @@ There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh
 
 ## Content
   * i3 config file
+    * Compton
     * Required Betterlockscreen
         * i3lock-color
         * Imagemagick
