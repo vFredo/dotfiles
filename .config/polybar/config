@@ -293,7 +293,7 @@ menu-3-1-exec = menu-open-0
 ; Neeed to install dbus-python (pip install dbus-python)
 [module/spotify]
 type = custom/script
-intervarl = 5
+intervarl = 2
 
 format-padding = 0
 format = <label>
@@ -304,7 +304,7 @@ click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org
 
 [module/previous]
 type = custom/script
-interval = 5
+interval = 2
 
 format = <label>
 
@@ -314,7 +314,7 @@ click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org
 
 [module/next]
 type = custom/script
-interval = 5
+interval = 2
 
 format = <label>
 
