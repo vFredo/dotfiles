@@ -141,6 +141,7 @@ alias open="xdg-open 2>/dev/null"
 alias dc='cd ~/Documents'
 alias dw='cd ~/Downloads'
 alias dot='cd ~/Dotfiles'
+alias fredo='cd ~/Documents/Fredo'
 alias j='cd ~/Documents/Universidad/Javeriana/'
 alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
 alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
