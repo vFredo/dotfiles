@@ -1,13 +1,14 @@
 " Reloading .vimrc file
 autocmd! bufwritepost .vimrc source %
+
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
-" ------------- Plug configuration -------------------
+" ------------- Plugin manager configuration (vim-plug) -------------------
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'        " Theme of my file config
-Plug 'jiangmiao/auto-pairs'   " Autocomplete brackets and pharenthesis
+Plug 'jiangmiao/auto-pairs'   " Autocomplete brackets and parentheses
 Plug 'scrooloose/nerdtree'    " File manager for vim
 Plug 'SirVer/ultisnips'       " Useful snippets
 Plug 'lervag/vimtex'          " Latex compiler and syntax
@@ -16,16 +17,17 @@ Plug 'sheerun/vim-polyglot'   " Multiple syntaxis for languages
 
 call plug#end()
 
-" ------------------- Keybindings -------------------
+" ------------------- Keybindings -------------------------
 let mapleader = ","
 
 " Plugin bindings
 nnoremap <leader>f :NERDTreeToggle<CR>
 nnoremap <leader>c :VimtexCompile<CR>
 
-" Change between buffers
+" Buffer related bindings
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>l :ls<CR>:b 
+noremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
@@ -41,17 +43,11 @@ noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
 
-"Move code blocks more easily
-vnoremap < <gv " better indentation
-vnoremap > >gv " better indentation
+" Move code blocks more easily
+vnoremap < <gv
+vnoremap > >gv 
 
 " ------------------- Basic vim configuration ----------------------
-
-" Title configuration
-" Set title of the current buffer
-" autocmd BufEnter * let &titlestring = expand("%:@")
-" set title " Title of the current file working
-" set titleold= " Set last little to the current screen when is not in vim
 
 " Number Line
 set number          " Set current line number
@@ -80,18 +76,15 @@ set expandtab
 
 " Search configuration
 set hlsearch is " Highlight search and go to the patttern search
-set smartcase " Don't ignore capital case when searh
+set smartcase " Don't ignore capital cases when search
 autocmd InsertEnter * : setlocal nohlsearch " The hl words are no longer on Insert Mode
 autocmd InsertLeave * : setlocal hlsearch " Comes again the hl words on Normal Mode
 
 " Wildmenu configuration
-set wildmenu " Makig a suggestion menu in searches and autocompletition in :menu
+set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store,*.pdf
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
-
-" Making transitions between modes more fast
-set timeoutlen=1000 ttimeoutlen=5
 
 " Nice looking colors on terminal
 if (has("termguicolors"))

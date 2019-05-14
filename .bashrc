@@ -138,13 +138,13 @@ export PATH="${PATH}:${HOME}/.scripts/"
 alias open="xdg-open 2>/dev/null"
 
 # Own aliases
-alias dc='cd ~/Documents'
-alias dw='cd ~/Downloads'
-alias dot='cd ~/Dotfiles'
-alias fredo='cd ~/Documents/Fredo'
-alias j='cd ~/Documents/Universidad/Javeriana/'
-alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
-alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
+alias dc='cd ~/Documents && la'
+alias dw='cd ~/Downloads && la'
+alias dot='cd ~/Dotfiles && la'
+alias fredo='cd ~/Documents/Fredo && la'
+alias j='cd ~/Documents/Universidad/Javeriana/ && la'
+alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre && la'
+alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/ && la'
 alias vimc='vim ~/.vimrc'
 alias vimpc='vim ~/.config/polybar/config'
 alias vimi3='vim ~/.config/i3/config'
