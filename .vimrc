@@ -120,7 +120,7 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
-" Deliting all the temp files that make the compiler latexmk
+" Deliting all the temp files that make the latexmk compiler 
 autocmd VimLeave *.tex !latexmk -c %
 
 " --------------------- Polyglot Plugin cofiguration --------------------
