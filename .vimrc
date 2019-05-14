@@ -41,10 +41,10 @@ vnoremap <leader>y "+y
 vnoremap <leader>x "+d
 
 " Better navigation between panes
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 "Move code blocks more easily
 vnoremap < <gv " better indentation
@@ -59,9 +59,9 @@ vnoremap > >gv " better indentation
 " set titleold= " Set last little to the current screen when is not in vim
 
 " Number Line
-set nu  " Set current line number
-set rnu " Set relative numbers
-set scrolloff=2 " Keep visible the lines below/above the cursor in the window
+set number          " Set current line number
+set relativenumber  " Set relative numbers
+set scrolloff=2     " Keep visible the lines below/above the cursor in the window
 
 " Syntax highlighting
 set cursorline
@@ -75,21 +75,19 @@ set fo-=t " Don't automatically text when typing
 set backspace=indent,eol,start
 set hidden " For have files open without displaying on the screeen (Buffers)
 set autoread " When a file is change outside vim, it read it again
-set ruler "Show cursor position all the time
 
-" Tabs configurations: Soft tabs, 4 spaces
+" Tabs ('\t') configurations: Soft tabs, 4 spaces
 set tabstop=4
 set softtabstop=4
-set shiftwidth=4
-set shiftround
+set shiftwidth=4    " How much spaces to take when << or >> is used on Normal Mode
+set shiftround      " When there are multiple lines and you use < or >
 set expandtab
-set noerrorbells " No sound on the editor
 
 " Search configuration
-set hls is " Highlight and show a line under words search
+set hlsearch is " Highlight search and go to the patttern search
 set smartcase " Don't ignore capital case when searh
-autocmd InsertEnter * : setlocal nohlsearch " The hl words are no longer hl
-" autocmd InsertLeave * : setlocal hlsearch " Comes again the hl words
+autocmd InsertEnter * : setlocal nohlsearch " The hl words are no longer on Insert Mode
+autocmd InsertLeave * : setlocal hlsearch " Comes again the hl words on Normal Mode
 
 " Wildmenu configuration
 set wildmenu " Makig a suggestion menu in searches and autocompletition in :menu
@@ -122,7 +120,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetsDir="~/Dotfiles/vimSnips"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/Dotfiles/vimSnips']
 
-" Edit vertical ultisnips edition
+" Edit vertical Ultisnips edition
 let g:UltiSnipsEditSplit="vertical"
 
 " --------------------- Vimtex Plugin cofiguration --------------------
