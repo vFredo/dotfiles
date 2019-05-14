@@ -131,6 +131,9 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 # Adding self-made scripts
 export PATH="${PATH}:${HOME}/.scripts/"
 
+# Open files from terminal without warnings
+alias open="xdg-open 2>/dev/null"
+
 # Own aliases
 alias dc='cd ~/Documents'
 alias dw='cd ~/Downloads'
