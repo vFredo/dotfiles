@@ -3,23 +3,18 @@ autocmd! bufwritepost .vimrc source %
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
-" ------------- Vundle configuration -------------------
-set nocompatible
-filetype off " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" ------------- Plug configuration -------------------
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'   " Plugin manager
-Plugin 'morhetz/gruvbox'        " Theme of my file config
-Plugin 'jiangmiao/auto-pairs'   " Autocomplete brackets and pharenthesis
-Plugin 'scrooloose/nerdtree'    " File manager for vim
-Plugin 'SirVer/ultisnips'       " Useful snippets
-Plugin 'lervag/vimtex'          " Latex compiler and syntax
-Plugin 'tpope/vim-commentary'   " Comment lines more easely
-Plugin 'sheerun/vim-polyglot'   " Multiple syntaxis for languages
+Plug 'morhetz/gruvbox'        " Theme of my file config
+Plug 'jiangmiao/auto-pairs'   " Autocomplete brackets and pharenthesis
+Plug 'scrooloose/nerdtree'    " File manager for vim
+Plug 'SirVer/ultisnips'       " Useful snippets
+Plug 'lervag/vimtex'          " Latex compiler and syntax
+Plug 'tpope/vim-commentary'   " Comment lines more easely
+Plug 'sheerun/vim-polyglot'   " Multiple syntaxis for languages
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 " ------------------- Keybindings -------------------
 let mapleader = ","
@@ -111,7 +106,7 @@ let NERDTreeShowHidden=1
 " ----------------- Nord Plugin theme configuration -----------------
 set background=dark
 let g:gruvbox_italic=1
-colorscheme gruvbox
+silent! colorscheme gruvbox
 
 " --------------------- Ultisnips Plugin configuration ----------------
 let g:UltiSnipsExpandTrigger = '<tab>'

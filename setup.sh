@@ -38,12 +38,12 @@ then
         ln -sf "$(pwd)"/.latexmkrc /home/"$(whoami)"/.latexmkrc
     fi
 
-    # Intalling Vundle Package Manager
-    mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    # Intalling Plug Package Manager
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Installing vim plugins
-    vim +PluginInstall +qall
+    vim +PlugInstall +qall
 
     # Copy all Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
