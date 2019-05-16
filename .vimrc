@@ -13,7 +13,6 @@ Plug 'scrooloose/nerdtree'    " File manager for vim
 Plug 'SirVer/ultisnips'       " Useful snippets
 Plug 'lervag/vimtex'          " Latex compiler and syntax
 Plug 'tpope/vim-commentary'   " Comment lines more easely
-Plug 'sheerun/vim-polyglot'   " Multiple syntaxis for languages
 
 call plug#end()
 
@@ -57,6 +56,8 @@ noremap gk k
 
 " ------------------- Basic Vim configuration ----------------------
 
+" Highlight
+set cursorline
 syntax enable
 
 " Number configuration

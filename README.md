@@ -9,7 +9,7 @@ There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh
     * Required Betterlockscreen
         * i3lock-color
         * Imagemagick
-        * xdpyinfo, xrandr,bc and feh
+        * xdpyinfo, xrandr, bc and feh
   * Polybar config file
     * Required dbus-python module to run spotify module
   * Rofi config file
