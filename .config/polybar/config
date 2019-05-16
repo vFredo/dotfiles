@@ -52,7 +52,7 @@ font-2 = FontAwesome:size=11;3
 
 modules-left = i3 previous spotify next cpu memory 
 modules-center = date
-modules-right = backlight-acpi pulseaudio wlan eth xkeyboard battery powermenu
+modules-right = backlight-acpi pulseaudio wlan eth xkeyboard bluetooth battery powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -289,6 +289,11 @@ menu-3-0 = suspend
 menu-3-0-exec = systemctl suspend
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
+
+[module/bluetooth]
+type = custom/script
+intervarl = 5
+exec= ~/.config/polybar/bluetooth.sh
 
 ; Neeed to install dbus-python (pip install dbus-python)
 [module/spotify]

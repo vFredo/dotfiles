@@ -50,6 +50,7 @@ then
 
     # Copy modules spotify for polybar
     cp -r "$(pwd)"/.config/polybar/spotify ~/.config/polybar/
+    cp "$(pwd)"/.config/polybar/bluetooth.sh ~/.config/polybar/
 
 fi
 
