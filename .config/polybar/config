@@ -303,7 +303,7 @@ intervarl = 2
 format-padding = 0
 format = <label>
 
-exec = python ~/.config/polybar/spotify/spotify.py -f '{play_pause}{song}{artist}' -p ','
+exec = python ~/.config/polybar/spotify/spotify.py -p ','
 
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 

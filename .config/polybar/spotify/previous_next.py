@@ -39,23 +39,18 @@ try:
     metadata = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
     status = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'PlaybackStatus')
 
-    artist = fix_string(metadata['xesam:artist'][0]) if metadata['xesam:artist'] else ''
-    song = fix_string(metadata['xesam:title']) if metadata['xesam:title'] else ''
-
     label_with_font = '%{{T{font}}}{label}%{{T-}}'
     icons = args.icon_previous
     icon = label_with_font.format(font='2', label=icons)
 
-
-    if not artist and not song:
-        print('')
-    else:
+    if status == 'Playing' or status == 'Paused':
         print(icon)
+    else:
+        print('')
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):
         print('')
     else:
         print(e)
-
 
