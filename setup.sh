@@ -21,6 +21,7 @@ then
         ln -sf "$(pwd)"/.config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /"$(whoami)"/.scripts/extract-file
         ln -sf "$(pwd)"/.latexmkrc /"$(whoami)"/.latexmkrc
+        ln -sf "$(pwd)"/.config/compton.conf /"$(whoaim)"/.config/compton.conf
 
         # Not Root
     else
@@ -36,6 +37,7 @@ then
         ln -sf "$(pwd)"/.config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /home/"$(whoami)"/.scripts/extract-file
         ln -sf "$(pwd)"/.latexmkrc /home/"$(whoami)"/.latexmkrc
+        ln -sf "$(pwd)"/.config/compton.conf /home/"$(whoaim)"/.config/compton.conf
     fi
 
     # Intalling Plug Package Manager
@@ -54,7 +56,7 @@ then
 
 fi
 
-# ---- Preinstalations for terminal Themes (gnome-terminal/Tilix/pathogen terminal) -----
+# ---- Preinstalations for terminal Themes (gnome-terminal / Tilix / pathogen terminal) -----
 # sudo apt-get install dconf-cli
 
 # Nice Themes: https://github.com/Mayccoll/Gogh 
