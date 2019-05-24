@@ -37,7 +37,7 @@ then
         ln -sf "$(pwd)"/.config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /home/"$(whoami)"/.scripts/extract-file
         ln -sf "$(pwd)"/.latexmkrc /home/"$(whoami)"/.latexmkrc
-        ln -sf "$(pwd)"/.config/compton.conf /home/"$(whoaim)"/.config/compton.conf
+        ln -sf "$(pwd)"/.config/compton.conf /home/"$(whoami)"/.config/compton.conf
     fi
 
     # Intalling Plug Package Manager
