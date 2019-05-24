@@ -9,9 +9,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'kaicataldo/material.vim' " Theme of my file config
 Plug 'jiangmiao/auto-pairs'    " Autocomplete brackets and parentheses
-Plug 'scrooloose/nerdtree'     " File manager for vim
 Plug 'SirVer/ultisnips'        " Useful snippets
 Plug 'lervag/vimtex'           " Latex compiler and syntax
+Plug 'sheerun/vim-polyglot'    " Syntax highlight
 Plug 'tpope/vim-commentary'    " Comment lines more easely
 
 call plug#end()
@@ -98,12 +98,9 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-" ---------------------- Plugins Configurations -----------------------
+" ------------------------ Plugins Configurations -----------------------
 
-" ---------------- NERDTree Plugin configurations ----------------------
-let NERDTreeShowHidden=1
-
-" ----------------- Nord Plugin theme configuration -----------------
+" ----------------- Material Plugin theme configuration -----------------
 set background=dark
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
