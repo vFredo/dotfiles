@@ -7,12 +7,12 @@ autocmd! VimResized * wincmd =
 " ------------- Plugin manager configuration (vim-plug) -------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'        " Theme of my file config
-Plug 'jiangmiao/auto-pairs'   " Autocomplete brackets and parentheses
-Plug 'scrooloose/nerdtree'    " File manager for vim
-Plug 'SirVer/ultisnips'       " Useful snippets
-Plug 'lervag/vimtex'          " Latex compiler and syntax
-Plug 'tpope/vim-commentary'   " Comment lines more easely
+Plug 'kaicataldo/material.vim' " Theme of my file config
+Plug 'jiangmiao/auto-pairs'    " Autocomplete brackets and parentheses
+Plug 'scrooloose/nerdtree'     " File manager for vim
+Plug 'SirVer/ultisnips'        " Useful snippets
+Plug 'lervag/vimtex'           " Latex compiler and syntax
+Plug 'tpope/vim-commentary'    " Comment lines more easely
 
 call plug#end()
 
@@ -105,8 +105,9 @@ let NERDTreeShowHidden=1
 
 " ----------------- Nord Plugin theme configuration -----------------
 set background=dark
-let g:gruvbox_italic=1
-silent! colorscheme gruvbox
+let g:material_theme_style = 'dark'
+let g:material_terminal_italics = 1
+silent! colorscheme material
 
 " --------------------- Ultisnips Plugin configuration ----------------
 let g:UltiSnipsExpandTrigger = '<tab>'

@@ -175,7 +175,7 @@ label =  %percentage_used%%
 [module/wlan]
 type = internal/network
 interface = wlp2s0
-interval = 3.0
+interval = 1.0
 ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
