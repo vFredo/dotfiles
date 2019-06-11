@@ -1,5 +1,5 @@
 "  Reloading .vimrc file
-autocmd! bufwritepost .vimrc source %
+autocmd! BufWritePost .vimrc source %
 
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
@@ -19,14 +19,17 @@ call plug#end()
 " --------------------------- Keybindings -------------------------
 let mapleader = ","
 
+" Turn off Search Highlight
+nnoremap <leader><Enter> :noh<CR>
+
 " Plugin bindings
-nnoremap <leader>f :NERDTreeToggle<CR>
 nnoremap <leader>c :VimtexCompile<CR>
+nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Buffer related bindings
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>l :ls<CR>:b 
-noremap <leader><leader> <C-^>
+nnoremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
