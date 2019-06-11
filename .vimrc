@@ -62,7 +62,6 @@ syntax enable
 
 " Number configuration
 set number          " Set current line number
-set relativenumber  " Set relative numbers
 set scrolloff=2     " Keep visible the lines below/above the cursor in the window
 
 " Puts vertical windows to right, instead of left and down instead of up
