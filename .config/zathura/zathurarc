@@ -19,5 +19,5 @@ set index-fg "#d5d2be"
 set index-active-bg "#282828"
 set index-active-fg "#d5d2be"
 
-set recolor-lightcolor "#282828"
-set recolor-darkcolor "#d5d2be"
+set recolor-lightcolor "#212121"
+set recolor-darkcolor "#D0D0D0"
