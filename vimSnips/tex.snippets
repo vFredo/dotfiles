@@ -120,3 +120,12 @@ snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int|alpha|the
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+context "math()"
+snippet == "Aling equals" wA
+&= $0
+endsnippet
+
+context "math()"
+snippet text "Text in math mode" wA
+\text{$1} $0
+endsnippet
