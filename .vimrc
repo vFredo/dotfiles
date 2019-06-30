@@ -1,17 +1,16 @@
 "  Reloading .vimrc file
 autocmd! BufWritePost .vimrc source %
-
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
 " ------------- Plugin manager configuration (vim-plug) -------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'kaicataldo/material.vim' " Theme of my file config
 Plug 'jiangmiao/auto-pairs'    " Autocomplete brackets and parentheses
+Plug 'kaicataldo/material.vim' " Theme of my file config
 Plug 'SirVer/ultisnips'        " Useful snippets
 Plug 'lervag/vimtex'           " Latex compiler and syntax
-Plug 'sheerun/vim-polyglot'    " Syntax highlight
+Plug 'suy/vim-context-commentstring' " Helping vim-commentary know the type of file
 Plug 'tpope/vim-commentary'    " Comment lines more easely
 
 call plug#end()
@@ -103,9 +102,10 @@ endif
 " ------------------------ Plugins Configurations -----------------------
 
 " ----------------- Material Plugin theme configuration -----------------
-set background=dark
+"  Change s:line_highlight = "282828"
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
+set background=dark
 silent! colorscheme material
 
 " --------------------- Ultisnips Plugin configuration ----------------
@@ -129,15 +129,4 @@ let g:tex_conceal='abdmg'
 
 " Deleting all the temp files that latexmk compiler make
 autocmd VimLeave *.tex !latexmk -c %
-
-" --------------------- Polyglot Plugin cofiguration --------------------
-
-" Show i3 config syntax
-aug i3config_ft_detection
-  au!
-  au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-aug end
-
-" Disabled latex syntax (Vimtex take care of it)
-let g:polyglot_disabled = ['latex']
 
