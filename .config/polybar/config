@@ -46,13 +46,13 @@ foreground = ${colors.foreground}
 
 module-margin = 1
 
-font-0 = Fira Code Medium:size=9;2
+font-0 = Iosevka Medium:size=10;2
 font-1 = MaterialIcons:size=11;3
 font-2 = FontAwesome:size=11;3
 
 modules-left = i3 previous spotify next cpu memory 
 modules-center = date
-modules-right = backlight-acpi pulseaudio wlan eth xkeyboard bluetooth battery powermenu
+modules-right = backlight-acpi pulseaudio bluetooth wlan eth xkeyboard battery powermenu
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -179,10 +179,10 @@ interval = 1.0
 ping-interval = 10
 
 format-connected = <ramp-signal> <label-connected>
-label-connected = Connected
+label-connected = On
 
 format-disconnected = <label-disconnected>
-label-disconnected = %{A1:nm-connection-editor:}  Not connected%{A}
+label-disconnected = %{A1:nm-connection-editor:}  Off%{A}
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 
