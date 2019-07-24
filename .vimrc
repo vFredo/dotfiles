@@ -12,6 +12,7 @@ Plug 'SirVer/ultisnips'        " Useful snippets
 Plug 'lervag/vimtex'           " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Helping vim-commentary know the type of file
 Plug 'tpope/vim-commentary'    " Comment lines more easely
+Plug 'sheerun/vim-polyglot'     " More syntax highlight
 
 call plug#end()
 
