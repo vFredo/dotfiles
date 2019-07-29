@@ -131,3 +131,6 @@ let g:tex_conceal='abdmg'
 " Deleting all the temp files that latexmk compiler make
 autocmd VimLeave *.tex !latexmk -c %
 
+" ---------------- Polyglot config ------------------------------
+let g:polyglot_disabled=['latex']
+

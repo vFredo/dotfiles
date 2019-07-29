@@ -135,7 +135,7 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.scripts/"
 
 # Open files from terminal without warnings
-alias open="xdg-open 2>/dev/null"
+alias open="xdg-open 2>/dev/null &"
 
 # Own aliases
 alias dc='cd ~/Documents && la'
@@ -145,6 +145,7 @@ alias fredo='cd ~/Documents/Fredo && la'
 alias j='cd ~/Documents/Universidad/Javeriana/ && la'
 alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre && la'
 alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/ && la'
+alias jtc='cd ~/Documents/Universidad/Javeriana/CuartoSemestre && la'
 alias vimc='vim ~/.vimrc'
 alias vimpc='vim ~/.config/polybar/config'
 alias vimi3='vim ~/.config/i3/config'
