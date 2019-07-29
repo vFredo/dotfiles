@@ -7,7 +7,7 @@ set window-title-basename "true"
 set selection-clipboard "clipboard"
 
 # Theme
-set default-bg "#404040"
+set default-bg "#282828"
 set default-fg "#d5d2be"
 set inputbar-bg "#282828"
 set inputbar-fg "#d5d2be"
