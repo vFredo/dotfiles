@@ -150,4 +150,5 @@ alias vimc='vim ~/.vimrc'
 alias vimpc='vim ~/.config/polybar/config'
 alias vimi3='vim ~/.config/i3/config'
 alias vimb='vim ~/.bashrc'
+alias rodin='./~/rodin/rodin'
 
