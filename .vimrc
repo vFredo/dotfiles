@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'kaicataldo/material.vim' " Theme of my file config
 Plug 'SirVer/ultisnips'        " Useful snippets
 Plug 'lervag/vimtex'           " Latex compiler and syntax
-Plug 'suy/vim-context-commentstring' " Helping vim-commentary know the type of file
+Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'    " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
 Plug 'ap/vim-buftabline'        " Tabline buffer
@@ -107,7 +107,6 @@ endif
 "  Change s:line_highlight = "282828"
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
-set background=dark
 silent! colorscheme material
 
 " --------------------- Ultisnips Plugin configuration ----------------
