@@ -6,13 +6,14 @@ autocmd! VimResized * wincmd =
 " ------------- Plugin manager configuration (vim-plug) -------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'jiangmiao/auto-pairs'    " Autocomplete brackets and parentheses
 Plug 'kaicataldo/material.vim' " Theme of my file config
 Plug 'SirVer/ultisnips'        " Useful snippets
 Plug 'lervag/vimtex'           " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Helping vim-commentary know the type of file
 Plug 'tpope/vim-commentary'    " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
+Plug 'ap/vim-buftabline'        " Tabline buffer
+Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
 
 call plug#end()
 
