@@ -3,21 +3,22 @@ autocmd! BufWritePost .vimrc source %
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
-" ------------- Plugin manager configuration (vim-plug) -------------------
+" ------------- Plugin manager configuration -------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'kaicataldo/material.vim' " Theme of my file config
-Plug 'SirVer/ultisnips'        " Useful snippets
-Plug 'lervag/vimtex'           " Latex compiler and syntax
+Plug 'kaicataldo/material.vim'  " Theme of my file config
+Plug 'SirVer/ultisnips'         " Useful snippets
+Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
-Plug 'tpope/vim-commentary'    " Comment lines more easely
+Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
 Plug 'ap/vim-buftabline'        " Tabline buffer
 Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
+Plug 'justinmk/vim-sneak'       " Help with navegation
 
 call plug#end()
 
-" --------------------------- Keybindings -------------------------
+" ------------------------- Keybindings -------------------------
 let mapleader = ","
 
 " Turn off Search Highlight
@@ -29,7 +30,8 @@ nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Buffer related bindings
 nnoremap <leader>d :bd<CR>
-nnoremap <leader>l :ls<CR>:b 
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>b :bp<CR>
 nnoremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
@@ -62,6 +64,7 @@ noremap gk k
 
 " Highlight
 set cursorline
+set relativenumber
 syntax enable
 
 " Number configuration
@@ -87,8 +90,6 @@ set expandtab
 " Search configuration
 set hlsearch is " Highlight search and go to the patttern search
 set nosmartcase " Don't ignore capital cases when search
-autocmd InsertEnter * : setlocal nohlsearch " The hl words are no longer on Insert Mode
-autocmd InsertLeave * : setlocal hlsearch " Comes again the hl words on Normal Mode
 
 " Wildmenu configuration
 set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
@@ -104,7 +105,7 @@ endif
 " ------------------------ Plugins Configurations -----------------------
 
 " ----------------- Material Plugin theme configuration -----------------
-"  Change s:line_highlight = "282828"
+" Change s:line_highlight = #282828
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
 silent! colorscheme material
