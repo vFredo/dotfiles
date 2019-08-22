@@ -13,7 +13,8 @@ Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
-Plug 'ap/vim-buftabline'        " Tabline buffer
+Plug 'zefei/vim-wintabs'
+Plug 'zefei/vim-wintabs-powerline'
 Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
 
@@ -30,9 +31,9 @@ nnoremap <leader>c :VimtexCompile<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Buffer related bindings
-nnoremap <leader>d :bd<CR>
-nnoremap <leader>n :bn<CR>
-nnoremap <leader>b :bp<CR>
+nnoremap <leader>d :WintabsClose<CR>
+nnoremap <leader>n :WintabsPrevious<CR>
+nnoremap <leader>m :WintabsNext<CR>
 nnoremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
@@ -136,3 +137,6 @@ autocmd VimLeave *.tex !latexmk -c %
 " ---------------- Polyglot config ------------------------------
 let g:polyglot_disabled=['latex']
 
+" ---------------- Wintabs config ------------------------------
+
+let g:wintabs_display='statusline'
