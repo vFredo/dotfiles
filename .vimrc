@@ -1,5 +1,6 @@
 "  Reloading .vimrc file
 autocmd! BufWritePost .vimrc source %
+
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
