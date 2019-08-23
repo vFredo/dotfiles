@@ -110,7 +110,6 @@ endif
 " Change s:line_highlight = #282828
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
-set background=dark
 silent! colorscheme material
 
 " --------------------- Ultisnips Plugin configuration ----------------
@@ -140,5 +139,5 @@ let g:polyglot_disabled=['latex']
 
 " ---------------- Wintabs config ------------------------------
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format=' |%n| %t '
+let g:wintabs_ui_buffer_name_format=' %n❱ %t '
 
