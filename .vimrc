@@ -138,5 +138,6 @@ autocmd VimLeave *.tex !latexmk -c %
 let g:polyglot_disabled=['latex']
 
 " ---------------- Wintabs config ------------------------------
-
 let g:wintabs_display='statusline'
+let g:wintabs_ui_buffer_name_format=' %n %t '
+
