@@ -13,8 +13,8 @@ Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
-Plug 'zefei/vim-wintabs'
-Plug 'zefei/vim-wintabs-powerline'
+Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
+Plug 'zefei/vim-wintabs-powerline'  "Powerline for bufftabs
 Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
 
@@ -110,6 +110,7 @@ endif
 " Change s:line_highlight = #282828
 let g:material_theme_style = 'dark'
 let g:material_terminal_italics = 1
+set background=dark
 silent! colorscheme material
 
 " --------------------- Ultisnips Plugin configuration ----------------
@@ -139,5 +140,5 @@ let g:polyglot_disabled=['latex']
 
 " ---------------- Wintabs config ------------------------------
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format=' %n %t '
+let g:wintabs_ui_buffer_name_format=' |%n| %t '
 
