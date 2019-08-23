@@ -14,7 +14,7 @@ Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
 Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
-Plug 'zefei/vim-wintabs-powerline'  "Powerline for bufftabs
+Plug 'zefei/vim-wintabs-powerline'  " Powerline for bufftabs
 Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
 
@@ -139,5 +139,5 @@ let g:polyglot_disabled=['latex']
 
 " ---------------- Wintabs config ------------------------------
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format=' %n❱ %t '
+let g:wintabs_ui_buffer_name_format=' %n⧉ %t '
 
