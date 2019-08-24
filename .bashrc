@@ -138,7 +138,6 @@ check_git_status(){
 
 export PS1=" \$(check_git_status) \[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
 
-
 # Vi mode on bash
 set -o vi
 
@@ -161,6 +160,7 @@ alias j='cd ~/Documents/Universidad/Javeriana/ && la'
 alias jt='cd ~/Documents/Universidad/Javeriana/TercerSemestre && la'
 alias jte='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/ && la'
 alias jc='cd ~/Documents/Universidad/Javeriana/CuartoSemestre && la'
+alias jcp='cd ~/Documents/Universidad/Javeriana/CuartoSemestre/POO && la'
 alias vimc='vim ~/.vimrc'
 alias vimpc='vim ~/.config/polybar/config'
 alias vimi3='vim ~/.config/i3/config'
