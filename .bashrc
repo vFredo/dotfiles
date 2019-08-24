@@ -120,6 +120,9 @@ fi
 git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 
+}
+
+check_git_status(){
     boshka= git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' > /dev/null 2>&1
 
     red="$bold$(tput setaf 1)"
@@ -135,7 +138,7 @@ git_branch() {
     fi
 }
 
-export PS1=" \[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
+export PS1=" \[\033[32m\]\W\[\033[33m\]\$(git_branch) $(check_git_status)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
 
 
 
