@@ -7,17 +7,16 @@ autocmd! VimResized * wincmd =
 " ------------- Plugin manager configuration -------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'kaicataldo/material.vim'  " Theme of my file config
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'sheerun/vim-polyglot'     " More syntax highlight
 Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
-Plug 'zefei/vim-wintabs-powerline'  " Powerline for bufftabs
-Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
+Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
 Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy navigation between files
+Plug 'chriskempson/base16-vim'  " Nice colorscheme
 
 call plug#end()
 
@@ -104,13 +103,12 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-" ------------------------ Plugins Configurations -----------------------
+" Colorsheme (Check https://github.com/chriskempson/base16-shell)
+if filereadable(expand("~/.vimrc_background"))
+    source ~/.vimrc_background
+endif
 
-" ----------------- Material Plugin theme configuration -----------------
-" Change s:line_highlight = #282828
-let g:material_theme_style = 'dark'
-let g:material_terminal_italics = 1
-silent! colorscheme material
+" ------------------------ Plugins Configurations -----------------------
 
 " --------------------- Ultisnips Plugin configuration ----------------
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -144,4 +142,10 @@ let g:wintabs_ui_buffer_name_format=' %o⧉ %t '
 " ---------------- CtrlP config ------------------------------
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<leader>p'
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+\ 'file': '\v\.(exe|so|dll)$',
+\ }
 

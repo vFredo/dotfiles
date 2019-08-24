@@ -150,3 +150,8 @@ alias vimpc='vim ~/.config/polybar/config'
 alias vimi3='vim ~/.config/i3/config'
 alias vimb='vim ~/.bashrc'
 
+# Base16 Shell colorscheme
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"

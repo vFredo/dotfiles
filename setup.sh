@@ -6,6 +6,9 @@ then
     # Create folders need it
     mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/zathura ~/.fonts ~/.scripts
 
+    # Terminal theme related
+    git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+
     #Ask if is root
     if [ "root" = "$(whoami)" ]
     then
@@ -54,10 +57,8 @@ then
     cp -r "$(pwd)"/.config/polybar/spotify ~/.config/polybar/
     cp "$(pwd)"/.config/polybar/bluetooth.sh ~/.config/polybar/
 
+    # Terminal theme
+    base16_gruvbox-dark-medium
+
 fi
 
-# ---- Preinstalations for terminal Themes (gnome-terminal / Tilix / pathogen terminal) -----
-# sudo apt-get install dconf-cli
-
-# Nice Themes: https://github.com/Mayccoll/Gogh 
-# bash -c  "$(wget -qO- https://git.io/vQgMr)"
