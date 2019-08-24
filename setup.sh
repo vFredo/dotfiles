@@ -50,9 +50,6 @@ then
     # Installing vim plugins
     vim +PlugInstall +qall
 
-    # Terminal theme and vim theme
-    base16_material-darker
-
     # Copy all Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
 

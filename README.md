@@ -19,3 +19,7 @@ Most of the dependecies have to be installed by hand (Sorry, i'm a little lazy).
   * Tmux config file
   * Latexmk compiler config file
 
+## Theme
+    * Terminal: base16_material-darker
+    * Font: Source Code Pro Medium
+
