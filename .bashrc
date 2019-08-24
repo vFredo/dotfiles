@@ -117,11 +117,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-export PS1=" \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
+export PS1=" \[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
+
+boshka= git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' > /dev/null 2>&1
+
+red="$bold$(tput setaf 1)"
+green=$(tput setaf 2)
+
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
+        export PS1+="${red}●\[\033[38;5;15m\]"
+        return 0
+    elif $boshka; then
+        export PS1+= "${green}●\[\033[38;5;15m\]"
+    fi
+fi
 
 # Vi mode on bash
 set -o vi
