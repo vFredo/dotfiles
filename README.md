@@ -20,6 +20,6 @@ Most of the dependecies have to be installed by hand (Sorry, i'm a little lazy).
   * Latexmk compiler config file
 
 ## Theme
-    * Terminal: base16_material-darker
-    * Font: Source Code Pro Medium
+   * Terminal: base16_material-darker
+   * Font: [Source Code Pro Medium](https://github.com/adobe-fonts/source-code-pro)
 
