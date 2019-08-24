@@ -50,15 +50,15 @@ then
     # Installing vim plugins
     vim +PlugInstall +qall
 
+    # Terminal theme and vim theme
+    base16_material-darker
+
     # Copy all Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
 
     # Copy modules spotify for polybar
     cp -r "$(pwd)"/.config/polybar/spotify ~/.config/polybar/
     cp "$(pwd)"/.config/polybar/bluetooth.sh ~/.config/polybar/
-
-    # Terminal theme
-    base16_gruvbox-dark-medium
 
 fi
 

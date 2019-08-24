@@ -11,7 +11,6 @@ Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
-Plug 'sheerun/vim-polyglot'     " More syntax highlight
 Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
@@ -108,6 +107,8 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
 endif
 
+highlight LineNr guibg=NONE
+
 " ------------------------ Plugins Configurations -----------------------
 
 " --------------------- Ultisnips Plugin configuration ----------------
@@ -132,9 +133,6 @@ let g:tex_conceal='abdmg'
 " Deleting all the temp files that latexmk compiler make
 autocmd VimLeave *.tex !latexmk -c %
 
-" ---------------- Polyglot config ------------------------------
-let g:polyglot_disabled=['latex']
-
 " ---------------- Wintabs config ------------------------------
 let g:wintabs_display='statusline'
 let g:wintabs_ui_buffer_name_format=' %o⧉ %t '
@@ -142,7 +140,6 @@ let g:wintabs_ui_buffer_name_format=' %o⧉ %t '
 " ---------------- CtrlP config ------------------------------
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<leader>p'
-let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:10,results:10'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\v[\/]\.(git|hg|svn)$',
