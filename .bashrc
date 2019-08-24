@@ -129,14 +129,14 @@ check_git_status(){
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            printf "${purple}●"
+            printf "${purple}● "
         elif $boshka; then
-            printf "${blue}●"
+            printf "${blue}● "
         fi
     fi
 }
 
-export PS1=" \$(check_git_status) \[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
+export PS1=" \$(check_git_status)\[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
 
 # Vi mode on bash
 set -o vi
