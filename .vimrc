@@ -17,6 +17,7 @@ Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
 Plug 'zefei/vim-wintabs-powerline'  " Powerline for bufftabs
 Plug 'Raimondi/delimitMate'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
+Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy navigation between files
 
 call plug#end()
 
@@ -32,8 +33,7 @@ nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Buffer related bindings
 nnoremap <leader>d :WintabsClose<CR>
-nnoremap <leader>n :WintabsPrevious<CR>
-nnoremap <leader>m :WintabsNext<CR>
+nnoremap <leader>l :WintabsGo 
 nnoremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
@@ -139,5 +139,9 @@ let g:polyglot_disabled=['latex']
 
 " ---------------- Wintabs config ------------------------------
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format=' %n⧉ %t '
+let g:wintabs_ui_buffer_name_format=' %o⧉ %t '
+
+" ---------------- CtrlP config ------------------------------
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_map = '<leader>p'
 
