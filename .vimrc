@@ -105,8 +105,10 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
+
 " Colorsheme (Check https://github.com/chriskempson/base16-shell)
 if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
     source ~/.vimrc_background
 endif
 
@@ -138,7 +140,7 @@ autocmd VimLeave *.tex !latexmk -c %
 
 " ---------------- Wintabs config ------------------------------
 let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format=' %o⧉ %t '
+let g:wintabs_ui_buffer_name_format=' %o: %t '
 
 " ---------------- CommandT config ------------------------------
 let g:CommandTHighlightColor='CursorLine'
