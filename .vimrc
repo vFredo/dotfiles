@@ -14,8 +14,11 @@ Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
-Plug 'ctrlpvim/ctrlp.vim'       " Fuzzy navigation between files
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
+" Fuzzy finder, it  maybe need apt-get install ruby-dev
+Plug 'wincent/command-t', {
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+    \ }
 
 call plug#end()
 
@@ -137,12 +140,6 @@ autocmd VimLeave *.tex !latexmk -c %
 let g:wintabs_display='statusline'
 let g:wintabs_ui_buffer_name_format=' %o⧉ %t '
 
-" ---------------- CtrlP config ------------------------------
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-\ 'file': '\v\.(exe|so|dll)$',
-\ }
+" ---------------- CommandT config ------------------------------
+let g:CommandTHighlightColor='CursorLine'
 
