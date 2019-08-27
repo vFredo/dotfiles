@@ -191,6 +191,7 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/airplane.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Compton
 exec --no-startup-id compton -f
+# flashfocus
 exec_always --no-startup-id flashfocus
 
 # assing a workspace for Spotify

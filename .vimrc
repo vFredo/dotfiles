@@ -4,17 +4,17 @@ autocmd! BufWritePost .vimrc source %
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
-" ------------- Plugin manager configuration -------------------
 call plug#begin('~/.vim/plugged')
 
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
-Plug 'zefei/vim-wintabs'        " Buffertabs on statusline
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
+Plug 'tpope/vim-vinegar'        " File search
+Plug 'itchyny/lightline.vim'    " Statusline
 " Fuzzy finder, it  maybe need apt-get install ruby-dev
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
@@ -33,8 +33,9 @@ nnoremap <leader>c :VimtexCompile<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Buffer related bindings
-nnoremap <leader>d :WintabsClose<CR>
-nnoremap <leader>l :WintabsGo 
+nnoremap <leader>d :bd<CR>
+nnoremap <leader>m :bn<CR>
+nnoremap <leader>n :bp<CR>
 nnoremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
@@ -67,12 +68,11 @@ noremap gk k
 
 " Highlight
 set cursorline
-set relativenumber
 syntax enable
 
 " Number configuration
 set number          " Set current line number
-set scrolloff=2     " Keep visible the lines below/above the cursor in the window
+set relativenumber  " Set relative number
 
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
@@ -138,10 +138,14 @@ let g:tex_conceal='abdmg'
 " Deleting all the temp files that latexmk compiler make
 autocmd VimLeave *.tex !latexmk -c %
 
-" ---------------- Wintabs config ------------------------------
-let g:wintabs_display='statusline'
-let g:wintabs_ui_buffer_name_format=' %o: %t '
-
 " ---------------- CommandT config ------------------------------
 let g:CommandTHighlightColor='CursorLine'
+
+" ---------------- Vinegar config ------------------------------
+let g:netrw_liststyle = 3
+
+" ---------------- LightLine config ------------------------------
+set laststatus=2
+set noshowmode
+let g:lightline = {'colorscheme': 'jellybeans',}
 
