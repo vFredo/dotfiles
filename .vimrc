@@ -67,8 +67,8 @@ noremap gk k
 " ------------------- Basic Vim configuration ----------------------
 
 " Highlight
-set cursorline
 syntax enable
+set cursorline
 
 " Number configuration
 set number          " Set current line number
@@ -81,7 +81,7 @@ set splitbelow splitright
 set fo-=t " Don't automatically text when typing
 set backspace=indent,eol,start
 set hidden " For have files open without displaying on the screeen (Buffers)
-set autoread " When a file is change outside vim, it read it again
+set autoread " When a file is change outside the editor, vim try read it again
 
 " Tabs ('\t') configurations: Soft tabs, 4 spaces
 set tabstop=4
@@ -105,7 +105,6 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-
 " Colorsheme (Check https://github.com/chriskempson/base16-shell)
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
@@ -116,7 +115,7 @@ highlight LineNr guibg=NONE
 
 " ------------------------ Plugins Configurations -----------------------
 
-" --------------------- Ultisnips Plugin configuration ----------------
+" --------------------- Ultisnips configuration ---------------------
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -126,7 +125,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/Dotfiles/vimSnips']
 " Edit vertical Ultisnips edition
 let g:UltiSnipsEditSplit="vertical"
 
-" --------------------- Vimtex Plugin cofiguration --------------------
+" --------------------- Vimtex cofiguration -----------------------
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
@@ -144,7 +143,7 @@ let g:CommandTHighlightColor='CursorLine'
 " ---------------- Vinegar config ------------------------------
 let g:netrw_liststyle = 3
 
-" ---------------- LightLine config ------------------------------
+" ------------------ LightLine config ------------------------------
 set laststatus=2
 set noshowmode
 let g:lightline = {'colorscheme': 'jellybeans',}
