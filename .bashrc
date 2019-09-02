@@ -148,9 +148,6 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 # Adding self-made scripts
 export PATH="${PATH}:${HOME}/.scripts/"
 
-# Adding Rodin to the path
-export PATH="${PATH}:${HOME}/Documents/Universidad/Javeriana/CuartoSemestre/Intro_Modelado/rodin/"
-
 # Open files from terminal without warnings
 alias open="rifle 2>/dev/null" 
 

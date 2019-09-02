@@ -15,6 +15,8 @@ Plug 'justinmk/vim-sneak'       " Help with navegation
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
 Plug 'tpope/vim-vinegar'        " File search
 Plug 'itchyny/lightline.vim'    " Statusline
+Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
+Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
 " Fuzzy finder, it  maybe need apt-get install ruby-dev
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
@@ -147,4 +149,7 @@ let g:netrw_liststyle = 3
 set laststatus=2
 set noshowmode
 let g:lightline = {'colorscheme': 'jellybeans',}
+
+" ------------------ MIPS syntax config ------------------------------
+autocmd BufNewFile,BufRead *.s set syntax=mips
 
