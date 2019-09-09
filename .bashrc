@@ -136,7 +136,7 @@ check_git_status(){
     fi
 }
 
-export PS1=" \$(check_git_status)\[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]❱ \[\033[38;5;15m\]"
+export PS1=" \$(check_git_status)\[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]$ \[\033[38;5;15m\]"
 
 # Vi mode on bash
 set -o vi
