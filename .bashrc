@@ -1,6 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) # for examples
 export EDITOR=vim
 
 # If not running interactively, don't do anything
@@ -129,9 +128,9 @@ check_git_status(){
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            printf "${purple}● "
+            printf "${purple}✖ "
         elif $boshka; then
-            printf "${blue}● "
+            printf "${blue}✔ "
         fi
     fi
 }
