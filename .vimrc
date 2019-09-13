@@ -36,8 +36,6 @@ nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " Buffer related bindings
 nnoremap <leader>d :bd<CR>
-nnoremap <leader>m :bn<CR>
-nnoremap <leader>n :bp<CR>
 nnoremap <leader><leader> <C-^>
 
 " Check if is need it to install: vim --version | grep clipboard 
