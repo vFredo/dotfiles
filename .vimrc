@@ -72,7 +72,6 @@ set cursorline
 
 " Number configuration
 set number          " Set current line number
-set relativenumber  " Set relative number
 
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
