@@ -94,9 +94,9 @@ set hidden " Allow you to hide buffers with unsaved changes
 set autoread " When a file is change outside the editor, vim try read it again
 
 " Tabs ('\t') configurations: Soft tabs, 4 spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4    " How much spaces to take when << or >> is used on Normal Mode
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2    " How much spaces to take when << or >> is used on Normal Mode
 set shiftround      " When there are multiple lines and you use < or >
 set expandtab
 
