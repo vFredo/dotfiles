@@ -17,7 +17,7 @@ Plug 'tpope/vim-vinegar'        " File search
 Plug 'itchyny/lightline.vim'    " Statusline
 Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
 Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
-" Fuzzy finder, it  maybe need apt-get install ruby-dev
+" Fuzzy finder, it need apt-get install ruby-dev
 Plug 'wincent/command-t', {
     \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
     \ }
@@ -150,7 +150,12 @@ let g:netrw_liststyle = 3
 " ------------------ LightLine config ------------------------------
 set laststatus=2
 set noshowmode
-let g:lightline = {'colorscheme': 'wombat'}
+let g:lightline = {
+    \   'colorscheme': 'srcery_drk',
+    \   'active': {
+    \       'right': [ [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype'] ]
+    \   }
+\ }
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
