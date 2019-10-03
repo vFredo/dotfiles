@@ -73,14 +73,17 @@ set cursorline
 " Number configuration
 set number          " Set current line number
 set relativenumber  " Relactive numbers
-
+set linebreak
+if has('linebreak')
+  let &showbreak='↳ '                 " (U+21B3, UTF-8: E2 86 B3)
+endif
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
 
 " Wrap
 set fo-=t " Don't automatically text when typing
 set backspace=indent,eol,start
-set hidden " For have files open without displaying on the screeen (Buffers)
+set hidden " Allow you to hide buffers with unsaved changes
 set autoread " When a file is change outside the editor, vim try read it again
 
 " Tabs ('\t') configurations: Soft tabs, 4 spaces
@@ -111,6 +114,7 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
 endif
 
+" Delete background color of the line that show the numbers
 highlight LineNr guibg=NONE
 
 " ------------------------ Plugins Configurations -----------------------
@@ -146,7 +150,7 @@ let g:netrw_liststyle = 3
 " ------------------ LightLine config ------------------------------
 set laststatus=2
 set noshowmode
-let g:lightline = {'colorscheme': 'jellybeans',}
+let g:lightline = {'colorscheme': 'wombat'}
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
