@@ -73,10 +73,21 @@ set cursorline
 " Number configuration
 set number          " Set current line number
 set relativenumber  " Relactive numbers
-set linebreak
+set linebreak       " Wrap taking to account words
+
 if has('linebreak')
-  let &showbreak='↳ '                 " (U+21B3, UTF-8: E2 86 B3)
 endif
+
+if has('linebreak')
+  let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
+  set breakindent           " Indent wrapped lines to match start
+
+  if exists('&breakindentopt')
+    set breakindentopt=shift:2  " Emphasize broken lines by indenting them
+  endif
+
+endif
+
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
 
