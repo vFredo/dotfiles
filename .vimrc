@@ -1,5 +1,7 @@
 "  Reloading .vimrc file
 autocmd! BufWritePost .vimrc source %
+autocmd! BufWritePost .vimrc call lightline#update()
+
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
@@ -159,13 +161,28 @@ set noshowmode
 let g:lightline = {
   \   'colorscheme': 'fredoLightline',
   \   'separator': { 'left': '', 'right': '' },
-  \   'subseparator': { 'left': '', 'right': '' },
+	\   'subseparator': { 'left': '', 'right': '' },
   \   'active': {
   \     'right': [ ['percent'], ['lineinfo'] , ['filetype'] ],
   \     'left': [ [ 'mode', 'paste' ],
-  \       [ 'readonly', 'relativepath', 'modified' ] ]
+  \       [ 'myReadonly', 'relativepath', 'myModified'] ]
+  \   },
+  \   'component': {
+  \     'lineinfo': 'ℓ %3l:%-2v'
+  \   },
+  \   'component_function': {
+  \     'myModified': 'LightlineModified',
+  \     'myReadonly': 'LightlineReadonly'
   \   }
   \ }
+
+function! LightlineModified()
+  return &modifiable && &modified ? '✘' : ''
+endfunction
+
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
