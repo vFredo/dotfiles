@@ -161,7 +161,9 @@ let g:lightline = {
   \   'separator': { 'left': '', 'right': '' },
   \   'subseparator': { 'left': '', 'right': '' },
   \   'active': {
-  \     'right': [ [ 'percent' ], ['fileencoding', 'filetype'] ]
+  \     'right': [ ['percent'], ['lineinfo'] , ['filetype'] ],
+  \     'left': [ [ 'mode', 'paste' ],
+  \       [ 'readonly', 'relativepath', 'modified' ] ]
   \   }
   \ }
 
