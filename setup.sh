@@ -50,6 +50,9 @@ then
     # Installing vim plugins
     vim +PlugInstall +qall
 
+    # Adding own Lightline theme
+    cp "$(pwd)"/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+
     # Copy all Fonts
     cp "$(pwd)"/.fonts/*.ttf ~/.fonts/ && cp "$(pwd)"/.fonts/*.otf ~/.fonts/
 

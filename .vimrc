@@ -1,6 +1,5 @@
 "  Reloading .vimrc file
 autocmd! BufWritePost .vimrc source %
-
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
@@ -36,7 +35,6 @@ nnoremap <leader>h :CommandTHelp<CR>
 " Buffer related bindings
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>q :quit<CR>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
@@ -76,6 +74,7 @@ set cursorline
 set number          " Set current line number
 set relativenumber  " Relactive numbers
 
+" Break lines
 if has('linebreak')
   set linebreak             " Wrap taking to account words
   let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
@@ -158,11 +157,13 @@ let g:netrw_liststyle = 3
 set laststatus=2
 set noshowmode
 let g:lightline = {
-  \   'colorscheme': 'srcery_drk',
+  \   'colorscheme': 'fredoLightline',
+  \   'separator': { 'left': '', 'right': '' },
+  \   'subseparator': { 'left': '', 'right': '' },
   \   'active': {
-  \     'right': [ [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype'] ]
+  \     'right': [ [ 'percent' ], ['fileencoding', 'filetype'] ]
   \   }
-\ }
+  \ }
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
