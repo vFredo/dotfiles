@@ -17,18 +17,16 @@ Plug 'tpope/vim-vinegar'        " File search
 Plug 'itchyny/lightline.vim'    " Statusline
 Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
 Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
+Plug 'wincent/loupe'            " Saw search commands more easy
 " Fuzzy finder, it need apt-get install ruby-dev
 Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-    \ }
+  \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+  \ }
 
 call plug#end()
 
 " ------------------------- Keybindings -------------------------
 let mapleader = ","
-
-" Turn off Search Highlight
-nnoremap <leader><Enter> :noh<CR>
 
 " Plugin bindings
 nnoremap <leader>c :VimtexCompile<CR>
@@ -36,8 +34,9 @@ nnoremap <leader>u :UltiSnipsEdit<CR>
 nnoremap <leader>h :CommandTHelp<CR>
 
 " Buffer related bindings
-nnoremap <leader>d :bd<CR>
+nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
+nnoremap <leader>q :quit<CR>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
@@ -78,13 +77,13 @@ set number          " Set current line number
 set relativenumber  " Relactive numbers
 
 if has('linebreak')
-    set linebreak             " Wrap taking to account words
-    let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
-    set breakindent           " Indent wrapped lines to match start
+  set linebreak             " Wrap taking to account words
+  let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
+  set breakindent           " Indent wrapped lines to match start
 
-    if exists('&breakindentopt')
-        set breakindentopt=shift:2  " Emphasize broken lines by indenting them
-    endif
+  if exists('&breakindentopt')
+    set breakindentopt=shift:2  " Emphasize broken lines by indenting them
+  endif
 endif
 
 " Puts vertical windows to right, instead of left and down instead of up
@@ -103,10 +102,6 @@ set shiftwidth=2    " How much spaces to take when << or >> is used on Normal Mo
 set shiftround      " When there are multiple lines and you use < or >
 set expandtab
 
-" Search configuration
-set hlsearch is " Highlight search and go to the patttern search
-set nosmartcase " Don't ignore capital cases when search
-
 " Wildmenu configuration
 set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -115,13 +110,13 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Nice looking colors on terminal
 if (has("termguicolors"))
-    set termguicolors
+  set termguicolors
 endif
 
 " Colorsheme (Check https://github.com/chriskempson/base16-shell)
 if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
+  let base16colorspace=256
+  source ~/.vimrc_background
 endif
 
 " Delete background color of the line that show the numbers
@@ -163,12 +158,15 @@ let g:netrw_liststyle = 3
 set laststatus=2
 set noshowmode
 let g:lightline = {
-    \   'colorscheme': 'srcery_drk',
-    \   'active': {
-    \       'right': [ [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype'] ]
-    \   }
+  \   'colorscheme': 'srcery_drk',
+  \   'active': {
+  \     'right': [ [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype'] ]
+  \   }
 \ }
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
+
+" ------------------ MIPS syntax config ------------------------------
+highlight Sneak guifg=black guibg=salmon ctermfg=black ctermbg=red
 
