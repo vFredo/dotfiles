@@ -33,6 +33,7 @@ nnoremap <leader><Enter> :noh<CR>
 " Plugin bindings
 nnoremap <leader>c :VimtexCompile<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
+nnoremap <leader>h :CommandTHelp<CR>
 
 " Buffer related bindings
 nnoremap <leader>d :bd<CR>
@@ -66,6 +67,8 @@ noremap gk k
 
 " ------------------- Basic Vim configuration ----------------------
 
+set belloff=all   " Never ring the bell
+
 " Highlight
 syntax enable
 set cursorline
@@ -91,9 +94,9 @@ set splitbelow splitright
 set fo-=t " Don't automatically text when typing
 set backspace=indent,eol,start
 set hidden " Allow you to hide buffers with unsaved changes
-set autoread " When a file is change outside the editor, vim try read it again
+set autoread " When a file is change outside the editor, vim try to read it again
 
-" Tabs ('\t') configurations: Soft tabs, 4 spaces
+" Tabs ('\t') configurations: Soft tabs, 2 spaces
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2    " How much spaces to take when << or >> is used on Normal Mode
@@ -107,7 +110,7 @@ set nosmartcase " Don't ignore capital cases when search
 " Wildmenu configuration
 set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=.DS_Store,*.pdf
+set wildignore+=.DS_Store,*.pdf,*/project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Nice looking colors on terminal
@@ -123,6 +126,8 @@ endif
 
 " Delete background color of the line that show the numbers
 highlight LineNr guibg=NONE
+set highlight+=N:DiffText     " Make current line number stand out a little
+set shortmess+=W              " Don't echo [w]/[written] when writing
 
 " ------------------------ Plugins Configurations -----------------------
 
