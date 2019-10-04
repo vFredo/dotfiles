@@ -27,8 +27,8 @@ let s:white = [ '#B2CCD6', 15 ]
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 let s:p.normal.left = [ [ s:base02, s:bright_blue, 'bold' ], [ s:base3, s:base01 ] ]
 let s:p.normal.right = [ [ s:base02, s:base1 ], [ s:base2, s:base01 ] ]
-let s:p.inactive.right = [ [ s:base02, s:base00 ], [ s:base0, s:base02 ] ]
-let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base00, s:base02 ] ]
+let s:p.inactive.right = [ [ s:base02, s:base00, 'italic' ], [ s:base0, s:base02 ] ]
+let s:p.inactive.left =  [ [ s:base0, s:base02, 'italic' ], [ s:base00, s:base02 ] ]
 let s:p.insert.left = [ [ s:base02, s:bright_green, 'bold' ], [ s:base3, s:base01 ] ]
 let s:p.replace.left = [ [ s:base02, s:red, 'bold' ], [ s:base3, s:base01 ] ]
 let s:p.visual.left = [ [ s:base02, s:peach, 'bold' ], [ s:base3, s:base01 ] ]
@@ -42,3 +42,4 @@ let s:p.normal.error = [ [ s:red, s:base02 ] ]
 let s:p.normal.warning = [ [ s:yellow, s:base01 ] ]
 
 let g:lightline#colorscheme#fredoLightline#palette = lightline#colorscheme#flatten(s:p)
+

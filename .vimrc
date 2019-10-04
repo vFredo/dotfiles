@@ -37,6 +37,7 @@ nnoremap <leader>h :CommandTHelp<CR>
 " Buffer related bindings
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
+nnoremap <leader>q :quit<CR>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
@@ -54,7 +55,7 @@ noremap <C-l> <C-W>l
 
 " Move code blocks more easily
 vnoremap < <gv
-vnoremap > >gv 
+vnoremap > >gv
 
 " Consistent movement
 noremap gh ^
@@ -66,17 +67,20 @@ noremap gk k
 
 " ------------------- Basic Vim configuration ----------------------
 
-set belloff=all   " Never ring the bell
+" Annoying things
+set shortmess+=W      " Don't echo [w]/[written] when writing
+set shortmess+=I      " Dont'n show Intro message of Vim
+set shortmess+=T      " To big for the command line, put ...
+set belloff=all       " Never ring the bell
 
 " Highlight
 syntax enable
 set cursorline
 
-" Number configuration
+" Lines configuration
 set number          " Set current line number
 set relativenumber  " Relactive numbers
 
-" Break lines
 if has('linebreak')
   set linebreak             " Wrap taking to account words
   let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
@@ -87,11 +91,16 @@ if has('linebreak')
   endif
 endif
 
+set list                              " Show whitespace
+set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
+set listchars+=tab:▷┅                 " (U+25B7, UTF-8: E2 96 B7) (U+2505, UTF-8: E2 94 85)
+set listchars+=extends:»              " (U+00BB, UTF-8: C2 BB)
+set listchars+=precedes:«             " (U+00AB, UTF-8: C2 AB)
+set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
+
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
 
-" Wrap
-set fo-=t " Don't automatically text when typing
 set backspace=indent,eol,start
 set hidden " Allow you to hide buffers with unsaved changes
 set autoread " When a file is change outside the editor, vim try to read it again
@@ -113,17 +122,6 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 if (has("termguicolors"))
   set termguicolors
 endif
-
-" Colorsheme (Check https://github.com/chriskempson/base16-shell)
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-" Delete background color of the line that show the numbers
-highlight LineNr guibg=NONE
-set highlight+=N:DiffText     " Make current line number stand out a little
-set shortmess+=W              " Don't echo [w]/[written] when writing
 
 " ------------------------ Plugins Configurations -----------------------
 
@@ -161,11 +159,15 @@ set noshowmode
 let g:lightline = {
   \   'colorscheme': 'fredoLightline',
   \   'separator': { 'left': '', 'right': '' },
-	\   'subseparator': { 'left': '', 'right': '' },
+  \   'subseparator': { 'left': '', 'right': '' },
   \   'active': {
   \     'right': [ ['percent'], ['lineinfo'] , ['filetype'] ],
   \     'left': [ [ 'mode', 'paste' ],
   \       [ 'myReadonly', 'relativepath', 'myModified'] ]
+  \   },
+  \   'inactive': {
+  \     'left': [ [ 'relativepath' ] ],
+  \     'right': [ [ 'filetype' ] ]
   \   },
   \   'component': {
   \     'lineinfo': 'ℓ %3l:%-2v'
@@ -189,4 +191,20 @@ autocmd BufNewFile,BufRead *.s set syntax=mips
 
 " ------------------ Sneak config ------------------------------
 highlight Sneak guifg=black guibg=salmon ctermfg=black ctermbg=red
+
+" ------------------ base16 colorscheme config ------------------------------
+function! s:base16_customize() abort
+  call Base16hi("Comment", g:base16_gui03, '', '', '', "italic", "")
+endfunction
+
+" Colorsheme for Terminal (Check https://github.com/chriskempson/base16-shell)
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+  call s:base16_customize()
+endif
+
+" Delete background color of the line that show the numbers
+highlight LineNr guibg=NONE
+set highlight+=N:DiffText     " Make current line number stand out a little
 
