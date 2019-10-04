@@ -13,10 +13,10 @@ Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'justinmk/vim-sneak'       " Help with navegation
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
-Plug 'tpope/vim-vinegar'        " File search
 Plug 'itchyny/lightline.vim'    " Statusline
-Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
 Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
+Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
+Plug 'tpope/vim-vinegar'        " File search
 Plug 'wincent/loupe'            " Saw search commands more easy
 " Fuzzy finder, it need apt-get install ruby-dev
 Plug 'wincent/command-t', {
@@ -167,6 +167,6 @@ let g:lightline = {
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
 
-" ------------------ MIPS syntax config ------------------------------
+" ------------------ Sneak config ------------------------------
 highlight Sneak guifg=black guibg=salmon ctermfg=black ctermbg=red
 
