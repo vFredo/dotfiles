@@ -12,10 +12,11 @@ then
     #Ask if is root
     if [ "root" = "$(whoami)" ]
     then
-        ln -sf "$(pwd)"/.tmux.conf /"$(whoami)"/.tmux.conf
+        ln -sf "$(pwd)"/.config/.tmux.conf /"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/.vimrc /"$(whoami)"/.vimrc
-        ln -sf "$(pwd)"/.bashrc /"$(whoami)"/.bashrc
-        ln -sf "$(pwd)"/.profile /"$(whoami)"/.profile
+        ln -sf "$(pwd)"/bash/.bashrc /"$(whoami)"/.bashrc
+        ln -sf "$(pwd)"/bash/.profile /"$(whoami)"/.profile
+        ln -sf "$(pwd)"/bash/.bash_aliases /"$(whoaim)"/.bash_aliases
         ln -sf "$(pwd)"/.config/polybar/launch.sh /"$(whoami)"/.config/polybar/launch.sh
         ln -sf "$(pwd)"/.config/polybar/config /"$(whoami)"/.config/polybar/config
         ln -sf "$(pwd)"/.config/i3/config /"$(whoami)"/.config/i3/config
@@ -23,16 +24,16 @@ then
         ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /"$(whoami)"/.config/rofi/flat-orange.rasi
         ln -sf "$(pwd)"/.config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /"$(whoami)"/.scripts/extract-file
-        ln -sf "$(pwd)"/.latexmkrc /"$(whoami)"/.latexmkrc
+        ln -sf "$(pwd)"/.config/.latexmkrc /"$(whoami)"/.latexmkrc
         ln -sf "$(pwd)"/.config/compton.conf /"$(whoaim)"/.config/compton.conf
-        ln -sf "$(pwd)"/.bash_aliases /"$(whoaim)"/.bash_aliases
 
         # Not Root
     else
-        ln -sf "$(pwd)"/.tmux.conf /home/"$(whoami)"/.tmux.conf
+        ln -sf "$(pwd)"/.config/.tmux.conf /home/"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/.vimrc /home/"$(whoami)"/.vimrc
-        ln -sf "$(pwd)"/.bashrc /home/"$(whoami)"/.bashrc
-        ln -sf "$(pwd)"/.profile /home/"$(whoami)"/.profile
+        ln -sf "$(pwd)"/bash/.bashrc /home/"$(whoami)"/.bashrc
+        ln -sf "$(pwd)"/bash/.profile /home/"$(whoami)"/.profile
+        ln -sf "$(pwd)"/bash/.bash_aliases /home/"$(whoami)"/.bash_aliases
         ln -sf "$(pwd)"/.config/polybar/launch.sh /home/"$(whoami)"/.config/polybar/launch.sh
         ln -sf "$(pwd)"/.config/polybar/config /home/"$(whoami)"/.config/polybar/config
         ln -sf "$(pwd)"/.config/i3/config /home/"$(whoami)"/.config/i3/config
@@ -40,9 +41,8 @@ then
         ln -sf "$(pwd)"/.config/rofi/flat-orange.rasi /home/"$(whoami)"/.config/rofi/flat-orange.rasi
         ln -sf "$(pwd)"/.config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
         ln -sf "$(pwd)"/.scripts/extract-file /home/"$(whoami)"/.scripts/extract-file
-        ln -sf "$(pwd)"/.latexmkrc /home/"$(whoami)"/.latexmkrc
+        ln -sf "$(pwd)"/bash/.latexmkrc /home/"$(whoami)"/.latexmkrc
         ln -sf "$(pwd)"/.config/compton.conf /home/"$(whoami)"/.config/compton.conf
-        ln -sf "$(pwd)"/.bash_aliases /home/"$(whoami)"/.bash_aliases
     fi
 
     # Intalling Plug Package Manager
