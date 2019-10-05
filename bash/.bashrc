@@ -123,16 +123,19 @@ git_branch() {
 check_git_status(){
     boshka= git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' > /dev/null 2>&1
 
-    purple="$bold$(tput setaf 5)"
-    blue=$(tput setaf 6)
+    no_color='\033[0m'
+    yellow='\033[1;33m'
+    blue='\033[0;34m'
+    dots=""
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            printf "%F{yellow}✖%f"
+            dots="${dots}${yellow}●${no_color}"
         elif $boshka; then
-            printf "${blue}✔ "
+            dots="${dots}${blue}●${no_color}"
         fi
     fi
+    echo -e "${dots} "
 }
 
 export PS1=" \$(check_git_status)\[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]$ \[\033[38;5;15m\]"
