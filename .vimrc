@@ -126,7 +126,7 @@ endif
 
 " Folds configurations
 set foldmethod=syntax         " Not as cool as syntax, but faster
-set foldlevelstart=99         " Start unfolded
+set foldlevelstart=1          " Start unfolded
 set viewoptions=folds         " Remember folds on files
 set foldtext=FoldText()       " How folds look like
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
