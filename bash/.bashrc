@@ -154,7 +154,8 @@ check_git_status(){
     printf "$gitstatus_branch"
 }
 
-export PS1=" ${green}\W${no_color}\$(check_git_status)${no_color}${dark_red}${bold} $ ${normal}${no_color}"
+# All non-printable bytes in PS1 have to be contained within \[ \]
+export PS1=" \[${green}\]\W\[${no_color}\]\$(check_git_status)\[${no_color}${dark_red}\] $ \[${no_color}\] "
 
 # Vi mode on bash
 set -o vi
