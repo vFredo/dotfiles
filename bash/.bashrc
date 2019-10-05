@@ -46,20 +46,19 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48 # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}[\[\033[38;5;24m\]\u\[\033[38;5;15m\]] \[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\W\[\033[00m\]\ $ '
+  PS1='${debian_chroot:+($debian_chroot)}[\[\033[38;5;24m\]\u\[\033[38;5;15m\]] \[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\W\[\033[00m\]\ $ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}[\[\033[38;5;24m\]\u\[\033[38;5;15m\]] \W\ $ '
+  PS1='${debian_chroot:+($debian_chroot)}[\[\033[38;5;24m\]\u\[\033[38;5;15m\]] \W\ $ '
 fi
 unset color_prompt force_color_prompt
 
@@ -102,7 +101,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -128,34 +127,34 @@ dark_red='\033[38;5;9m'
 green='\033[32m'
 
 check_git_status(){
-    dots=""
-    gitstatus_branch=""
+  dots=""
+  gitstatus_branch=""
 
-    if git rev-parse --git-dir > /dev/null 2>&1; then
-        branch=$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    branch=$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
 
-        if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            dots="${dots}${purple}●${no_color}"
-        else
-            dots="${dots}${blue}●${no_color}"
-        fi
-
-        if git checkout | grep "git push" > /dev/null 2>&1; then
-            dots="${dots}${yellow}●${no_color}"
-        fi
-
-        if git status | grep "git pull" > /dev/null 2>&1; then
-          dots="${dots}${green}●${no_color}"
-        fi
-
-        gitstatus_branch=" $no_color[$branch$dots]"
+    if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
+      dots="${dots}${purple}●${no_color}"
+    else
+      dots="${dots}${blue}●${no_color}"
     fi
 
-    printf "$gitstatus_branch"
+    if git checkout | grep "git push" > /dev/null 2>&1; then
+      dots="${dots}${yellow}●${no_color}"
+    fi
+
+    if git status | grep "git pull" > /dev/null 2>&1; then
+    dots="${dots}${green}●${no_color}"
+    fi
+
+    gitstatus_branch=" $no_color[$branch$dots]"
+  fi
+
+  printf "$gitstatus_branch"
 }
 
 # All non-printable bytes in PS1 have to be contained within \[ \]
-export PS1=" \[${green}\]\W\[${no_color}\]\$(check_git_status)\[${no_color}${red}\] $ \[${no_color}\]"
+export PS1=" \[${green}\]\W\[${no_color}\]\$(check_git_status)\[${no_color}${red}\] ⮞ \[${no_color}\]"
 
 # Vi mode on bash
 set -o vi
