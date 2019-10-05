@@ -123,6 +123,7 @@ no_color='\033[0m'
 yellow='\033[1;33m'
 blue='\033[0;34m'
 red='\033[0;31m'
+purple='\033[0;35m'
 dark_red='\033[38;5;9m'
 green='\033[32m'
 
@@ -134,15 +135,17 @@ check_git_status(){
         branch=$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
 
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            dots="${dots}${red}●${no_color}"
-        fi
-
-        if git status | grep "nothing to commit" > /dev/null 2>&1; then
+            dots="${dots}${purple}●${no_color}"
+        else
             dots="${dots}${blue}●${no_color}"
         fi
 
         if git checkout | grep "git push" > /dev/null 2>&1; then
             dots="${dots}${yellow}●${no_color}"
+        fi
+
+        if git status | grep "git pull" > /dev/null 2>&1; then
+          dots="${dots}${green}●${no_color}"
         fi
 
         gitstatus_branch=" $no_color[$branch$dots]"
