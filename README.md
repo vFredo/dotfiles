@@ -1,8 +1,8 @@
 # Dotfiles :floppy_disk:
 
 This configuration are set for Linux operating system, this is really intendent for my own use.<br>
-There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files. <br>
-Most of the dependecies have to be installed by hand (Sorry, i'm a little lazy). <br>
+There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files.<br>
+Most of the dependecies have to be installed by hand.<br>
 
 ## Content
   * i3 config file
@@ -13,9 +13,9 @@ Most of the dependecies have to be installed by hand (Sorry, i'm a little lazy).
         * Imagemagick
         * xdpyinfo, xrandr, bc and feh
   * Polybar config file
-    * Required dbus-python module to run spotify module
-  * Rofi config file
-  * Ranger terminal configurations
+    * Required dbus-python (A module to run spotify on the bar)
+  * Rofi config file (Alternative of dmenu)
+  * Ranger terminal configurations (Needed to open files with alias)
   * Zathura (PDF reader) config file
   * Tmux config file
   * Latexmk compiler config file

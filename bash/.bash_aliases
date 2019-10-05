@@ -15,7 +15,7 @@ alias jcp='cd ~/Documents/Universidad/Javeriana/CuartoSemestre/POO && la'
 
 # Quick changes
 alias vc='vim ~/.vimrc'
-alias vpc='vim ~/.config/polybar/config'
+alias vp='vim ~/.config/polybar/config'
 alias vi3='vim ~/.config/i3/config'
 alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
@@ -23,5 +23,5 @@ alias :q='exit'
 alias v='vim'
 
 # Open any file from terminal (Need Ranger)
-alias open="rifle 2>/dev/null"
+alias open='rifle 2>/dev/null'
 

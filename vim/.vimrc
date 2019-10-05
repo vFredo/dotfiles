@@ -46,6 +46,11 @@ nnoremap <leader><leader> <C-^>
 vnoremap <leader>y "+y
 vnoremap <leader>x "+d
 
+" Some miscellaneous bindings
+nnoremap Y y$
+nnoremap <Up> <C-y>M
+nnoremap <Down> <C-e>M
+
 " Better navigation between splits
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
