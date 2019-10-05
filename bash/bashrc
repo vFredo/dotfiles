@@ -126,7 +126,7 @@ purple='\033[0;35m'
 dark_red='\033[38;5;9m'
 green='\033[32m'
 
-check_git_status(){
+git_status(){
   dots=""
   gitstatus_branch=""
 
@@ -140,7 +140,7 @@ check_git_status(){
     fi
 
     if git checkout | grep "git push" > /dev/null 2>&1; then
-      dots="${dots}${yellow}●${no_color}"
+      dots="${dots}${red}●${no_color}"
     fi
 
     if git status | grep "git pull" > /dev/null 2>&1; then
@@ -154,7 +154,7 @@ check_git_status(){
 }
 
 # All non-printable bytes in PS1 have to be contained within \[ \]
-export PS1=" \[${green}\]\W\[${no_color}\]\$(check_git_status)\[${no_color}${red}\] ⮞ \[${no_color}\]"
+export PS1=" \[${green}\]\W\[${no_color}\]\$(git_status)\[${no_color}${dark_red}\] ⮞ \[${no_color}\]"
 
 # Vi mode on bash
 set -o vi
