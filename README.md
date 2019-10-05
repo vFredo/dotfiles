@@ -19,7 +19,7 @@ Most of the dependecies have to be installed by hand.<br>
   * Zathura (PDF reader) config file
   * Tmux config file
   * Latexmk compiler config file
-  * Dots telling to commit, push or pull
+  * Dots telling to commit(Purple), push(yellow) or pull(TODO)
 
 ## Theme
    * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell)
