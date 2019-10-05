@@ -1,6 +1,5 @@
 "  Reloading .vimrc file
 autocmd! BufWritePost .vimrc source %
-autocmd! BufWritePost .vimrc call lightline#update()
 
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
@@ -11,13 +10,13 @@ Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex'            " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
+Plug 'tpope/vim-vinegar'        " File search
+Plug 'tpope/vim-surround'       " Eady motion with surrounds
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
-Plug 'justinmk/vim-sneak'       " Help with navegation
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
 Plug 'itchyny/lightline.vim'    " Statusline
 Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
 Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
-Plug 'tpope/vim-vinegar'        " File search
 Plug 'wincent/loupe'            " Saw search commands more easy
 Plug 'wincent/pinnacle'         " Control of the highlight groups
 " Fuzzy finder, it need apt-get install ruby-dev
@@ -223,9 +222,6 @@ autocmd ColorScheme * call s:SetUpLoupeHighlight()
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
-
-" ------------------ Sneak config ------------------------------
-highlight Sneak guifg=black guibg=salmon ctermfg=black ctermbg=red
 
 " ------------------ base16 colorscheme config ------------------------------
 function! s:base16_customize() abort
