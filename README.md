@@ -22,7 +22,7 @@ Most of the dependecies have to be installed by hand.<br>
   * Dots on prompt telling
        * To commit changes(purple), 
        * To push changes (yellow)
-       * To pull changes(green).
+       * To pull changes(green). Use git remote update to see if it need a pull.
        * If all is good show a blue dot.
 
 ## Theme
