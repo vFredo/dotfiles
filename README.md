@@ -19,7 +19,7 @@ Most of the dependecies have to be installed by hand.<br>
   * Zathura (PDF reader) config file
   * Tmux config file
   * Latexmk compiler config file
-  * Dots telling to commit changes(purple), push changes (yellow) or pull changes(green). If all is good show a blue dot.
+  * Dots on prompt telling to commit changes(purple), push changes (yellow) or pull changes(green). If all is good show a blue dot.
 
 ## Theme
    * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell)
