@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
- # Global Colors
+ # Global colors
 bold=$(tput bold)
 normal=$(tput sgr0)
 no_color='\033[0m'
