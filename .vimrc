@@ -148,8 +148,8 @@ endfunction
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetsDir="~/Dotfiles/vimSnips"
-let g:UltiSnipsSnippetDirectories=[$HOME.'/Dotfiles/vimSnips']
+let g:UltiSnipsSnippetsDir="~/Dotfiles/vim/vimSnips"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/Dotfiles/vim/vimSnips']
 
 " Edit vertical Ultisnips edition
 let g:UltiSnipsEditSplit="vertical"
