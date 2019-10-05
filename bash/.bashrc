@@ -121,29 +121,35 @@ git_branch() {
 }
 
 check_git_status(){
-    boshka= git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' > /dev/null 2>&1
 
     no_color='\033[0m'
     yellow='\033[1;33m'
     blue='\033[0;34m'
     red='\033[0;31m'
     dots=""
+    gitstatus_branch=""
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
+      branch=$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
             dots="${dots}${red}●${no_color}"
-        elif $boshka; then
+        fi
+
+        if git status | grep "nothing to commit" > /dev/null 2>&1; then
             dots="${dots}${blue}●${no_color}"
         fi
 
         if git checkout | grep "git push" > /dev/null 2>&1; then
             dots="${dots} ${yellow}●${no_color}"
         fi
+        gitstatus_branch="$no_color[$branch$dots]"
     fi
-    printf "$dots "
+
+    printf "$gitstatus_branch"
 }
 
-export PS1=" \$(check_git_status)\[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]$ \[\033[38;5;15m\]"
+export PS1=" \\[\033[34m\]\W \$(check_git_status)\[\033[00m\] \[\033[38;5;9m\]$ \[\033[38;5;15m\]"
 
 # Vi mode on bash
 set -o vi
