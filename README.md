@@ -22,5 +22,5 @@ Most of the dependecies have to be installed by hand (Sorry, i'm a little lazy).
 
 ## Theme
    * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell)
-   * Font: [Source Code Pro Medium](https://github.com/adobe-fonts/source-code-pro)
+   * Font: [Source Code Pro Regular](https://github.com/adobe-fonts/source-code-pro)
 

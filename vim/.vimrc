@@ -38,12 +38,10 @@ nnoremap <leader>h :CommandTHelp<CR>
 " Buffer related bindings
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>q :quit<CR>
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
 " Requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11)
-
 " Copy to clipboard (",y") and paste to clipboard(",x")
 vnoremap <leader>y "+y
 vnoremap <leader>x "+d
@@ -235,6 +233,6 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 " Delete background color of the line that show the numbers
-highlight LineNr guibg=NONE
 set highlight+=N:DiffText     " Make current line number stand out a little
+highlight LineNr guibg=NONE
 
