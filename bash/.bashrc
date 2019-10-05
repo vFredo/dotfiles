@@ -126,13 +126,18 @@ check_git_status(){
     no_color='\033[0m'
     yellow='\033[1;33m'
     blue='\033[0;34m'
+    red='\033[0;31m'
     dots=""
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            dots="${dots}${yellow}●${no_color}"
+            dots="${dots}${red}●${no_color}"
         elif $boshka; then
             dots="${dots}${blue}●${no_color}"
+        fi
+
+        if git checkout | grep "git push" > /dev/null 2>&1; then
+            dots="${dots} ${yellow}●${no_color}"
         fi
     fi
     echo -e "${dots} "
