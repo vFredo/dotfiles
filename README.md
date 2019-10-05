@@ -1,8 +1,6 @@
 # "dotfiles" :floppy_disk:
 
-This configuration are set for Linux operating system, this is really intendent for my own use.<br>
-There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files.<br>
-Most of the dependecies have to be installed by hand.<br>
+This configuration are set for Linux operating system, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files. Most of the dependecies have to be installed by hand.<br>
 
 ## Content
   * i3 config file

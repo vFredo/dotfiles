@@ -3,7 +3,7 @@
 # Important folders
 alias dc='cd ~/Documents && la'
 alias dw='cd ~/Downloads && la'
-alias dot='cd ~/Dotfiles && la'
+alias dot='cd ~/dotfiles && la'
 alias fredo='cd ~/Documents/Fredo && la'
 
 # Education folders
