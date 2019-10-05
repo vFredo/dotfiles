@@ -48,11 +48,12 @@ nnoremap <leader>q :quit<CR>
 vnoremap <leader>y "+y
 vnoremap <leader>x "+d
 
-" Better navigation between panes
+" Better navigation between splits
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
+nnoremap <leader>l <C-w>L
 
 " Move code blocks more easily
 vnoremap < <gv

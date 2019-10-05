@@ -13,7 +13,7 @@ then
     if [ "root" = "$(whoami)" ]
     then
         ln -sf "$(pwd)"/.tmux.conf /"$(whoami)"/.tmux.conf
-        ln -sf "$(pwd)"/.vimrc /"$(whoami)"/.vimrc
+        ln -sf "$(pwd)"/vim/.vimrc /"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/.bashrc /"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/.profile /"$(whoami)"/.profile
         ln -sf "$(pwd)"/.config/polybar/launch.sh /"$(whoami)"/.config/polybar/launch.sh
@@ -25,11 +25,12 @@ then
         ln -sf "$(pwd)"/.scripts/extract-file /"$(whoami)"/.scripts/extract-file
         ln -sf "$(pwd)"/.latexmkrc /"$(whoami)"/.latexmkrc
         ln -sf "$(pwd)"/.config/compton.conf /"$(whoaim)"/.config/compton.conf
+        ln -sf "$(pwd)"/.bash_aliases /"$(whoaim)"/.bash_aliases
 
         # Not Root
     else
         ln -sf "$(pwd)"/.tmux.conf /home/"$(whoami)"/.tmux.conf
-        ln -sf "$(pwd)"/.vimrc /home/"$(whoami)"/.vimrc
+        ln -sf "$(pwd)"/vim/.vimrc /home/"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/.bashrc /home/"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/.profile /home/"$(whoami)"/.profile
         ln -sf "$(pwd)"/.config/polybar/launch.sh /home/"$(whoami)"/.config/polybar/launch.sh
@@ -41,6 +42,7 @@ then
         ln -sf "$(pwd)"/.scripts/extract-file /home/"$(whoami)"/.scripts/extract-file
         ln -sf "$(pwd)"/.latexmkrc /home/"$(whoami)"/.latexmkrc
         ln -sf "$(pwd)"/.config/compton.conf /home/"$(whoami)"/.config/compton.conf
+        ln -sf "$(pwd)"/.bash_aliases /home/"$(whoami)"/.bash_aliases
     fi
 
     # Intalling Plug Package Manager
