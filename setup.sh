@@ -17,6 +17,7 @@ then
         ln -sf "$(pwd)"/bash/bashrc /"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/bash/profile /"$(whoami)"/.profile
         ln -sf "$(pwd)"/bash/bash_aliases /"$(whoaim)"/.bash_aliases
+        ln -sf "$(pwd)"/bash/inputrc /"$(whoaim)"/.inputrc
         ln -sf "$(pwd)"/config/i3/config /"$(whoami)"/.config/i3/config
         ln -sf "$(pwd)"/config/rofi/config.rasi /"$(whoami)"/.config/rofi/config.rasi
         ln -sf "$(pwd)"/config/rofi/flat-orange.rasi /"$(whoami)"/.config/rofi/flat-orange.rasi
@@ -36,6 +37,7 @@ then
         ln -sf "$(pwd)"/bash/bashrc /home/"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/bash/profile /home/"$(whoami)"/.profile
         ln -sf "$(pwd)"/bash/bash_aliases /home/"$(whoami)"/.bash_aliases
+        ln -sf "$(pwd)"/bash/inputrc /home/"$(whoami)"/.inputrc
         ln -sf "$(pwd)"/config/i3/config /home/"$(whoami)"/.config/i3/config
         ln -sf "$(pwd)"/config/rofi/config.rasi /home/"$(whoami)"/.config/rofi/config.rasi
         ln -sf "$(pwd)"/config/rofi/flat-orange.rasi /home/"$(whoami)"/.config/rofi/flat-orange.rasi
