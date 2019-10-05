@@ -140,7 +140,7 @@ check_git_status(){
             dots="${dots} ${yellow}●${no_color}"
         fi
     fi
-    echo -e "${dots} "
+    printf "$dots "
 }
 
 export PS1=" \$(check_git_status)\[\033[32m\]\W\[\033[33m\]\$(git_branch)\[\033[00m\] \[\033[38;5;9m\]$ \[\033[38;5;15m\]"
