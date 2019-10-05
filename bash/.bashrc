@@ -116,21 +116,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
-git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+ # Global Colors
+bold=$(tput bold)
+normal=$(tput sgr0)
+no_color='\033[0m'
+yellow='\033[1;33m'
+blue='\033[0;34m'
+red='\033[0;31m'
 
 check_git_status(){
-
-    no_color='\033[0m'
-    yellow='\033[1;33m'
-    blue='\033[0;34m'
-    red='\033[0;31m'
     dots=""
     gitstatus_branch=""
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
-      branch=$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+        branch=$(git branch | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
 
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
             dots="${dots}${red}●${no_color}"
@@ -143,13 +142,13 @@ check_git_status(){
         if git checkout | grep "git push" > /dev/null 2>&1; then
             dots="${dots}${yellow}●${no_color}"
         fi
-        gitstatus_branch="$no_color[$branch$dots]"
+        gitstatus_branch=" $no_color[$branch$dots]"
     fi
 
     printf "$gitstatus_branch"
 }
 
-export PS1=" \\[\033[34m\]\W \$(check_git_status)\[\033[00m\] \[\033[38;5;9m\]$ \[\033[38;5;15m\]"
+export PS1=" \[\033[32m\]\W\$(check_git_status)\[\033[00m\] \[\033[38;5;9m\]\${bold}❯\${normal} \[\033[38;5;15m\]"
 
 # Vi mode on bash
 set -o vi
