@@ -78,6 +78,7 @@ set shortmess+=W      " Don't echo [w]/[written] when writing
 set shortmess+=I      " Dont'n show Intro message of Vim
 set shortmess+=T      " To big for the command line, put ...
 set belloff=all       " Never ring the bell
+set mouse=a           " Mouse on vim
 
 " Highlight
 syntax enable
