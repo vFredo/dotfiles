@@ -1,8 +1,8 @@
-# "dotfiles" :floppy_disk:
+# "dotfiles" and system configurations :floppy_disk:
 
 This configuration are set for Linux operating system, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files. Most of the dependecies have to be installed by hand.<br>
 
-## Content
+## Features
   * i3 config file
     * Compton
     * flashfocus
@@ -23,7 +23,7 @@ This configuration are set for Linux operating system, this is really intendent 
        * To pull changes(green). Use `git remote update` on terminal to see the dot.
        * If all is good show a blue dot.
 
-## Theme
+### Theme
    * Terminal Theme: [base16_material-darker.](https://github.com/chriskempson/base16-shell)
    * Font: [Source Code Pro Regular.](https://github.com/adobe-fonts/source-code-pro)
 
