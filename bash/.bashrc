@@ -128,7 +128,7 @@ check_git_status(){
 
     if git rev-parse --git-dir > /dev/null 2>&1; then
         if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
-            printf "${purple}✖ "
+            printf "%F{yellow}✖%f"
         elif $boshka; then
             printf "${blue}✔ "
         fi

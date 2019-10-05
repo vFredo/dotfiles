@@ -25,3 +25,6 @@ alias v='vim'
 # Open any file from terminal (Need Ranger)
 alias open='rifle 2>/dev/null'
 
+# Tmux aliases
+alias t='tmux'
+

@@ -28,7 +28,7 @@ Plug 'wincent/command-t', {
 call plug#end()
 
 " ------------------------- Keybindings -------------------------
-let mapleader = ","
+let mapleader = " "
 
 " Plugin bindings
 nnoremap <leader>c :VimtexCompile<CR>
@@ -48,6 +48,7 @@ vnoremap <leader>x "+d
 
 " Some miscellaneous bindings
 nnoremap Y y$
+nnoremap c* *Ncgn
 nnoremap <Up> <C-y>M
 nnoremap <Down> <C-e>M
 
@@ -237,7 +238,7 @@ if filereadable(expand("~/.vimrc_background"))
   call s:base16_customize()
 endif
 
-" Delete background color of the line that show the numbers
 set highlight+=N:DiffText     " Make current line number stand out a little
+" Delete background color of the line that show the numbers
 highlight LineNr guibg=NONE
 
