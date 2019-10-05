@@ -123,6 +123,8 @@ no_color='\033[0m'
 yellow='\033[1;33m'
 blue='\033[0;34m'
 red='\033[0;31m'
+dark_red='\033[38;5;9m'
+green='\033[32m'
 
 check_git_status(){
     dots=""
@@ -142,13 +144,14 @@ check_git_status(){
         if git checkout | grep "git push" > /dev/null 2>&1; then
             dots="${dots}${yellow}●${no_color}"
         fi
+
         gitstatus_branch=" $no_color[$branch$dots]"
     fi
 
     printf "$gitstatus_branch"
 }
 
-export PS1=" \[\033[32m\]\W\$(check_git_status)\[\033[00m\] \[\033[38;5;9m\]\${bold}❯\${normal} \[\033[38;5;15m\]"
+export PS1=" ${green}\W${no_color}\$(check_git_status)${no_color}${dark_red}${bold} $ ${normal}${no_color}"
 
 # Vi mode on bash
 set -o vi
