@@ -19,6 +19,7 @@ Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
 Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
 Plug 'tpope/vim-vinegar'        " File search
 Plug 'wincent/loupe'            " Saw search commands more easy
+Plug 'wincent/pinnacle'         " Control of the highlight groups
 " Fuzzy finder, it need apt-get install ruby-dev
 Plug 'wincent/command-t', {
   \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
@@ -123,6 +124,24 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+" Folds configurations
+set foldmethod=syntax         " Not as cool as syntax, but faster
+set foldlevelstart=99         " Start unfolded
+set viewoptions=folds         " Remember folds on files
+set foldtext=FoldText()       " How folds look like
+set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
+
+function! FoldText() abort
+  let s:middot='·'
+  let s:raquo='»'
+  let s:small_l='ℓ'
+
+  let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'
+  let l:first=substitute(getline(v:foldstart), '\v *', '', '')
+  let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
+  return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
+endfunction
+
 " ------------------------ Plugins Configurations -----------------------
 
 " --------------------- Ultisnips configuration ---------------------
@@ -185,6 +204,16 @@ endfunction
 function! LightlineReadonly()
   return &readonly ? '' : ''
 endfunction
+
+" ------------------ Loupe config ------------------------------
+function! s:SetUpLoupeHighlight()
+  execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
+
+  highlight! clear Search
+  execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+endfunction
+
+autocmd ColorScheme * call s:SetUpLoupeHighlight()
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips
