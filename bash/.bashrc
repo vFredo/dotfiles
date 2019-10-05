@@ -141,7 +141,7 @@ check_git_status(){
         fi
 
         if git checkout | grep "git push" > /dev/null 2>&1; then
-            dots="${dots} ${yellow}●${no_color}"
+            dots="${dots}${yellow}●${no_color}"
         fi
         gitstatus_branch="$no_color[$branch$dots]"
     fi
