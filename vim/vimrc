@@ -147,6 +147,15 @@ function! FoldText() abort
   return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
+" Change cursors between modes
+" Compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[2 q"
+let &t_EI = "\<Esc>[1 q"
+
+" Fast toggle bewtween the modes
+set timeoutlen=1000 ttimeoutlen=0
+
 " ------------------------ Plugins Configurations -----------------------
 
 " --------------------- Ultisnips configuration ---------------------
