@@ -144,7 +144,7 @@ check_git_status(){
     fi
 
     if git status | grep "git pull" > /dev/null 2>&1; then
-    dots="${dots}${green}●${no_color}"
+      dots="${dots}${green}●${no_color}"
     fi
 
     gitstatus_branch=" $no_color[$branch$dots]"

@@ -18,7 +18,7 @@ args = parser.parse_args()
 
 
 def fix_string(string):
-    # corrects encoding for the python version used
+    # Corrects encoding for the python version used
     if sys.version_info.major == 3:
         return string
     else:

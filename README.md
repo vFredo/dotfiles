@@ -17,13 +17,13 @@ This configuration are set for Linux operating system, this is really intendent 
   * Zathura (PDF reader) config file
   * Tmux config file
   * Latexmk compiler config file
-  * Dots on prompt telling
-       * To commit changes(purple), 
-       * To push changes (yellow)
-       * To pull changes(green). Use `git remote update` to see if it need a pull.
+  * Dots on prompt telling (`● \u25CF`):
+       * To commit changes(purple).
+       * To push changes (yellow).
+       * To pull changes(green). Use `git remote update` on terminal to see the dot.
        * If all is good show a blue dot.
 
 ## Theme
-   * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell)
-   * Font: [Source Code Pro Regular](https://github.com/adobe-fonts/source-code-pro)
+   * Terminal Theme: [base16_material-darker.](https://github.com/chriskempson/base16-shell)
+   * Font: [Source Code Pro Regular.](https://github.com/adobe-fonts/source-code-pro)
 
