@@ -145,7 +145,7 @@ function +vi-git-st() {
     # for git prior to 1.7
     # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
-    (( $behind )) && gitstatus+=( "%F{purple}●%f" )
+    (( $behind )) && gitstatus+=( "%F{magenta}●%f" )
 
     hook_com[misc]+=${(j:/:)gitstatus}
 }
