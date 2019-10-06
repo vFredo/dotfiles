@@ -151,8 +151,9 @@ function +vi-git-st() {
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 
-RPROMPT_BASE="\${vcs_info_msg_0_}\$(vi_mode_prompt_info)"
+# Adding right prompt
 setopt PROMPT_SUBST
+RPROMPT_BASE='${vcs_info_msg_0_}$(vi_mode_prompt_info)'
 
 # Anonymous function to avoid leaking variables.
 function () {
