@@ -9,6 +9,39 @@ typeset -A __FREDO
 __FREDO[ITALIC_ON]=$'\e[3m'
 __FREDO[ITALIC_OFF]=$'\e[23m'
 
+  # Set 60 fps key repeat rate
+  #
+  # Equivalent to the fatest rate acheivable with:
+  #
+  #     defaults write NSGlobalDomain KeyRepeat -int 1
+  #
+  # But doesn't require a logout and will get restored every time we open a
+  # shell (for example, if somebody manipulates the slider in the UI).
+  #
+  # Fastest rate available from UI corresponds to:
+  #
+  #     defaults write NSGlobalDomain KeyRepeat -int 2
+  #
+  # Slowest rate available from UI corresponds to:
+  #
+  #     defaults write NSGlobalDomain KeyRepeat -int 120
+  #
+  # Values at each slider position in UI, from slowest to fastest:
+  #
+  # - 120 -> 2 seconds (ie. .5 fps)
+  # - 90 -> 1.5 seconds (ie .6666 fps)
+  # - 60 -> 1 second (ie 1 fps)
+  # - 30 -> 0.5 seconds (ie. 2 fps)
+  # - 12 -> 0.2 seconds (ie. 5 fps)
+  # - 6 -> 0.1 seconds (ie. 10 fps)
+  # - 2 -> 0.03333 seconds (ie. 30 fps)
+  #
+  # See: https://github.com/mathiasbynens/dotfiles/issues/687
+  #
+if command -v dry &> /dev/null; then
+  dry 0.0166666666667 > /dev/null
+fi
+
 #
 # Completion
 #
@@ -26,7 +59,7 @@ zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper
 # Colorize completions using default `ls` colors.
 zstyle ':completion:*' list-colors ''
 
-# # Allow completion of ..<Tab> to ../ and beyond.
+# Allow completion of ..<Tab> to ../ and beyond.
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 
 # $CDPATH is overpowered (can allow us to jump to 100s of directories) so tends
@@ -50,6 +83,7 @@ autoload -U colors
 colors
 
 autoload -Uz vcs_info
+
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' disable-patterns "${(b)HOME}/code/portal(|-ee)(|/*)"
@@ -93,7 +127,7 @@ function +vi-git-untracked() {
   fi
 }
 
-RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
+RPROMPT_BASE="\${vcs_info_msg_0_}\$(vi_mode_prompt_info)"
 setopt PROMPT_SUBST
 
 # Anonymous function to avoid leaking variables.
@@ -107,14 +141,14 @@ function () {
   else
     # Either in a root shell created inside a non-root tmux session,
     # or not in a tmux session.
-    local LVL=$SHLVL
+    local LVL=$(($SHLVL - 1))
   fi
   if [[ $EUID -eq 0 ]]; then
     local SUFFIX='%F{yellow}%n%f'$(printf '%%F{yellow}\u276f%.0s%%f' {1..$LVL})
   else
     local SUFFIX=$(printf '%%F{red}\u276f%.0s%%f' {1..$LVL})
   fi
-  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
+  export PS1=" %F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
@@ -186,6 +220,7 @@ function -update-window-title-preexec() {
 add-zsh-hook preexec -update-window-title-preexec
 
 typeset -F SECONDS
+
 function -record-start-time() {
   emulate -L zsh
   ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
@@ -234,7 +269,6 @@ add-zsh-hook chpwd -auto-ls-after-cd
 function -record-command() {
   __FREDO[LAST_COMMAND]="$2"
 }
-
 add-zsh-hook preexec -record-command
 
 # Update vcs_info (slow) after any command that probably changed it.
@@ -256,22 +290,4 @@ function -maybe-show-vcs-info() {
   esac
 }
 add-zsh-hook precmd -maybe-show-vcs-info
-
-# adds `cdr` command for navigating to recent directories
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-
-# enable menu-style completion for cdr
-zstyle ':completion:*:*:cdr:*:*' menu selection
-
-# fall through to cd if cdr is passed a non-recent dir as an argument
-zstyle ':chpwd:*' recent-dirs-default true
-
-# Local and host-specific overrides.
-
-LOCAL_RC=$HOME/.zshrc.local
-test -f $LOCAL_RC && source $LOCAL_RC
-
-HOST_RC=$HOME/.zsh/host/$(hostname -s)
-test -f $HOST_RC && source $HOST_RC
 
