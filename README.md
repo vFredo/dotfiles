@@ -27,7 +27,7 @@ This configuration are set for Linux operating system, this is really intendent 
    * Change cursor for vi-mode on shell.
 
 ## Zsh
-  * Requiered [Oh-my-zhs](https://github.com/robbyrussell/oh-my-zsh).
+  * Requiered [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
   * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
       * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
       * Current version control branch name .
