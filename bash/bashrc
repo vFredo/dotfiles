@@ -123,8 +123,9 @@ yellow='\033[1;33m'
 blue='\033[0;34m'
 red='\033[0;31m'
 purple='\033[0;35m'
-dark_red='\033[38;5;9m'
-green='\033[32m'
+cyan_dark='\033[2;36m'
+cyan='\033[0;36m'
+green='\033[0;32m'
 
 git_status(){
   dots=""
@@ -154,7 +155,7 @@ git_status(){
 }
 
 # All non-printable bytes in PS1 have to be contained within \[ \]
-export PS1=" \[${green}\]\W\[${no_color}\]\$(git_status)\[${no_color}${dark_red}\] ⮞ \[${no_color}\]"
+export PS1=" \[${green}${bold}\]\W\[${normal}${no_color}\]\$(git_status)\[${no_color}${red}\] ⮞ \[${no_color}\]"
 
 # Vi mode on bash
 set -o vi

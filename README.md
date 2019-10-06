@@ -18,9 +18,9 @@ This configuration are set for Linux operating system, this is really intendent 
   * Tmux config file
   * Latexmk compiler config file
   * Dots on prompt telling (`● \u25CF`):
-       * To commit changes(purple).
-       * To push changes (yellow).
-       * To pull changes(green). Use `git remote update` on terminal to see the dot.
+       * To commit changes (purple).
+       * To push changes (red).
+       * To pull changes (green). Use `git remote update` on terminal to see the dot.
        * If all is good show a blue dot.
 
 ### Theme
