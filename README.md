@@ -31,8 +31,8 @@ This configuration are set for Linux operating system, this is really intendent 
           * Green dot indicates staged changes.
           * Red dot indicates unstaged changes.
           * Blue dot indicates untracked files.
-          * Yellow dot indicates ahead of current remote repo.
-          * Purple dot indicates behind current remote repo.
+          * Yellow dot indicates push to the current remote repo.
+          * Purple dot indicates pull to the current remote repo.
 
 ### Theme
    * Terminal Theme: [base16_material-darker.](https://github.com/chriskempson/base16-shell)
