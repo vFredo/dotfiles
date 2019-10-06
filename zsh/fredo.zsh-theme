@@ -49,7 +49,6 @@ zstyle ':completion:*' menu select
 autoload -U colors
 colors
 
-# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
@@ -94,7 +93,6 @@ function +vi-git-untracked() {
   fi
 }
 
-
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
 
@@ -126,21 +124,6 @@ function () {
 
 export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
-
-#
-# Bindings
-#
-
-# Use "cbt" capability ("back_tab", as per `man terminfo`), if we have it:
-if tput cbt &> /dev/null; then
-  bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
-fi
-
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "\e[A" history-beginning-search-backward-end  # cursor up
-bindkey "\e[B" history-beginning-search-forward-end   # cursor down
 
 #
 # Hooks

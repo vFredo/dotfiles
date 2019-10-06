@@ -23,6 +23,7 @@ alias vz="vim ~/.zshrc"
 alias :q='exit'
 alias v='vim'
 alias la='ls -A'
+alias ..='cd ..'
 
 # Open any file from terminal (Need Ranger)
 alias open='rifle 2>/dev/null'
