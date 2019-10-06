@@ -11,23 +11,25 @@ This configuration are set for Linux operating system, this is really intendent 
         * Imagemagick
         * xdpyinfo, xrandr, bc and feh
   * Polybar config file
-    * Required dbus-python (A module to run spotify on the bar)
-  * Rofi config file (Alternative of dmenu)
-  * Ranger terminal configurations (Needed to open files with alias)
+    * Required dbus-python (a module to run spotify on the bar)
+  * Rofi config file (alternative of dmenu)
+  * Ranger terminal configurations (needed to open files with alias)
   * Zathura (PDF reader) config file
   * Tmux config file
   * Latexmk compiler config file
-  * Dots on prompt (`● \u25CF`) for information of current version control folder.
-## Bash 
-   * To commit changes (purple).
-   * To push changes (red).
-   * To pull changes (green). Use `git remote update` on terminal to see the dot.
-   * If all is good show a blue dot.
+  * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
+
+## Bash
+   * Red dot indicates unstaged changes.
+   * Yellow dot indicates push to the current remote repo.
+   * Magenta dot indicates pull to the current remote repo.
+   * Blue dot indicate that all is good, up to date.
    * Change cursor for vi-mode on shell.
+
 ## Zsh
   * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
       * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
-      * Current version control branch name (Use `git remote update` for the pull option to appear).
+      * Current version control branch name .
           * Green dot indicates staged changes.
           * Red dot indicates unstaged changes.
           * Blue dot indicates untracked files.
