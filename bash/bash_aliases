@@ -1,17 +1,17 @@
 # Own aliases
 
 # Important folders
-alias doc='cd ~/Documents && la'
-alias dow='cd ~/Downloads && la'
-alias dot='cd ~/dotfiles && la'
-alias fredo='cd ~/Documents/Fredo && la'
+alias doc='cd ~/Documents'
+alias dow='cd ~/Downloads'
+alias dot='cd ~/dotfiles'
+alias fredo='cd ~/Documents/Fredo'
 
 # Education folders
-alias j='cd ~/Documents/Universidad/Javeriana/ && la'
-alias j3='cd ~/Documents/Universidad/Javeriana/TercerSemestre && la'
-alias j3e='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/ && la'
-alias j4='cd ~/Documents/Universidad/Javeriana/CuartoSemestre && la'
-alias j4p='cd ~/Documents/Universidad/Javeriana/CuartoSemestre/POO && la'
+alias j='cd ~/Documents/Universidad/Javeriana/'
+alias j3='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
+alias j3e='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
+alias j4='cd ~/Documents/Universidad/Javeriana/CuartoSemestre'
+alias j4p='cd ~/Documents/Universidad/Javeriana/CuartoSemestre/POO'
 
 # Quick changes
 alias vc='vim ~/.vimrc'
@@ -22,6 +22,7 @@ alias vba="vim ~/.bash_aliases"
 alias vz="vim ~/.zshrc"
 alias :q='exit'
 alias v='vim'
+alias la='ls -A'
 
 # Open any file from terminal (Need Ranger)
 alias open='rifle 2>/dev/null'

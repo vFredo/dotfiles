@@ -4,10 +4,10 @@
 
 # Create a hash table for globally stashing variables without polluting main
 # scope with a bunch of identifiers.
-typeset -A __WINCENT
+typeset -A __FREDO
 
-__WINCENT[ITALIC_ON]=$'\e[3m'
-__WINCENT[ITALIC_OFF]=$'\e[23m'
+__FREDO[ITALIC_ON]=$'\e[3m'
+__FREDO[ITALIC_OFF]=$'\e[23m'
 
   # Set 60 fps key repeat rate
   #
@@ -69,7 +69,7 @@ zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-
 
 # Categorize completion suggestions with headings:
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
+zstyle ':completion:*:descriptions' format %F{default}%B%{$__FREDO[ITALIC_ON]%}--- %d ---%{$__FREDO[ITALIC_OFF]%}%b%f
 
 # Enable keyboard navigation of completions in menu
 # (not just tab/shift-tab but cursor keys as well):
@@ -140,6 +140,7 @@ function +vi-git-untracked() {
   fi
 }
 
+
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
 
@@ -171,33 +172,6 @@ function () {
 
 export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
-
-#
-# Options
-#
-
-setopt AUTO_CD                 # [default] .. is shortcut for cd .. (etc)
-setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
-setopt AUTO_PUSHD              # [default] cd automatically pushes old dir onto dir stack
-setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
-setopt CLOBBER                 # allow clobbering with >, no need to use >!
-setopt CORRECT                 # [default] command auto-correction
-setopt CORRECT_ALL             # [default] argument auto-correction
-setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
-setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
-setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
-setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
-setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
-setopt IGNORE_EOF              # [default] prevent accidental C-d from exiting shell
-setopt INTERACTIVE_COMMENTS    # [default] allow comments, even in interactive shells
-setopt LIST_PACKED             # make completion lists more densely packed
-setopt MENU_COMPLETE           # auto-insert first possible ambiguous completion
-setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
-setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
-setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
-setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
-setopt SHARE_HISTORY           # share history across shells
 
 #
 # Bindings
@@ -328,7 +302,7 @@ function -report-start-time() {
       SECS="$((~~$SECS))s"
     fi
     ELAPSED="${ELAPSED}${SECS}"
-    export RPROMPT="%F{cyan}%{$__WINCENT[ITALIC_ON]%}${ELAPSED}%{$__WINCENT[ITALIC_OFF]%}%f $RPROMPT_BASE"
+    export RPROMPT="%F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f $RPROMPT_BASE"
     unset ZSH_START_TIME
   else
     export RPROMPT="$RPROMPT_BASE"
@@ -348,17 +322,18 @@ add-zsh-hook chpwd -auto-ls-after-cd
 
 # Remember each command we run.
 function -record-command() {
-  __WINCENT[LAST_COMMAND]="$2"
+  __FREDO[LAST_COMMAND]="$2"
 }
+
 add-zsh-hook preexec -record-command
 
 # Update vcs_info (slow) after any command that probably changed it.
 function -maybe-show-vcs-info() {
-  local LAST="$__WINCENT[LAST_COMMAND]"
+  local LAST="$__FREDO[LAST_COMMAND]"
 
   # In case user just hit enter, overwrite LAST_COMMAND, because preexec
   # won't run and it will otherwise linger.
-  __WINCENT[LAST_COMMAND]="<unset>"
+  __FREDO[LAST_COMMAND]="<unset>"
 
   # Check first word; via:
   # http://tim.vanwerkhoven.org/post/2012/10/28/ZSH/Bash-string-manipulation
