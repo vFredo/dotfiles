@@ -91,6 +91,7 @@ zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
 zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
+zstyle ':vcs_info:git+set-message:*' hooks git-st
 zstyle ':vcs_info:git*:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
 zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u] ' # default ' (%s)-[%b|%a]%c%u-'
 zstyle ':vcs_info:hg*:*' formats '[%m%b] '
@@ -126,9 +127,27 @@ function +vi-git-untracked() {
     hook_com[unstaged]+="%F{blue}●%f"
   fi
 
-  if git status | grep "git pull" > /dev/null 2>&1; then
-    hook_com[unstaged]+="%F{yellow}●%f"
-  fi
+}
+
+### Compare local changes to remote changes
+
+### git: Show +N/-N when your local branch is ahead-of or behind remote HEAD.
+# Make sure you have added misc to your 'formats':  %m
+function +vi-git-st() {
+    local ahead behind
+    local -a gitstatus
+
+    # for git prior to 1.7
+    # ahead=$(git rev-list origin/${hook_com[branch]}..HEAD | wc -l)
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+    (( $ahead )) && gitstatus+=( "%F{yellow}●%f" )
+
+    # for git prior to 1.7
+    # behind=$(git rev-list HEAD..origin/${hook_com[branch]} | wc -l)
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+    (( $behind )) && gitstatus+=( "%F{purple}●%f" )
+
+    hook_com[misc]+=${(j:/:)gitstatus}
 }
 
 RPROMPT_BASE="\${vcs_info_msg_0_}\$(vi_mode_prompt_info)"
