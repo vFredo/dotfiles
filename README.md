@@ -17,11 +17,20 @@ This configuration are set for Linux operating system, this is really intendent 
   * Zathura (PDF reader) config file
   * Tmux config file
   * Latexmk compiler config file
+### Bash
   * Dots on prompt telling (`● \u25CF`):
        * To commit changes (purple).
        * To push changes (red).
        * To pull changes (green). Use `git remote update` on terminal to see the dot.
        * If all is good show a blue dot.
+## Zsh
+  * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
+      * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
+      * Current version control branch name.
+      * Current version control worktree status using colors that match those used in git status:
+          * Green dot indicates staged changes.
+          * Red dot indicates unstaged changes.
+          * Blue dot indicates untracked files.
 
 ### Theme
    * Terminal Theme: [base16_material-darker.](https://github.com/chriskempson/base16-shell)

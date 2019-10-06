@@ -9,39 +9,6 @@ typeset -A __FREDO
 __FREDO[ITALIC_ON]=$'\e[3m'
 __FREDO[ITALIC_OFF]=$'\e[23m'
 
-  # Set 60 fps key repeat rate
-  #
-  # Equivalent to the fatest rate acheivable with:
-  #
-  #     defaults write NSGlobalDomain KeyRepeat -int 1
-  #
-  # But doesn't require a logout and will get restored every time we open a
-  # shell (for example, if somebody manipulates the slider in the UI).
-  #
-  # Fastest rate available from UI corresponds to:
-  #
-  #     defaults write NSGlobalDomain KeyRepeat -int 2
-  #
-  # Slowest rate available from UI corresponds to:
-  #
-  #     defaults write NSGlobalDomain KeyRepeat -int 120
-  #
-  # Values at each slider position in UI, from slowest to fastest:
-  #
-  # - 120 -> 2 seconds (ie. .5 fps)
-  # - 90 -> 1.5 seconds (ie .6666 fps)
-  # - 60 -> 1 second (ie 1 fps)
-  # - 30 -> 0.5 seconds (ie. 2 fps)
-  # - 12 -> 0.2 seconds (ie. 5 fps)
-  # - 6 -> 0.1 seconds (ie. 10 fps)
-  # - 2 -> 0.03333 seconds (ie. 30 fps)
-  #
-  # See: https://github.com/mathiasbynens/dotfiles/issues/687
-  #
-if command -v dry &> /dev/null; then
-  dry 0.0166666666667 > /dev/null
-fi
-
 #
 # Completion
 #
@@ -59,7 +26,7 @@ zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper
 # Colorize completions using default `ls` colors.
 zstyle ':completion:*' list-colors ''
 
-# Allow completion of ..<Tab> to ../ and beyond.
+# # Allow completion of ..<Tab> to ../ and beyond.
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 
 # $CDPATH is overpowered (can allow us to jump to 100s of directories) so tends
@@ -74,19 +41,6 @@ zstyle ':completion:*:descriptions' format %F{default}%B%{$__FREDO[ITALIC_ON]%}-
 # Enable keyboard navigation of completions in menu
 # (not just tab/shift-tab but cursor keys as well):
 zstyle ':completion:*' menu select
-
-#
-# Correction
-#
-
-# exceptions to auto-correction
-alias bundle='nocorrect bundle'
-alias cabal='nocorrect cabal'
-alias man='nocorrect man'
-alias mkdir='nocorrect mkdir'
-alias mv='nocorrect mv'
-alias stack='nocorrect stack'
-alias sudo='nocorrect sudo'
 
 #
 # Prompt
@@ -177,8 +131,6 @@ export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%
 # Bindings
 #
 
-bindkey -e # emacs bindings, set to -v for vi bindings
-
 # Use "cbt" capability ("back_tab", as per `man terminfo`), if we have it:
 if tput cbt &> /dev/null; then
   bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
@@ -189,31 +141,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "\e[A" history-beginning-search-backward-end  # cursor up
 bindkey "\e[B" history-beginning-search-forward-end   # cursor down
-
-autoload -U select-word-style
-select-word-style bash # only alphanumeric chars are considered WORDCHARS
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^x^x' edit-command-line
-
-bindkey ' ' magic-space # do history expansion on space
-
-# Replace standard history-incremental-search-{backward,forward} bindings.
-# These are the same but permit patterns (eg. a*b) to be used.
-bindkey "^r" history-incremental-pattern-search-backward
-bindkey "^s" history-incremental-pattern-search-forward
-
-# Make CTRL-Z background things and unbackground them.
-function fg-bg() {
-  if [[ $#BUFFER -eq 0 ]]; then
-    fg
-  else
-    zle push-input
-  fi
-}
-zle -N fg-bg
-bindkey '^Z' fg-bg
 
 #
 # Hooks
