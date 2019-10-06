@@ -156,6 +156,7 @@ setopt PROMPT_SUBST
 RPROMPT_BASE='${vcs_info_msg_0_}$(vi_mode_prompt_info)'
 
 # Anonymous function to avoid leaking variables.
+# LVL decide how many right brackets you have on nested shells
 function () {
   # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
   # nested sudo shells but $TERM will.
