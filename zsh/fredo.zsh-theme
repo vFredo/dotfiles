@@ -295,7 +295,7 @@ function -record-command() {
 }
 add-zsh-hook preexec -record-command
 
-# Allways update vcs_info
+# Allways update vcs_info (it is not default)
 +vi-pre-get-data() {
     # Only Git and Mercurial support and need caching. Abort if any other
     # VCS is used.
