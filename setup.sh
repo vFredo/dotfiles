@@ -29,6 +29,8 @@ then
         ln -sf "$(pwd)"/config/polybar/config /"$(whoami)"/.config/polybar/config
         ln -sf "$(pwd)"/config/polybar/spotify/ /"$(whoami)"/.config/polybar/spotify
         ln -sf "$(pwd)"/config/polybar/bluetooth.sh /"$(whoami)"/.config/polybar/bluethooth.sh
+        ln -sf "$(pwd)"/zsh/zshrc /"$(whoami)"/.zshrc
+        ln -sf "$(pwd)"/zsh/fredo.zsh-theme /"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
 
         # Not Root
     else
@@ -49,6 +51,8 @@ then
         ln -sf "$(pwd)"/config/polybar/config /home/"$(whoami)"/.config/polybar/config
         ln -sf "$(pwd)"/config/polybar/spotify/ /home/"$(whoami)"/.config/polybar/spotify
         ln -sf "$(pwd)"/config/polybar/bluetooth.sh /home/"$(whoami)"/.config/polybar/bluetooth.sh
+        ln -sf "$(pwd)"/zsh/zshrc /home/"$(whoami)"/.zshrc
+        ln -sf "$(pwd)"/zsh/fredo.zsh-theme /home/"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
     fi
 
     # Intalling Plug Package Manager
