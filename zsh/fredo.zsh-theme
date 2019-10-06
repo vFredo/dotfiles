@@ -125,6 +125,10 @@ function +vi-git-untracked() {
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
     hook_com[unstaged]+="%F{blue}●%f"
   fi
+
+  if git status | grep "git pull" > /dev/null 2>&1; then
+    hook_com[unstaged]+="%F{yellow}●%f"
+  fi
 }
 
 RPROMPT_BASE="\${vcs_info_msg_0_}\$(vi_mode_prompt_info)"
