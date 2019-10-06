@@ -102,6 +102,7 @@ zstyle ':vcs_info:hg*:*' get-revision true
 zstyle ':vcs_info:hg*:*' get-mq false
 zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
 zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
+zstyle ':vcs_info:*+pre-get-data:*' hooks pre-get-data
 
 function +vi-hg-bookmarks() {
   emulate -L zsh
@@ -294,23 +295,45 @@ function -record-command() {
 }
 add-zsh-hook preexec -record-command
 
-# Update vcs_info (slow) after any command that probably changed it.
-function -maybe-show-vcs-info() {
-  local LAST="$__FREDO[LAST_COMMAND]"
+# Allways update vcs_info
++vi-pre-get-data() {
+    # Only Git and Mercurial support and need caching. Abort if any other
+    # VCS is used.
+    [[ "$vcs" != git && "$vcs" != hg ]] && return
 
-  # In case user just hit enter, overwrite LAST_COMMAND, because preexec
-  # won't run and it will otherwise linger.
-  __FREDO[LAST_COMMAND]="<unset>"
+    # If the shell just started up or we changed directories (or for other
+    # custom reasons) we must run vcs_info.
+    if [[ -n $FORCE_RUN_VCS_INFO ]]; then
+        FORCE_RUN_VCS_INFO=
+        return
+    fi
 
-  # Check first word; via:
-  # http://tim.vanwerkhoven.org/post/2012/10/28/ZSH/Bash-string-manipulation
-  case "$LAST[(w)1]" in
-    cd|cp|git|rm|touch|mv|)
-      vcs_info
-      ;;
-    *)
-      ;;
-  esac
+    # If we got to this point, running vcs_info was not forced, so now we
+    # default to not running it and selectively choose when we want to run
+    # it (ret=0 means run it, ret=1 means don't).
+    ret=1
+    # If a git/hg command was run then run vcs_info as the status might
+    # need to be updated.
+    case "$(fc -ln $(($HISTCMD-1)))" in
+        git*)
+            ret=0
+            ;;
+        hg*)
+            ret=0
+            ;;
+    esac
 }
-add-zsh-hook precmd -maybe-show-vcs-info
+
+# Call vcs_info as precmd before every prompt.
+prompt_precmd() {
+    vcs_info
+}
+add-zsh-hook precmd prompt_precmd
+
+# Must run vcs_info when changing directories.
+prompt_chpwd() {
+    FORCE_RUN_VCS_INFO=1
+}
+
+add-zsh-hook chpwd prompt_chpwd
 
