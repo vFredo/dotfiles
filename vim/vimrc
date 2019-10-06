@@ -194,7 +194,7 @@ let g:lightline = {
   \   'subseparator': { 'left': '', 'right': '' },
   \   'active': {
   \     'right': [ ['percent'], ['lineinfo'] , ['filetype'] ],
-  \     'left': [ [ 'mode', 'myModified', 'paste' ],
+  \     'left': [ [ 'myModified', 'mode', 'paste' ],
   \       [ 'myReadonly', 'relativepath'] ]
   \   },
   \   'inactive': {
@@ -209,22 +209,22 @@ let g:lightline = {
   \     'myReadonly': 'LightlineReadonly'
   \   },
   \   'mode_map': {
-  \     'n': ' ',
-  \     'i': ' ',
-  \     't': ' ',
-  \     'R': ' ',
-  \     'v': ' ',
-  \     'V': ' ',
-  \     "\<C-v>": ' ',
-  \     'c' : ' ',
-  \     's' : ' ',
-  \     'S' : ' ',
+  \     'n': '',
+  \     'i': '',
+  \     't': '',
+  \     'R': '',
+  \     'v': '',
+  \     'V': '',
+  \     "\<C-v>": '',
+  \     'c' : '',
+  \     's' : '',
+  \     'S' : '',
   \     "\<C-s>": ' '
   \   }
   \ }
 
 function! LightlineModified()
-  return &modifiable && &modified ? '✘' : ''
+  return &modifiable && &modified ? ' ✘ ' : '   '
 endfunction
 
 function! LightlineReadonly()
