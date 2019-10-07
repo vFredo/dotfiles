@@ -24,7 +24,7 @@ This configuration are set for Linux operating system, this is really intendent 
    * Current version control branch name.
        	* Red dot indicates unstaged changes.
        	* Yellow dot indicates push to the current remote repo.
-	* Magenta dot indicates pull to the current remote repo.
+				* Magenta dot indicates pull to the current remote repo.
    
 
 ## Zsh
@@ -33,9 +33,9 @@ This configuration are set for Linux operating system, this is really intendent 
       * If you are on vi-mode `<<<` will appear.
       * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
       * Current version control branch name.
-	  * Green dot indicates staged changes.
+					* Green dot indicates staged changes.
           * Red dot indicates unstaged changes.
-	  * Blue dot indicates untracked files.
+	  			* Blue dot indicates untracked files.
           * Yellow dot indicates push to the current remote repo.
           * Magenta dot indicates pull to the current remote repo.
 
