@@ -1,4 +1,4 @@
-"  Reloading .vimrc file
+" Reloading .vimrc file
 autocmd! BufWritePost .vimrc source %
 
 " Automatic rezise buffers  when resizing window
@@ -154,6 +154,9 @@ let &t_EI = "\<Esc>[1 q"
 
 " Fast toggle bewtween the modes
 set timeoutlen=1000 ttimeoutlen=0
+
+" Format options reltated
+set formatoptions+=j
 
 " ------------------------ Plugins Configurations -----------------------
 
