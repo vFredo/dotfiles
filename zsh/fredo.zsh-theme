@@ -123,18 +123,16 @@ RPROMPT_BASE='${vcs_info_msg_0_}$(vi_mode_prompt_info)'
 
 # Anonymous function to avoid leaking variables.
 function () {
-  # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
-  # nested sudo shells but $TERM will.
-  local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
 
-  if [ -n "$TMUXING" -a -n "$TMUX" ]; then
+  # Look if tmux is runnit that way it doesn't have to nested another term
+  if tmux info &> /dev/null; then
     # In a a tmux session created in a non-root or root shell.
     # LVL decide how many right brackets you have on nested shells
     local LVL=$(($SHLVL - 1))
   else
     # Either in a root shell created inside a non-root tmux session,
     # or not in a tmux session.
-    local LVL=$(($SHLVL - 1))
+    local LVL=$(($SHLVL))
   fi
 
   if [[ $EUID -eq 0 ]]; then
@@ -145,7 +143,7 @@ function () {
 
   export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
 
-  if [[ -n "$TMUXING" ]]; then
+  if tmux info &> /dev/null; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
     export ZLE_RPROMPT_INDENT=0
