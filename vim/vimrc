@@ -7,7 +7,7 @@ autocmd! VimResized * wincmd =
 call plug#begin('~/.vim/plugged')
 
 Plug 'SirVer/ultisnips'         " Useful snippets
-Plug 'lervag/vimtex'            " Latex compiler and syntax
+Plug 'lervag/vimtex', { 'for': 'tex' }    " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'tpope/vim-vinegar'        " File search
@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'       " Eady motion with surrounds
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
 Plug 'itchyny/lightline.vim'    " Statusline
-Plug 'harenome/vim-mipssyntax'  " Mips syntax for vim
+Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'duggiefresh/vim-easydir'  " Make files and directories on vim
 Plug 'wincent/loupe'            " Saw search commands more easy
 Plug 'wincent/pinnacle'         " Control of the highlight groups
@@ -130,7 +130,7 @@ if (has("termguicolors"))
 endif
 
 " Folds configurations
-set foldmethod=indent         " Not as cool as syntax, but faster
+set foldmethod=syntax         " Fold by syntax
 set foldlevelstart=1          " Start unfolded
 set viewoptions=folds         " Remember folds on files
 set foldtext=FoldText()       " How folds look like
