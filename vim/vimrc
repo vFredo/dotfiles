@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex', { 'for': 'tex' }    " Latex compiler and syntax
-Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'tpope/vim-vinegar'        " File search
 Plug 'tpope/vim-surround'       " Easy motion with surrounds

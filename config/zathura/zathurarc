@@ -1,4 +1,4 @@
-# Basic Setup
+# Basic options
 
 set statusbar-h-padding 0
 set statusbar-v-padding 0
@@ -6,18 +6,36 @@ set page-padding 10
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 
-# Theme
-set default-bg "#282828"
-set default-fg "#d5d2be"
-set inputbar-bg "#282828"
-set inputbar-fg "#d5d2be"
-set statusbar-bg "#282828"
-set statusbar-fg "#d5d2be"
+# Base16 material darker theme
+set default-bg                  "#212121"
+set default-fg                  "#303030"
 
-set index-bg "#282828"
-set index-fg "#d5d2be"
-set index-active-bg "#282828"
-set index-active-fg "#d5d2be"
+set statusbar-fg                "#B2CCD6"
+set statusbar-bg                "#353535"
 
-set recolor-lightcolor "#212121"
-set recolor-darkcolor "#D0D0D0"
+set inputbar-bg                 "#212121"
+set inputbar-fg                 "#FFFFFF"
+
+set notification-bg             "#212121"
+set notification-fg             "#FFFFFF"
+
+set notification-error-bg       "#212121"
+set notification-error-fg       "#F07178"
+
+set notification-warning-bg     "#212121"
+set notification-warning-fg     "#F07178"
+
+set highlight-color             "#FFCB6B"
+set highlight-active-color      "#82AAFF"
+
+set completion-bg               "#303030"
+set completion-fg               "#82AAFF"
+
+set completion-highlight-fg     "#FFFFFF"
+set completion-highlight-bg     "#82AAFF"
+
+set recolor-lightcolor          "#212121"
+set recolor-darkcolor           "#EEFFFF"
+
+set recolor                     "false"
+set recolor-keephue             "false"
