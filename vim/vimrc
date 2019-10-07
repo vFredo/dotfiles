@@ -130,7 +130,7 @@ if (has("termguicolors"))
 endif
 
 " Folds configurations
-set foldmethod=syntax         " Not as cool as syntax, but faster
+set foldmethod=indent         " Not as cool as syntax, but faster
 set foldlevelstart=1          " Start unfolded
 set viewoptions=folds         " Remember folds on files
 set foldtext=FoldText()       " How folds look like

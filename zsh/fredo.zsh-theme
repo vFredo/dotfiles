@@ -84,8 +84,6 @@ colors
 
 autoload -Uz vcs_info
 
-FORCE_RUN_VCS_INFO=1
-
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' disable-patterns "${(b)HOME}/code/portal(|-ee)(|/*)"
