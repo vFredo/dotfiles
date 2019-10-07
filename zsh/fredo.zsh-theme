@@ -84,6 +84,8 @@ colors
 
 autoload -Uz vcs_info
 
+FORCE_RUN_VCS_INFO=1
+
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' disable-patterns "${(b)HOME}/code/portal(|-ee)(|/*)"
@@ -130,9 +132,7 @@ function +vi-git-untracked() {
 
 }
 
-### Compare local changes to remote changes
-
-### git: Show +N/-N when your local branch is ahead-of or behind remote HEAD.
+# Compare local changes to remote changes
 # Make sure you have added misc to your 'formats':  %m
 function +vi-git-st() {
     local ahead behind
@@ -149,6 +149,35 @@ function +vi-git-st() {
     (( $behind )) && gitstatus+=( "%F{magenta}●%f" )
 
     hook_com[misc]+=${(j:/:)gitstatus}
+}
+
+# Allways update vcs_info (it is not default)
++vi-pre-get-data() {
+    # Only Git and Mercurial support and need caching. Abort if any other
+    # VCS is used.
+    [[ "$vcs" != git && "$vcs" != hg ]] && return
+
+    # If the shell just started up or we changed directories (or for other
+    # custom reasons) we must run vcs_info.
+    if [[ -n $FORCE_RUN_VCS_INFO ]]; then
+        FORCE_RUN_VCS_INFO=
+        return
+    fi
+
+    # If we got to this point, running vcs_info was not forced, so now we
+    # default to not running it and selectively choose when we want to run
+    # it (ret=0 means run it, ret=1 means don't).
+    ret=1
+    # If a git/hg command was run then run vcs_info as the status might
+    # need to be updated.
+    case "$(fc -ln $(($HISTCMD-1)))" in
+        git*)
+            ret=0
+            ;;
+        hg*)
+            ret=0
+            ;;
+    esac
 }
 
 # Adding right prompt
@@ -297,45 +326,9 @@ function -record-command() {
 }
 add-zsh-hook preexec -record-command
 
-# Allways update vcs_info (it is not default)
-+vi-pre-get-data() {
-    # Only Git and Mercurial support and need caching. Abort if any other
-    # VCS is used.
-    [[ "$vcs" != git && "$vcs" != hg ]] && return
-
-    # If the shell just started up or we changed directories (or for other
-    # custom reasons) we must run vcs_info.
-    if [[ -n $FORCE_RUN_VCS_INFO ]]; then
-        FORCE_RUN_VCS_INFO=
-        return
-    fi
-
-    # If we got to this point, running vcs_info was not forced, so now we
-    # default to not running it and selectively choose when we want to run
-    # it (ret=0 means run it, ret=1 means don't).
-    ret=1
-    # If a git/hg command was run then run vcs_info as the status might
-    # need to be updated.
-    case "$(fc -ln $(($HISTCMD-1)))" in
-        git*)
-            ret=0
-            ;;
-        hg*)
-            ret=0
-            ;;
-    esac
-}
-
 # Call vcs_info as precmd before every prompt.
 prompt_precmd() {
     vcs_info
 }
 add-zsh-hook precmd prompt_precmd
-
-# Must run vcs_info when changing directories.
-prompt_chpwd() {
-    FORCE_RUN_VCS_INFO=1
-}
-
-add-zsh-hook chpwd prompt_chpwd
 
