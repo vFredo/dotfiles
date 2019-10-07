@@ -3,7 +3,7 @@
 This configuration are set for Linux operating system, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 
 ## Features
-  * i3 config file
+	* i3 config file
     * Compton
     * flashfocus
     * Required Betterlockscreen
@@ -20,11 +20,11 @@ This configuration are set for Linux operating system, this is really intendent 
   * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 
 ## Bash
-   * Change cursor for vi-mode on shell.
-   * Current version control branch name.
-       	* Red dot indicates unstaged changes.
+	* Change cursor for vi-mode on shell.
+	* Current version control branch name.
+		* Red dot indicates unstaged changes.
        	* Yellow dot indicates push to the current remote repo.
-				* Magenta dot indicates pull to the current remote repo.
+		* Magenta dot indicates pull to the current remote repo.
    
 
 ## Zsh
