@@ -20,10 +20,11 @@ alias vi3='vim ~/.config/i3/config'
 alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
 alias vz="vim ~/.zshrc"
-alias q='exit'
+alias :q='exit'
 alias vi='vim'
 alias la='ls -A'
 alias ..='cd ..'
+alias ....='cd ../..'
 
 # Open any file from terminal (Need Ranger)
 alias open='rifle 2>/dev/null'
