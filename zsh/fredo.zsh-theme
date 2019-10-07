@@ -57,8 +57,7 @@ zstyle ':vcs_info:*' disable-patterns "${(b)HOME}/code/portal(|-ee)(|/*)"
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
 zstyle ':vcs_info:*' use-simple true
-zstyle ':vcs_info:git+set-message:*' hooks git-untracked
-zstyle ':vcs_info:git+set-message:*' hooks git-st
+zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-st
 zstyle ':vcs_info:git*:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
 zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u] ' # default ' (%s)-[%b|%a]%c%u-'
 zstyle ':vcs_info:hg*:*' formats '[%m%b] '
@@ -123,25 +122,29 @@ setopt PROMPT_SUBST
 RPROMPT_BASE='${vcs_info_msg_0_}$(vi_mode_prompt_info)'
 
 # Anonymous function to avoid leaking variables.
-# LVL decide how many right brackets you have on nested shells
 function () {
   # Check for tmux by looking at $TERM, because $TMUX won't be propagated to any
   # nested sudo shells but $TERM will.
   local TMUXING=$([[ "$TERM" =~ "tmux" ]] && echo tmux)
+
   if [ -n "$TMUXING" -a -n "$TMUX" ]; then
     # In a a tmux session created in a non-root or root shell.
+    # LVL decide how many right brackets you have on nested shells
     local LVL=$(($SHLVL - 1))
   else
     # Either in a root shell created inside a non-root tmux session,
     # or not in a tmux session.
     local LVL=$(($SHLVL - 1))
   fi
+
   if [[ $EUID -eq 0 ]]; then
     local SUFFIX=$(printf '%%F{red}#%.0s%%f' {1..$LVL})
   else
     local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
   fi
+
   export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
+
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.
