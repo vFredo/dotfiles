@@ -1,4 +1,4 @@
-# "dotfiles" and system configurations
+# Dotfiles and system configurations
 
 This configuration are set for Linux operating system, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 

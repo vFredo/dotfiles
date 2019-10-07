@@ -150,6 +150,9 @@ function +vi-git-st() {
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 
+# Vi-mode plugin indicator config
+MODE_INDICATOR="%{$fg_bold[yellow]%}<%{$fg[yellow]%}<<%{$reset_color%}"
+
 # Adding right prompt
 setopt PROMPT_SUBST
 RPROMPT_BASE='${vcs_info_msg_0_}$(vi_mode_prompt_info)'
@@ -169,11 +172,11 @@ function () {
     local LVL=$(($SHLVL - 1))
   fi
   if [[ $EUID -eq 0 ]]; then
-    local SUFFIX='%F{yellow}%n%f'$(printf '%%F{yellow}\u276f%.0s%%f' {1..$LVL})
+    local SUFFIX=$(printf '%%F{red}#%.0s%%f' {1..$LVL})
   else
-    local SUFFIX=$(printf '%%F{red}\u276f%.0s%%f' {1..$LVL})
+    local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
   fi
-  export PS1=" %F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b%f %B${SUFFIX}%b "
+  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
   if [[ -n "$TMUXING" ]]; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
     # prompt still gets corrupted even if we add an extra space to compensate.

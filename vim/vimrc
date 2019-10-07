@@ -34,9 +34,11 @@ nnoremap <leader>c :VimtexCompile<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
 nnoremap <leader>h :CommandTHelp<CR>
 
-" Buffer related bindings
+" Buffer and window related bindings
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>l <C-w>L
 
 " Check if is need it to install: vim --version | grep clipboard 
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
@@ -46,7 +48,6 @@ vnoremap <leader>y "+y
 vnoremap <leader>x "+d
 
 " Some miscellaneous bindings
-nnoremap Y y$
 nnoremap c* *Ncgn
 nnoremap <Up> <C-y>M
 nnoremap <Down> <C-e>M
@@ -56,7 +57,6 @@ noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
-nnoremap <leader>l <C-w>L
 
 " Move code blocks more easily
 vnoremap < <gv
