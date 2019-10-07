@@ -11,7 +11,8 @@ Plug 'lervag/vimtex', { 'for': 'tex' }    " Latex compiler and syntax
 Plug 'suy/vim-context-commentstring' " Know the type of file to comment
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'tpope/vim-vinegar'        " File search
-Plug 'tpope/vim-surround'       " Eady motion with surrounds
+Plug 'tpope/vim-surround'       " Easy motion with surrounds
+Plug 'justinmk/vim-sneak'       " Easy navegation with 2 letters
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
 Plug 'itchyny/lightline.vim'    " Statusline
@@ -131,8 +132,7 @@ endif
 
 " Folds configurations
 set foldmethod=syntax         " Fold by syntax
-set foldlevelstart=1          " Start unfolded
-set viewoptions=folds         " Remember folds on files
+set foldlevel=99              " No fold when open a file
 set foldtext=FoldText()       " How folds look like
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
 
@@ -237,9 +237,13 @@ function! s:SetUpLoupeHighlight()
 
   highlight! clear Search
   execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+
 endfunction
 
 autocmd ColorScheme * call s:SetUpLoupeHighlight()
+
+" ------------------ Sneak config ------------------------------
+autocmd User SneakLeave highlight clear Sneak
 
 " ------------------ MIPS syntax config ------------------------------
 autocmd BufNewFile,BufRead *.s set syntax=mips

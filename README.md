@@ -23,7 +23,6 @@ This configuration are set for Linux operating system, this is really intendent 
    * Red dot indicates unstaged changes.
    * Yellow dot indicates push to the current remote repo.
    * Magenta dot indicates pull to the current remote repo.
-   * Blue dot indicate that all is good, up to date.
    * Change cursor for vi-mode on shell.
 
 ## Zsh

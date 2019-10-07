@@ -136,8 +136,6 @@ git_status(){
 
     if ! git status | grep "nothing to commit" > /dev/null 2>&1; then
       dots="${dots}${red}●${no_color}"
-    else
-      dots="${dots}${blue}●${no_color}"
     fi
 
     if git checkout | grep "git push" > /dev/null 2>&1; then
@@ -155,7 +153,7 @@ git_status(){
 }
 
 # All non-printable bytes in PS1 have to be contained within \[ \]
-export PS1=" \[${green}${bold}\]\W\[${normal}${no_color}\]\$(git_status)\[${no_color}${red}\] ⮞ \[${no_color}\]"
+export PS1="\[${blue}${bold}\]\W\[${normal}${no_color}\]\$(git_status)\[${no_color}${red}${bold}\] $\[${normal}${no_color}\] "
 
 # Vi mode on bash
 set -o vi
