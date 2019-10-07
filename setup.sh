@@ -27,7 +27,7 @@ then
         ln -sf "$(pwd)"/config/compton.conf /"$(whoaim)"/.config/compton.conf
         ln -sf "$(pwd)"/config/polybar/launch.sh /"$(whoami)"/.config/polybar/launch.sh
         ln -sf "$(pwd)"/config/polybar/config /"$(whoami)"/.config/polybar/config
-        ln -sf "$(pwd)"/config/polybar/spotify/ /"$(whoami)"/.config/polybar/spotify
+        ln -sf "$(pwd)"/config/polybar/spotify /"$(whoami)"/.config/polybar/spotify
         ln -sf "$(pwd)"/config/polybar/bluetooth.sh /"$(whoami)"/.config/polybar/bluethooth.sh
         ln -sf "$(pwd)"/zsh/zshrc /"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
@@ -49,7 +49,7 @@ then
         ln -sf "$(pwd)"/config/compton.conf /home/"$(whoami)"/.config/compton.conf
         ln -sf "$(pwd)"/config/polybar/launch.sh /home/"$(whoami)"/.config/polybar/launch.sh
         ln -sf "$(pwd)"/config/polybar/config /home/"$(whoami)"/.config/polybar/config
-        ln -sf "$(pwd)"/config/polybar/spotify/ /home/"$(whoami)"/.config/polybar/spotify
+        ln -sf "$(pwd)"/config/polybar/spotify /home/"$(whoami)"/.config/polybar/spotify
         ln -sf "$(pwd)"/config/polybar/bluetooth.sh /home/"$(whoami)"/.config/polybar/bluetooth.sh
         ln -sf "$(pwd)"/zsh/zshrc /home/"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /home/"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme

@@ -29,14 +29,14 @@ This configuration are set for Linux operating system, this is really intendent 
 ## Zsh
 * Requiered [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
-* If you are on vi-mode `<<<` will appear.
-* Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
-* Current version control branch name.
-  * Green dot indicates staged changes.
-  * Red dot indicates unstaged changes.
-  * Blue dot indicates untracked files.
-  * Yellow dot indicates push to the current remote repo.
-  * Magenta dot indicates pull to the current remote repo.
+  * If you are on vi-mode `<<<` will appear.
+  * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
+  * Current version control branch name.
+    * Green dot indicates staged changes.
+    * Red dot indicates unstaged changes.
+    * Blue dot indicates untracked files.
+    * Yellow dot indicates push to the current remote repo.
+    * Magenta dot indicates pull to the current remote repo.
 
 ## Theme
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
