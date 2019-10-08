@@ -54,6 +54,26 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
+#
+# Options
+#
+
+setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
+setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
+setopt CLOBBER                 # allow clobbering with >, no need to use >!
+setopt CORRECT                 # [default] command auto-correction
+setopt CORRECT_ALL             # [default] argument auto-correction
+setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
+setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
+setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
+setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
+setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
+setopt LIST_PACKED             # make completion lists more densely packed
+setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
+setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
+setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
+setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
+
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -75,9 +95,14 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# Tmux plugin config
+ZSH_TMUX_AUTOSTART=true
+
 plugins=(
   git
   vi-mode
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,24 +120,4 @@ export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-#
-# Options
-#
-
-setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
-setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
-setopt CLOBBER                 # allow clobbering with >, no need to use >!
-setopt CORRECT                 # [default] command auto-correction
-setopt CORRECT_ALL             # [default] argument auto-correction
-setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
-setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
-setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
-setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
-setopt LIST_PACKED             # make completion lists more densely packed
-setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
-setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
-setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
-setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
 
