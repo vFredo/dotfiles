@@ -40,5 +40,9 @@ This configuration are set for Linux operating system, this is really intendent 
 
 ## Theme
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
-* Font: [Source Code Pro Regular](https://github.com/adobe-fonts/source-code-pro).
+* Fonts used:
+  * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
+  * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
+  * [Material Icons](https://github.com/google/material-design-icons).
+  * [Font Awesome](https://fontawesome.com/)(Free version).
 
