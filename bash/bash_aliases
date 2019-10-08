@@ -20,6 +20,7 @@ alias vi3='vim ~/.config/i3/config'
 alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
 alias vz="vim ~/.zshrc"
+alias vt="vim ~/.tmux.conf"
 alias :q='exit'
 alias vi='vim'
 alias la='ls -A'

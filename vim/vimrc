@@ -192,8 +192,8 @@ let g:netrw_liststyle = 3
 set laststatus=2
 let g:lightline = {
   \   'colorscheme': 'fredoLightline',
-  \   'separator': { 'left': '', 'right': '' },
-  \   'subseparator': { 'left': '', 'right': '' },
+  \   'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \   'subseparator': { 'left': "", 'right': "" },
   \   'active': {
   \     'right': [ ['percent'], ['lineinfo'] , ['filetype'] ],
   \     'left': [ [ 'myModified', 'mode', 'paste' ],
