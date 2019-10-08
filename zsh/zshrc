@@ -103,6 +103,7 @@ plugins=(
   git
   vi-mode
   tmux
+  colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh

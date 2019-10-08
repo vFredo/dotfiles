@@ -14,6 +14,7 @@ then
     then
         ln -sf "$(pwd)"/config/tmux.conf /"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/vimrc /"$(whoami)"/.vimrc
+        ln -sf "$(pwd)"/vim/plugin /"$(whoami)"/.vim/
         ln -sf "$(pwd)"/bash/bashrc /"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/bash/profile /"$(whoami)"/.profile
         ln -sf "$(pwd)"/bash/bash_aliases /"$(whoaim)"/.bash_aliases
@@ -27,7 +28,7 @@ then
         ln -sf "$(pwd)"/config/compton.conf /"$(whoaim)"/.config/compton.conf
         ln -sf "$(pwd)"/config/polybar/launch.sh /"$(whoami)"/.config/polybar/launch.sh
         ln -sf "$(pwd)"/config/polybar/config /"$(whoami)"/.config/polybar/config
-        ln -sf "$(pwd)"/config/polybar/spotify /"$(whoami)"/.config/polybar/spotify
+        ln -sf "$(pwd)"/config/polybar/spotify /"$(whoami)"/.config/polybar/
         ln -sf "$(pwd)"/config/polybar/bluetooth.sh /"$(whoami)"/.config/polybar/bluethooth.sh
         ln -sf "$(pwd)"/zsh/zshrc /"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
@@ -36,6 +37,7 @@ then
     else
         ln -sf "$(pwd)"/config/tmux.conf /home/"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/vimrc /home/"$(whoami)"/.vimrc
+        ln -sf "$(pwd)"/vim/plugin /home/"$(whoami)"/.vim/
         ln -sf "$(pwd)"/bash/bashrc /home/"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/bash/profile /home/"$(whoami)"/.profile
         ln -sf "$(pwd)"/bash/bash_aliases /home/"$(whoami)"/.bash_aliases
@@ -49,7 +51,7 @@ then
         ln -sf "$(pwd)"/config/compton.conf /home/"$(whoami)"/.config/compton.conf
         ln -sf "$(pwd)"/config/polybar/launch.sh /home/"$(whoami)"/.config/polybar/launch.sh
         ln -sf "$(pwd)"/config/polybar/config /home/"$(whoami)"/.config/polybar/config
-        ln -sf "$(pwd)"/config/polybar/spotify /home/"$(whoami)"/.config/polybar/spotify
+        ln -sf "$(pwd)"/config/polybar/spotify /home/"$(whoami)"/.config/polybar/
         ln -sf "$(pwd)"/config/polybar/bluetooth.sh /home/"$(whoami)"/.config/polybar/bluetooth.sh
         ln -sf "$(pwd)"/zsh/zshrc /home/"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /home/"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
