@@ -20,7 +20,6 @@ This configuration are set for Linux operating system, this is really intendent 
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 
 ## Bash
-* Change cursor for vi-mode on shell.
 * Current version control branch name.
   * Red dot indicates unstaged changes.
   * Yellow dot indicates push to the current remote repo.
@@ -44,5 +43,5 @@ This configuration are set for Linux operating system, this is really intendent 
   * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
   * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
   * [Material Icons](https://github.com/google/material-design-icons).
-  * [Font Awesome](https://fontawesome.com/)(the free version).
+  * [Font Awesome](https://fontawesome.com/) (the free version).
 
