@@ -1,13 +1,13 @@
 # Dotfiles and system configurations
 
-This configuration are set for Linux operating system, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
+This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 
 ## Features
 * i3 config.
 * Betterlockscreen config (alternative for i3 lockscreen).
 * Polybar config files.
 * Rofi config (alternative of dmenu).
-* Ranger terminal configurations (needed to open files with alias).
+* Ranger configurations.
 * Zathura (PDF reader) config.
 * Vim config files.
 * Tmux config.
@@ -33,14 +33,14 @@ This configuration are set for Linux operating system, this is really intendent 
 
 ## Theme
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
-* Terminal font:  [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
+* Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
 # Dependencies
-* Fonts:
+* Fonts
   * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
   * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
   * [Material Icons](https://github.com/google/material-design-icons).
-  * [Font Awesome](https://fontawesome.com/) (the free version).
+  * [Font Awesome](https://fontawesome.com/).
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * Polybar
