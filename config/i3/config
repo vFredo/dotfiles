@@ -197,4 +197,5 @@ exec_always --no-startup-id flashfocus
 
 # assing a workspace for Spotify
 for_window [class="Spotify"] move to workspace $workspace5
+for_window [class="Firefox"] move to workspace $workspace1
 
