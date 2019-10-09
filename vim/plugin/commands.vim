@@ -1,3 +1,6 @@
+"
+" Vim commands or autocommands
+"
 
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =

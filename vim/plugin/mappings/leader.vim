@@ -15,10 +15,9 @@ nnoremap <leader><leader> <C-^>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>l <C-w>L
 
-" Check if is need it to install: vim --version | grep clipboard 
+" Check if is need it to install: vim --version | grep clipboard
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
-" Requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11)
-" Copy to clipboard (",y") and paste to clipboard(",x")
+" requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11)
 vnoremap <leader>y "+y
 vnoremap <leader>x "+d
 

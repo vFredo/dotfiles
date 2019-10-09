@@ -1,4 +1,3 @@
-
 "
 " Default settings
 "
@@ -8,10 +7,10 @@ set laststatus=2
 
 " Annoying things
 set shortmess+=W      " Don't echo [w]/[written] when writing
-set shortmess+=I      " Dont'n show Intro message of Vim
-set shortmess+=T      " To big for the command line, put ...
+set shortmess+=I      " Dont'n show intro message of Vim
+set shortmess+=T      " Too big for the command line? put ...
 set belloff=all       " Never ring the bell
-set mouse=a           " Mouse on vim
+set mouse=a           " Mouse movement on vim
 
 " Highlight
 syntax enable
@@ -31,7 +30,8 @@ if has('linebreak')
   endif
 endif
 
-set list                              " Show whitespace
+" Show whitespaces
+set list
 set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
 set listchars+=tab:▷┅                 " (U+25B7, UTF-8: E2 96 B7) (U+2505, UTF-8: E2 94 85)
 set listchars+=extends:»              " (U+00BB, UTF-8: C2 BB)
@@ -81,7 +81,7 @@ function! FoldText() abort
 endfunction
 
 " Change cursors between modes
-" Compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5
+" (compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[2 q"
 let &t_EI = "\<Esc>[1 q"
@@ -91,7 +91,6 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " Format options reltated
 set formatoptions+=j
-let mapleader = " "
 
 " Color related
 set highlight+=N:DiffText     " Make current line number stand out a little
