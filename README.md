@@ -7,11 +7,11 @@ This configuration are set for Linux operating system, this is really intendent 
 * Compton
 * Flashfocus
 * Betterlockscreen config required
-  * i3lock-color
-  * Imagemagick
-  * xdpyinfo, xrandr, bc and feh
+    * i3lock-color
+    * Imagemagick
+    * xdpyinfo, xrandr, bc and feh
 * Polybar config file required
-  * dbus-python (a module to run spotify on the bar)
+    * dbus-python (a module to run spotify on the bar)
 * Rofi config file (alternative of dmenu)
 * Ranger terminal configurations (needed to open files with alias)
 * Zathura (PDF reader) config file
@@ -21,21 +21,21 @@ This configuration are set for Linux operating system, this is really intendent 
 
 ## Bash
 * Current version control branch name.
-  * Red dot indicates unstaged changes.
-  * Yellow dot indicates push to the current remote repo.
-  * Magenta dot indicates pull to the current remote repo.
+    * Red dot indicates unstaged changes.
+    * Yellow dot indicates push to the current remote repo.
+    * Magenta dot indicates pull to the current remote repo.
 
 ## Zsh
 * Requiered [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
-  * If you are on vi-mode `<<<` will appear.
-  * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
-  * Current version control branch name.
-    * Green dot indicates staged changes.
-    * Red dot indicates unstaged changes.
-    * Blue dot indicates untracked files.
-    * Yellow dot indicates push to the current remote repo.
-    * Magenta dot indicates pull to the current remote repo.
+    * If you are on vi-mode `<<<` will appear.
+    * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
+    * Current version control branch name.
+        * Green dot indicates staged changes.
+        * Red dot indicates unstaged changes.
+        * Blue dot indicates untracked files.
+        * Yellow dot indicates push to the current remote repo.
+        * Magenta dot indicates pull to the current remote repo.
 
 ## Theme
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
