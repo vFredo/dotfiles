@@ -96,9 +96,13 @@ setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/p
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+# Tmux plugin config
+ZSH_TMUX_AUTOSTART=true
+
 plugins=(
   git
   vi-mode
+  tmux
   colored-man-pages
 )
 
