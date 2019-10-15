@@ -14,13 +14,13 @@ This configuration are set for Linux operating systems, this is really intendent
 * Latexmk compiler config.
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 
-## Bash
+### Bash
 * Current version control branch name.
     * Red dot indicates unstaged changes.
     * Yellow dot indicates push to the current remote repo.
     * Magenta dot indicates pull to the current remote repo.
 
-## Zsh
+### Zsh
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
     * If you are on vi-mode `<<<` will appear.
     * Duration of previous command in adaptive units (seconds, minutes, hours, days, depending on duration).
@@ -31,11 +31,11 @@ This configuration are set for Linux operating systems, this is really intendent
         * Yellow dot indicates push to the current remote repo.
         * Magenta dot indicates pull to the current remote repo.
 
-## Theme
+### Theme
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
-# Dependencies
+## Dependencies
 * Fonts
   * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
   * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
@@ -53,6 +53,6 @@ This configuration are set for Linux operating systems, this is really intendent
     * Compton
     * Flashfocus
 
-### Inspired
+# Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent). Most of the tecnical things seen in this repo, come from there.
 
