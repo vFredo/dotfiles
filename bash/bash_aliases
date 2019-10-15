@@ -5,6 +5,7 @@ alias doc='cd ~/Documents'
 alias dow='cd ~/Downloads'
 alias dot='cd ~/dotfiles'
 alias stuff='cd ~/Documents/Stuff'
+alias usb='cd /media/'
 
 # Education folders
 alias j='cd ~/Documents/Universidad/Javeriana/'

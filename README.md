@@ -53,3 +53,6 @@ This configuration are set for Linux operating systems, this is really intendent
     * Compton
     * Flashfocus
 
+### Inspired
+* Wincent [dotfiles](https://github.com/wincent/wincent). Most of the tecnical things seen in this repo, come from there.
+

@@ -37,6 +37,6 @@ if [ -f "$archive" ] ; then
   *) printf "extract: '%s' - unknown archive method\\n" "$archive" ;;
 esac
 else
-printf "File \"%s\" not found.\\n" "$archive"
+  printf "File \"%s\" not found.\\n" "$archive"
 fi
 
