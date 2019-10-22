@@ -37,10 +37,10 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ## Dependencies
 * Fonts
-  * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
-  * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
-  * [Material Icons](https://github.com/google/material-design-icons).
-  * [Font Awesome](https://fontawesome.com/).
+    * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
+    * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
+    * [Material Icons](https://github.com/google/material-design-icons).
+    * [Font Awesome](https://fontawesome.com/).
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * Polybar
