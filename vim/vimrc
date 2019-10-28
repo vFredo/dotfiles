@@ -18,7 +18,7 @@ Plug 'itchyny/lightline.vim'    " Nice statusline
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " Saw search commands more easy
-" Fuzzy finder, it need apt-get install ruby-dev
+" Fuzzy finder, it need apt-get install ruby-dev on ubuntu
 Plug 'wincent/command-t', {
   \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
   \ }

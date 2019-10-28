@@ -14,6 +14,7 @@ nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>l <C-w>L
+nnoremap <leader>o :only<CR>
 
 " Check if is need it to install: vim --version | grep clipboard
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
