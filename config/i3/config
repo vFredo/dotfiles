@@ -63,6 +63,10 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+# Screen Shots
+bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+bindsym Control+Print exec gnome-screenshot -i
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
