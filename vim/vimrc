@@ -21,7 +21,7 @@ Plug 'wincent/loupe'            " Saw search commands more easy
 " Fuzzy finder, it need apt-get install ruby-dev on ubuntu
 Plug 'wincent/command-t', {
   \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-  \}
+  \ }
 
 call plug#end()
 
@@ -93,7 +93,7 @@ let g:lightline = {
   \ }
 
 function! LightlineModified()
-  return &modifiable && &modified ? ' + ' : '   '
+  return &modifiable && &modified ? ' ✘ ' : '   '
 endfunction
 
 function! LightlineReadonly()

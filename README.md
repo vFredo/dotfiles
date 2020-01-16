@@ -31,7 +31,7 @@ This configuration are set for Linux operating systems, this is really intendent
         * Magenta dot indicates pull to the current remote repo.
 
 ### Theme
-* Current Terminal: [st terminal](https://st.suckless.org/)
+* Current Terminal: [simple terminal](https://st.suckless.org/)
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
