@@ -21,7 +21,7 @@ Plug 'wincent/loupe'            " Saw search commands more easy
 " Fuzzy finder, it need apt-get install ruby-dev on ubuntu
 Plug 'wincent/command-t', {
   \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-  \ }
+  \}
 
 call plug#end()
 
@@ -93,7 +93,7 @@ let g:lightline = {
   \ }
 
 function! LightlineModified()
-  return &modifiable && &modified ? ' ✘ ' : '   '
+  return &modifiable && &modified ? ' + ' : '   '
 endfunction
 
 function! LightlineReadonly()
@@ -120,6 +120,7 @@ function! s:SetUpLoupeHighlight()
 
   highlight! clear Search
   execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+
 endfunction
 
 autocmd ColorScheme * call s:SetUpLoupeHighlight()
@@ -132,10 +133,17 @@ function! s:base16_customize() abort
   call Base16hi("Comment", g:base16_gui03, '', '', '', "italic", "")
 endfunction
 
-" Colorsheme for Terminal (check https://github.com/chriskempson/base16-shell)
+" Colorsheme for Terminal (checkout https://github.com/chriskempson/base16-shell).
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
   call s:base16_customize()
+endif
+
+" True colors on terminal
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
 endif
 

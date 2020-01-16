@@ -2,6 +2,8 @@
 " Default settings
 "
 
+set encoding=utf-8
+
 "Setting statusline
 set laststatus=2
 
@@ -58,11 +60,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store,*.pdf,*/project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
-" Nice looking colors on terminal
-if (has("termguicolors"))
-  set termguicolors
-endif
-
 " Folds configurations
 set foldmethod=syntax         " Fold by syntax
 set foldlevel=99              " No fold when open a file
@@ -80,11 +77,17 @@ function! FoldText() abort
   return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
-" Change cursors between modes
+" Change cursors between modes (Also chech if you are using tmux)
 " (compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[2 q"
-let &t_EI = "\<Esc>[1 q"
+if exists('$TMUX')
+    let &t_SI = "\ePtmux;\e\e[6 q\e\\"
+    let &t_SR = "\ePtmux;\e\e[4 q\e\\"
+    let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+else
+    let &t_SI = "\<Esc>[6 q"
+    let &t_SR = "\<Esc>[4 q"
+    let &t_EI = "\<Esc>[2 q"
+endif
 
 " Fast toggle bewtween the modes
 set timeoutlen=1000 ttimeoutlen=0
@@ -94,6 +97,7 @@ set formatoptions+=j
 
 " Color related
 set highlight+=N:DiffText     " Make current line number stand out a little
+
 " Make background transparent of the line numbers
 highlight LineNr guibg=NONE
 

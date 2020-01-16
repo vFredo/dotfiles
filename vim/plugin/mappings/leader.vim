@@ -20,5 +20,5 @@ nnoremap <leader>o :only<CR>
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
 " requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11)
 vnoremap <leader>y "+y
-vnoremap <leader>x "+d
+vnoremap <leader>d "+d
 

@@ -3,11 +3,10 @@
 This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 
 ## Features
-* i3 config.
-* Betterlockscreen config (alternative for i3 lockscreen).
-* Polybar config files.
-* Rofi config (alternative of dmenu).
+* i3 gaps config.
+    * bettterlockscreen config file (Alternative for i3lock).
 * Ranger configurations.
+* Polybar configurations.
 * Zathura (PDF reader) config.
 * Vim config files.
 * Tmux config.
@@ -32,6 +31,7 @@ This configuration are set for Linux operating systems, this is really intendent
         * Magenta dot indicates pull to the current remote repo.
 
 ### Theme
+* Current Terminal: [st terminal](https://st.suckless.org/)
 * Terminal Theme: [base16_material-darker](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
@@ -43,15 +43,19 @@ This configuration are set for Linux operating systems, this is really intendent
     * [Font Awesome](https://fontawesome.com/).
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
-* Polybar
-    * dbus-python (to run module of spotify on the bar)
-* Betterlockscreen
-    * i3lock-color
-    * Imagemagick
-    * xdpyinfo, xrandr, bc and feh
-* i3
+* i3 gaps
+    * blueman
     * Compton
-    * Flashfocus
+    * betterlockscreen
+        * imagemagick
+        * feh
+        * xorg-xrandr
+        * xorg-xdpyinfo
+        * i3lock-color
+* Ranger
+    * atool
+* Tmux
+    * xclip
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent). Most of the tecnical things seen in this repo, come from there.
