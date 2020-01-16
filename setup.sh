@@ -24,6 +24,8 @@ then
         ln -sf "$(pwd)"/zsh/zshrc /"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
         ln -sf "$(pwd)"/config/betterlockscreenrc /"$(whoami)"/.config/betterlockscreenrc
+        ln -sf "$(pwd)"/config/ranger/commands.py /"$(whoami)"/.config/ranger/commands.py
+        ln -sf "$(pwd)"/config/ranger/rc.conf /"$(whoami)"/.config/ranger/rc.conf
 
         # Not Root
     else
@@ -39,6 +41,8 @@ then
         ln -sf "$(pwd)"/zsh/zshrc /home/"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /home/"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
         ln -sf "$(pwd)"/config/betterlockscreenrc /home/"$(whoami)"/.config/betterlockscreenrc
+        ln -sf "$(pwd)"/config/ranger/commands.py /home/"$(whoami)"/.config/ranger/commands.py
+        ln -sf "$(pwd)"/config/ranger/rc.conf /home/"$(whoami)"/.config/ranger/rc.conf
     fi
 
     # Intalling Plug Package Manager
