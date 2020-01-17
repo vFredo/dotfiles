@@ -56,26 +56,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-#
-# Options
-#
-
-setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
-setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
-setopt CLOBBER                 # allow clobbering with >, no need to use >!
-setopt CORRECT                 # [default] command auto-correction
-setopt CORRECT_ALL             # [default] argument auto-correction
-setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
-setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
-setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
-setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
-setopt LIST_PACKED             # make completion lists more densely packed
-setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
-setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
-setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
-setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -96,7 +76,6 @@ setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/p
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 
 # Tmux plugin config
 ZSH_TMUX_AUTOSTART=true
@@ -108,19 +87,35 @@ plugins=(
   colored-man-pages
 )
 
+# User configuration
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
 
-# User configuration
+# Use vim keys in tab complete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Make CTRL-Z background things and unbackground them.
+function fg-bg() {
+    if [[ $#BUFFER -eq 0  ]]; then
+        fg
+    else
+        zle push-input
+    fi
+}
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+zle -N fg-bg
+bindkey '^Z' fg-bg
 
-# Preferred editor for local and remote sessions
+
+# Prefferred things
 export EDITOR='vim'
+export MANPATH="/usr/local/man:$MANPATH"
 
-# Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+# export LANG=en_US.UTF-8
 

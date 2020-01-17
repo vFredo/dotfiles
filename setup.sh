@@ -37,7 +37,7 @@ then
         ln -sf "$(pwd)"/bash/bash_aliases /home/"$(whoami)"/.bash_aliases
         ln -sf "$(pwd)"/config/i3/config /home/"$(whoami)"/.i3/config
         ln -sf "$(pwd)"/config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
-        ln -sf "$(pwd)"/bash/latexmkrc /home/"$(whoami)"/.latexmkrc
+        ln -sf "$(pwd)"/config/latexmkrc /home/"$(whoami)"/.latexmkrc
         ln -sf "$(pwd)"/zsh/zshrc /home/"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /home/"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
         ln -sf "$(pwd)"/config/betterlockscreenrc /home/"$(whoami)"/.config/betterlockscreenrc
