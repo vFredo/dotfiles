@@ -15,6 +15,7 @@ then
         ln -sf "$(pwd)"/config/tmux.conf /"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/vimrc /"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/vim/plugin /"$(whoami)"/.vim/
+        ln -sf "$(pwd)"/bash/Xresources /"$(whoami)"/.Xresources
         ln -sf "$(pwd)"/bash/bashrc /"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/bash/profile /"$(whoami)"/.profile
         ln -sf "$(pwd)"/bash/bash_aliases /"$(whoaim)"/.bash_aliases
@@ -32,6 +33,7 @@ then
         ln -sf "$(pwd)"/config/tmux.conf /home/"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/vimrc /home/"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/vim/plugin /home/"$(whoami)"/.vim/
+        ln -sf "$(pwd)"/bash/Xresources /home/"$(whoami)"/.Xresources
         ln -sf "$(pwd)"/bash/bashrc /home/"$(whoami)"/.bashrc
         ln -sf "$(pwd)"/bash/profile /home/"$(whoami)"/.profile
         ln -sf "$(pwd)"/bash/bash_aliases /home/"$(whoami)"/.bash_aliases
