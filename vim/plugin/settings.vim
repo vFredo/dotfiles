@@ -132,6 +132,7 @@ set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=N:FoldColumn         " Make current line number stand out a little
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
-" Make background transparent for the line numbers
+" Make background transparent for the line numbers and italics for comments
 highlight LineNr guibg=NONE
+highlight Comment cterm=italic
 

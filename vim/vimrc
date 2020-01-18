@@ -129,15 +129,11 @@ autocmd ColorScheme * call s:SetUpLoupeHighlight()
 highlight! link Sneak Search
 
 " ---------------- base16 colorscheme config --------------------------
-function! s:base16_customize() abort
-  call Base16hi("Comment", g:base16_gui03, '', '', '', "italic", "")
-endfunction
 
 " Colorsheme for Terminal (checkout https://github.com/chriskempson/base16-shell)
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
-  call s:base16_customize()
 endif
 
 " True colors on terminal
