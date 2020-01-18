@@ -18,7 +18,7 @@ nnoremap <leader>o :only<CR>
 
 " Check if is need it to install: vim --version | grep clipboard
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
-" requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11)
+" requiered for ubuntu (vim-gtk/vim-gnome) or CentOs/Redhat (vim-X11) on Arch gvim
 vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 
