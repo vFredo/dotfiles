@@ -5,7 +5,7 @@
 set encoding=utf-8
 
 " Move backup files out of the way and don't create root-owned files
-" the "//" on the dirs means that the files created there has a unique name
+" the "//" on the dirs means that the files created on tmp will be unique
 if exists('$SUDO_USER')
   set nobackup
   set nowritebackup
@@ -88,6 +88,7 @@ set wildignore+=.DS_Store,*.pdf,*/project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Folds configurations
+set diffopt+=foldcolumn:0     " Don't show fold column in diff view
 set foldmethod=indent         " Fold by syntax
 set foldlevel=99              " No fold when open a file
 set foldtext=FoldText()       " How folds look like

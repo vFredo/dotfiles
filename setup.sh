@@ -28,7 +28,6 @@ then
         ln -sf "$(pwd)"/config/ranger/commands.py /"$(whoami)"/.config/ranger/commands.py
         ln -sf "$(pwd)"/config/ranger/rc.conf /"$(whoami)"/.config/ranger/rc.conf
 
-        # Not Root
     else
         ln -sf "$(pwd)"/config/tmux.conf /home/"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/vim/vimrc /home/"$(whoami)"/.vimrc
@@ -51,10 +50,10 @@ then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    # Installing vim plugins
-    vim +PlugInstall +qall
-
     # Adding own Lightline theme
     cp "$(pwd)"/vim/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+
+    # Installing vim plugins
+    vim +PlugInstall +qall
 fi
 
