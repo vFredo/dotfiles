@@ -4,7 +4,7 @@
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
     # Create folders need it
-    mkdir -p ~/.config/zathura ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/undo
+    mkdir -p ~/.config/zathura ~/fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/undo
 
     # Terminal theme related
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -52,6 +52,10 @@ then
 
     # Adding own Lightline theme
     cp "$(pwd)"/vim/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+
+    # Intalling fonts and updating font cache
+    cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
+    fc-cache -f -v
 
     # Installing vim plugins
     vim +PlugInstall +qall
