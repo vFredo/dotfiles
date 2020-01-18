@@ -37,8 +37,8 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ## Dependencies
 * Fonts
+Download and copy the next fonts on `~/.fonts`
     * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
-    * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
     * [Material Icons](https://github.com/google/material-design-icons).
     * [Font Awesome](https://fontawesome.com/).
 * Zsh
@@ -60,5 +60,5 @@ This configuration are set for Linux operating systems, this is really intendent
     * Dbus python
 
 # Inspired
-* Wincent [dotfiles](https://github.com/wincent/wincent). Most of the tecnical things seen in this repo, come from there.
+* Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
 

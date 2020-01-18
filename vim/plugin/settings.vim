@@ -128,7 +128,6 @@ set timeoutlen=1000 ttimeoutlen=0
 set formatoptions+=j
 
 " Color related
-set highlight+=@:Conceal            " ~/@ at end of window, 'showbreak'
 set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=N:FoldColumn         " Make current line number stand out a little
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
