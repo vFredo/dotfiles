@@ -11,3 +11,6 @@ autocmd BufNewFile,BufRead *.s set syntax=mips
 " Disable paste mode on leaving insert mode
 autocmd InsertLeave * set nopaste
 
+" Disable auto comments on the next line
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+

@@ -1,6 +1,7 @@
 "
 " Vimrc plugin configuration
 "
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'   " Tmux navigation on vim
