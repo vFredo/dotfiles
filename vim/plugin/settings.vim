@@ -4,6 +4,31 @@
 
 set encoding=utf-8
 
+" Move backup files out of the way and don't create root-owned files
+" the "//" on the dirs means that the files created there has a unique name
+if exists('$SUDO_USER')
+  set nobackup
+  set nowritebackup
+
+  set noswapfile
+else
+  set backupdir=~/.vim/tmp/backup//
+  set backupdir+=.
+
+  set directory=~/.vim/tmp/swap//
+  set directory+=.
+endif
+
+if has('persistent_undo')
+  if exists('$SUDO_USER')
+    set noundofile
+  else
+    set undodir=~/.vim/tmp/undo//
+    set undodir+=.
+    set undofile
+  endif
+endif
+
 "Setting statusline
 set laststatus=2
 
@@ -13,6 +38,7 @@ set shortmess+=I      " Dont'n show intro message of Vim
 set shortmess+=T      " Too big for the command line? put ...
 set belloff=all       " Never ring the bell
 set mouse=a           " Mouse movement on vim
+set lazyredraw        " Lazy updating the screen durin macros
 
 " Highlight
 syntax enable
@@ -21,6 +47,7 @@ set cursorline
 " Lines configuration
 set number          " Set current line number
 set relativenumber  " Relactive numbers
+set scrolloff=3     " start scrolling 3 lines before edge of viewport
 
 if has('linebreak')
   set linebreak             " Wrap taking to account words
@@ -61,7 +88,7 @@ set wildignore+=.DS_Store,*.pdf,*/project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Folds configurations
-set foldmethod=syntax         " Fold by syntax
+set foldmethod=indent         " Fold by syntax
 set foldlevel=99              " No fold when open a file
 set foldtext=FoldText()       " How folds look like
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
@@ -77,6 +104,10 @@ function! FoldText() abort
   return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
+" Other characters
+set fillchars=diff:∙          " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)"
+set fillchars+=vert:┃         " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)"
+
 " Change cursors between modes (Also chech if you are using tmux)
 " (compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
 if exists('$TMUX')
@@ -89,15 +120,18 @@ else
     let &t_EI = "\<Esc>[2 q"
 endif
 
-" Fast toggle bewtween the modes
+" Fast toggle bewtween the different modes
 set timeoutlen=1000 ttimeoutlen=0
 
 " Format options reltated
 set formatoptions+=j
 
 " Color related
-set highlight+=N:DiffText     " Make current line number stand out a little
+set highlight+=@:Conceal            " ~/@ at end of window, 'showbreak'
+set highlight+=D:Conceal            " Override DiffDelete
+set highlight+=N:FoldColumn         " Make current line number stand out a little
+set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
-" Make background transparent of the line numbers
+" Make background transparent for the line numbers
 highlight LineNr guibg=NONE
 

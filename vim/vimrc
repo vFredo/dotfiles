@@ -1,7 +1,6 @@
 "
 " Vimrc plugin configuration
 "
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'   " Tmux navigation on vim
@@ -122,6 +121,8 @@ function! s:SetUpLoupeHighlight()
   execute 'highlight! Search ' . pinnacle#embolden('Underlined')
 
 endfunction
+
+let g:LoupeCenterResults=0
 
 autocmd ColorScheme * call s:SetUpLoupeHighlight()
 

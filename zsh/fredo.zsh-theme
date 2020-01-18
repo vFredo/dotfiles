@@ -117,9 +117,9 @@ function +vi-git-st() {
 # Vi-mode plugin indicator config
 MODE_INDICATOR="%{$fg_bold[yellow]%}<%{$fg[yellow]%}<<%{$reset_color%}"
 
-# Adding right prompt
+# Adding right prompt, contents: time, branch and vim mode
 setopt PROMPT_SUBST
-RPROMPT_BASE='${vcs_info_msg_0_}$(vi_mode_prompt_info)'
+RPROMPT_BASE='$(vi_mode_prompt_info) ${vcs_info_msg_0_}'
 
 # Anonymous function to avoid leaking variables.
 function () {
