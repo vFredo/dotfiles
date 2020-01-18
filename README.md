@@ -16,8 +16,8 @@ This configuration are set for Linux operating systems, this is really intendent
 ### Bash
 * Current version control branch name.
     * Red dot indicates unstaged changes.
-    * Yellow dot indicates push to the current remote repo.
-    * Magenta dot indicates pull to the current remote repo.
+    * Magenta dot indicates push to the current remote repo.
+    * Yellow dot indicates pull to the current remote repo.
 
 ### Zsh
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
