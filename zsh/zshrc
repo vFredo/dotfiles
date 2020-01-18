@@ -115,6 +115,9 @@ bindkey '^Z' fg-bg
 export EDITOR='vim'
 export MANPATH="/usr/local/man:$MANPATH"
 
+# Change colors of ow= other writable, tw= sticky writable on terminal
+export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
+
 # export ARCHFLAGS="-arch x86_64"
 # export LANG=en_US.UTF-8
 
