@@ -22,7 +22,7 @@ This configuration are set for Linux operating systems, this is really intendent
 ### Zsh
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
     * If you are on vi-mode `<<<` will appear.
-    * Duration of previous command in adaptive units (seconds, minutes, hours, days) depending on duration.
+    * Duration of previous command in adaptive units (seconds, minutes, hours or days) depending on duration.
     * Current version control branch name.
         * Green dot indicates staged changes.
         * Red dot indicates unstaged changes.
@@ -31,13 +31,15 @@ This configuration are set for Linux operating systems, this is really intendent
         * Yellow dot indicates pull to the current remote repo.
 
 ### Theme
-* Current Terminal: [simple terminal](https://st.suckless.org/)
-* Terminal Theme: [base16_default-dark](https://github.com/chriskempson/base16-shell).
+* Current terminal: [simple terminal](https://st.suckless.org/)
+* Terminal theme: [base16_default-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
+#### Select Theme
+* Run `base16_` and then hit tab (\t) to see all the themes available.
+
 ## Dependencies
-* Fonts
-Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache.
+* Fonts: Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache, ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own).
     * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
     * [Material Icons](https://github.com/google/material-design-icons).
     * [Font Awesome](https://fontawesome.com/).
