@@ -3,7 +3,7 @@
 # Linux Base operating system
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
-    # Create folders need it if don't exist already
+    # Create folders need it if they don't exist already
     mkdir -p ~/.config/zathura ~/.fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/undo
 
     # Bae16 theme for the shell
@@ -49,15 +49,14 @@ then
     # Intalling Plug package manager for Vim
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        
+    # Installing vim plugins
+    vim +PlugInstall +qall
 
-    # Adding own Lightline-vim theme
+    # Adding own lightline-vim theme
     cp "$(pwd)"/vim/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
 
     # Intalling and updating fonts
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
-    fc-cache -f -v
-
-    # Installing vim plugins
-    vim +PlugInstall +qall
+    fc-cache -f -v  
 fi
-
