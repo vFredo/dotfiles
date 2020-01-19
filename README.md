@@ -39,7 +39,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * Run `base16_` and then hit tab (\t) to see all the themes available.
 
 ## Dependencies
-* Fonts: Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache, ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own).
+* Fonts: Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache, ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Souce Code fonts).
     * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
     * [Material Icons](https://github.com/google/material-design-icons).
     * [Font Awesome](https://fontawesome.com/).
