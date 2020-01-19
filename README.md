@@ -31,7 +31,7 @@ This configuration are set for Linux operating systems, this is really intendent
         * Yellow dot indicates pull to the current remote repo.
 
 ### Theme
-* Current terminal: [simple terminal](https://st.suckless.org/)
+* Current terminal: [simple terminal](https://st.suckless.org/).
 * Terminal theme: [base16_default-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
@@ -40,7 +40,7 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ## Dependencies
 * Fonts
-   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache, ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Source Code fonts).
+   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Source Code fonts).
       * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
       * [Material Icons](https://github.com/google/material-design-icons).
       * [Font Awesome](https://fontawesome.com/).
@@ -48,20 +48,20 @@ This configuration are set for Linux operating systems, this is really intendent
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
-    * blueman
-    * Compton
-    * betterlockscreen
-        * imagemagick
-        * feh
-        * xorg-xrandr
-        * xorg-xdpyinfo
-        * i3lock-color
+    * blueman (bluetooth).
+    * Compton.
+    * betterlockscreen.
+        * imagemagick.
+        * feh.
+        * xorg-xrandr.
+        * xorg-xdpyinfo.
+        * i3lock-color.
 * Ranger
-    * atool
+    * atool (extract files).
 * Tmux
-    * xclip
+    * xclip (copy on clipboard from tmux paste mode).
 * Polybar
-    * Dbus python
+    * Dbus python (spotify menu to change or pause songs).
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
