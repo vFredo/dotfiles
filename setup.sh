@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# If it is a Linux Base operating system
+# Linux Base operating system
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
-    # Create folders need it
-    mkdir -p ~/.config/zathura ~/fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/undo
+    # Create folders need it if don't exist already
+    mkdir -p ~/.config/zathura ~/.fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/undo
 
-    # Terminal theme related
+    # Bae16 theme for the shell
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
     #Ask if is root
@@ -46,14 +46,14 @@ then
         ln -sf "$(pwd)"/config/ranger/rc.conf /home/"$(whoami)"/.config/ranger/rc.conf
     fi
 
-    # Intalling Plug Package Manager
+    # Intalling Plug package manager for Vim
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    # Adding own Lightline theme
+    # Adding own Lightline-vim theme
     cp "$(pwd)"/vim/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
 
-    # Intalling fonts and updating font cache
+    # Intalling and updating fonts
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
     fc-cache -f -v
 
