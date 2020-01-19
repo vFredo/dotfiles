@@ -4,8 +4,8 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ## Features
 * i3 gaps config.
-    * bettterlockscreen config file (Alternative for i3lock).
-* Ranger configurations (Terminal file manager).
+    * bettterlockscreen config file (alternative for i3lock).
+* Ranger configurations (terminal file manager).
 * Polybar configurations.
 * Zathura (PDF reader) config.
 * Vim config files.
