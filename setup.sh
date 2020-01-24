@@ -49,7 +49,7 @@ then
     # Intalling Plug package manager for Vim
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        
+
     # Installing vim plugins
     vim +PlugInstall +qall
 
@@ -58,5 +58,5 @@ then
 
     # Intalling and updating fonts
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
-    fc-cache -f -v  
+    fc-cache -f -v
 fi

@@ -22,9 +22,37 @@ def math():
 		return False
 endglobal
 
+snippet template "Basic template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\title{$1}
+\author{Luis Alfredo Rodr\'iguez L\'opez}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{$2}
+\rhead{Luis Alfredo Rodr\'iguez L\'opez}
+\rfoot{\thepage}
+
+\pdfsuppresswarningpagegroup=1
+
+\begin{document}
+    $0
+\end{document}
+endsnippet
+
 snippet beg "begin{} / end{}" bA
 \begin{$1}
-	$0
+    $0
 \end{$1}
 endsnippet
 
@@ -39,20 +67,24 @@ endsnippet
 
 snippet enum "Enumerate" bA
 \begin{enumerate}
-	\item $0
+    \item $0
 \end{enumerate}
 endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item $0
+    \item $0
 \end{itemize}
 endsnippet
 
 snippet ali "Align" bA
 \begin{align*}
-	${1:${VISUAL}}
+    ${1:${VISUAL}}
 .\end{align*}
+endsnippet
+
+snippet => "Implies" Ai
+\implies
 endsnippet
 
 snippet mk "In-line Math" wA
@@ -66,8 +98,8 @@ endsnippet
 
 snippet dm "Display Math" wA
 \[
-	$1
-.\] $0
+    $1
+.\]$0
 endsnippet
 
 context "math()"
@@ -76,7 +108,12 @@ snippet // "Fraction" iA
 endsnippet
 
 context "math()"
-snippet / "Fraction and Visual" iA
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+context "math()"
+snippet / "Fraction and Visual" i
 \\frac{${VISUAL}}{$1}$0
 endsnippet
 
@@ -121,6 +158,12 @@ snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int|alpha|the
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
+priority 300
+context "math()"
+snippet dint "integral" wA
+\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
+endsnippet
+
 context "math()"
 snippet == "Aling equals" wA
 &= $0
@@ -129,5 +172,15 @@ endsnippet
 context "math()"
 snippet text "Text in math mode" wA
 \text{$1} $0
+endsnippet
+
+context "math()"
+snippet sum "sum" wA
+\sum_{k=${1:1}}^{${2:\infty}} ${3}
+endsnippet
+
+context "math()"
+snippet +- "plus-minus symbol" wA
+\pm
 endsnippet
 

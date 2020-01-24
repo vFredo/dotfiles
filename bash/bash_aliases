@@ -1,18 +1,12 @@
 # Own aliases
 
-# Important folders
+# Files folders
 alias doc='cd ~/Documents'
 alias dow='cd ~/Downloads'
 alias dot='cd ~/dotfiles'
 alias stuff='cd ~/Documents/Stuff'
 alias usb='cd /run/media/$(whoami)/'
-
-# Education folders
-alias j='cd ~/Documents/Universidad/Javeriana/'
-alias j3='cd ~/Documents/Universidad/Javeriana/TercerSemestre'
-alias j3e='cd ~/Documents/Universidad/Javeriana/TercerSemestre/ED/'
-alias j4='cd ~/Documents/Universidad/Javeriana/CuartoSemestre'
-alias j4p='cd ~/Documents/Universidad/Javeriana/CuartoSemestre/POO'
+alias j='cd ~/Documents/Javeriana'
 
 # Quick changes
 alias vc='vim ~/.vimrc'
