@@ -77,7 +77,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
 # Tmux plugin config
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 
 plugins=(
   git

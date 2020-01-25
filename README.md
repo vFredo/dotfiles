@@ -61,7 +61,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * Tmux
     * xclip (copy on clipboard from tmux paste mode).
 * Polybar
-    * Dbus python (spotify menu to change or pause songs).
+    * dbus-python (spotify menu to change or pause songs).
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.

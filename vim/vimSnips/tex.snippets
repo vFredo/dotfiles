@@ -23,31 +23,16 @@ def math():
 endglobal
 
 snippet template "Basic template" b
-\documentclass[a4paper]{article}
+\documentclass[a4paper,12pt]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage[spanish]{babel}
-\usepackage{amsmath, amssymb}
-\usepackage{fancyhdr}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.16}
-
-\title{$1}
-\author{Luis Alfredo Rodr\'iguez L\'opez}
-
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{$2}
-\rhead{Luis Alfredo Rodr\'iguez L\'opez}
-\rfoot{\thepage}
+\input{../preamble.tex}
 
 \pdfsuppresswarningpagegroup=1
 
 \begin{document}
     $0
 \end{document}
+
 endsnippet
 
 snippet beg "begin{} / end{}" bA
@@ -182,5 +167,10 @@ endsnippet
 context "math()"
 snippet +- "plus-minus symbol" wA
 \pm
+endsnippet
+
+priority 100
+snippet ** "cdot" iA
+\cdot
 endsnippet
 
