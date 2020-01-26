@@ -110,7 +110,6 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-
 # Prefferred things
 export EDITOR='vim'
 export MANPATH="/usr/local/man:$MANPATH"

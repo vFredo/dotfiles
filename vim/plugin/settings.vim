@@ -31,6 +31,7 @@ endif
 
 "Setting statusline
 set laststatus=2
+set noshowmode
 
 " Annoying things
 set shortmess+=W      " Don't echo [w]/[written] when writing
