@@ -136,3 +136,7 @@ set highlight+=c:LineNr             " Blend vertical separators with line number
 highlight LineNr guibg=NONE
 highlight Comment cterm=italic
 
+" StatusLine seems a bit off on split windows
+hi StatusLine ctermbg=0 ctermfg=0 cterm=bold guibg=NONE guifg=NONE gui=NONE
+hi StatusLineNC ctermbg=0 ctermfg=0 cterm=NONE guibg=NONE guifg=NONE gui=NONE
+

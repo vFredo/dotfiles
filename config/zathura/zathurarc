@@ -6,12 +6,12 @@ set page-padding 10
 set window-title-basename "true"
 set selection-clipboard "clipboard"
 
-# base16_material-darker theme
+# base16_defualt-darker theme
 set default-bg                  "#181818"
 set default-fg                  "#282828"
 
+set statusbar-bg                "#181818"
 set statusbar-fg                "#b8b8b8"
-set statusbar-bg                "#383838"
 
 set inputbar-bg                 "#181818"
 set inputbar-fg                 "#f8f8f8"
