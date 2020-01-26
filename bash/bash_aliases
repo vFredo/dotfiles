@@ -20,6 +20,7 @@ alias vi='vim'
 alias la='ls -A'
 alias ..='cd ..'
 alias ....='cd ../..'
+alias ll='ls -la'
 
 # Open any file from terminal (Need Ranger)
 alias open='rifle 2>/dev/null'
