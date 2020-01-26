@@ -58,7 +58,7 @@ let g:netrw_liststyle = 3
 " ------------------ LightLine config ------------------------------
 let g:lightline = {
   \   'colorscheme': 'fredoLightline',
-  \   'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \   'separator': { 'left': "", 'right': "" },
   \   'subseparator': { 'left': '', 'right': '' },
   \   'active': {
   \     'right': [ ['lineinfo'], ['percent'], ['filetype'] ],
