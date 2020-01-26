@@ -60,3 +60,4 @@ then
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
     fc-cache -f -v
 fi
+

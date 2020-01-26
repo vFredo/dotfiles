@@ -20,8 +20,8 @@ Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " See search commands more easy
 " Fuzzy finder: it need ruby-dev tool
 Plug 'wincent/command-t', {
-  \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-  \ }
+    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+    \ }
 
 call plug#end()
 
@@ -57,69 +57,68 @@ let g:netrw_liststyle = 3
 
 " ------------------ LightLine config ------------------------------
 let g:lightline = {
-  \   'colorscheme': 'fredoLightline',
-  \   'separator': { 'left': "", 'right': "" },
-  \   'subseparator': { 'left': '', 'right': '' },
-  \   'active': {
-  \     'right': [ ['lineinfo'], ['percent'], ['filetype'] ],
-  \     'left': [ [ 'myModified', 'mode', 'paste' ], ['myFilename', 'myReadonly'] ]
-  \   },
-  \   'inactive': {
-  \     'right': [ ['filetype'] ],
-  \     'left': [ ['relativepath'], ['myModified', 'myReadonly'] ]
-  \   },
-  \   'component': {
-  \     'lineinfo': 'ℓ %3l:%-2v'
-  \   },
-  \   'component_function': {
-  \     'myModified': 'LightlineModified',
-  \     'myReadonly': 'LightlineReadonly',
-  \     'myFilename': 'LightlineFilename'
-  \   },
-  \   'mode_map': {
-  \     'n': '',
-  \     'i': '',
-  \     't': '',
-  \     'R': '',
-  \     'v': '',
-  \     'V': '',
-  \     "\<C-v>": '',
-  \     'c' : '',
-  \     's' : '',
-  \     'S' : '',
-  \     "\<C-s>": ''
-  \   }
-  \ }
+    \   'colorscheme': 'fredoLightline',
+    \   'separator': { 'left': "\ue0b0", 'right': "" },
+    \   'subseparator': { 'left': '', 'right': '' },
+    \   'active': {
+    \     'right': [ ['lineinfo'], ['percent'], ['filetype'] ],
+    \     'left': [ [ 'myModified', 'mode', 'paste' ], ['myFilename', 'myReadonly'] ]
+    \   },
+    \   'inactive': {
+    \     'right': [ ['filetype'] ],
+    \     'left': [ ['relativepath'], ['myModified', 'myReadonly'] ]
+    \   },
+    \   'component': {
+    \     'lineinfo': 'ℓ %3l:%-2v'
+    \   },
+    \   'component_function': {
+    \     'myModified': 'LightlineModified',
+    \     'myReadonly': 'LightlineReadonly',
+    \     'myFilename': 'LightlineFilename'
+    \   },
+    \   'mode_map': {
+    \     'n': '',
+    \     'i': '',
+    \     't': '',
+    \     'R': '',
+    \     'v': '',
+    \     'V': '',
+    \     "\<C-v>": '',
+    \     'c' : '',
+    \     's' : '',
+    \     'S' : '',
+    \     "\<C-s>": ''
+    \   }
+    \ }
 
 function! LightlineModified()
-  return &modifiable && &modified ? ' ✘ ' : '   '
+    return &modifiable && &modified ? ' ✘ ' : '   '
 endfunction
 
 function! LightlineReadonly()
-  return &readonly ? '' : ''
+    return &readonly ? '' : ''
 endfunction
 
 " Trim filename if it's to long for the window
 function! LightlineFilename()
-  let filename = expand('%:p') !=# '' ? expand('%:p') : '[No Name]'
+    let filename = expand('%:p') !=# '' ? expand('%:p') : '[No Name]'
 
-  if filename =~ $HOME
-    let filename = substitute(filename, $HOME, "~", "")
-  endif
+    if filename =~ $HOME
+        let filename = substitute(filename, $HOME, "~", "")
+    endif
 
-  if strlen(filename) > 45
-    let filename = expand('%:t')
-  endif
-  return filename
+    if strlen(filename) > 45
+        let filename = expand('%:t')
+    endif
+    return filename
 endfunction
 
 " ------------------ Loupe config ------------------------------
 function! s:SetUpLoupeHighlight()
-  execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
+    execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
 
-  highlight! clear Search
-  execute 'highlight! Search ' . pinnacle#embolden('Underlined')
-
+    highlight! clear Search
+    execute 'highlight! Search ' . pinnacle#embolden('Underlined')
 endfunction
 
 let g:LoupeCenterResults=0
@@ -133,14 +132,14 @@ highlight! link Sneak Search
 
 " Colorsheme for Terminal (checkout https://github.com/chriskempson/base16-shell)
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+    let base16colorspace=256
+    source ~/.vimrc_background
 endif
 
 " True colors on terminal
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
 endif
 

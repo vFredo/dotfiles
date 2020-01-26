@@ -7,26 +7,26 @@ set encoding=utf-8
 " Move backup files out of the way and don't create root-owned files
 " the "//" on the dirs means that the files created on tmp will be unique
 if exists('$SUDO_USER')
-  set nobackup
-  set nowritebackup
+    set nobackup
+    set nowritebackup
 
-  set noswapfile
+    set noswapfile
 else
-  set backupdir=~/.vim/tmp/backup//
-  set backupdir+=.
+    set backupdir=~/.vim/tmp/backup//
+    set backupdir+=.
 
-  set directory=~/.vim/tmp/swap//
-  set directory+=.
+    set directory=~/.vim/tmp/swap//
+    set directory+=.
 endif
 
 if has('persistent_undo')
-  if exists('$SUDO_USER')
-    set noundofile
-  else
-    set undodir=~/.vim/tmp/undo//
-    set undodir+=.
-    set undofile
-  endif
+    if exists('$SUDO_USER')
+        set noundofile
+    else
+        set undodir=~/.vim/tmp/undo//
+        set undodir+=.
+        set undofile
+    endif
 endif
 
 "Setting statusline
@@ -51,13 +51,13 @@ set relativenumber  " Relactive numbers
 set scrolloff=3     " start scrolling 3 lines before edge of viewport
 
 if has('linebreak')
-  set linebreak             " Wrap taking to account words
-  let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
-  set breakindent           " Indent wrapped lines to match start
+    set linebreak             " Wrap taking to account words
+    let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
+    set breakindent           " Indent wrapped lines to match start
 
-  if exists('&breakindentopt')
-    set breakindentopt=shift:2  " Emphasize broken lines by indenting them
-  endif
+    if exists('&breakindentopt')
+        set breakindentopt=shift:2  " Emphasize broken lines by indenting them
+    endif
 endif
 
 " Show whitespaces
@@ -95,14 +95,14 @@ set foldtext=FoldText()       " How folds look like
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
 
 function! FoldText() abort
-  let s:middot='·'
-  let s:raquo='»'
-  let s:small_l='ℓ'
+    let s:middot='·'
+    let s:raquo='»'
+    let s:small_l='ℓ'
 
-  let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'
-  let l:first=substitute(getline(v:foldstart), '\v *', '', '')
-  let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
-  return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
+    let l:lines='[' . (v:foldend - v:foldstart + 1) . s:small_l . ']'
+    let l:first=substitute(getline(v:foldstart), '\v *', '', '')
+    let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
+    return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
 " Other characters
