@@ -33,7 +33,7 @@ This configuration are set for Linux operating systems, this is really intendent
 ### Theme
 * Current terminal: [simple terminal](https://st.suckless.org/).
 * Terminal theme: [base16_default-dark](https://github.com/chriskempson/base16-shell).
-* Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
+* Terminal font: [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
 
 #### Select Theme
 * Run `base16_` and then hit tab (\t) to see all the themes available.
@@ -41,10 +41,10 @@ This configuration are set for Linux operating systems, this is really intendent
 ## Dependencies
 * Fonts
    * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Source Code fonts).
+      * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
       * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
       * [Material Icons](https://github.com/google/material-design-icons).
       * [Font Awesome](https://fontawesome.com/).
-      * [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps

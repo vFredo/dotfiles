@@ -18,7 +18,7 @@ Plug 'itchyny/lightline.vim'    " Nice statusline
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " See search commands more easy
-" Fuzzy finder, it need ruby-dev
+" Fuzzy finder: it need ruby-dev tool
 Plug 'wincent/command-t', {
   \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
   \ }
@@ -40,7 +40,7 @@ let g:UltiSnipsEditSplit="vertical"
 " --------------------- Vimtex cofiguration -----------------------
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=1
+let g:vimtex_quickfix_mode=0
 
 " Symbols and special characters view nice or invisible in .tex files
 set conceallevel=1
