@@ -62,6 +62,9 @@ This configuration are set for Linux operating systems, this is really intendent
     * xclip (copy on clipboard from tmux paste mode).
 * Polybar
     * dbus-python (spotify menu to change or pause songs).
+* Latex (if you want vimtex to work)
+   * `sudo apt-get install texlive-full` for Debian-based distros.
+   * `sudo pacman -S texlive-most texlive-lang` for Arch-based distros.
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
