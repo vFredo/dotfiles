@@ -50,6 +50,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * i3 gaps
     * blueman (bluetooth).
     * Compton.
+    * dunst.
     * betterlockscreen.
         * imagemagick.
         * feh.

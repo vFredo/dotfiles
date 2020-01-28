@@ -27,6 +27,7 @@ then
         ln -sf "$(pwd)"/config/betterlockscreenrc /"$(whoami)"/.config/betterlockscreenrc
         ln -sf "$(pwd)"/config/ranger/commands.py /"$(whoami)"/.config/ranger/commands.py
         ln -sf "$(pwd)"/config/ranger/rc.conf /"$(whoami)"/.config/ranger/rc.conf
+        ln -sf "$(pwd)"/config/dunstrc /"$(whoami)"/.config/dunst/dunstrc
 
     else
         ln -sf "$(pwd)"/config/tmux.conf /home/"$(whoami)"/.tmux.conf
@@ -44,6 +45,7 @@ then
         ln -sf "$(pwd)"/config/betterlockscreenrc /home/"$(whoami)"/.config/betterlockscreenrc
         ln -sf "$(pwd)"/config/ranger/commands.py /home/"$(whoami)"/.config/ranger/commands.py
         ln -sf "$(pwd)"/config/ranger/rc.conf /home/"$(whoami)"/.config/ranger/rc.conf
+        ln -sf "$(pwd)"/config/dunstrc /home/"$(whoami)"/.config/dunst/dunstrc
     fi
 
     # Intalling Plug package manager for Vim
