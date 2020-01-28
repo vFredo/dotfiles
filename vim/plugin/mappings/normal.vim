@@ -15,3 +15,6 @@ noremap k gk
 noremap gj j
 noremap gk k
 
+" Toggle between folds
+nnoremap <Tab> za
+

@@ -12,7 +12,6 @@ Plug 'tpope/vim-vinegar'        " File menu search
 Plug 'tpope/vim-surround'       " Easy motion with surrounds
 Plug 'justinmk/vim-sneak'       " Easy searh with 2 letters
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
-Plug 'duggiefresh/vim-easydir'  " Make files and directories inside vim
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
 Plug 'itchyny/lightline.vim'    " Nice statusline
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim

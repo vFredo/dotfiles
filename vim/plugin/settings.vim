@@ -9,7 +9,6 @@ set encoding=utf-8
 if exists('$SUDO_USER')
     set nobackup
     set nowritebackup
-
     set noswapfile
 else
     set backupdir=~/.vim/tmp/backup//
@@ -89,10 +88,9 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Folds configurations
 set diffopt+=foldcolumn:0     " Don't show fold column in diff view
-set foldmethod=indent         " Fold by syntax
+set foldmethod=indent         " Fold by indentation
 set foldlevel=99              " No fold when open a file
 set foldtext=FoldText()       " How folds look like
-set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
 
 function! FoldText() abort
     let s:middot='·'
@@ -105,9 +103,10 @@ function! FoldText() abort
     return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
-" Other characters
+" Fill chars for diff, vertical split and folds
 set fillchars=diff:∙          " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)"
 set fillchars+=vert:┃         " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)"
+set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
 
 " Change cursors between modes (Also chech if you are using tmux)
 " (compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
