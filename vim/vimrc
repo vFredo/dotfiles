@@ -63,7 +63,7 @@ let g:lightline = {
     \   'separator': { 'left': "\ue0b0", 'right': "" },
     \   'subseparator': { 'left': '', 'right': '' },
     \   'active': {
-    \     'right': [ ['lineinfo'], ['percent'], ['filetype'] ],
+    \     'right': [ ['percent'], ['lineinfo'], ['filetype'] ],
     \     'left': [ [ 'myModified', 'mode', 'paste' ], ['myFilename', 'myReadonly'] ]
     \   },
     \   'inactive': {
@@ -71,7 +71,7 @@ let g:lightline = {
     \     'left': [ ['relativepath'], ['myModified', 'myReadonly'] ]
     \   },
     \   'component': {
-    \     'lineinfo': 'ℓ %3l:%-2v'
+    \     'lineinfo': 'ℓ %3l:%-2v%<'
     \   },
     \   'component_function': {
     \     'myModified': 'LightlineModified',
@@ -109,7 +109,7 @@ function! LightlineFilename()
         let filename = substitute(filename, $HOME, "~", "")
     endif
 
-    if strlen(filename) > 45
+    if winwidth(0) < 45
         let filename = expand('%:t')
     endif
     return filename
