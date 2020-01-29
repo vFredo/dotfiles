@@ -133,14 +133,15 @@ set highlight+=N:FoldColumn         " Make current line number stand out a littl
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
 " Make background transparent for the line numbers and italics for comments
-highlight LineNr guibg=NONE
-highlight Comment cterm=italic
+highlight! LineNr guibg=NONE
+highlight! Comment cterm=italic
 
-" Know better what is highlighted on visudal mode
-highlight Visual guibg=#282828
-highlight MatchParen guibg=#282828
+" Things better highlighted
+highlight! Visual guibg=#282828
+highlight! MatchParen guibg=#282828 cterm=bold
+highlight! WildMenu guibg=#7cafc2 guifg=#181818
 
-" StatusLine seems a bit off on split windows, deleting that colors
-highlight StatusLine ctermbg=0 ctermfg=0 cterm=bold guibg=NONE guifg=NONE gui=NONE
-highlight StatusLineNC ctermbg=0 ctermfg=0 cterm=NONE guibg=NONE guifg=NONE gui=NONE
+" StatusLine seems a bit off on split windows, deleting that colors (menus colors too)
+highlight! StatusLine guibg=#181818 guifg=#d8d8d8 gui=NONE
+highlight! StatusLineNC guibg=#181818 guifg=#d8d8d8 gui=NONE
 
