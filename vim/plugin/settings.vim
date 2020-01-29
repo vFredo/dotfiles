@@ -123,6 +123,7 @@ endif
 
 " Fast toggle bewtween the different modes
 set timeoutlen=1000 ttimeoutlen=0
+set ttyfast
 
 " Format options reltated
 set formatoptions+=j
