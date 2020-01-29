@@ -130,7 +130,7 @@
 }
 
 
-% Exercise 
+% Exercise
 % Usage:
 % \oefening{5}
 % \suboefening{1}
@@ -200,18 +200,17 @@
 
 % Figure support as explained in my blog post.
 \usepackage{import}
-\usepackage{xifthen}
 \usepackage{pdfpages}
 \usepackage{transparent}
-\newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
 }
 
 % Fix some stuff
 % %http://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning
 \pdfsuppresswarningpagegroup=1
-
 
 % My name
 \author{Luis Alfredo Rodr\'iguez L\'opez}
