@@ -31,7 +31,7 @@ This configuration are set for Linux operating systems, this is really intendent
         * Yellow dot indicates pull to the current remote repo.
 
 ### Theme
-* Current terminal: [simple terminal](https://st.suckless.org/).
+* Current terminal: [simple terminal](https://st.suckless.org/), for my configuration of [st](https://github.com/fredo0522/st).
 * Terminal theme: [base16_default-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
 
