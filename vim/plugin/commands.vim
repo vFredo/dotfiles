@@ -18,3 +18,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd WinLeave * set nocursorline
 autocmd WinEnter * set cursorline
 
+ " Remember folds when quit a file
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+

@@ -85,6 +85,7 @@ set wildmenu " Making a suggestion menu in searches and autocompletition on Cons
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=.DS_Store,*.pdf,*/project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
+set wildmode=longest:full,full
 
 " Folds configurations
 set diffopt+=foldcolumn:0     " Don't show fold column in diff view
@@ -135,7 +136,11 @@ set highlight+=c:LineNr             " Blend vertical separators with line number
 highlight LineNr guibg=NONE
 highlight Comment cterm=italic
 
+" Know better what is highlighted on visudal mode
+highlight Visual guibg=#282828
+highlight MatchParen guibg=#282828
+
 " StatusLine seems a bit off on split windows, deleting that colors
-hi StatusLine ctermbg=0 ctermfg=0 cterm=bold guibg=NONE guifg=NONE gui=NONE
-hi StatusLineNC ctermbg=0 ctermfg=0 cterm=NONE guibg=NONE guifg=NONE gui=NONE
+highlight StatusLine ctermbg=0 ctermfg=0 cterm=bold guibg=NONE guifg=NONE gui=NONE
+highlight StatusLineNC ctermbg=0 ctermfg=0 cterm=NONE guibg=NONE guifg=NONE gui=NONE
 
