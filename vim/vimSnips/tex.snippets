@@ -66,8 +66,14 @@ snippet ali "Align" bA
 .\end{align*}
 endsnippet
 
+priority 10
 snippet => "Implies" Ai
 \implies
+endsnippet
+
+priority 100
+snippet <=> "iff" Ai
+\iff
 endsnippet
 
 snippet mk "In-line Math" wA
@@ -165,6 +171,11 @@ endsnippet
 context "math()"
 snippet +- "plus-minus symbol" wA
 \pm
+endsnippet
+
+context "math()"
+snippet : "is member symbol" wA
+\in
 endsnippet
 
 priority 100
