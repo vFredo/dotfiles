@@ -22,3 +22,6 @@ autocmd WinEnter * set cursorline
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
+" Deleting all the temp files that latexmk compiler make
+autocmd VimLeave *.tex !latexmk -c %
+

@@ -127,21 +127,32 @@ set timeoutlen=1000 ttimeoutlen=0
 " Format options reltated
 set formatoptions+=j
 
+" Replace conceal text to one character
+set conceallevel=1
+
+"
 " Color related
+"
 set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=N:FoldColumn         " Make current line number stand out a little
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
 " Make background transparent for the line numbers and italics for comments
-highlight! LineNr guibg=NONE
-highlight! Comment cterm=italic
+highlight LineNr guibg=NONE
+highlight Comment cterm=italic
 
 " Things better highlighted
-highlight! Visual guibg=#282828
-highlight! MatchParen guibg=#282828 cterm=bold
-highlight! WildMenu guibg=#7cafc2 guifg=#181818
+execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
+execute 'highlight! MatchParen cterm=bold guibg=' . pinnacle#extract_bg("CursorLine")
+execute 'highlight! WildMenu guibg=#7cafc2 guifg=' . pinnacle#extract_bg("Normal")
 
-" StatusLine seems a bit off on split windows, deleting that colors (menus colors too)
-highlight! StatusLine guibg=#181818 guifg=#d8d8d8 gui=NONE
-highlight! StatusLineNC guibg=#181818 guifg=#d8d8d8 gui=NONE
+" StatusLine seems a bit off on split windows, deleting that colors (wildmenu-no-current colors too)
+execute 'highlight! StatusLine gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
+execute 'highlight! StatusLineNC gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
+
+" Better search colors
+execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
+highlight! clear Search
+execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+
 

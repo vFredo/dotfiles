@@ -41,15 +41,7 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 
 " Symbols and special characters view nice or invisible in .tex files
-set conceallevel=1
 let g:tex_conceal='abdmg'
-
-" Deleting all the temp files that latexmk compiler make
-autocmd VimLeave *.tex !latexmk -c %
-
-" Figures related in latex (pip3 install inkscape-figures)
-inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>
-nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " ---------------- CommandT config ------------------------------
 let g:CommandTCancelMap='<Esc>'
@@ -116,16 +108,7 @@ function! LightlineFilename()
 endfunction
 
 " ------------------ Loupe config ------------------------------
-function! s:SetUpLoupeHighlight()
-    execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
-
-    highlight! clear Search
-    execute 'highlight! Search ' . pinnacle#embolden('Underlined')
-endfunction
-
 let g:LoupeCenterResults=0
-
-autocmd ColorScheme * call s:SetUpLoupeHighlight()
 
 " ---------------- base16 colorscheme config --------------------------
 
