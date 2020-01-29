@@ -35,7 +35,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * Terminal theme: [base16_default-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
 
-#### Select Theme
+### Select Theme
 * Run `base16_` and then hit tab (\t) to see all the themes available.
 
 ## Dependencies
@@ -51,7 +51,8 @@ This configuration are set for Linux operating systems, this is really intendent
     * blueman (bluetooth).
     * Compton.
     * dunst.
-    * betterlockscreen.
+    * [Rofi](https://github.com/davatorium/rofi).
+    * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
         * imagemagick.
         * feh.
         * xorg-xrandr.
@@ -64,8 +65,10 @@ This configuration are set for Linux operating systems, this is really intendent
 * Polybar
     * dbus-python (spotify menu to change or pause songs).
 * Latex (if you want vimtex to work)
-   * `sudo apt-get install texlive-full` for Debian-based distros.
-   * `sudo pacman -S texlive-most texlive-lang` for Arch-based distros.
+    * `sudo apt-get install texlive-full` for Debian-based distros.
+    * `sudo pacman -S texlive-most texlive-lang` for Arch-based distros.
+    * inkscape for making figures: `sudo pacman -S inkscape`.
+    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures) for vim binding `C-f`.
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
