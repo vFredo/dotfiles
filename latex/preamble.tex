@@ -132,22 +132,22 @@
 
 % Exercise
 % Usage:
-% \oefening{5}
-% \suboefening{1}
-% \suboefening{2}
-% \suboefening{3}
+% \exercise{5}
+% \subexercise{1}
+% \subexercise{2}
+% \subexercise{3}
 % gives
-% Oefening 5
-%   Oefening 5.1
-%   Oefening 5.2
-%   Oefening 5.3
-\newcommand{\oefening}[1]{%
-    \def\@oefening{#1}%
-    \subsection*{Oefening #1}
+% Exercise 5
+%   Exercise 5.1
+%   Exercise 5.2
+%   Exercise 5.3
+\newcommand{\exercise}[1]{%
+    \def\@exercise{#1}%
+    \subsection*{Exercise #1}
 }
 
-\newcommand{\suboefening}[1]{%
-    \subsubsection*{Oefening \@oefening.#1}
+\newcommand{\subexercise}[1]{%
+    \subsubsection*{Exercise \@exercise.#1}
 }
 
 % \lecture starts a new lecture (les in dutch)
@@ -187,14 +187,11 @@
 % RO: right odd
 % CE, CO: center even, center odd
 % My name for when I print my lecture notes to use for an open book exam.
-% \fancyhead[LE,RO]{Gilles Castel}
+% \fancyhead[LE,RO]{Luis Alfredo Rodr\'iguez L\'opez}
 
 \fancyhead[RO,LE]{\@lecture} % Right odd,  Left even
-\fancyhead[RE,LO]{}          % Right even, Left odd
-
 \fancyfoot[RO,LE]{\thepage}  % Right odd,  Left even
-\fancyfoot[RE,LO]{}          % Right even, Left odd
-\fancyfoot[C]{}     % Center
+\fancyfoot[C]{}              % Center
 
 \makeatother
 
