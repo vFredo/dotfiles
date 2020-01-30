@@ -12,6 +12,8 @@ This configuration are set for Linux operating systems, this is really intendent
 * Tmux config.
 * Latexmk compiler config.
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
+* Latex [preamble](https://github.com/fredo0522/dotfiles/blob/master/latex/preamble.tex) for lectures.
+* Rofi configurations.
 
 ### Bash
 * Current version control branch name.
@@ -40,7 +42,7 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ## Dependencies
 * Fonts
-   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Source Code fonts).
+   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Source Code Pro fonts).
       * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
       * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
       * [Material Icons](https://github.com/google/material-design-icons).
@@ -61,14 +63,14 @@ This configuration are set for Linux operating systems, this is really intendent
 * Ranger
     * atool (extract files).
 * Tmux
-    * xclip (copy on clipboard from tmux paste mode).
+    * xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
 * Polybar
-    * dbus-python (spotify menu to change or pause songs).
+    * dbus-python `pip3 install dbus-python` (spotify icons to change or pause songs).
 * Latex (if you want vimtex to work)
-    * `sudo apt-get install texlive-full` for Debian-based distros.
-    * `sudo pacman -S texlive-most texlive-lang` for Arch-based distros.
-    * inkscape for making figures: `sudo pacman -S inkscape`.
-    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures) for vim binding `C-f`.
+    * `apt-get install texlive-full` for Debian-based distros.
+    * `pacman -S texlive-most texlive-lang` for Arch-based distros.
+    * inkscape for making figures: `pacman -S inkscape`.
+    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim: `C-f`.
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
