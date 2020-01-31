@@ -23,7 +23,7 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ### Zsh
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
-    * If you are on vi-mode `<<<` will appear.
+    * If you are on vi-mode `>>>` will appear.
     * Duration of previous command in adaptive units (seconds, minutes, hours or days) depending on duration.
     * Current version control branch name.
         * Green dot indicates staged changes.
@@ -70,7 +70,7 @@ This configuration are set for Linux operating systems, this is really intendent
     * `apt-get install texlive-full` for Debian-based distros.
     * `pacman -S texlive-most texlive-lang` for Arch-based distros.
     * inkscape for making figures: `pacman -S inkscape`.
-    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim: `C-f`.
+    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on [vim](https://github.com/fredo0522/dotfiles/blob/master/vim/plugin/mappings/normal.vim#L22).
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.

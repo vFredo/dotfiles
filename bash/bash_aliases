@@ -2,11 +2,11 @@
 
 # Files folders
 alias doc='cd ~/Documents'
-alias dow='cd ~/Downloads'
-alias dot='cd ~/dotfiles'
+alias j='cd ~/Documents/University'
 alias stuff='cd ~/Documents/Stuff'
+alias dot='cd ~/dotfiles'
+alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
-alias j='cd ~/Documents/Javeriana'
 
 # Quick changes
 alias vc='vim ~/.vimrc'
@@ -15,16 +15,12 @@ alias vba="vim ~/.bash_aliases"
 alias vz="vim ~/.zshrc"
 alias vt="vim ~/.tmux.conf"
 alias vi3="vim ~/.i3/config"
-alias :q='exit'
-alias vi='vim'
+
+# Current use
 alias la='ls -A'
-alias ..='cd ..'
-alias ....='cd ../..'
 alias ll='ls -la'
+alias ..='cd ..'
 
-# Open any file from terminal (Need Ranger)
+# Open any file from terminal (Ranger use rifle to open files)
 alias open='rifle 2>/dev/null'
-
-# Tmux aliases
-alias t='tmux'
 

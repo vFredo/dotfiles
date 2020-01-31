@@ -46,7 +46,6 @@ autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' disable-patterns "${(b)HOME}/code/portal(|-ee)(|/*)"
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
 zstyle ':vcs_info:*' use-simple true
@@ -108,56 +107,51 @@ function +vi-git-st() {
 }
 
 #
-# Vi-mode
+# Vi-mode indicator and PROMPT (PS1)
 #
 
-# If I am using vi keys, I want to know what mode I'm currently using.
 # zle-keymap-select is executed every time KEYMAP changes.
 # zle-line-init is executed every time the shell started to read a new line of input.
-# From http://zshwiki.org/home/examples/zlewidgets
 function zle-line-init zle-keymap-select {
-    MODE_INDICATOR="%{$fg_bold[yellow]%}<%{$fg[yellow]%}<<%{$reset_color%}"
+
+    # Vi-mode indicators
+    MODE_INDICATOR=" %{$fg_bold[yellow]%}>>>%{$reset_color%}"
     VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR }/(main|viins)/}"
+
+    # Look if tmux is runnit that way it doesn't have to nested another term
+    if tmux info &> /dev/null; then
+        # In a a tmux session created in a non-root or root shell.
+        # LVL decide how many right brackets you have on nested shells
+        local LVL=$(($SHLVL - 1))
+    else
+        # Either in a root shell created inside a non-root tmux session,
+        # or not in a tmux session.
+        local LVL=$(($SHLVL))
+    fi
+
+    if [[ $EUID -eq 0 ]]; then
+        # root simbol
+        local SUFFIX=$(printf '%%F{red}#%.0s%%f' {1..$LVL})
+    else
+        # normal user simbol
+        local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
+    fi
+
+    PROMPT="${VIMODE}%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
+
+    if tmux info &> /dev/null; then
+        # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
+        # prompt still gets corrupted even if we add an extra space to compensate.
+        export ZLE_RPROMPT_INDENT=0
+    fi
 
     zle reset-prompt
 }
-
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# Adding right prompt, contents: time, branch and vim mode
-RPROMPT_BASE='${VIMODE}${vcs_info_msg_0_}'
-
-# Anonymous function to avoid leaking variables.
-function () {
-
-  # Look if tmux is runnit that way it doesn't have to nested another term
-  if tmux info &> /dev/null; then
-    # In a a tmux session created in a non-root or root shell.
-    # LVL decide how many right brackets you have on nested shells
-    local LVL=$(($SHLVL - 1))
-  else
-    # Either in a root shell created inside a non-root tmux session,
-    # or not in a tmux session.
-    local LVL=$(($SHLVL))
-  fi
-
-  if [[ $EUID -eq 0 ]]; then
-    # root simbol
-    local SUFFIX=$(printf '%%F{red}#%.0s%%f' {1..$LVL})
-  else
-    # normal user simbol
-    local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
-  fi
-
-  PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
-
-  if tmux info &> /dev/null; then
-    # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
-    # prompt still gets corrupted even if we add an extra space to compensate.
-    export ZLE_RPROMPT_INDENT=0
-  fi
-}
+# Adding right prompt, contents: time and branch
+RPROMPT_BASE='${vcs_info_msg_0_}'
 
 export RPROMPT=$RPROMPT_BASE
 export SPROMPT="Correct %F{red}'%R'%f to %F{blue}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
