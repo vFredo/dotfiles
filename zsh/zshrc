@@ -75,7 +75,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+#
 # User configuration
+#
 
 # Some defaults
 export EDITOR='vim'
@@ -112,7 +114,7 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-
+# FZF configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 _gen_fzf_default_opts() {
