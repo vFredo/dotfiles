@@ -3,13 +3,20 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/fredo/.oh-my-zsh"
+export EDITOR='vim'
+export MANPATH="/usr/local/man:$MANPATH"
 
+# Change colors of ow= other writable, tw= sticky writable on terminal
+export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
+
+# Specifics
+export ARCHFLAGS="-arch x86_64"
+export LANG=en_US.UTF-8
+
+# Terminal used
 export TERM=xterm-256color
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# ZSH theme
 ZSH_THEME="fredo"
 
 # Base16 Shell colorscheme
@@ -17,12 +24,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -71,22 +72,23 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# FZF fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-
-# Tmux plugin config
-# ZSH_TMUX_AUTOSTART=true
-
 plugins=(
-  git
-  vi-mode
-  tmux
-  colored-man-pages
+    git
+    tmux
+    vi-mode
+    colored-man-pages
 )
 
 # User configuration
+
+# Change between modes mor quickly
+export KEYTIMEOUT=1
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_aliases
@@ -96,7 +98,6 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
 # Make CTRL-Z background things and unbackground them.
 function fg-bg() {
@@ -110,15 +111,3 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-# Prefferred things
-export EDITOR='vim'
-export MANPATH="/usr/local/man:$MANPATH"
-
-# Change colors of ow= other writable, tw= sticky writable on terminal
-export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
-
-# export ARCHFLAGS="-arch x86_64"
-# export LANG=en_US.UTF-8
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

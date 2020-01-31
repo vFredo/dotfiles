@@ -23,9 +23,6 @@ compinit -u
 # - Substring complete (ie. bar -> foobar).
 zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-# Colorize completions using default `ls` colors.
-zstyle ':completion:*' list-colors ''
-
 # Allow completion of ..<Tab> to ../ and beyond.
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
 
@@ -33,10 +30,6 @@ zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)
 # to dominate completion; exclude path-directories from the tag-order so that
 # they will only be used as a fallback if no completions are found.
 zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories'
-
-# Categorize completion suggestions with headings:
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:descriptions' format %F{default}%B%{$__FREDO[ITALIC_ON]%}--- %d ---%{$__FREDO[ITALIC_OFF]%}%b%f
 
 # Enable keyboard navigation of completions in menu
 # (not just tab/shift-tab but cursor keys as well):
@@ -114,12 +107,26 @@ function +vi-git-st() {
     hook_com[misc]+=${(j:/:)gitstatus}
 }
 
-# Vi-mode plugin indicator config
-MODE_INDICATOR="%{$fg_bold[yellow]%}<%{$fg[yellow]%}<<%{$reset_color%}"
+#
+# Vi-mode
+#
+
+# If I am using vi keys, I want to know what mode I'm currently using.
+# zle-keymap-select is executed every time KEYMAP changes.
+# zle-line-init is executed every time the shell started to read a new line of input.
+# From http://zshwiki.org/home/examples/zlewidgets
+function zle-line-init zle-keymap-select {
+    MODE_INDICATOR="%{$fg_bold[yellow]%}<%{$fg[yellow]%}<<%{$reset_color%}"
+    VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR }/(main|viins)/}"
+
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 # Adding right prompt, contents: time, branch and vim mode
-setopt PROMPT_SUBST
-RPROMPT_BASE='$(vi_mode_prompt_info) ${vcs_info_msg_0_}'
+RPROMPT_BASE='${VIMODE}${vcs_info_msg_0_}'
 
 # Anonymous function to avoid leaking variables.
 function () {
@@ -136,12 +143,14 @@ function () {
   fi
 
   if [[ $EUID -eq 0 ]]; then
+    # root simbol
     local SUFFIX=$(printf '%%F{red}#%.0s%%f' {1..$LVL})
   else
+    # normal user simbol
     local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
   fi
 
-  export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
+  PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
 
   if tmux info &> /dev/null; then
     # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
@@ -159,59 +168,14 @@ export SPROMPT="Correct %F{red}'%R'%f to %F{blue}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo
 
 autoload -U add-zsh-hook
 
-function -set-tab-and-window-title() {
-  emulate -L zsh
-  local CMD="${1:gs/$/\\$}"
-  print -Pn "\e]0;$CMD:q\a"
-}
-
 # $HISTCMD (the current history event number) is shared across all shells
 # (due to SHARE_HISTORY). Maintain this local variable to count the number of
 # commands run in this specific shell.
 HISTCMD_LOCAL=0
 
-# Executed before displaying prompt.
-function -update-window-title-precmd() {
-  emulate -L zsh
-  if [[ HISTCMD_LOCAL -eq 0 ]]; then
-    # About to display prompt for the first time; nothing interesting to show in
-    # the history. Show $PWD.
-    -set-tab-and-window-title "$(basename $PWD)"
-  else
-    local LAST=$(history | tail -1 | awk '{print $2}')
-    if [ -n "$TMUX" ]; then
-      # Inside tmux, just show the last command: tmux will prefix it with the
-      # session name (for context).
-      -set-tab-and-window-title "$LAST"
-    else
-      # Outside tmux, show $PWD (for context) followed by the last command.
-      -set-tab-and-window-title "$(basename $PWD) > $LAST"
-    fi
-  fi
-}
-add-zsh-hook precmd -update-window-title-precmd
-
-# Executed before executing a command: $2 is one-line (truncated) version of
-# the command.
-function -update-window-title-preexec() {
-  emulate -L zsh
-  setopt EXTENDED_GLOB
-  HISTCMD_LOCAL=$((++HISTCMD_LOCAL))
-
-  # Skip ENV=settings, sudo, ssh; show first distinctive word of command;
-  # mostly stolen from:
-  #   https://github.com/robbyrussell/oh-my-zsh/blob/master/lib/termsupport.zsh
-  local TRIMMED="${2[(wr)^(*=*|mosh|ssh|sudo)]}"
-  if [ -n "$TMUX" ]; then
-    # Inside tmux, show the running command: tmux will prefix it with the
-    # session name (for context).
-    -set-tab-and-window-title "$TRIMMED"
-  else
-    # Outside tmux, show $PWD (for context) followed by the running command.
-    -set-tab-and-window-title "$(basename $PWD) > $TRIMMED"
-  fi
-}
-add-zsh-hook preexec -update-window-title-preexec
+#
+# Time on RPROMPT
+#
 
 typeset -F SECONDS
 
@@ -251,19 +215,12 @@ add-zsh-hook precmd -report-start-time
 
 function -auto-ls-after-cd() {
   emulate -L zsh
-  # Only in response to a user-initiated `cd`, not indirectly (eg. via another
-  # function).
+  # Only in response to a user-initiated `cd`, not indirectly (eg. via another function).
   if [ "$ZSH_EVAL_CONTEXT" = "toplevel:shfunc" ]; then
     ls -a
   fi
 }
 add-zsh-hook chpwd -auto-ls-after-cd
-
-# Remember each command we run.
-function -record-command() {
-  __FREDO[LAST_COMMAND]="$2"
-}
-add-zsh-hook preexec -record-command
 
 # Call vcs_info as precmd before every prompt.
 prompt_precmd() {
