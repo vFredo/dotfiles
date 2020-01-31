@@ -123,7 +123,6 @@ endif
 
 " Fast toggle bewtween the different modes
 set timeoutlen=1000 ttimeoutlen=0
-set ttyfast
 
 " Format options reltated
 set formatoptions+=j
@@ -144,7 +143,7 @@ highlight Comment cterm=italic
 
 " Things better highlighted
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
-execute 'highlight! MatchParen cterm=bold guibg=' . pinnacle#extract_bg("CursorLine")
+execute 'highlight! MatchParen cterm=underline,bold guibg=' . pinnacle#extract_bg("CursorLine")
 execute 'highlight! WildMenu guibg=#7cafc2 guifg=' . pinnacle#extract_bg("Normal")
 
 " StatusLine seems a bit off on split windows, deleting that colors (wildmenu-no-current colors too)
@@ -155,5 +154,4 @@ execute 'highlight! StatusLineNC gui=NONE guibg=' . pinnacle#extract_bg("Normal"
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
 highlight! clear Search
 execute 'highlight! Search ' . pinnacle#embolden('Underlined')
-
 

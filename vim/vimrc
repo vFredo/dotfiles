@@ -43,17 +43,17 @@ let g:tex_conceal='abdmg'
 
 " ---------------- FZF config ------------------------------
 let g:fzf_buffers_jump = 1
-let g:fzf_colors = {
+let g:fzf_colors ={
     \ 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
+    \ 'hl':      ['fg', 'Exception'],
     \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
     \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
+    \ 'hl+':     ['fg', 'Exception'],
     \ 'info':    ['fg', 'PreProc'],
     \ 'border':  ['fg', 'Ignore'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
+    \ 'prompt':  ['fg', 'Function'],
+    \ 'pointer': ['fg', 'Function'],
     \ 'marker':  ['fg', 'Keyword'],
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }

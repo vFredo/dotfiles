@@ -4,7 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/fredo/.oh-my-zsh"
 
-
 # ZSH theme
 ZSH_THEME="fredo"
 
@@ -13,7 +12,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,7 +61,6 @@ COMPLETION_WAITING_DOTS="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # FZF fuzzy finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -72,6 +69,7 @@ plugins=(
     git
     tmux
     vi-mode
+    fzf
     colored-man-pages
 )
 
@@ -114,3 +112,32 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+_gen_fzf_default_opts() {
+    local color00='#181818'
+    local color01='#282828'
+    local color02='#383838'
+    local color03='#585858'
+    local color04='#b8b8b8'
+    local color05='#d8d8d8'
+    local color06='#e8e8e8'
+    local color07='#f8f8f8'
+    local color08='#ab4642'
+    local color09='#dc9656'
+    local color0A='#f7ca88'
+    local color0B='#a1b56c'
+    local color0C='#86c1b9'
+    local color0D='#7cafc2'
+    local color0E='#ba8baf'
+    local color0F='#a16946'
+
+    export FZF_DEFAULT_OPTS="
+    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color08
+    --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+    --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color08
+    "
+
+}
+_gen_fzf_default_opts
