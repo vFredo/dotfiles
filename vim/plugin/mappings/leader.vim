@@ -7,7 +7,9 @@ let mapleader = " "
 " Plugin bindings
 nnoremap <leader>c :VimtexCompile<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
-nnoremap <leader>h :CommandTHelp<CR>
+nnoremap <leader>t :Files<CR>
+nnoremap <leader>h :Helptags<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " Buffer and window related bindings
 nnoremap <leader>d :bdelete<CR>

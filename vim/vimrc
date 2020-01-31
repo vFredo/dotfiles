@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator'   " Tmux navigation on vim
+Plug 'christoomey/vim-tmux-navigator'   " Move between tmux panes and vim panes
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler and syntax
 Plug 'tpope/vim-commentary'     " Comment lines more easely
@@ -16,10 +16,8 @@ Plug 'itchyny/lightline.vim'    " Nice statusline
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " See search commands more easy
-" Fuzzy finder: it need ruby-dev tool
-Plug 'wincent/command-t', {
-    \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-    \ }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'         " Fuzzy finder need fzf install on shell
 
 call plug#end()
 
@@ -43,8 +41,22 @@ let g:vimtex_quickfix_mode=0
 " Symbols and special characters view nice or invisible in .tex files
 let g:tex_conceal='abdmg'
 
-" ---------------- CommandT config ------------------------------
-let g:CommandTCancelMap='<Esc>'
+" ---------------- FZF config ------------------------------
+let g:fzf_buffers_jump = 1
+let g:fzf_colors = {
+    \ 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
 
 " ---------------- Vinegar config ------------------------------
 let g:netrw_liststyle = 3

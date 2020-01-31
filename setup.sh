@@ -55,7 +55,7 @@ then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # Installing vim plugins
-    vim +PlugInstall +qall
+    vim +PlugInstall +PlugUpdate +qall
 
     # Adding own lightline-vim theme
     cp "$(pwd)"/vim/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/

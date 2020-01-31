@@ -120,3 +120,5 @@ export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
 # export ARCHFLAGS="-arch x86_64"
 # export LANG=en_US.UTF-8
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
