@@ -25,3 +25,6 @@ autocmd VimLeave *.tex !latexmk -c %
 " Fixing anoying problem of lightline lost focus and show inactive statusline when is not.
 autocmd BufWinEnter,WinEnter * call lightline#enable()
 
+" Compile files with <leader> c only for couple of files
+autocmd FileType tex nnoremap <buffer> <leader>c :VimtexCompile<CR>
+

@@ -110,7 +110,7 @@ set fillchars+=vert:┃         " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
 
 " Change cursors between modes (Also chech if you are using tmux)
-" (compaitble with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
+" (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
 if exists('$TMUX')
     let &t_SI = "\ePtmux;\e\e[6 q\e\\"
     let &t_SR = "\ePtmux;\e\e[4 q\e\\"

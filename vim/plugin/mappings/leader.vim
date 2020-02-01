@@ -5,7 +5,6 @@
 let mapleader = " "
 
 " Plugin bindings
-nnoremap <leader>c :VimtexCompile<CR>
 nnoremap <leader>u :UltiSnipsEdit<CR>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>h :Helptags<CR>
