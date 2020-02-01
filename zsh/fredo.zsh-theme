@@ -62,29 +62,28 @@ zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
 zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
 
 function +vi-hg-bookmarks() {
-  emulate -L zsh
-  if [[ -n "${hook_com[hg-active-bookmark]}" ]]; then
-    hook_com[hg-bookmark-string]="${(Mj:,:)@}"
-    ret=1
-  fi
+    emulate -L zsh
+    if [[ -n "${hook_com[hg-active-bookmark]}" ]]; then
+        hook_com[hg-bookmark-string]="${(Mj:,:)@}"
+        ret=1
+    fi
 }
 
 function +vi-hg-message() {
-  emulate -L zsh
+    emulate -L zsh
 
-  # Suppress hg branch display if we can display a bookmark instead.
-  if [[ -n "${hook_com[misc]}" ]]; then
-    hook_com[branch]=''
-  fi
-  return 0
+    # Suppress hg branch display if we can display a bookmark instead.
+    if [[ -n "${hook_com[misc]}" ]]; then
+        hook_com[branch]=''
+    fi
+    return 0
 }
 
 function +vi-git-untracked() {
-  emulate -L zsh
-  if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-    hook_com[unstaged]+="%F{blue}●%f"
-  fi
-
+    emulate -L zsh
+    if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
+        hook_com[unstaged]+="%F{blue}●%f"
+    fi
 }
 
 # Compare local changes to remote changes
@@ -115,8 +114,8 @@ function +vi-git-st() {
 function zle-line-init zle-keymap-select {
 
     # Vi-mode indicators
-    local MODE_INDICATOR=" %{$fg_bold[yellow]%}>>>%{$reset_color%}"
-    local VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR }/(main|viins)/}"
+    local MODE_INDICATOR=" %{$fg_bold[yellow]%}>>>%{$reset_color%} "
+    local VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
 
     # Look if tmux is runnit that way it doesn't have to nested another term
     if tmux info &> /dev/null; then
@@ -137,7 +136,7 @@ function zle-line-init zle-keymap-select {
         local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
     fi
 
-    PROMPT="${VIMODE}%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
+    PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b ${VIMODE}"
 
     zle reset-prompt
 }
@@ -168,45 +167,45 @@ HISTCMD_LOCAL=0
 typeset -F SECONDS
 
 function -record-start-time() {
-  emulate -L zsh
-  ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
+    emulate -L zsh
+    ZSH_START_TIME=${ZSH_START_TIME:-$SECONDS}
 }
 add-zsh-hook preexec -record-start-time
 
 function -report-start-time() {
-  emulate -L zsh
-  if [ $ZSH_START_TIME ]; then
-    local DELTA=$(($SECONDS - $ZSH_START_TIME))
-    local DAYS=$((~~($DELTA / 86400)))
-    local HOURS=$((~~(($DELTA - $DAYS * 86400) / 3600)))
-    local MINUTES=$((~~(($DELTA - $DAYS * 86400 - $HOURS * 3600) / 60)))
-    local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
-    local ELAPSED=''
-    test "$DAYS" != '0' && ELAPSED="${DAYS}d"
-    test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
-    test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
-    if [ "$ELAPSED" = '' ]; then
-      SECS="$(print -f "%.2f" $SECS)s"
-    elif [ "$DAYS" != '0' ]; then
-      SECS=''
+    emulate -L zsh
+    if [ $ZSH_START_TIME ]; then
+        local DELTA=$(($SECONDS - $ZSH_START_TIME))
+        local DAYS=$((~~($DELTA / 86400)))
+        local HOURS=$((~~(($DELTA - $DAYS * 86400) / 3600)))
+        local MINUTES=$((~~(($DELTA - $DAYS * 86400 - $HOURS * 3600) / 60)))
+        local SECS=$(($DELTA - $DAYS * 86400 - $HOURS * 3600 - $MINUTES * 60))
+        local ELAPSED=''
+        test "$DAYS" != '0' && ELAPSED="${DAYS}d"
+        test "$HOURS" != '0' && ELAPSED="${ELAPSED}${HOURS}h"
+        test "$MINUTES" != '0' && ELAPSED="${ELAPSED}${MINUTES}m"
+        if [ "$ELAPSED" = '' ]; then
+        SECS="$(print -f "%.2f" $SECS)s"
+        elif [ "$DAYS" != '0' ]; then
+        SECS=''
+        else
+        SECS="$((~~$SECS))s"
+        fi
+        ELAPSED="${ELAPSED}${SECS}"
+        export RPROMPT="%F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f $RPROMPT_BASE"
+        unset ZSH_START_TIME
     else
-      SECS="$((~~$SECS))s"
+        export RPROMPT="$RPROMPT_BASE"
     fi
-    ELAPSED="${ELAPSED}${SECS}"
-    export RPROMPT="%F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f $RPROMPT_BASE"
-    unset ZSH_START_TIME
-  else
-    export RPROMPT="$RPROMPT_BASE"
-  fi
 }
 add-zsh-hook precmd -report-start-time
 
 function -auto-ls-after-cd() {
-  emulate -L zsh
-  # Only in response to a user-initiated `cd`, not indirectly (eg. via another function).
-  if [ "$ZSH_EVAL_CONTEXT" = "toplevel:shfunc" ]; then
-    ls -a
-  fi
+    emulate -L zsh
+    # Only in response to a user-initiated `cd`, not indirectly (eg. via another function).
+    if [ "$ZSH_EVAL_CONTEXT" = "toplevel:shfunc" ]; then
+        ls -a
+    fi
 }
 add-zsh-hook chpwd -auto-ls-after-cd
 

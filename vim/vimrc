@@ -113,7 +113,7 @@ function! LightlineFilename()
         let filename = substitute(filename, $HOME, "~", "")
     endif
 
-    if winwidth(0) <= 64
+    if winwidth(0) <= 64 || strlen(filename) > 70
         let filename = expand('%:t')
     endif
     return filename
