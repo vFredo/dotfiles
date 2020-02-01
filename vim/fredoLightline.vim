@@ -4,23 +4,23 @@
 " License: MIT License
 " Last Change: 2019/10/04
 " =============================================================================
-let s:base00 = [ '#181818',  0 ] " black
-let s:base01 = [ '#282828', 18 ]
-let s:base02 = [ '#383838', 19 ]
-let s:base03 = [ '#585858',  8 ]
-let s:base04 = [ '#b8b8b8', 20 ]
-let s:base05 = [ '#d8d8d8',  7 ]
-let s:base06 = [ '#e8e8e8', 21 ]
-let s:base07 = [ '#f8f8f8', 15 ] " white
+let s:base00 = [ '#151515',  0 ] " black
+let s:base01 = [ '#202020', 18 ]
+let s:base02 = [ '#303030', 19 ]
+let s:base03 = [ '#505050',  8 ]
+let s:base04 = [ '#b0b0b0', 20 ]
+let s:base05 = [ '#d0d0d0',  7 ]
+let s:base06 = [ '#e0e0e0', 21 ]
+let s:base07 = [ '#f5f5f5', 15 ] " white
 
-let s:base08 = [ '#ab4642',  1 ] " red
-let s:base09 = [ '#dc9656', 16 ] " orange
-let s:base0A = [ '#f7ca88',  3 ] " yellow
-let s:base0B = [ '#a1b56c',  2 ] " green
-let s:base0C = [ '#86c1b9',  6 ] " teal
-let s:base0D = [ '#7cafc2',  4 ] " blue
-let s:base0E = [ '#ba8baf',  5 ] " pink
-let s:base0F = [ '#a16946', 17 ] " brown
+let s:base08 = [ '#ac4142',  1 ] " red
+let s:base09 = [ '#d28445', 16 ] " orange
+let s:base0A = [ '#f4bf75',  3 ] " yellow
+let s:base0B = [ '#90a959',  2 ] " green
+let s:base0C = [ '#75b5aa',  6 ] " teal
+let s:base0D = [ '#6a9fb5',  4 ] " blue
+let s:base0E = [ '#aa759f',  5 ] " pink
+let s:base0F = [ '#8f5536', 17 ] " brown
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 
