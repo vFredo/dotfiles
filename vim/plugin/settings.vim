@@ -15,12 +15,16 @@ set laststatus=2
 set noshowmode
 
 " Annoying things
-set shortmess+=W      " Don't echo [w]/[written] when writing
-set shortmess+=I      " Dont'n show intro message of Vim
-set shortmess+=T      " Too big for the command line? put ...
-set belloff=all       " Never ring the bell
-set mouse=a           " Mouse movement on vim
-set lazyredraw        " Lazy updating the screen during macros
+set belloff=all         " Never ring the bell
+set lazyredraw          " Lazy updating the screen during macros
+set shortmess+=I        " Dont'n show intro message of Vim
+set shortmess+=T        " Too big for the command line? put ...
+set shortmess+=W        " Don't echo [w]/[written] when writing a file
+set shortmess+=a        " Use abbreviations eg. [RO] instead of  [readonly]
+set shortmess+=t        " Truncate files messages at start
+
+ " Mouse movement on vim
+set mouse=a
 
 " Lines configuration
 set number          " Set current line number
@@ -127,7 +131,16 @@ endif
 set timeoutlen=1000 ttimeoutlen=0
 
 " Format options reltated
-set formatoptions+=j
+set formatoptions+=j    " Remove comment leader when joining lines
+set formatoptions+=n    " Recognize numbered lists
+
+" GUI options
+set guioptions-=l   " Don't show scroll bar on widnows
+set guioptions-=L   " Don't show scrollbar on split windows
+set guioptions-=r   " Don't show right scrollbar
+set guioptions-=R   " Don't shor right scrollbar on split windows
+set guioptions-=b   " Don't show bottom scrollbar
+set guioptions-=T   " Don't show toolbar
 
 " Replace conceal text to one character
 set conceallevel=1
