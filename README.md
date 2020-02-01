@@ -70,7 +70,7 @@ This configuration are set for Linux operating systems, this is really intendent
     * `apt-get install texlive-full` for Debian-based distros.
     * `pacman -S texlive-most texlive-lang` for Arch-based distros.
     * inkscape for making figures: `pacman -S inkscape`.
-    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on [vim](https://github.com/fredo0522/dotfiles/blob/master/vim/plugin/mappings/normal.vim#L22).
+    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim: <code>Ctrl</code>+<code>f</code>.
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
