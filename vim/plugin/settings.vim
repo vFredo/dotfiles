@@ -4,6 +4,29 @@
 
 set encoding=utf-8
 
+" Highlights
+set cursorline
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
+" Setting statusline
+set laststatus=2
+set noshowmode
+
+" Annoying things
+set shortmess+=W      " Don't echo [w]/[written] when writing
+set shortmess+=I      " Dont'n show intro message of Vim
+set shortmess+=T      " Too big for the command line? put ...
+set belloff=all       " Never ring the bell
+set mouse=a           " Mouse movement on vim
+set lazyredraw        " Lazy updating the screen during macros
+
+" Lines configuration
+set number          " Set current line number
+set relativenumber  " Relactive numbers
+set scrolloff=3     " start scrolling 3 lines before edge of viewport
+
 " Move backup files out of the way and don't create root-owned files
 " the "//" on the dirs means that the files created on tmp will be unique
 if exists('$SUDO_USER')
@@ -27,27 +50,6 @@ if has('persistent_undo')
         set undofile
     endif
 endif
-
-"Setting statusline
-set laststatus=2
-set noshowmode
-
-" Annoying things
-set shortmess+=W      " Don't echo [w]/[written] when writing
-set shortmess+=I      " Dont'n show intro message of Vim
-set shortmess+=T      " Too big for the command line? put ...
-set belloff=all       " Never ring the bell
-set mouse=a           " Mouse movement on vim
-set lazyredraw        " Lazy updating the screen during macros
-
-" Highlight
-syntax enable
-set cursorline
-
-" Lines configuration
-set number          " Set current line number
-set relativenumber  " Relactive numbers
-set scrolloff=3     " start scrolling 3 lines before edge of viewport
 
 if has('linebreak')
     set linebreak             " Wrap taking to account words
@@ -82,8 +84,8 @@ set expandtab
 
 " Wildmenu configuration
 set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-set wildignore+=.DS_Store,*.pdf,*/project/*,*/target/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.ttf
+set wildignore+=.DS_Store,*.pdf,*/.project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 set wildmode=longest:full,full
 
