@@ -142,16 +142,16 @@ set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=N:FoldColumn         " Make current line number stand out a little
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
-" Make background transparent for the line numbers and italics for comments
-highlight LineNr guibg=NONE
-highlight Comment cterm=italic
+" Samke background color for the line numbers and italics for comments
+execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
+highlight! Comment cterm=italic
 
 " Things better highlighted need pinnacle (https://github.com/wincent/pinnacle)
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
 execute 'highlight! MatchParen cterm=underline,bold guibg=' . pinnacle#extract_bg("CursorLine")
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("Normal")
 
-" StatusLine seems a bit off on split windows, deleting that colors (wildmenu-no-current colors too)
+" StatusLine seems a bit off on split windows, deleting that colors (wildmenu when is not on focus colors too)
 execute 'highlight! StatusLine gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
 execute 'highlight! StatusLineNC gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
 
