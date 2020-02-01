@@ -90,7 +90,7 @@ set expandtab
 set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
 set wildmode=longest:full,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.ttf
-set wildignore+=.DS_Store,*.pdf,*/.project/*,*/target/*
+set wildignore+=.DS_Store,*.pdf,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Folds configurations
@@ -156,10 +156,10 @@ set highlight+=c:LineNr             " Blend vertical separators with line number
 highlight LineNr guibg=NONE
 highlight Comment cterm=italic
 
-" Things better highlighted
+" Things better highlighted need pinnacle (https://github.com/wincent/pinnacle)
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
 execute 'highlight! MatchParen cterm=underline,bold guibg=' . pinnacle#extract_bg("CursorLine")
-execute 'highlight! WildMenu guibg=#7cafc2 guifg=' . pinnacle#extract_bg("Normal")
+execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("Normal")
 
 " StatusLine seems a bit off on split windows, deleting that colors (wildmenu-no-current colors too)
 execute 'highlight! StatusLine gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")

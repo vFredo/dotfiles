@@ -10,12 +10,13 @@ Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler and syntax
 Plug 'tpope/vim-commentary'     " Comment lines more easely
 Plug 'tpope/vim-vinegar'        " File menu search
 Plug 'tpope/vim-surround'       " Easy motion with surrounds
+Plug 'justinmk/vim-sneak'       " Fast motions moving between lines
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
 Plug 'itchyny/lightline.vim'    " Nice statusline
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'wincent/pinnacle'         " Control of the highlight groups
-Plug 'wincent/loupe'            " See search commands more easy
+Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder need fzf install on shell
 
@@ -121,6 +122,9 @@ endfunction
 
 " ------------------ Loupe config ------------------------------
 let g:LoupeCenterResults=0
+
+" ------------------ Sneak config ------------------------------
+highlight! link Sneak Search
 
 " ---------------- base16 colorscheme config --------------------------
 
