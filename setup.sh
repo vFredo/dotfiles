@@ -4,7 +4,7 @@
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
     # Create folders need it if they don't exist already
-    mkdir -p ~/.config/zathura ~/.fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/undo
+    mkdir -p ~/.config/zathura ~/.fonts ~/.vim/tmp/backup ~/.vim/tmp/swap
 
     # Bae16 theme for the shell
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell

@@ -45,16 +45,6 @@ else
     set directory+=.
 endif
 
-if has('persistent_undo')
-    if exists('$SUDO_USER')
-        set noundofile
-    else
-        set undodir=~/.vim/tmp/undo//
-        set undodir+=.
-        set undofile
-    endif
-endif
-
 if has('linebreak')
     set linebreak             " Wrap taking to account words
     let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)

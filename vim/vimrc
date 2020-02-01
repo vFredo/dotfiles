@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux panes and vim panes
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler and syntax
-Plug 'tpope/vim-commentary'     " Comment lines more easely
+Plug 'tpope/vim-commentary'     " Comment lines more easily
 Plug 'tpope/vim-vinegar'        " File menu search
 Plug 'tpope/vim-surround'       " Easy motion with surrounds
 Plug 'justinmk/vim-sneak'       " Fast motions moving between lines
@@ -133,7 +133,7 @@ if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background
 else
-    colorscheme base16-default-dark
+    colorscheme base16-classic-dark
 endif
 
 " True colors on terminal
