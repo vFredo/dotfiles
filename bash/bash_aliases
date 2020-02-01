@@ -1,4 +1,6 @@
+#
 # Own aliases
+#
 
 # Files folders
 alias doc='cd ~/Documents'
@@ -18,7 +20,7 @@ alias vi3="vim ~/.i3/config"
 
 # Current use
 alias la='ls -A'
-alias ll='ls -la'
+alias ll='ls -alF'
 alias ..='cd ..'
 
 # Open any file from terminal (Ranger use rifle to open files)
