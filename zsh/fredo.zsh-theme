@@ -115,8 +115,8 @@ function +vi-git-st() {
 function zle-line-init zle-keymap-select {
 
     # Vi-mode indicators
-    MODE_INDICATOR=" %{$fg_bold[yellow]%}>>>%{$reset_color%}"
-    VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR }/(main|viins)/}"
+    local MODE_INDICATOR=" %{$fg_bold[yellow]%}>>>%{$reset_color%}"
+    local VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR }/(main|viins)/}"
 
     # Look if tmux is runnit that way it doesn't have to nested another term
     if tmux info &> /dev/null; then
@@ -138,12 +138,6 @@ function zle-line-init zle-keymap-select {
     fi
 
     PROMPT="${VIMODE}%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
-
-    if tmux info &> /dev/null; then
-        # Outside tmux, ZLE_RPROMPT_INDENT ends up eating the space after PS1, and
-        # prompt still gets corrupted even if we add an extra space to compensate.
-        export ZLE_RPROMPT_INDENT=0
-    fi
 
     zle reset-prompt
 }

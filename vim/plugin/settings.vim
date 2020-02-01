@@ -88,10 +88,10 @@ set expandtab
 
 " Wildmenu configuration
 set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
+set wildmode=longest:full,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.ttf
 set wildignore+=.DS_Store,*.pdf,*/.project/*,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
-set wildmode=longest:full,full
 
 " Folds configurations
 set diffopt+=foldcolumn:0     " Don't show fold column in diff view
