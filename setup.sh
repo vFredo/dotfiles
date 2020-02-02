@@ -20,6 +20,7 @@ then
         ln -sf "$(pwd)"/bash/bash_aliases /"$(whoaim)"/.bash_aliases
         ln -sf "$(pwd)"/zsh/zshrc /"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
+        ln -sf "$(pwd)"/bash/agignore /"$(whoami)"/.agignore
 
         # Vim
         ln -sf "$(pwd)"/vim/plugin /"$(whoami)"/.vim/
@@ -46,6 +47,7 @@ then
         ln -sf "$(pwd)"/config/tmux.conf /home/"$(whoami)"/.tmux.conf
         ln -sf "$(pwd)"/zsh/zshrc /home/"$(whoami)"/.zshrc
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /home/"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
+        ln -sf "$(pwd)"/bash/agignore /home/"$(whoami)"/.agignore
 
         # Vim
         ln -sf "$(pwd)"/vim/vimrc /home/"$(whoami)"/.vimrc
