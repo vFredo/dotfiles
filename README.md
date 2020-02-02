@@ -39,7 +39,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * Terminal font: [Iosevka](https://github.com/be5invis/Iosevka/tree/master).
 
 ### Select Theme
-* Run `base16_` and then hit tab (\t) to see all the themes available.
+* Run `base16_` and then hit `Tab` to see all the themes available.
 
 ## Dependencies
 * Fonts
@@ -62,17 +62,17 @@ This configuration are set for Linux operating systems, this is really intendent
         * xorg-xdpyinfo.
         * i3lock-color.
 * Ranger
-    * atool (extract files).
+    * atool (extract files with <kbd>Shift + x</kbd>).
 * Tmux
     * xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
 * Polybar
-    * dbus-python `pip3 install dbus-python` (spotify icons to change or pause songs).
-* Latex (if you want vimtex to work)
+    * dbus-python `pip3 install dbus-python` (Spotify icons for change or pause songs).
+* Latex (if you want the vimtex workflow to work)
     * `apt-get install texlive-full` for Debian-based distros.
     * `pacman -S texlive-most texlive-lang` for Arch-based distros.
     * inkscape for making figures: `pacman -S inkscape`.
-    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim <kbd>Ctrl</kbd>+<kbd>f</kbd>.
+    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim <kbd>Ctrl + f</kbd>.
 
 # Inspired
-* Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
+* Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
 
