@@ -22,3 +22,6 @@ nnoremap <leader>o :only<CR>
 vnoremap <leader>y "+y
 vnoremap <leader>d "+d
 
+" Toggle accent keys
+nnoremap <leader>a :call ToggleAccent()<CR>
+
