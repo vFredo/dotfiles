@@ -50,7 +50,7 @@ let g:fzf_layout = {'down': '36%'}
 let g:fzf_buffers_jump = 1
 
 " Search files with ag if it's install
-if match(system('ag --version'), 'version') >= 0
+if executable('ag')
     let $FZF_DEFAULT_COMMAND = 'ag --hidden -U -g ""'
 endif
 
