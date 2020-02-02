@@ -14,7 +14,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 * Rofi configurations.
 * Latex [preamble](https://github.com/fredo0522/dotfiles/blob/master/latex/preamble.tex) for lectures.
-* Files to ignore for [ag](https://github.com/ggreer/the_silver_searcher) command.
+* Files to ignore for [ag](https://github.com/ggreer/the_silver_searcher) command. If `ag` is install vim will used for searching files with fzf-vim.
 
 ### Bash
 * Current version control branch name.
@@ -72,7 +72,6 @@ This configuration are set for Linux operating systems, this is really intendent
     * `pacman -S texlive-most texlive-lang` for Arch-based distros.
     * inkscape for making figures: `pacman -S inkscape`.
     * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim <kbd>Ctrl</kbd>+<kbd>f</kbd>.
-* [The Silver Searcher](https://github.com/ggreer/the_silver_searcher) for searching files on vim
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the tecnical things seen in this repository comes from his dotfiles.
