@@ -67,8 +67,8 @@ set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
 set splitbelow splitright
 
 set backspace=indent,eol,start
-set hidden " Allow you to hide buffers with unsaved changes
-set autoread " When a file is change outside the editor, vim try to read it again
+set hidden      " Allow you to hide buffers with unsaved changes
+set autoread    " When a file is change outside the editor, vim try to read it again
 
 " Tabs ('\t') configurations: Soft tabs, 4 spaces
 set softtabstop=4   " Number of tabs that vim uses
@@ -77,7 +77,7 @@ set shiftround      " When there are multiple lines and you use < or > for '\t'
 set expandtab
 
 " Wildmenu configuration
-set wildmenu " Making a suggestion menu in searches and autocompletition on Console Mode
+set wildmenu        " Suggestion menu in searches and autocompletition on command mode
 set wildmode=longest:full,full
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.ttf
 set wildignore+=.DS_Store,*.pdf,*/target/*
@@ -125,12 +125,12 @@ set formatoptions+=j    " Remove comment leader when joining lines
 set formatoptions+=n    " Recognize numbered lists
 
 " GUI options
-set guioptions-=l   " Don't show scroll bar on widnows
+set guioptions-=T   " Don't show toolbar
+set guioptions-=l   " Don't show scroll bar on windows
 set guioptions-=L   " Don't show scrollbar on split windows
 set guioptions-=r   " Don't show right scrollbar
 set guioptions-=R   " Don't shor right scrollbar on split windows
 set guioptions-=b   " Don't show bottom scrollbar
-set guioptions-=T   " Don't show toolbar
 
 " Replace conceal text to one character
 set conceallevel=1

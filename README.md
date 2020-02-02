@@ -1,6 +1,6 @@
 # Dotfiles and system configurations
 
-This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
+This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it). Feel free to ask anything or contributing to the repo.
 
 ## Features
 * i3 gaps config.

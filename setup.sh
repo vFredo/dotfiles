@@ -9,7 +9,7 @@ then
     # Bae16 theme for the shell
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-    #Ask if is root
+    #Ask if the user is root
     if [ "root" = "$(whoami)" ]
     then
         # Terminal

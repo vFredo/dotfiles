@@ -2,10 +2,9 @@
 " Normal bindings
 "
 
-" Some miscellaneous bindings
+" Changue what '*' highlight, if you want to change a word in multiple lines
+" press 'n' then '.' after the first iteration.
 nnoremap c* *Ncgn
-nnoremap <Up> <C-y>M
-nnoremap <Down> <C-e>M
 
 " Consistent movement
 noremap gh ^
@@ -14,7 +13,4 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
-
-" Toggle between folds
-nnoremap <Tab> za
 
