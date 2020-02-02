@@ -42,7 +42,6 @@ let g:vimtex_quickfix_mode=0
 " Symbols and special characters view nice or invisible in .tex files
 let g:tex_conceal='abdmg'
 
-
 " --------------------------- FZF config -----------------------------
 " Size and positibion of the buffer
 let g:fzf_layout = {'down': '36%'}
@@ -135,7 +134,10 @@ endfunction
 let g:LoupeCenterResults=0
 
 " ------------------------ Sneak config ------------------------------
+let g:sneak#label = 1
 highlight! link Sneak Search
+highlight! link SneakLabel Search
+highlight! link SneakLabelMask IncSearch
 
 " ------------------- base16-colorscheme config ----------------------
 

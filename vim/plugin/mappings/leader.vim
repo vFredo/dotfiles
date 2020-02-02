@@ -6,14 +6,13 @@ let mapleader = " "
 
 " Plugin bindings
 nnoremap <leader>u :UltiSnipsEdit<CR>
-nnoremap <leader>t :Files<CR>
+nnoremap <leader>f :Files<CR>
 nnoremap <leader>h :Helptags<CR>
 nnoremap <leader>b :Buffers<CR>
 
 " Buffer and window related bindings
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>q :q<CR>
 nnoremap <leader>l <C-w>L
 nnoremap <leader>o :only<CR>
 
