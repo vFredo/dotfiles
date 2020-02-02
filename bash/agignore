@@ -1,11 +1,11 @@
-*/tmp/*
+tmp/*
 *.so
 *.swp
 *.zip
 *.ttf
 .DS_Store
 *.pdf
-*/target/*
+target/*
 *.jpg
 *.jpeg
 *.gif
@@ -17,4 +17,8 @@
 *.class
 .git/*
 node_modules/*
+.mozilla/*
+cache/*
+.cache/*
+env/*
 

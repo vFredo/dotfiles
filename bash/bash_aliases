@@ -22,6 +22,7 @@ alias vi3="vim ~/.i3/config"
 alias la='ls -A'
 alias ll='ls -alF'
 alias ..='cd ..'
+alias ag='ag --hidden -U'
 
 # Open any file from terminal (Ranger use rifle to open files)
 alias open='rifle 2>/dev/null'
