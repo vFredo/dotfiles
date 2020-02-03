@@ -1,3 +1,4 @@
+" More information see https://github.com/LukeSmithxyz/vimling
 let g:AccentKeysOn=0
 
 function! ToggleAccent()
@@ -25,10 +26,6 @@ function! AccentOn()
     imap 'U Ú
     imap '<space> '
 
-    " Tilde
-    imap ~n ñ
-    imap ~N Ñ
-
     " Umlaut
     imap "a ä
     imap "A Ä
@@ -41,6 +38,10 @@ function! AccentOn()
     imap "u ü
     imap "U Ü
     imap "<space> "
+
+    " Tilde
+    imap ~n ñ
+    imap ~N Ñ
 
 endfunction
 
