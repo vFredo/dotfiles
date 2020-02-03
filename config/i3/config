@@ -269,18 +269,18 @@ bindsym $mod+9 exec betterlockscreen --lock blur
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-# exec_always --no-startup-id sbxkb
+exec --no-startup-id blueman-applet
+# exec --no-startup-id manjaro-hello
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id blueman-applet
+# exec_always --no-startup-id sbxkb
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -338,7 +338,7 @@ bar {
     status_command i3status
     position top
 
-    ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
     #   tray_output primary
     #   tray_output eDP1
 

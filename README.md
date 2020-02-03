@@ -53,7 +53,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * i3 gaps
     * blueman (bluetooth).
     * Compton.
-    * dunst.
+    * dunst (notifications on i3).
     * [Rofi](https://github.com/davatorium/rofi).
     * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
         * imagemagick.
