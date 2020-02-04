@@ -92,7 +92,11 @@ export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
 # Change between modes more quickly
 export KEYTIMEOUT=1
 
+# Load aliases
 source $HOME/.bash_aliases
+
+# Flutter stuff
+export PATH=/home/fredo/flutter/bin:$PATH
 
 # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char

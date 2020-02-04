@@ -19,12 +19,17 @@ Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder need fzf install on shell
+Plug 'dart-lang/dart-vim-plugin' " Syntax, file detection and indentation on dart
+Plug 'thosakwe/vim-flutter'     " Flutter commands on vim
 
 call plug#end()
 
-" ------------------------ Plugins Configurations --------------------
+" ------------------------ Plugins configurations --------------------
+" ---------------------------- Flutter config ------------------------
+" No extra window '__Fluter_Output__, default=1'
+let g:flutter_show_log_on_run=0
 
-" ------------------------ Ultisnips config -------------------------
+" ------------------------- Ultisnips config -------------------------
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
