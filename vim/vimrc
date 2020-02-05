@@ -26,7 +26,7 @@ call plug#end()
 
 " ------------------------ Plugins configurations --------------------
 " ---------------------------- Flutter config ------------------------
-" No extra window '__Fluter_Output__, default=1'
+" No extra window '__Fluter_Output__' default=1
 let g:flutter_show_log_on_run=0
 
 " ------------------------- Ultisnips config -------------------------

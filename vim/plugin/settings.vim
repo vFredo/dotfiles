@@ -5,10 +5,10 @@
 set encoding=utf-8
 
 " Highlights
-set cursorline
 if !exists("g:syntax_on")
     syntax enable
 endif
+set cursorline
 
 " Setting statusline
 set laststatus=2
@@ -28,7 +28,7 @@ set mouse=a
 
 " Lines configuration
 set number          " Set current line number
-set relativenumber  " Relactive numbers
+set relativenumber  " Relative numbers
 set scrolloff=3     " start scrolling 3 lines before edge of viewport
 
 " Move backup files out of the way and don't create root-owned files
@@ -104,18 +104,6 @@ endfunction
 set fillchars=diff:∙          " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)"
 set fillchars+=vert:┃         " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)"
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
-
-" Change cursors between modes (Also chech if you are using tmux)
-" (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
-if exists('$TMUX')
-    let &t_SI = "\ePtmux;\e\e[6 q\e\\"
-    let &t_SR = "\ePtmux;\e\e[4 q\e\\"
-    let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-else
-    let &t_SI = "\<Esc>[6 q"
-    let &t_SR = "\<Esc>[4 q"
-    let &t_EI = "\<Esc>[2 q"
-endif
 
 " Fast toggle bewtween the different modes
 set timeoutlen=1000 ttimeoutlen=0
