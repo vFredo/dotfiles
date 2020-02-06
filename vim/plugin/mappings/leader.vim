@@ -11,7 +11,7 @@ let mapleader = " "
 " Ultisnips edit on veritcal split
 nnoremap <leader>u :UltiSnipsEdit<CR>
 " FZF
-nnoremap <leader>t :Files<CR>
+nnoremap <leader>f :Files<CR>
 nnoremap <leader>h :Helptags<CR>
 nnoremap <leader>b :Buffers<CR>
 

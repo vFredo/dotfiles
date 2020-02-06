@@ -25,15 +25,6 @@ augroup latex_commands
     autocmd Filetype tex inoremap <buffer> <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 augroup END
 
-augroup flutter_bindings
-    autocmd!
-    " Bindings only for dart files
-    autocmd FileType dart nnoremap <buffer> <leader>fr :FlutterRun<CR>
-    autocmd FileType dart nnoremap <buffer> <leader>fhR :FlutterHotRestart<CR>
-    autocmd FileType dart nnoremap <buffer> <leader>fq :FlutterQuit<CR>
-    autocmd FileType dart nnoremap <buffer> <leader>fhr :FlutterHotReload<CR>
-augroup END
-
 " https://github.com/wincent/wincent/blob/8e43902218c617dc066a51a67279df97d3fba109/roles/dotfiles/files/.vim/plugin/autocmds.vim
 augroup refresh_statusline
     autocmd!

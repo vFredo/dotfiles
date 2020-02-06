@@ -5,9 +5,8 @@
 set encoding=utf-8
 
 " Highlights
-if !exists("g:syntax_on")
-    syntax enable
-endif
+syntax enable
+set cursorline
 
 " Setting statusline
 set laststatus=2
@@ -20,6 +19,9 @@ set shortmess+=T        " Too big for the command line? put ...
 set shortmess+=W        " Don't echo [w]/[written] when writing a file
 set shortmess+=a        " Use abbreviations eg. [RO] instead of  [readonly]
 set shortmess+=t        " Truncate files messages at start
+
+" Backspace to normal
+set backspace=indent,eol,start
 
  " Mouse movement on vim
 set mouse=a
@@ -64,7 +66,6 @@ set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
 " Puts vertical windows to right, instead of left and down instead of up
 set splitbelow splitright
 
-set backspace=indent,eol,start
 set hidden      " Allow you to hide buffers with unsaved changes
 set autoread    " When a file is change outside the editor, vim try to read it again
 
@@ -129,8 +130,9 @@ set highlight+=c:LineNr             " Blend vertical separators with line number
 
 " Things better highlighted need pinnacle (https://github.com/wincent/pinnacle)
 
-" Make background color for the line numbers and italics for comments
-execute 'highlight! LineNr cterm=bold,italic guibg=' . pinnacle#extract_bg("Normal")
+" Make background color for the line numbers and italics for comments and current line stands out more
+execute 'highlight! CursorLineNr cterm=bold guifg=' . pinnacle#extract_fg("FoldColumn")
+execute 'highlight! LineNr cterm=bold guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
