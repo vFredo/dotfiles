@@ -1,5 +1,5 @@
 "
-" Vimrc plugin configuration
+" Vimrc
 "
 
 call plug#begin('~/.vim/plugged')
@@ -18,12 +18,18 @@ Plug 'sheerun/vim-polyglot'     " Better syntax highlight
 Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'         " Fuzzy finder need fzf install on shell
-Plug 'thosakwe/vim-flutter'     , { 'for': 'dart' } " Hot reload for Flutter
+Plug 'junegunn/fzf.vim'         " Fuzzy finder, it needs fzf install on shell
+Plug 'thosakwe/vim-flutter', { 'for': 'dart' } " Hot reload for Flutter
 
 call plug#end()
 
+"
 " ------------------------ Plugins configurations --------------------
+"
+
+" ---------------------------- Polyglot config ------------------------
+let g:polyglot_disabled = ['python', 'latex']
+
 " ---------------------------- Flutter config ------------------------
 " No extra window '__Fluter_Output__' default=1
 let g:flutter_show_log_on_run=0
