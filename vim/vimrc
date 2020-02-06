@@ -82,64 +82,6 @@ let g:fzf_colors ={
 " ------------------------ Vinegar config ----------------------------
 let g:netrw_liststyle = 3
 
-" ---------------------- LightLine config ----------------------------
-let g:lightline = {
-    \   'colorscheme': 'fredoLightline',
-    \   'separator': { 'left': "\ue0b0", 'right': "" },
-    \   'subseparator': { 'left': '', 'right': '' },
-    \   'active': {
-    \     'right': [ ['percent'], ['lineinfo'], ['filetype'] ],
-    \     'left': [ [ 'myModified', 'mode', 'paste' ], ['myFilename', 'myReadonly'] ]
-    \   },
-    \   'inactive': {
-    \     'right': [ ['filetype'] ],
-    \     'left': [ ['relativepath'], ['myModified', 'myReadonly'] ]
-    \   },
-    \   'component': {
-    \     'lineinfo': 'ℓ %3l:%-2v%<'
-    \   },
-    \   'component_function': {
-    \     'myModified': 'LightlineModified',
-    \     'myReadonly': 'LightlineReadonly',
-    \     'myFilename': 'LightlineFilename'
-    \   },
-    \   'mode_map': {
-    \     'n': '',
-    \     'i': '',
-    \     't': '',
-    \     'R': '',
-    \     'v': '',
-    \     'V': '',
-    \     "\<C-v>": '',
-    \     'c' : '',
-    \     's' : '',
-    \     'S' : '',
-    \     "\<C-s>": ''
-    \   }
-    \ }
-
-function! LightlineModified()
-    return &modifiable && &modified ? ' ✘ ' : '   '
-endfunction
-
-function! LightlineReadonly()
-    return &readonly ? '' : ''
-endfunction
-
-" Trim filename if it's to long for the window
-function! LightlineFilename()
-    let filename = expand('%:p') !=# '' ? expand('%:p') : '[No Name]'
-
-    if filename =~ $HOME
-        let filename = substitute(filename, $HOME, "~", "")
-    endif
-
-    if winwidth(0) <= 64 || strlen(filename) > 70
-        let filename = expand('%:t')
-    endif
-    return filename
-endfunction
-
 " -------------------------- Loupe config ----------------------------
 let g:LoupeCenterResults=0
 
@@ -152,6 +94,7 @@ highlight! link SneakLabel IncSearch
 " ------------------- base16-colorscheme config ----------------------
 
 " Checkout https://github.com/chriskempson/base16-shell
+set background=dark
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
     source ~/.vimrc_background

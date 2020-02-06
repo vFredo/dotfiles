@@ -136,7 +136,7 @@ execute 'highlight! LineNr cterm=bold guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
-execute 'highlight! MatchParen cterm=bold guibg=' . pinnacle#extract_bg("Normal") . " guifg=" . pinnacle#extract_bg("Error")
+execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' . "guifg=" . pinnacle#extract_bg("Error")
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("Normal")
 
 " StatusLine seems a bit off on split windows, deleting that colors (wildmenu when is not on focus colors too)
