@@ -13,14 +13,13 @@ Plug 'tpope/vim-surround'       " Easy motion with surrounds
 Plug 'justinmk/vim-sneak'       " Fast motions moving between lines
 Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
 Plug 'chriskempson/base16-vim'  " Nice colorscheme
-Plug 'itchyny/lightline.vim'    " Nice statusline
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'wincent/pinnacle'         " Control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder need fzf install on shell
-Plug 'dart-lang/dart-vim-plugin' " Syntax, file detection and indentation on dart
-Plug 'thosakwe/vim-flutter'     " Flutter commands on vim
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' } " Syntax, file detection on dart
+Plug 'thosakwe/vim-flutter'     , { 'for': 'dart' } " Flutter commands on vim
 
 call plug#end()
 

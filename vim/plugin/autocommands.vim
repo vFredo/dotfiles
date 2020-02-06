@@ -1,11 +1,11 @@
 "
-" Vim commands or autocommands
+" Vim autocommands
 "
 
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
-augroup mips_yntax
+augroup mips_syntax
     autocmd!
     autocmd BufNewFile,BufRead *.s set syntax=mips
 augroup END
@@ -13,7 +13,7 @@ augroup END
 " Disable auto comments on the next line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-augroup latex_bindings_commands
+augroup latex_commands
     autocmd!
     " Deleting all the temp files that latexmk compiler make
     autocmd VimLeave *.tex !latexmk -c %
@@ -28,9 +28,22 @@ augroup END
 augroup flutter_bindings
     autocmd!
     " Bindings only for dart files
-    autocmd FileType dart nnoremap <buffer> <leader>r :FlutterRun<CR>
-    autocmd FileType dart nnoremap <buffer> <leader>R :FlutterHotRestart<CR>
-    autocmd FileType dart nnoremap <buffer> <leader>q :FlutterQuit<CR>
-    autocmd FileType dart nnoremap <buffer> <leader>e :FlutterHotReload<CR>
+    autocmd FileType dart nnoremap <buffer> <leader>fr :FlutterRun<CR>
+    autocmd FileType dart nnoremap <buffer> <leader>fhR :FlutterHotRestart<CR>
+    autocmd FileType dart nnoremap <buffer> <leader>fq :FlutterQuit<CR>
+    autocmd FileType dart nnoremap <buffer> <leader>fhr :FlutterHotReload<CR>
+augroup END
+
+" https://github.com/wincent/wincent/blob/8e43902218c617dc066a51a67279df97d3fba109/roles/dotfiles/files/.vim/plugin/autocmds.vim
+augroup refresh_statusline
+    autocmd!
+    autocmd VimEnter * call statusline#update_highlight()
+    if exists('##TextChangedI')
+        autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter * call statusline#check_modified()
+    else
+        autocmd BufWinEnter,BufWritePost,FileWritePost,WinEnter * call statusline#check_modified()
+    endif
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * call statusline#focus_statusline()
+    autocmd FocusLost,WinLeave * call statusline#blur_statusline()
 augroup END
 

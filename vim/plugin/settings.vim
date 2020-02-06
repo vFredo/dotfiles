@@ -8,11 +8,9 @@ set encoding=utf-8
 if !exists("g:syntax_on")
     syntax enable
 endif
-set cursorline
 
 " Setting statusline
 set laststatus=2
-set noshowmode
 
 " Annoying things
 set belloff=all         " Never ring the bell
@@ -127,16 +125,16 @@ set conceallevel=1
 " Color related
 "
 set highlight+=D:Conceal            " Override DiffDelete
-set highlight+=N:FoldColumn         " Make current line number stand out a little
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
-" Samke background color for the line numbers and italics for comments
-execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
-highlight! Comment cterm=italic
-
 " Things better highlighted need pinnacle (https://github.com/wincent/pinnacle)
+
+" Make background color for the line numbers and italics for comments
+execute 'highlight! LineNr cterm=bold,italic guibg=' . pinnacle#extract_bg("Normal")
+execute 'highlight! Comment ' . pinnacle#italicize('Comment')
+
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
-execute 'highlight! MatchParen cterm=underline,bold guibg=' . pinnacle#extract_bg("CursorLine")
+execute 'highlight! MatchParen cterm=bold guibg=' . pinnacle#extract_bg("Normal") . " guifg=" . pinnacle#extract_bg("Error")
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("Normal")
 
 " StatusLine seems a bit off on split windows, deleting that colors (wildmenu when is not on focus colors too)
