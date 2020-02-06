@@ -123,15 +123,17 @@ set guioptions-=b   " Don't show bottom scrollbar
 set conceallevel=1
 
 "
-" Color related
+" Highlight config (Color)
 "
 set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
+"
 " Things better highlighted need pinnacle (https://github.com/wincent/pinnacle)
+"
 
 " Make background color for the line numbers and italics for comments and current line stands out more
-execute 'highlight! CursorLineNr cterm=bold guifg=' . pinnacle#extract_fg("FoldColumn")
+execute 'highlight! CursorLineNr ' . pinnacle#extract_highlight("DiffText")
 execute 'highlight! LineNr cterm=bold guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 
