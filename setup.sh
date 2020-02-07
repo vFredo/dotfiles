@@ -73,8 +73,8 @@ then
     # Installing vim plugins
     vim +PlugInstall +PlugUpdate +qall
 
-    # Adding own lightline-vim theme
-    cp "$(pwd)"/vim/fredoLightline.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+    # Install zsh-autosuggestions (Oh My Zsh has to be install)
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
     # Intalling and updating fonts for shell
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts

@@ -68,6 +68,7 @@ plugins=(
     tmux
     vi-mode
     fzf
+    zsh-autosuggestions
     colored-man-pages
 )
 
@@ -115,6 +116,9 @@ function fg-bg() {
 
 zle -N fg-bg
 bindkey '^Z' fg-bg
+
+# Autosuggestions with zsh-autosuggestion
+bindkey '^n' autosuggest-accept
 
 # FZF configuration
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
