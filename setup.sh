@@ -77,7 +77,7 @@ then
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-    # Intalling and updating fonts for shell
+    # Installing and updating fonts for shell
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
     fc-cache -f -v
 fi
