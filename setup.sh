@@ -32,7 +32,7 @@ then
         ln -sf "$(pwd)"/config/ranger/commands.py /"$(whoami)"/.config/ranger/commands.py
         ln -sf "$(pwd)"/config/ranger/rc.conf /"$(whoami)"/.config/ranger/rc.conf
         ln -sf "$(pwd)"/config/dunstrc /"$(whoami)"/.config/dunst/dunstrc
-        ln -sf "$(pwd)"/config/rofi /"$(whoami)"/.config/rofi
+        ln -sf "$(pwd)"/config/rofi /"$(whoami)"/.config/
 
         # Latex
         ln -sf "$(pwd)"/config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
@@ -59,7 +59,7 @@ then
         ln -sf "$(pwd)"/config/ranger/commands.py /home/"$(whoami)"/.config/ranger/commands.py
         ln -sf "$(pwd)"/config/ranger/rc.conf /home/"$(whoami)"/.config/ranger/rc.conf
         ln -sf "$(pwd)"/config/dunstrc /home/"$(whoami)"/.config/dunst/dunstrc
-        ln -sf "$(pwd)"/config/rofi /home/"$(whoami)"/.config/rofi
+        ln -sf "$(pwd)"/config/rofi /home/"$(whoami)"/.config/
 
         # Latex
         ln -sf "$(pwd)"/config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
@@ -74,7 +74,8 @@ then
     vim +PlugInstall +PlugUpdate +qall
 
     # Install zsh-autosuggestions (Oh My Zsh has to be install)
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions \
+        ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
     # Intalling and updating fonts for shell
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
