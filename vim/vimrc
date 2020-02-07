@@ -6,16 +6,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux panes and vim panes
 Plug 'SirVer/ultisnips'         " Useful snippets
-Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler and syntax
-Plug 'tpope/vim-commentary'     " Comment lines more easily
+Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
+Plug 'tpope/vim-commentary'     " Comment lines, the easy way
 Plug 'tpope/vim-vinegar'        " File menu search
-Plug 'tpope/vim-surround'       " Easy motion with surrounds
-Plug 'justinmk/vim-sneak'       " Fast motions moving between lines
-Plug 'jiangmiao/auto-pairs'     " Auto complete brackets and parentheses
-Plug 'chriskempson/base16-vim'  " Nice colorscheme
+Plug 'tpope/vim-surround'       " Easy motions with brakets, parentheses, etc.
+Plug 'justinmk/vim-sneak'       " Fast motions between lines
+Plug 'jiangmiao/auto-pairs'     " Auto-complete brackets, parentheses, etc.
+Plug 'chriskempson/base16-vim'  " Nice colorschemes
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
-Plug 'sheerun/vim-polyglot'     " Better syntax highlight
-Plug 'wincent/pinnacle'         " Control of the highlight groups
+Plug 'sheerun/vim-polyglot'     " Better syntax
+Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder, it needs fzf install on shell
@@ -27,7 +27,7 @@ call plug#end()
 " ------------------------ Plugins configurations --------------------
 "
 
-" ---------------------------- Polyglot config ------------------------
+" --------------------------- Polyglot config ------------------------
 let g:polyglot_disabled = ['python', 'latex']
 
 " ---------------------------- Flutter config ------------------------
