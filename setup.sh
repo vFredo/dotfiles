@@ -26,7 +26,7 @@ then
         ln -sf "$(pwd)"/vim/plugin /"$(whoami)"/.vim/
         ln -sf "$(pwd)"/vim/vimrc /"$(whoami)"/.vimrc
 
-        # WM related
+        # i3 related
         ln -sf "$(pwd)"/config/i3/config /"$(whoami)"/.i3/config
         ln -sf "$(pwd)"/config/betterlockscreenrc /"$(whoami)"/.config/betterlockscreenrc
         ln -sf "$(pwd)"/config/ranger/commands.py /"$(whoami)"/.config/ranger/commands.py
@@ -53,7 +53,7 @@ then
         ln -sf "$(pwd)"/vim/vimrc /home/"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/vim/plugin /home/"$(whoami)"/.vim/
 
-        # WM
+        # i3
         ln -sf "$(pwd)"/config/i3/config /home/"$(whoami)"/.i3/config
         ln -sf "$(pwd)"/config/betterlockscreenrc /home/"$(whoami)"/.config/betterlockscreenrc
         ln -sf "$(pwd)"/config/ranger/commands.py /home/"$(whoami)"/.config/ranger/commands.py
@@ -73,7 +73,10 @@ then
     # Installing vim plugins
     vim +PlugInstall +PlugUpdate +qall
 
-    # Install zsh-autosuggestions (Oh My Zsh has to be install)
+    # Install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    # Install zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 

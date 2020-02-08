@@ -1,4 +1,4 @@
-# Dotfiles and system configurations
+# System configurations
 
 This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it). Feel free to ask anything or contributing to the repo.
 
@@ -75,4 +75,5 @@ This configuration are set for Linux operating systems, this is really intendent
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
+* Gilles Castel [Blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
 

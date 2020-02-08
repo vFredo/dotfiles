@@ -4,7 +4,7 @@
 
 set encoding=utf-8
 
-" Highlights
+" Global highlights
 syntax enable
 set cursorline
 
@@ -13,11 +13,11 @@ set laststatus=2
 
 " Annoying things
 set belloff=all         " Never ring the bell
-set lazyredraw          " Lazy updating the screen during macros
+set lazyredraw          " Don't update the screen during macros or scripts executions
 set shortmess+=I        " Dont'n show intro message of Vim
 set shortmess+=T        " Too big for the command line? put ...
 set shortmess+=W        " Don't echo [w]/[written] when writing a file
-set shortmess+=a        " Use abbreviations eg. [RO] instead of  [readonly]
+set shortmess+=a        " Use all the abbreviations eg. [RO] instead of  [readonly]
 set shortmess+=t        " Truncate files messages at start
 
 " Backspace to normal
@@ -69,11 +69,10 @@ set splitbelow splitright
 set hidden      " Allow you to hide buffers with unsaved changes
 set autoread    " When a file is change outside the editor, vim try to read it again
 
-" Tabs ('\t') configurations: Soft tabs, 4 spaces
-set softtabstop=4   " Number of tabs that vim uses
+" Tabs ('\t') configurations
+set tabstop=4       " Tab is 4 spaces wide
 set shiftwidth=4    " How much spaces to take when << or >> is used on Normal Mode
-set shiftround      " When there are multiple lines and you use < or > for '\t'
-set expandtab
+set expandtab       " Make the tab key insert spaces instead of tabs
 
 " Wildmenu configuration
 set wildmenu        " Suggestion menu in searches and autocompletition on command mode
@@ -123,7 +122,7 @@ set guioptions-=b   " Don't show bottom scrollbar
 set conceallevel=1
 
 "
-" Highlight config (Color)
+" Highlight configs (Colors)
 "
 set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=c:LineNr             " Blend vertical separators with line numbers

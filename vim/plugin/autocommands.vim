@@ -7,7 +7,7 @@ autocmd! VimResized * wincmd =
 
 augroup mips_syntax
     autocmd!
-    autocmd BufNewFile,BufRead *.s set syntax=mips
+    autocmd BufNewFile,BufRead *.asm set syntax=mips
 augroup END
 
 " Disable auto comments on the next line
