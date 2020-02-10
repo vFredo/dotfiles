@@ -14,17 +14,17 @@ function! AccentOn()
     let g:AccentKeysOn=1
 
     " Accents
-    imap 'a á
-    imap 'A Á
-    imap 'e é
-    imap 'E É
-    imap 'i í
-    imap 'I Í
-    imap 'o ó
-    imap 'O Ó
-    imap 'u ú
-    imap 'U Ú
-    imap '<space> '
+    imap [a á
+    imap [A Á
+    imap [e é
+    imap [E É
+    imap [i í
+    imap [I Í
+    imap [o ó
+    imap [O Ó
+    imap [u ú
+    imap [U Ú
+    imap [<space> [
 
     " Umlaut
     imap "a ä
@@ -63,17 +63,17 @@ function! AccentOff()
     iunmap "<space>
 
     " Unmapping accent
-    iunmap 'a
-    iunmap 'A
-    iunmap 'e
-    iunmap 'E
-    iunmap 'i
-    iunmap 'I
-    iunmap 'o
-    iunmap 'O
-    iunmap 'u
-    iunmap 'U
-    iunmap '<space>
+    iunmap [a
+    iunmap [A
+    iunmap [e
+    iunmap [E
+    iunmap [i
+    iunmap [I
+    iunmap [o
+    iunmap [O
+    iunmap [u
+    iunmap [U
+    iunmap [<space>
 
     " Unmapping tilde
     iunmap ~n
