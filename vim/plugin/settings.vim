@@ -133,7 +133,7 @@ set guioptions-=r   " Don't show right scrollbar
 set guioptions-=R   " Don't shor right scrollbar on split windows
 set guioptions-=b   " Don't show bottom scrollbar
 
-" Replace conceal text to one character
+" Replace conceal text to one character, and hide some chars
 set conceallevel=1
 
 "
