@@ -10,6 +10,12 @@ augroup mips_syntax
     autocmd BufNewFile,BufRead *.asm set syntax=mips
 augroup END
 
+" i3 syntax
+aug i3config_ft_detection
+    autocmd!
+    autocmd BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+aug end
+
 " Disable auto comments on the next line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
