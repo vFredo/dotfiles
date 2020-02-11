@@ -133,7 +133,7 @@ set highlight+=c:LineNr             " Blend vertical separators with line number
 
 " Make background color for the line numbers and italics for comments and current line stands out more
 execute 'highlight! CursorLineNr ' . pinnacle#extract_highlight("DiffText")
-execute 'highlight! LineNr cterm=bold guibg=' . pinnacle#extract_bg("Normal")
+execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")

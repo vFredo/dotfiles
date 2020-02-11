@@ -111,7 +111,7 @@ endfunction
 
 let s:default_lhs_color='Function'
 let s:async_lhs_color='Constant'
-let s:modified_lhs_color='String'
+let s:modified_lhs_color='ErrorMsg'
 let s:current_statusline_status_highlight=s:default_lhs_color
 let s:async=0
 

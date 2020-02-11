@@ -4,7 +4,7 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 10
 set window-title-basename "true"
-set selection-clipboard "clipboard"
+set selection-clipboard clipboard
 
 # base16_defualt-darker theme
 set default-bg                  "#151515"

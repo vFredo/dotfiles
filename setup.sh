@@ -9,6 +9,9 @@ then
     # Bae16 theme for the shell
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
+    # Install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
     #Ask if the user is root
     if [ "root" = "$(whoami)" ]
     then
@@ -70,11 +73,8 @@ then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    # Installing vim plugins
+    # Installing/Updating vim plugins
     vim +PlugInstall +PlugUpdate +qall
-
-    # Install oh-my-zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
     # Install zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions \

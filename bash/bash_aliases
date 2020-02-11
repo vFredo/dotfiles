@@ -4,8 +4,11 @@
 
 # Files folders
 alias doc='cd ~/Documents'
-alias j='cd ~/Documents/University'
-alias stuff='cd ~/Documents/Stuff'
+alias drop='cd ~/Dropbox'
+alias u='cd ~/Dropbox/University'
+alias u5='cd ~/Dropbox/University/QuintoSemestre'
+alias proyect='cd ~/Dropbox/Projects'
+alias stuff='cd ~/Dropbox/Stuff'
 alias dot='cd ~/dotfiles'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
