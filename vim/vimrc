@@ -14,7 +14,6 @@ Plug 'justinmk/vim-sneak'       " Fast motions between lines
 Plug 'jiangmiao/auto-pairs'     " Auto-complete brackets, parentheses, etc.
 Plug 'chriskempson/base16-vim'  " Nice colorschemes
 Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
-Plug 'sheerun/vim-polyglot'     " Better syntax
 Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -25,13 +24,6 @@ call plug#end()
 "
 " ------------------------ Plugins configurations --------------------
 "
-
-" --------------------------- Polyglot config ------------------------
-let g:polyglot_disabled = ['python', 'latex']
-
-" ---------------------------- Flutter config ------------------------
-" No extra window '__Fluter_Output__' default=1
-let g:flutter_show_log_on_run=0
 
 " ------------------------- Ultisnips config -------------------------
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -55,7 +47,7 @@ let g:tex_conceal='abdgm'
 " Size and positibion of the buffer
 let g:fzf_layout = {'down': '36%'}
 
-" If the file is open, jump to the buffer don't opened again
+" If the file is in a buffer, jump to the buffer
 let g:fzf_buffers_jump = 1
 
 " Search files with ag if it's install

@@ -5,6 +5,7 @@
 " Automatic rezise buffers  when resizing window
 autocmd! VimResized * wincmd =
 
+" asm files syntax like mips
 augroup mips_syntax
     autocmd!
     autocmd BufNewFile,BufRead *.asm set syntax=mips
