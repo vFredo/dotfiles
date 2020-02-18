@@ -8,14 +8,12 @@ set encoding=utf-8
 syntax enable
 set cursorline
 
-" Change cursors between modes (with tmux special characters)
+" Change cursors between modes (if has tmux, use tmux's special characters)
 " (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
+" SI = Insert mode, SR = Replace mode, EI = Normal mode
 if exists('$TMUX')
-    " Insert mode
     let &t_SI = "\ePtmux;\e\e[6 q\e\\"
-    " Replace mode
     let &t_SR = "\ePtmux;\e\e[4 q\e\\"
-    " Normal mode
     let &t_EI = "\ePtmux;\e\e[2 q\e\\"
 else
     let &t_SI = "\<Esc>[6 q"
