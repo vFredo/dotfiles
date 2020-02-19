@@ -141,7 +141,7 @@ set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
 
 "
-" Things better highlighted need pinnacle (https://github.com/wincent/pinnacle)
+" Things better highlighted, needed: vim pinnacle (https://github.com/wincent/pinnacle)
 "
 
 " Make background color for the line numbers and italics for comments and current line stands out more
