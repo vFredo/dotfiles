@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'christoomey/vim-tmux-navigator'   " Move between tmux panes and vim panes
+Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'psliwka/vim-smoothie'     " Smooth trancision while scrolling pages
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax

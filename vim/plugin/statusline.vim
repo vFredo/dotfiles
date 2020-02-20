@@ -222,8 +222,8 @@ function! statusline#blur_statusline() abort
     let l:blurred.='%<' " truncation point
     let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
-    let l:blurred.='%7*' " Switch to User7 highlight group.
-    let l:blurred.='[%{FugitiveHead()}]' " Git branch name
+    let l:blurred.='\ ' " space
+    let l:blurred.='(%{FugitiveHead()})' " Git branch name
     let l:blurred.='%*' " reset highlight
     let l:blurred.='%=' " split left/right halves (makes background cover whole)
     call s:update_statusline(l:blurred, 'blur')
@@ -305,7 +305,7 @@ set statusline+=%1*                                " Switch to User1 highlight g
 set statusline+=%([%R%{statusline#ft()}%{statusline#fenc()}]%)
 set statusline+=\                                  " Space.
 set statusline+=%7*             " Switch to User7 highlight group.
-set statusline+=[%{FugitiveHead()}] " Git branch name
+set statusline+=(%{FugitiveHead()}) " Git branch name
 
 set statusline+=%*              " Reset highlight group.
 set statusline+=%=              " Split point for left and right groups.
