@@ -135,7 +135,7 @@ set guioptions-=b   " Don't show bottom scrollbar
 set conceallevel=1
 
 "
-" Highlight configs (Colors)
+" Highlights configs (some colors changes)
 "
 set highlight+=D:Conceal            " Override DiffDelete
 set highlight+=c:LineNr             " Blend vertical separators with line numbers
@@ -149,12 +149,14 @@ execute 'highlight! CursorLineNr ' . pinnacle#extract_highlight("DiffText")
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 
+" Match the cursorline colors to the visual colors
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
-execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' . "guifg=" . pinnacle#extract_bg("Error")
-execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("Normal")
 
-" StatusLineNC = no-current window, StatusLine = current Window, and wild menu colors
-execute 'highlight! StatusLine gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
+" Stand out MatchParen
+execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' . "guifg=" . pinnacle#extract_bg("Error")
+
+" Wildmenu Colors
+execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("StatusLine")
 
 " Better search colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
