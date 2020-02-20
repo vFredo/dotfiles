@@ -1,7 +1,7 @@
-"
-" statusline functions
-"
+" statusline functions and configurations
+" See this repo for more information: most of it comes from wincent dotfiles:
 " (https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/autoload/wincent/statusline.vim)
+
 scriptencoding utf-8
 
 function! statusline#active()
@@ -92,7 +92,7 @@ function! statusline#rhs() abort
             let l:rhs.=repeat(' ', l:padding)
         endif
 
-        let l:rhs.='ℓ ' " (Literal, \u2113 "SCRIPT SMALL L").
+        let l:rhs.='ℓ ' " (Literal, \u2113 'SCRIPT SMALL L').
         let l:rhs.=l:line
         let l:rhs.=':'
         let l:rhs.=l:column
@@ -139,43 +139,41 @@ function! statusline#update_highlight() abort
     let l:highlight=pinnacle#italicize('StatusLineNC')
     execute 'highlight User1 ' . l:highlight
 
-    " Update MatchParen to use italics (used for blurred statuslines).
-    let l:highlight=pinnacle#italicize('MatchParen')
-    execute 'highlight User2 ' . l:highlight
-
     " StatusLine + bold (used for file names).
     let l:highlight=pinnacle#embolden('StatusLine')
-    execute 'highlight User3 ' . l:highlight
+    execute 'highlight User2 ' . l:highlight
 
     " Inverted Error styling, for left-hand side 'Powerline' triangle.
     let l:fg=pinnacle#extract_fg(s:current_statusline_status_highlight)
     let l:bg=pinnacle#extract_bg('StatusLine')
-    execute 'highlight User4 ' . pinnacle#highlight({'bg': l:bg, 'fg': l:fg})
+    execute 'highlight User3 ' . pinnacle#highlight({'fg': l:fg, 'bg': l:bg})
 
-    " And opposite for the buffer number area.
-    execute 'highlight User7 ' .
+    " And opposite when the file is modfied on the 'Powerline' triangle.
+    execute 'highlight User4 ' .
             \ pinnacle#highlight({
-            \   'bg': l:fg,
             \   'fg': pinnacle#extract_bg('Normal'),
+            \   'bg': l:fg,
             \   'term': 'bold'
             \ })
 
     " Right-hand side section.
-    let l:fg=pinnacle#extract_fg('Cursor')
-    let l:bg=pinnacle#extract_fg('User3')
+    let l:fg=pinnacle#extract_fg('Normal')
+    let l:bg=pinnacle#extract_bg('User3')
     execute 'highlight User5 ' .
             \ pinnacle#highlight({
-            \   'bg': l:fg,
-            \   'fg': l:bg,
+            \   'fg': l:fg,
+            \   'bg': l:bg,
             \   'term': 'bold'
             \ })
 
-    " Right-hand side section + italic (used for %).
+    " Custom highlight for filename on blur_statusline
+    let l:bg=pinnacle#extract_bg('Normal')
+    let l:fg=pinnacle#extract_fg('Comment')
     execute 'highlight User6 ' .
             \ pinnacle#highlight({
-            \   'bg': l:fg,
-            \   'fg': l:bg,
-            \   'term': 'bold,italic'
+            \   'fg': l:fg,
+            \   'bg': l:bg,
+            \   'term': 'italic'
             \ })
 
     highlight clear StatusLineNC
@@ -183,14 +181,14 @@ function! statusline#update_highlight() abort
 endfunction
 
 let g:CurrentQuickfixStatusline =
-      \ '%7*'
+      \ '%4*'
       \ . '%{statusline#lhs()}'
       \ . '%*'
-      \ . '%4*'
+      \ . '%3*'
       \ . ''
       \ . '\ '
       \ . '%*'
-      \ . '%3*'
+      \ . '%2*'
       \ . '%q'
       \ . '\ '
       \ . '%{get(w:,\"quickfix_title\",\"\")}'
@@ -204,14 +202,17 @@ let g:CurrentQuickfixStatusline =
       \ . '%*'
 
 function! statusline#blur_statusline() abort
-    " Default blurred statusline (buffer number: filename).
+
+    " Default blurred statusline (mofied symbol and the filename).
     let l:blurred='%{statusline#lhs()}'
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
     let l:blurred.='%<' " truncation point
+    let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
+    let l:blurred.='%*' " reset highlight
     let l:blurred.='%=' " split left/right halves (makes background cover whole)
     call s:update_statusline(l:blurred, 'blur')
 endfunction
@@ -266,16 +267,16 @@ endfunction
 
 " (https://github.com/wincent/wincent/blob/76690087d69730da681612785e2722904ddfc562/roles/dotfiles/files/.vim/plugin/statusline.vim)
 " cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-set statusline=%7*                                 " Switch to User7 highlight group
+set statusline=%4*                                 " Switch to User4 highlight group
 set statusline+=%{statusline#lhs()}
 set statusline+=%*                                 " Reset highlight group.
-set statusline+=%4*                                " Switch to User4 highlight group (Powerline arrow).
+set statusline+=%3*                                " Switch to User3 highlight group (Powerline arrow).
 set statusline+=                                  " Powerline arrow.
 set statusline+=%*                                 " Reset highlight group.
 set statusline+=\                                  " Space.
 set statusline+=%<                                 " Truncation point, if not enough width available.
 set statusline+=%{statusline#fileprefix()}         " Relative path to file's directory.
-set statusline+=%3*                                " Switch to User3 highlight group (bold).
+set statusline+=%2*                                " Switch to User2 highlight group (bold).
 set statusline+=%t                                 " Filename.
 set statusline+=%*                                 " Reset highlight group.
 set statusline+=\                                  " Space.
@@ -295,7 +296,7 @@ set statusline+=%*              " Reset highlight group.
 set statusline+=%=              " Split point for left and right groups.
 
 set statusline+=\               " Space.
-set statusline+=%3*             " Switch to User5 highlight group.
+set statusline+=%5*             " Switch to User5 highlight group.
 set statusline+=%{statusline#rhs()}
 set statusline+=\               " Space.
 set statusline+=%p%%            " File porcentage
