@@ -11,13 +11,6 @@ augroup mips_syntax
     autocmd BufNewFile,BufRead *.asm set syntax=mips
 augroup END
 
-" i3 syntax
-aug i3config_ft_detection
-    autocmd!
-    autocmd BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-    autocmd BufNewFile,BufRead ~/.i3/config set filetype=i3config
-aug end
-
 " Disable auto comments on the next line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -25,7 +18,7 @@ augroup latex_commands
     autocmd!
     " Deleting all the temp files that latexmk compiler make
     autocmd VimLeave *.tex !latexmk -c %
-    " Compile files with <leader> c only for couple of files
+    " Compile files with <leader>c only for tex files
     autocmd FileType tex nnoremap <buffer> <leader>c :VimtexCompile<CR>
     " Edit a figure on inkscape (pip3 install inkscape-figures) for latex
     autocmd Filetype tex nnoremap <buffer> <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>

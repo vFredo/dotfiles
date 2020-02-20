@@ -18,7 +18,7 @@ nnoremap <leader>b :Buffers<CR>
 " Buffer and window related bindings
 nnoremap <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
-nnoremap <leader>l <C-w>L
+nnoremap <leader>L <C-w>L
 
 " Check if is need it to install: vim --version | grep clipboard
 " (+clipboard or +xterm_clipboard has to appear, otherwise install dependency)
