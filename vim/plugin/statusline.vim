@@ -176,6 +176,16 @@ function! statusline#update_highlight() abort
             \   'term': 'italic'
             \ })
 
+    " Git branch colors
+    let l:bg=pinnacle#extract_bg('Normal')
+    let l:fg=pinnacle#extract_bg('IncSearch')
+    execute 'highlight User7 ' .
+            \ pinnacle#highlight({
+            \   'fg': l:fg,
+            \   'bg': l:bg,
+            \   'term': 'bold'
+            \ })
+
     highlight clear StatusLineNC
     highlight! link StatusLineNC User1
 endfunction
@@ -212,6 +222,8 @@ function! statusline#blur_statusline() abort
     let l:blurred.='%<' " truncation point
     let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
+    let l:blurred.='%7*' " Switch to User7 highlight group.
+    let l:blurred.='[%{FugitiveHead()}]' " Git branch name
     let l:blurred.='%*' " reset highlight
     let l:blurred.='%=' " split left/right halves (makes background cover whole)
     call s:update_statusline(l:blurred, 'blur')
@@ -291,6 +303,9 @@ set statusline+=%1*                                " Switch to User1 highlight g
 "   ]                            Right bracket (literal).
 "   %)                           End item group.
 set statusline+=%([%R%{statusline#ft()}%{statusline#fenc()}]%)
+set statusline+=\                                  " Space.
+set statusline+=%7*             " Switch to User7 highlight group.
+set statusline+=[%{FugitiveHead()}] " Git branch name
 
 set statusline+=%*              " Reset highlight group.
 set statusline+=%=              " Split point for left and right groups.

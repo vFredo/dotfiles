@@ -20,6 +20,7 @@ Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder, it needs fzf install on shell
+Plug 'tpope/vim-fugitive'       " Git commands on vim
 
 call plug#end()
 
