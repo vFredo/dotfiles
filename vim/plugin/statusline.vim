@@ -135,7 +135,11 @@ function! statusline#update_highlight() abort
         return
     endif
 
-    " Update StatusLine (no-current window) to use italics (used for filetype).
+    " StatusLineNC = no-current window
+    " StatusLine = current Window, and wild menu colors
+    execute 'highlight! StatusLine gui=italic guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
+
+    " Italics on the no-current window
     let l:highlight=pinnacle#italicize('StatusLineNC')
     execute 'highlight User1 ' . l:highlight
 
@@ -177,7 +181,7 @@ function! statusline#update_highlight() abort
             \ })
 
     " Git branch colors
-    let l:bg=pinnacle#extract_bg('Normal')
+    let l:bg=pinnacle#extract_bg('StatusLine')
     let l:fg=pinnacle#extract_bg('IncSearch')
     execute 'highlight User7 ' .
             \ pinnacle#highlight({
