@@ -190,6 +190,13 @@ function! statusline#update_highlight() abort
     highlight! link StatusLineNC User1
 endfunction
 
+function statusline#git_branch() abort
+    if strlen(FugitiveHead()) != 0
+        return '(' . FugitiveHead() . ')'
+    else
+        return ''
+endfunction
+
 let g:CurrentQuickfixStatusline =
       \ '%4*'
       \ . '%{statusline#lhs()}'
@@ -223,7 +230,7 @@ function! statusline#blur_statusline() abort
     " let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
     let l:blurred.='\ ' " space
-    let l:blurred.='(%{FugitiveHead()})' " Git branch name
+    let l:blurred.='%{statusline#git_branch}' " Git branch name
     let l:blurred.='%*' " reset highlight
     let l:blurred.='%=' " split left/right halves (makes background cover whole)
     call s:update_statusline(l:blurred, 'blur')
@@ -304,7 +311,7 @@ set statusline+=\                                  " Space.
 set statusline+=%([%R%{statusline#ft()}%{statusline#fenc()}]%)
 set statusline+=\                                  " Space.
 set statusline+=%7*             " Switch to User7 highlight group.
-set statusline+=(%{FugitiveHead()}) " Git branch name
+set statusline+=%{statusline#git_branch()} " Git branch name
 
 set statusline+=%*              " Reset highlight group.
 set statusline+=%=              " Split point for left and right groups.
