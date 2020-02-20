@@ -154,47 +154,47 @@ function! statusline#update_highlight() abort
 
     " And opposite when the file is modfied on the 'Powerline' triangle.
     execute 'highlight User4 ' .
-            \ pinnacle#highlight({
-            \   'fg': pinnacle#extract_bg('Normal'),
-            \   'bg': l:fg,
-            \   'term': 'bold'
-            \ })
+        \ pinnacle#highlight({
+        \   'fg': pinnacle#extract_bg('Normal'),
+        \   'bg': l:fg,
+        \   'term': 'bold'
+        \ })
 
     " Right-hand side section.
     let l:fg=pinnacle#extract_fg('Normal')
     let l:bg=pinnacle#extract_bg('User3')
     execute 'highlight User5 ' .
-            \ pinnacle#highlight({
-            \   'fg': l:fg,
-            \   'bg': l:bg,
-            \   'term': 'bold'
-            \ })
+        \ pinnacle#highlight({
+        \   'fg': l:fg,
+        \   'bg': l:bg,
+        \   'term': 'bold'
+        \ })
 
     " Custom highlight for filename on blur_statusline
     let l:bg=pinnacle#extract_bg('Normal')
     let l:fg=pinnacle#extract_fg('Comment')
     execute 'highlight User6 ' .
-            \ pinnacle#highlight({
-            \   'fg': l:fg,
-            \   'bg': l:bg,
-            \   'term': 'italic'
-            \ })
+        \ pinnacle#highlight({
+        \   'fg': l:fg,
+        \   'bg': l:bg,
+        \   'term': 'italic'
+        \ })
 
     " Git branch colors
     let l:bg=pinnacle#extract_bg('StatusLine')
     let l:fg=pinnacle#extract_bg('IncSearch')
     execute 'highlight User7 ' .
-            \ pinnacle#highlight({
-            \   'fg': l:fg,
-            \   'bg': l:bg,
-            \   'term': 'bold'
-            \ })
+        \ pinnacle#highlight({
+        \   'fg': l:fg,
+        \   'bg': l:bg,
+        \   'term': 'bold'
+        \ })
 
     highlight clear StatusLineNC
     highlight! link StatusLineNC User1
 endfunction
 
-function statusline#git_branch() abort
+function! statusline#git_branch() abort
     if strlen(FugitiveHead()) != 0
         return '(' . FugitiveHead() . ')'
     else
@@ -234,7 +234,7 @@ function! statusline#blur_statusline() abort
     " let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
     let l:blurred.='\ ' " space
-    let l:blurred.='%{statusline#git_branch}' " Git branch name
+    let l:blurred.='%{statusline#git_branch()}' " Git branch name
     let l:blurred.='%*' " reset highlight
     let l:blurred.='%=' " split left/right halves (makes background cover whole)
     call s:update_statusline(l:blurred, 'blur')
