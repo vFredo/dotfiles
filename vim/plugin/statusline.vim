@@ -135,7 +135,7 @@ function! statusline#update_highlight() abort
         return
     endif
 
-    " Update StatusLine to use italics (used for filetype).
+    " Update StatusLine (no-current window) to use italics (used for filetype).
     let l:highlight=pinnacle#italicize('StatusLineNC')
     execute 'highlight User1 ' . l:highlight
 
@@ -220,7 +220,7 @@ function! statusline#blur_statusline() abort
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
     let l:blurred.='%<' " truncation point
-    let l:blurred.='%6*' " change to User6
+    " let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
     let l:blurred.='\ ' " space
     let l:blurred.='(%{FugitiveHead()})' " Git branch name
@@ -292,7 +292,6 @@ set statusline+=%2*                                " Switch to User2 highlight g
 set statusline+=%t                                 " Filename.
 set statusline+=%*                                 " Reset highlight group.
 set statusline+=\                                  " Space.
-set statusline+=%1*                                " Switch to User1 highlight group (italics).
 
 " Needs to be all on one line:
 "   %(                           Start item group.

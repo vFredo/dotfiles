@@ -153,9 +153,8 @@ execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
 execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' . "guifg=" . pinnacle#extract_bg("Error")
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("Normal")
 
-" StatusLine seems a bit off on split windows, deleting that colors (wildmenu when is not on focus colors too)
+" StatusLineNC = no-current window, StatusLine = current Window, and wild menu colors
 execute 'highlight! StatusLine gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
-execute 'highlight! StatusLineNC gui=NONE guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
 
 " Better search colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
