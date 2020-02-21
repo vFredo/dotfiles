@@ -39,3 +39,9 @@ augroup refresh_statusline
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
 augroup END
 
+" Remember folds
+augroup remember_folds
+    autocmd BufWinLeave *.* mkview!
+    autocmd BufWinEnter *.* silent loadview
+augroup END
+

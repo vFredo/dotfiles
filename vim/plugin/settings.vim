@@ -54,6 +54,9 @@ else
 
     set directory=~/.vim/tmp/swap//
     set directory+=.
+
+    set viewdir=~/.vim/tmp/view//
+    set viewoptions=cursor,folds
 endif
 
 if has('linebreak')
@@ -137,8 +140,7 @@ set conceallevel=1
 set highlight+=D:Conceal    " Override DiffDelete to match conceal color
 set highlight+=c:LineNr     " Blend vertical separators with line numbers
 
-" Make background color for the line numbers and italics for comments and current line stands out more
-execute 'highlight! CursorLineNr ' . pinnacle#extract_highlight("DiffText")
+" Change background color for line numbers and italics for comments
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 
