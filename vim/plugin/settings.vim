@@ -36,10 +36,9 @@ set timeoutlen=1000 ttimeoutlen=0
 " Backspace to normal
 set backspace=indent,eol,start
 
-" Lines configuration
-set number          " Set current line number
-set relativenumber  " Relative numbers
+" View configuration
 set scrolloff=3     " Start scrolling 3 lines before edge of viewport
+set sidescrolloff=3 " Same to scrolloff but with columns
 
 " Move backup files out of the way and don't create root-owned files
 " The '//' means that the files created on tmp/ will have a unique ID
@@ -71,7 +70,7 @@ endif
 " Show whitespaces
 set list
 set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=tab:\|\                 " (U+25B7, UTF-8: E2 96 B7) (U+2505, UTF-8: E2 94 85)
+set listchars+=tab:\|\                "  Normal pipe '|'
 set listchars+=extends:»              " (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:«             " (U+00AB, UTF-8: C2 AB)
 set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
