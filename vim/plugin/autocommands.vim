@@ -41,13 +41,15 @@ augroup END
 
 " Remember folds
 augroup remember_folds_cursor
+    autocmd!
     autocmd BufWinLeave *.* mkview!
     autocmd BufWinEnter *.* silent loadview
 augroup END
 
-" See which window is focus with the cursorline
+" Determine which window is focus with the cursorline and numbers
 augroup better_focus
-    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline
-    autocmd FocusLost,WinLeave * set nocursorline
+    autocmd!
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline | set nu | set rnu
+    autocmd FocusLost,WinLeave * set nocursorline | set nonu | set nornu
 augroup END
 
