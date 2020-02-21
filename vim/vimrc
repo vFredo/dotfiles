@@ -8,28 +8,23 @@ Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'psliwka/vim-smoothie'     " Smooth trancision while scrolling pages
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
-Plug 'tpope/vim-commentary'     " Comment lines, the easy way
+" Plug 'jiangmiao/auto-pairs'     " Autocomplete brackets, parentheses, etc.
+Plug 'tpope/vim-commentary'     " Comment lines; the easy way
 Plug 'tpope/vim-vinegar'        " File menu search
 Plug 'tpope/vim-surround'       " Easy motions with brakets, parentheses, etc.
-Plug 'ervandew/supertab'        " Smart tab completitions
+Plug 'tpope/vim-fugitive'       " Git commands on vim
 Plug 'justinmk/vim-sneak'       " Fast motions between lines
-Plug 'jiangmiao/auto-pairs'     " Auto-complete brackets, parentheses, etc.
 Plug 'chriskempson/base16-vim'  " Nice colorschemes
-Plug 'harenome/vim-mipssyntax', { 'for': 'mips' }  " Mips syntax for vim
 Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'         " Fuzzy finder, it needs fzf install on shell
-Plug 'tpope/vim-fugitive'       " Git commands on vim
+Plug 'junegunn/fzf.vim'         " Fuzzy finder
 
 call plug#end()
 
 "
 " ------------------------ Plugins configurations --------------------
 "
-
-" ------------------------ Supertab config --------------------------
-let g:SuperTabDefaultCompletionType = "context"
 
 " ------------------------- Ultisnips config -------------------------
 let g:UltiSnipsExpandTrigger = '<tab>'

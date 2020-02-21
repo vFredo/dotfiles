@@ -136,7 +136,10 @@ set conceallevel=1
 " Highlights configs (some colors changes, https://github.com/wincent/pinnacle)
 "
 
+set highlight+=c:LineNr     " Blend showbreak separators with line numbers
+
 " Change background color for line numbers and italics for comments
+execute 'highlight! CursorLineNr cterm=NONE'
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 

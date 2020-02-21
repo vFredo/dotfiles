@@ -135,15 +135,14 @@ function! statusline#update_highlight() abort
         return
     endif
 
-    " StatusLineNC = no-current window
     " StatusLine = current Window, and wild menu colors
     execute 'highlight! StatusLine gui=italic guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
 
-    " Italics on the no-current window
+    " StatusLineNC = no-current window, with italics
     let l:highlight=pinnacle#italicize('StatusLineNC')
     execute 'highlight User1 ' . l:highlight
 
-    " StatusLine + bold (used for file names).
+    " StatusLine + bold (used for file names and right hand section).
     let l:highlight=pinnacle#embolden('StatusLine')
     execute 'highlight User2 ' . l:highlight
 
@@ -160,9 +159,9 @@ function! statusline#update_highlight() abort
         \   'term': 'bold'
         \ })
 
-    " Right-hand side section.
-    let l:fg=pinnacle#extract_fg('Normal')
-    let l:bg=pinnacle#extract_bg('User3')
+    " Git branch separator color
+    let l:bg=pinnacle#extract_bg('StatusLine')
+    let l:fg=pinnacle#extract_bg('IncSearch')
     execute 'highlight User5 ' .
         \ pinnacle#highlight({
         \   'fg': l:fg,
@@ -170,33 +169,17 @@ function! statusline#update_highlight() abort
         \   'term': 'bold'
         \ })
 
-    " Custom highlight for filename on blur_statusline
-    let l:bg=pinnacle#extract_bg('Normal')
-    let l:fg=pinnacle#extract_fg('Comment')
-    execute 'highlight User6 ' .
-        \ pinnacle#highlight({
-        \   'fg': l:fg,
-        \   'bg': l:bg,
-        \   'term': 'italic'
-        \ })
-
-    " Git branch colors
-    let l:bg=pinnacle#extract_bg('StatusLine')
-    let l:fg=pinnacle#extract_bg('IncSearch')
-    execute 'highlight User7 ' .
-        \ pinnacle#highlight({
-        \   'fg': l:fg,
-        \   'bg': l:bg,
-        \   'term': 'bold'
-        \ })
+    " Italics for ft and fenc sepatators
+    let l:highlight=pinnacle#italicize('StatusLine')
+    execute 'highlight User6 ' . l:highlight
 
     highlight clear StatusLineNC
     highlight! link StatusLineNC User1
 endfunction
 
 function! statusline#git_branch() abort
-    if strlen(FugitiveHead()) != 0
-        return '(' . FugitiveHead() . ')'
+    if strlen(FugitiveHead())
+        return ' (' . FugitiveHead() . ')'
     else
         return ''
 endfunction
@@ -218,7 +201,7 @@ let g:CurrentQuickfixStatusline =
       \ . '\ '
       \ . '%='
       \ . '\ '
-      \ . '%5*'
+      \ . '%2*'
       \ . '%{statusline#rhs()}'
       \ . '%*'
 
@@ -231,9 +214,7 @@ function! statusline#blur_statusline() abort
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
     let l:blurred.='%<' " truncation point
-    " let l:blurred.='%6*' " change to User6
     let l:blurred.='%f' " filename
-    let l:blurred.='\ ' " space
     let l:blurred.='%{statusline#git_branch()}' " Git branch name
     let l:blurred.='%*' " reset highlight
     let l:blurred.='%=' " split left/right halves (makes background cover whole)
@@ -301,8 +282,9 @@ set statusline+=%<                                 " Truncation point, if not en
 set statusline+=%{statusline#fileprefix()}         " Relative path to file's directory.
 set statusline+=%2*                                " Switch to User2 highlight group (bold).
 set statusline+=%t                                 " Filename.
+set statusline+=%5*                                " Switch to User5 highlight group.
+set statusline+=%{statusline#git_branch()}         " Git branch name
 set statusline+=%*                                 " Reset highlight group.
-set statusline+=\                                  " Space.
 
 " Needs to be all on one line:
 "   %(                           Start item group.
@@ -312,17 +294,15 @@ set statusline+=\                                  " Space.
 "   %{statusline#fenc()} File-encoding if not UTF-8.
 "   ]                            Right bracket (literal).
 "   %)                           End item group.
-set statusline+=%([%R%{statusline#ft()}%{statusline#fenc()}]%)
-set statusline+=\                                  " Space.
-set statusline+=%7*             " Switch to User7 highlight group.
-set statusline+=%{statusline#git_branch()} " Git branch name
-
-set statusline+=%*              " Reset highlight group.
-set statusline+=%=              " Split point for left and right groups.
-
 set statusline+=\               " Space.
-set statusline+=%5*             " Switch to User5 highlight group.
-set statusline+=%{statusline#rhs()}
+set statusline+=%6*             " Switch to User6 highlight group.
+set statusline+=%([%R%{statusline#ft()}%{statusline#fenc()}]%)
+set statusline+=%*              " Reset highlight group.
+set statusline+=\               " Space.
+set statusline+=%=              " Split point for left and right groups.
+set statusline+=\               " Space.
+set statusline+=%2*             " Switch to User2 highlight group.
+set statusline+=%{statusline#rhs()} " Put settings on the right side
 set statusline+=\               " Space.
 set statusline+=%p%%            " File porcentage
 set statusline+=\               " Space.
