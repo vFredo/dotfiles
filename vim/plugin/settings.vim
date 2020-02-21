@@ -7,6 +7,7 @@ set encoding=utf-8
 " Global highlights
 syntax enable
 set cursorline
+set laststatus=2
 
 " Change cursors between modes (if has tmux, use tmux's special characters)
 " (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
@@ -21,9 +22,6 @@ else
     let &t_EI = "\<Esc>[2 q"
 endif
 
-" Setting statusline
-set laststatus=2
-
 " Annoying things
 set belloff=all         " Never ring the bell
 set lazyredraw          " Don't update the screen during macros or scripts executions
@@ -33,19 +31,19 @@ set shortmess+=W        " Don't echo [w]/[written] when writing a file
 set shortmess+=a        " Use all the abbreviations eg. [RO] instead of  [readonly]
 set shortmess+=t        " Truncate files messages at start
 
+" Fast toggle bewtween different modes
+set timeoutlen=1000 ttimeoutlen=0
+
 " Backspace to normal
 set backspace=indent,eol,start
-
- " Mouse movement on vim
-set mouse=a
 
 " Lines configuration
 set number          " Set current line number
 set relativenumber  " Relative numbers
-set scrolloff=3     " start scrolling 3 lines before edge of viewport
+set scrolloff=3     " Start scrolling 3 lines before edge of viewport
 
 " Move backup files out of the way and don't create root-owned files
-" the "//" on the dirs means that the files created on tmp will be unique
+" The '//' means that the files created on tmp/ will have a unique ID
 if exists('$SUDO_USER')
     set nobackup
     set nowritebackup
@@ -71,14 +69,14 @@ endif
 " Show whitespaces
 set list
 set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=tab:▷┅                 " (U+25B7, UTF-8: E2 96 B7) (U+2505, UTF-8: E2 94 85)
+set listchars+=tab:\|\                 " (U+25B7, UTF-8: E2 96 B7) (U+2505, UTF-8: E2 94 85)
 set listchars+=extends:»              " (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:«             " (U+00AB, UTF-8: C2 AB)
 set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
 
-" Puts vertical windows to right, instead of left and down instead of up
-set splitbelow splitright
-
+" Buffer related
+set splitbelow  " Puts horizontal windows to the bottom
+set splitright  " Puts vertical windows to the right
 set hidden      " Allow you to hide buffers with unsaved changes
 set autoread    " When a file is change outside the editor, vim try to read it again
 
@@ -86,10 +84,12 @@ set autoread    " When a file is change outside the editor, vim try to read it a
 set tabstop=4       " Tab is 4 spaces wide
 set shiftwidth=4    " How much spaces to take when << or >> is used on Normal Mode
 set expandtab       " Make the tab key insert spaces instead of tabs
+set smarttab        " Delete a hole tab in insert mode when you use <BS>
+set autoindent      " Copy the indent of the current line when a new line is create
 
 " Wildmenu configuration
-set wildmenu        " Suggestion menu in searches and autocompletition on command mode
-set wildmode=longest:full,full
+set wildmenu        " Completitions on command mode
+set wildmode=longest:full,full  "Long list on wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.ttf
 set wildignore+=.DS_Store,*.pdf,*/target/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
@@ -116,9 +116,6 @@ set fillchars=diff:∙          " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)"
 set fillchars+=vert:┃         " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)"
 set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
 
-" Fast toggle bewtween the different modes
-set timeoutlen=1000 ttimeoutlen=0
-
 " Format options reltated
 set formatoptions+=j    " Remove comment leader when joining lines
 set formatoptions+=n    " Recognize numbered lists
@@ -135,14 +132,10 @@ set guioptions-=b   " Don't show bottom scrollbar
 set conceallevel=1
 
 "
-" Highlights configs (some colors changes)
+" Highlights configs (some colors changes, https://github.com/wincent/pinnacle)
 "
-set highlight+=D:Conceal            " Override DiffDelete
-set highlight+=c:LineNr             " Blend vertical separators with line numbers
-
-"
-" Things better highlighted, needed: vim pinnacle (https://github.com/wincent/pinnacle)
-"
+set highlight+=D:Conceal    " Override DiffDelete to match conceal color
+set highlight+=c:LineNr     " Blend vertical separators with line numbers
 
 " Make background color for the line numbers and italics for comments and current line stands out more
 execute 'highlight! CursorLineNr ' . pinnacle#extract_highlight("DiffText")
