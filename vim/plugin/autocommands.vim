@@ -40,8 +40,14 @@ augroup refresh_statusline
 augroup END
 
 " Remember folds
-augroup remember_folds
+augroup remember_folds_cursor
     autocmd BufWinLeave *.* mkview!
     autocmd BufWinEnter *.* silent loadview
+augroup END
+
+" See which window is focus with the cursorline
+augroup better_focus
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline
+    autocmd FocusLost,WinLeave * set nocursorline
 augroup END
 

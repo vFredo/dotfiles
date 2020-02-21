@@ -6,10 +6,9 @@ set encoding=utf-8
 
 " Global highlights
 syntax enable
-set cursorline
 set laststatus=2
 
-" Change cursors between modes (if has tmux, use tmux's special characters)
+" Change cursors between modes (if tmux is running, use tmux's special characters)
 " (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
 " SI = Insert mode, SR = Replace mode, EI = Normal mode
 if exists('$TMUX')
@@ -137,8 +136,6 @@ set conceallevel=1
 "
 " Highlights configs (some colors changes, https://github.com/wincent/pinnacle)
 "
-set highlight+=D:Conceal    " Override DiffDelete to match conceal color
-set highlight+=c:LineNr     " Blend vertical separators with line numbers
 
 " Change background color for line numbers and italics for comments
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
