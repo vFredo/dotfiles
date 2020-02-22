@@ -152,7 +152,7 @@ execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' . "guifg=" . pi
 " Wildmenu Colors
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("StatusLine")
 
-" Better search colors
+" Better search and quicfixline colors colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
 highlight! clear Search
 execute 'highlight! Search ' . pinnacle#embolden('Underlined')

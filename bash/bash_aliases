@@ -20,6 +20,7 @@ alias vba="vim ~/.bash_aliases"
 alias vz="vim ~/.zshrc"
 alias vt="vim ~/.tmux.conf"
 alias vi3="vim ~/.i3/config"
+alias :q="exit"
 
 # Current use
 alias la='ls -A'
