@@ -147,10 +147,12 @@ execute 'highlight! Comment ' . pinnacle#italicize('Comment')
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
 
 " Stand out MatchParen
-execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' . "guifg=" . pinnacle#extract_bg("Error")
+execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' .
+            \ "guifg=" . pinnacle#extract_bg("Error")
 
 " Wildmenu Colors
-execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") . ' guifg=' . pinnacle#extract_bg("StatusLine")
+execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") .
+            \ ' guifg=' . pinnacle#extract_bg("StatusLine")
 
 " Better search and quicfixline colors colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')

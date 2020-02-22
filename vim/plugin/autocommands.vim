@@ -20,14 +20,16 @@ augroup latex_commands
     autocmd Filetype tex inoremap <buffer> <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 augroup END
 
-" https://github.com/wincent/wincent/blob/8e43902218c617dc066a51a67279df97d3fba109/roles/dotfiles/files/.vim/plugin/autocmds.vim
+" https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/statusline.vim
 augroup refresh_statusline
     autocmd!
     autocmd VimEnter * call statusline#update_highlight()
     if exists('##TextChangedI')
-        autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter * call statusline#check_modified()
+        autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter *
+                    \call statusline#check_modified()
     else
-        autocmd BufWinEnter,BufWritePost,FileWritePost,WinEnter * call statusline#check_modified()
+        autocmd BufWinEnter,BufWritePost,FileWritePost,WinEnter *
+                    \call statusline#check_modified()
     endif
     autocmd BufEnter,FocusGained,VimEnter,WinEnter * call statusline#focus_statusline()
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
@@ -40,10 +42,11 @@ augroup remember_folds_cursor
     autocmd BufWinEnter *.* silent loadview
 augroup END
 
-" Determine which window is focus with the cursorline and numbers
+" Determine which window is focus with the cursorline and numbers on
 augroup better_focus
     autocmd!
-    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline | set nu | set rnu
-    autocmd FocusLost,WinLeave * set nocursorline | set nonu | set nornu
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter *
+                \ set cursorline | set number | set relativenumber
+    autocmd FocusLost,WinLeave * set nocursorline | set nonumber | set norelativenumber
 augroup END
 

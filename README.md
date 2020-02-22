@@ -1,6 +1,6 @@
 # System configurations
 
-This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it). Feel free to ask anything or contributing to the repo.
+This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 
 ## Features
 * i3 gaps config.
@@ -34,7 +34,7 @@ This configuration are set for Linux operating systems, this is really intendent
         * Yellow dot indicates pull to the current remote repo.
 
 ### Theme
-* Current terminal: [simple terminal](https://st.suckless.org/), for my configuration of [st](https://github.com/fredo0522/st).
+* Current terminal: [simple terminal](https://st.suckless.org/)([st](https://github.com/fredo0522/st) configuration).
 * Terminal theme: [base16_classic-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
 
@@ -43,7 +43,7 @@ This configuration are set for Linux operating systems, this is really intendent
 
 ## Dependencies
 * Fonts
-   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own only for Source Code Pro fonts).
+   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own, but only for Source Code Pro fonts).
       * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
       * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
       * [Material Icons](https://github.com/google/material-design-icons).
@@ -75,5 +75,5 @@ This configuration are set for Linux operating systems, this is really intendent
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
-* Gilles Castel [Blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
+* Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
 

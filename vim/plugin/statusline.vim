@@ -136,7 +136,8 @@ function! statusline#update_highlight() abort
     endif
 
     " StatusLine = current Window, and wild menu colors
-    execute 'highlight! StatusLine gui=italic guibg=' . pinnacle#extract_bg("Normal") . ' guifg=' . pinnacle#extract_fg("Normal")
+    execute 'highlight! StatusLine gui=italic guibg=' . pinnacle#extract_bg("Normal") .
+                \' guifg=' . pinnacle#extract_fg("Normal")
 
     " StatusLineNC = no-current window, with italics
     let l:highlight=pinnacle#italicize('StatusLineNC')

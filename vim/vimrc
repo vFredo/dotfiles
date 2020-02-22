@@ -11,7 +11,6 @@ Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
 " Plug 'jiangmiao/auto-pairs'     " Autocomplete brackets, parentheses, etc.
 Plug 'justinmk/vim-sneak'       " Fast motions between lines
 Plug 'tpope/vim-commentary'     " Comment lines; the easy way
-Plug 'tpope/vim-vinegar'        " File menu search
 Plug 'tpope/vim-surround'       " Easy motions with brakets, parentheses, etc.
 Plug 'tpope/vim-fugitive'       " Git commands on vim
 Plug 'chriskempson/base16-vim'  " Nice colorschemes
@@ -70,9 +69,6 @@ let g:fzf_colors ={
     \ 'marker':  ['fg', 'Keyword'],
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
-
-" ------------------------ Vinegar config ----------------------------
-let g:netrw_liststyle = 3
 
 " -------------------------- Loupe config ----------------------------
 let g:LoupeCenterResults=0
