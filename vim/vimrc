@@ -5,17 +5,16 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
-Plug 'psliwka/vim-smoothie'     " Smooth trancision while scrolling pages
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
-" Plug 'jiangmiao/auto-pairs'     " Autocomplete brackets, parentheses, etc.
-Plug 'justinmk/vim-sneak'       " Fast motions between lines
-Plug 'tpope/vim-commentary'     " Comment lines; the easy way
-Plug 'tpope/vim-surround'       " Easy motions with brakets, parentheses, etc.
-Plug 'tpope/vim-fugitive'       " Git commands on vim
+Plug 'psliwka/vim-smoothie'     " Smooth trancision while scrolling pages
+Plug 'blueyed/vim-diminactive'  " Stand out more the current buffer
 Plug 'chriskempson/base16-vim'  " Nice colorschemes
 Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
+Plug 'tpope/vim-commentary'     " Comment lines; the easy way
+Plug 'tpope/vim-surround'       " Easy motions with brakets, parentheses, etc.
+Plug 'tpope/vim-fugitive'       " Git commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder
 
@@ -24,6 +23,9 @@ call plug#end()
 "
 " ------------------------ Plugins configurations --------------------
 "
+
+" ------------------------- Dim inactive config -------------------------
+let g:diminactive_enable_focus = 1
 
 " ------------------------- Ultisnips config -------------------------
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -72,12 +74,6 @@ let g:fzf_colors ={
 
 " -------------------------- Loupe config ----------------------------
 let g:LoupeCenterResults=0
-
-" ------------------------ Sneak config ------------------------------
-let g:sneak#label = 1
-highlight! link Sneak Search
-highlight! link SneakLabelMask Search
-highlight! link SneakLabel IncSearch
 
 " ------------------- base16-colorscheme config ----------------------
 

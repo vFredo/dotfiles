@@ -17,9 +17,3 @@ noremap gk k
 " Toggle folds (if not possible use the default behavior of <tab>)
 nnoremap <silent> <tab> @=(foldlevel('.')?'za':"\<tab>")<CR>
 
-" Custom sneak bindings for default operator searches
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-

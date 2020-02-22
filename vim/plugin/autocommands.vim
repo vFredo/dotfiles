@@ -26,10 +26,10 @@ augroup refresh_statusline
     autocmd VimEnter * call statusline#update_highlight()
     if exists('##TextChangedI')
         autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter *
-                    \call statusline#check_modified()
+                    \ call statusline#check_modified()
     else
         autocmd BufWinEnter,BufWritePost,FileWritePost,WinEnter *
-                    \call statusline#check_modified()
+                    \ call statusline#check_modified()
     endif
     autocmd BufEnter,FocusGained,VimEnter,WinEnter * call statusline#focus_statusline()
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
@@ -42,11 +42,11 @@ augroup remember_folds_cursor
     autocmd BufWinEnter *.* silent loadview
 augroup END
 
-" Determine which window is focus with the cursorline and numbers on
-augroup better_focus
+" Better focus
+augroup cool_focus
     autocmd!
     autocmd BufEnter,FocusGained,VimEnter,WinEnter *
-                \ set cursorline | set number | set relativenumber
-    autocmd FocusLost,WinLeave * set nocursorline | set nonumber | set norelativenumber
+                \ set number relativenumber | set breakindent
+    autocmd FocusLost,WinLeave * set nonumber norelativenumber | set nobreakindent
 augroup END
 

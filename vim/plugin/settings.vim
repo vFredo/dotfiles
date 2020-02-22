@@ -27,7 +27,7 @@ set lazyredraw          " Don't update the screen during macros or scripts execu
 set shortmess+=I        " Dont'n show intro message of Vim
 set shortmess+=T        " Too big for the command line? put ...
 set shortmess+=W        " Don't echo [w]/[written] when writing a file
-set shortmess+=a        " Use all the abbreviations eg. [RO] instead of  [readonly]
+set shortmess+=a        " Use all abbreviations eg. [RO] instead of [readonly]
 set shortmess+=t        " Truncate files messages at start
 
 " Fast toggle bewtween different modes
@@ -37,6 +37,8 @@ set timeoutlen=1000 ttimeoutlen=0
 set backspace=indent,eol,start
 
 " View configuration
+set cursorline
+set linebreak             " Wrap taking to account words
 set scrolloff=3     " Start scrolling 3 lines before edge of viewport
 set sidescrolloff=3 " Same to scrolloff but with columns
 
@@ -57,20 +59,10 @@ else
     set viewoptions=cursor,folds
 endif
 
-if has('linebreak')
-    set linebreak             " Wrap taking to account words
-    let &showbreak='↳ '       " (U+21B3, UTF-8: E2 86 B3)
-    set breakindent           " Indent wrapped lines to match start
-
-    if exists('&breakindentopt')
-        set breakindentopt=shift:2  " Emphasize broken lines by indenting them
-    endif
-endif
-
 " Show whitespaces
 set list
 set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=tab:\|\                "  Normal pipe '|'
+set listchars+=tab:\|\                "  The normal pipe character
 set listchars+=extends:»              " (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:«             " (U+00AB, UTF-8: C2 AB)
 set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
@@ -136,12 +128,12 @@ set conceallevel=1
 " Highlights configs (some colors changes, https://github.com/wincent/pinnacle)
 "
 
-set highlight+=c:LineNr     " Blend showbreak separators with line numbers
-
-" Change background color for line numbers and italics for comments
+" Change underlined for current line number and italics for comments
 execute 'highlight! CursorLineNr cterm=NONE'
-execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Comment ' . pinnacle#italicize('Comment')
+
+" Same background for line numbers
+execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 
 " Match the cursorline colors to the visual colors
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
@@ -154,8 +146,12 @@ execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' .
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") .
             \ ' guifg=' . pinnacle#extract_bg("StatusLine")
 
-" Better search and quicfixline colors colors
+" Better search and quicfixline colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
 highlight! clear Search
 execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+
+" Terminal buffer statusline
+highlight! link StatusLineTerm StatusLine
+highlight! link StatusLineTermNC StatusLineNC
 
