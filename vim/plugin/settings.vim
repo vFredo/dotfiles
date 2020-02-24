@@ -22,8 +22,8 @@ else
 endif
 
 " Annoying things
-set belloff=all         " Never ring the bell
 set lazyredraw          " Don't update the screen during macros or scripts executions
+set belloff=all         " Never ring the bell
 set shortmess+=I        " Dont'n show intro message of Vim
 set shortmess+=T        " Too big for the command line? put ...
 set shortmess+=W        " Don't echo [w]/[written] when writing a file
@@ -59,7 +59,7 @@ else
     set viewoptions=cursor,folds
 endif
 
-" Show whitespaces
+" Show invisible characters and editor options
 set list
 set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
 set listchars+=tab:\|\                "  The normal pipe character
