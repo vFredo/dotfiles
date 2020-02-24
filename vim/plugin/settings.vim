@@ -6,6 +6,7 @@ set encoding=utf-8
 
 " Global highlights
 syntax enable
+set cursorline
 set laststatus=2
 
 " Change cursors between modes (if tmux is running, use tmux's special characters)
@@ -37,10 +38,15 @@ set timeoutlen=1000 ttimeoutlen=0
 set backspace=indent,eol,start
 
 " View configuration
-set cursorline
-set linebreak             " Wrap taking to account words
+set number relativenumber
 set scrolloff=3     " Start scrolling 3 lines before edge of viewport
 set sidescrolloff=3 " Same to scrolloff but with columns
+set linebreak             " Wrap taking to account words
+set breakindent           " Indent wrap text
+
+if has('linebreak')
+    let &showbreak='↳ '   " Downwards arrow with tip rightwards (U+21B3)
+endif
 
 " Move backup files out of the way and don't create root-owned files
 " The '//' means that the files created on tmp/ will have a unique ID
@@ -61,11 +67,28 @@ endif
 
 " Show invisible characters and editor options
 set list
-set listchars=nbsp:⦸                  " (U+29B8, UTF-8: E2 A6 B8)
-set listchars+=tab:\|\                "  The normal pipe character
-set listchars+=extends:»              " (U+00BB, UTF-8: C2 BB)
-set listchars+=precedes:«             " (U+00AB, UTF-8: C2 AB)
-set listchars+=trail:•                " (U+2022, UTF-8: E2 80 A2)
+set listchars=nbsp:⦸                  " Empty set symbol (U+29B8)
+set listchars+=tab:\|\                " The normal pipe character
+set listchars+=extends:»              " Two right arrows (U+00BB)
+set listchars+=precedes:«             " Two left arrows (U+00AB)
+set listchars+=trail:•                " Middel dot(U+2022)
+
+" Fill chars for diff and folds
+set fillchars=diff:∙          " Bullet operator (U+2219)
+set fillchars+=vert:┃         " Box drawings heavy vertical (U+2503)
+set fillchars+=fold:·         " Up dot (U+00B7)
+
+" Format options reltated
+set formatoptions+=j    " Remove comment leader when joining lines
+set formatoptions+=n    " Recognize numbered lists
+
+" GUI options
+set guioptions-=T   " Don't show toolbar
+set guioptions-=l   " Don't show scroll bar on windows
+set guioptions-=L   " Don't show scrollbar on split windows
+set guioptions-=r   " Don't show right scrollbar
+set guioptions-=R   " Don't shor right scrollbar on split windows
+set guioptions-=b   " Don't show bottom scrollbar
 
 " Buffer related
 set splitbelow  " Puts horizontal windows to the bottom
@@ -104,25 +127,6 @@ function! FoldText() abort
     return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
-" Fill chars for diff, vertical split and folds
-set fillchars=diff:∙          " BULLET OPERATOR (U+2219, UTF-8: E2 88 99)"
-set fillchars+=vert:┃         " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)"
-set fillchars+=fold:·         " (U+00B7, UTF-8: C2 B7)
-
-" Format options reltated
-set formatoptions+=j    " Remove comment leader when joining lines
-set formatoptions+=n    " Recognize numbered lists
-
-" GUI options
-set guioptions-=T   " Don't show toolbar
-set guioptions-=l   " Don't show scroll bar on windows
-set guioptions-=L   " Don't show scrollbar on split windows
-set guioptions-=r   " Don't show right scrollbar
-set guioptions-=R   " Don't shor right scrollbar on split windows
-set guioptions-=b   " Don't show bottom scrollbar
-
-" Replace conceal text to one character, and hide some chars
-set conceallevel=1
 
 "
 " Highlights configs (some colors changes, https://github.com/wincent/pinnacle)

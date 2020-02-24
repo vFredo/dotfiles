@@ -42,11 +42,10 @@ augroup remember_folds_cursor
     autocmd BufWinEnter *.* silent loadview
 augroup END
 
-" Better focus
+" Better focus with cursorline on and off
 augroup cool_focus
     autocmd!
-    autocmd BufEnter,FocusGained,VimEnter,WinEnter *
-                \ set number relativenumber | set breakindent
-    autocmd FocusLost,WinLeave * set nonumber norelativenumber | set nobreakindent
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline
+    autocmd FocusLost,WinLeave * set nocursorline
 augroup END
 
