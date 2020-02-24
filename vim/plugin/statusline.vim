@@ -1,6 +1,8 @@
-" statusline functions and configurations
-" See this repo for more information: most of it comes from wincent dotfiles:
-" (https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/autoload/wincent/statusline.vim)
+"
+" Statusline functions and configurations
+"
+" See this repo for more information: most of it comes from wincent dotfiles;
+" https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/autoload/wincent/statusline.vim
 
 scriptencoding utf-8
 
@@ -44,12 +46,15 @@ function! statusline#fileprefix() abort
     let l:basename=expand('%:h')
     if l:basename ==# '' || l:basename ==# '.'
         return ''
-    elseif has('modify_fname')
-        " Make sure we show $HOME as ~.
-        let l:basename =  substitute(fnamemodify(l:basename, ':~:.'), '/$', '', '') . '/'
     else
         " Make sure we show $HOME as ~.
         let l:basename =  substitute(l:basename . '/', '\C^' . $HOME, '~', '')
+    endif
+
+    " If the basename is to big show the last two folders
+    if strlen(l:basename) > 40
+        let l:arr = split(l:basename, '/')
+        let l:basename = ''.join(arr[-2:], '/') . '/'
     endif
 
     return basename
@@ -73,7 +78,7 @@ endfunction
 
 function! statusline#lhs() abort
     let l:line=statusline#gutterpadding()
-    " HEAVY BALLOT X - Unicode: U+2718, UTF-8: E2 9C 98
+    " HEAVY BALLOT X - Unicode: U+2718
     let l:line.=&modified ? '✘ ' : '  '
     return l:line
 endfunction
@@ -92,7 +97,7 @@ function! statusline#rhs() abort
             let l:rhs.=repeat(' ', l:padding)
         endif
 
-        let l:rhs.='ℓ ' " (Literal, \u2113 'SCRIPT SMALL L').
+        let l:rhs.='ℓ ' " U+2113 'SCRIPT SMALL L'.
         let l:rhs.=l:line
         let l:rhs.=':'
         let l:rhs.=l:column
@@ -174,6 +179,7 @@ function! statusline#update_highlight() abort
     let l:highlight=pinnacle#italicize('StatusLine')
     execute 'highlight User6 ' . l:highlight
 
+    " Set the no-current statusline colors
     highlight clear StatusLineNC
     highlight! link StatusLineNC User1
 endfunction
@@ -185,6 +191,7 @@ function! statusline#git_branch() abort
         return ''
 endfunction
 
+" Quickfix statusline
 let g:CurrentQuickfixStatusline =
       \ '%4*'
       \ . '%{statusline#lhs()}'
@@ -206,6 +213,7 @@ let g:CurrentQuickfixStatusline =
       \ . '%{statusline#rhs()}'
       \ . '%*'
 
+" StatusLineNC configuration (no-current)
 function! statusline#blur_statusline() abort
 
     " Default blurred statusline (mofied symbol and the filename).
@@ -267,11 +275,10 @@ function! s:get_custom_statusline(action) abort
 endfunction
 
 "
-"  Making statusline
+"  StatusLine configurations (current)
 "
 
-" (https://github.com/wincent/wincent/blob/76690087d69730da681612785e2722904ddfc562/roles/dotfiles/files/.vim/plugin/statusline.vim)
-" cf the default statusline: %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" https://github.com/wincent/wincent/blob/76690087d69730da681612785e2722904ddfc562/roles/dotfiles/files/.vim/plugin/statusline.vim
 set statusline=%4*                                 " Switch to User4 highlight group
 set statusline+=%{statusline#lhs()}
 set statusline+=%*                                 " Reset highlight group.
