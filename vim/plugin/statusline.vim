@@ -116,7 +116,7 @@ endfunction
 
 let s:default_lhs_color='Function'
 let s:async_lhs_color='Constant'
-let s:modified_lhs_color='ErrorMsg'
+let s:modified_lhs_color='Identifier'
 let s:current_statusline_status_highlight=s:default_lhs_color
 let s:async=0
 
@@ -145,6 +145,8 @@ function! statusline#update_highlight() abort
                 \' guifg=' . pinnacle#extract_fg("Normal")
 
     " StatusLineNC = no-current window, with italics
+    execute 'highlight! StatusLineNC guibg=' . pinnacle#extract_fg("Normal") .
+                \' guifg=' . pinnacle#extract_bg("Normal")
     let l:highlight=pinnacle#italicize('StatusLineNC')
     execute 'highlight User1 ' . l:highlight
 
@@ -166,8 +168,8 @@ function! statusline#update_highlight() abort
         \ })
 
     " Git branch separator color
-    let l:bg=pinnacle#extract_bg('StatusLine')
-    let l:fg=pinnacle#extract_bg('IncSearch')
+    let l:fg=pinnacle#extract_fg('Constant')
+    let l:bg=pinnacle#extract_bg('Normal')
     execute 'highlight User5 ' .
         \ pinnacle#highlight({
         \   'fg': l:fg,

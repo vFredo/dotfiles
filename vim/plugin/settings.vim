@@ -127,7 +127,6 @@ function! FoldText() abort
     return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
 
-
 "
 " Highlights configs (some colors changes, https://github.com/wincent/pinnacle)
 "
@@ -143,7 +142,7 @@ execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
 
 " Stand out MatchParen
-execute 'highlight! MatchParen cterm=bold,underline guibg=NONE ' .
+execute 'highlight! MatchParen cterm=bold guibg=NONE ' .
             \ "guifg=" . pinnacle#extract_bg("Error")
 
 " Wildmenu Colors
