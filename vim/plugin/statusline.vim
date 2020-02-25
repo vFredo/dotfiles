@@ -149,7 +149,7 @@ function! statusline#update_highlight() abort
     execute 'highlight User1 ' . l:highlight
 
     " StatusLine + bold (used for file names and right hand section).
-    let l:highlight=pinnacle#embolden('StatusLine')
+    let l:highlight=pinnacle#embolden("StatusLine")
     execute 'highlight User2 ' . l:highlight
 
     " Inverted Error styling, for left-hand side 'Powerline' triangle.
@@ -160,14 +160,14 @@ function! statusline#update_highlight() abort
     " And opposite when the file is modfied on the 'Powerline' triangle.
     execute 'highlight User4 ' .
         \ pinnacle#highlight({
-        \   'fg': pinnacle#extract_bg('Normal'),
+        \   'fg': pinnacle#extract_bg("Normal"),
         \   'bg': l:fg,
         \   'term': 'bold'
         \ })
 
     " Git branch separator color
-    let l:fg=pinnacle#extract_fg('Constant')
-    let l:bg=pinnacle#extract_bg('Normal')
+    let l:fg=pinnacle#extract_fg("Constant")
+    let l:bg=pinnacle#extract_bg("Normal")
     execute 'highlight User5 ' .
         \ pinnacle#highlight({
         \   'fg': l:fg,
@@ -176,7 +176,7 @@ function! statusline#update_highlight() abort
         \ })
 
     " Italics for ft and fenc sepatators
-    let l:highlight=pinnacle#italicize('StatusLine')
+    let l:highlight=pinnacle#italicize("StatusLine")
     execute 'highlight User6 ' . l:highlight
 
     " Set the no-current statusline colors

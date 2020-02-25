@@ -2,12 +2,18 @@
 " Vim autocommands
 "
 
-" Automatic rezise buffers  when resizing window
-autocmd! VimResized * wincmd =
+" General configurartions
+augroup general_config
+    autocmd!
+    " Automatic rezise buffers  when resizing window
+    autocmd! VimResized * wincmd =
+    " Disable auto comments on the next line
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    " Disable paste mode on leaving insert mode event
+    autocmd InsertLeave * set nopaste
+augroup END
 
-" Disable auto comments on the next line
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
+" Latex configurations
 augroup latex_commands
     autocmd!
     " Deleting all the temp files that latexmk compiler make
@@ -35,11 +41,16 @@ augroup refresh_statusline
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
 augroup END
 
-" Remember folds
+" Remember folds, only problem files that are created from plugins and temp files
 augroup remember_folds_cursor
-    autocmd!
-    autocmd BufWinLeave *.* mkview!
-    autocmd BufWinEnter *.* silent loadview
+    autocmd BufWritePost *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      mkview
+    \|  endif
+    autocmd BufRead *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      silent loadview
+    \|  endif
 augroup END
 
 " Better focus with cursorline on and off

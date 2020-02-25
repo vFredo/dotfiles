@@ -78,7 +78,7 @@ set fillchars=diff:∙          " Bullet operator (U+2219)
 set fillchars+=vert:┃         " Box drawings heavy vertical (U+2503)
 set fillchars+=fold:·         " Up dot (U+00B7)
 
-" Format options reltated
+" Format options related
 set formatoptions+=j    " Remove comment leader when joining lines
 set formatoptions+=n    " Recognize numbered lists
 
@@ -133,7 +133,7 @@ endfunction
 
 " Change underlined for current line number and italics for comments
 execute 'highlight! CursorLineNr cterm=NONE'
-execute 'highlight! Comment ' . pinnacle#italicize('Comment')
+execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 
 " Same background for line numbers
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
@@ -142,17 +142,23 @@ execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
 
 " Stand out MatchParen
-execute 'highlight! MatchParen cterm=bold guibg=NONE ' .
-            \ "guifg=" . pinnacle#extract_bg("Error")
+execute 'highlight! MatchParen cterm=bold guibg=NONE' .
+            \ ' guifg=' . pinnacle#extract_bg("Error")
 
 " Wildmenu Colors
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") .
             \ ' guifg=' . pinnacle#extract_bg("StatusLine")
 
 " Better search and quicfixline colors
-execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight('PmenuSel')
+execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight("PmenuSel")
 highlight! clear Search
-execute 'highlight! Search ' . pinnacle#embolden('Underlined')
+execute 'highlight! Search ' . pinnacle#embolden("Underlined")
+
+" Spell checking colors
+execute 'highlight! SpellBad cterm=bold,underline guibg=NONE guifg=' . pinnacle#extract_fg("Identifier")
+execute 'highlight! SpellLocal guibg=NONE cterm=bold,underline guifg=' . pinnacle#extract_fg("Constant")
+execute 'highlight! SpellCap guibg=NONE cterm=bold,underline guifg=' . pinnacle#extract_fg("Function")
+execute 'highlight! SpellRare cterm=bold,underline guibg=NONE guifg=' . pinnacle#extract_fg("Define")
 
 " Terminal buffer statusline
 highlight! link StatusLineTerm StatusLine

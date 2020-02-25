@@ -29,3 +29,22 @@ vnoremap <leader>d "+d
 " Toggle accent keys
 nnoremap <leader>a :call ToggleAccent()<CR>
 
+" Toggle spelling syntax with es or us_en
+function! mappings#leader#toggle_spell(languaje) abort
+    if a:languaje == "Spanish"
+        setlocal spelllang=es
+    else
+        setlocal spelllang=en_us
+    endif
+    setlocal spell!
+    if &spell
+        inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+        echo "Spell with " . a:languaje . ": ON"
+    else
+        echo "Spell: OFF"
+    endif
+endfunction
+
+nnoremap <leader>ss :call mappings#leader#toggle_spell("Spanish")<CR>
+nnoremap <leader>se :call mappings#leader#toggle_spell("English")<CR>
+

@@ -1,10 +1,10 @@
 # System configurations
 
-This configuration are set for Linux operating systems, this is really intendent for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
+This configuration are set for Linux operating systems, this is really intended for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 
 ## Features
 * i3 gaps config.
-    * bettterlockscreen config file (alternative for i3lock).
+    * Bettterlockscreen config file (alternative for i3lock).
 * Ranger configurations (terminal file manager).
 * Polybar configurations.
 * Zathura (PDF reader) config.
@@ -51,7 +51,7 @@ This configuration are set for Linux operating systems, this is really intendent
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
-    * blueman (bluetooth).
+    * blueman (Bluetooth).
     * Compton.
     * dunst (notifications on i3).
     * [Rofi](https://github.com/davatorium/rofi).
@@ -62,16 +62,16 @@ This configuration are set for Linux operating systems, this is really intendent
         * xorg-xdpyinfo.
         * i3lock-color.
 * Ranger
-    * atool (extract files with <kbd>Shift + x</kbd>).
+    * Atool (extract files with <kbd>Shift + x</kbd>).
 * Tmux
-    * xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
+    * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
 * Polybar
-    * dbus-python `pip3 install dbus-python` (Spotify icons for change or pause songs).
+    * Dbus-python `pip3 install dbus-python` (Spotify icons for change or pause songs).
 * Latex (if you want the vimtex workflow to work)
     * `apt-get install texlive-full` for Debian-based distros.
     * `pacman -S texlive-most texlive-lang` for Arch-based distros.
-    * inkscape for making figures: `pacman -S inkscape`.
-    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works with a binding on vim <kbd>Ctrl + f</kbd>.
+    * Inkscape for making figures: `pacman -S inkscape`.
+    * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works on Vim with <kbd>Ctrl + f</kbd> keys.
 
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.

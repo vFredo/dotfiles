@@ -15,5 +15,5 @@ noremap gj j
 noremap gk k
 
 " Toggle folds (if not possible use the default behavior of <tab>)
-nnoremap <silent> <tab> @=(foldlevel('.')?'za':"\<tab>")<CR>
+nnoremap <silent> <Tab> @=(foldlevel('.')?'za':"\<Tab>")<CR>
 
