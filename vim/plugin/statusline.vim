@@ -52,7 +52,7 @@ function! statusline#fileprefix() abort
     endif
 
     " If the basename is to big show the last two folders
-    if strlen(l:basename) > 40
+    if strlen(l:basename) > 40 && winwidth(0) < 90
         let l:arr = split(l:basename, '/')
         let l:basename = ''.join(arr[-2:], '/') . '/'
     endif
@@ -77,9 +77,7 @@ function! statusline#fenc() abort
 endfunction
 
 function! statusline#lhs() abort
-    let l:line=statusline#gutterpadding()
-    " HEAVY BALLOT X - Unicode: U+2718
-    let l:line.=&modified ? '✘ ' : '  '
+    let l:line=statusline#gutterpadding(). '  '
     return l:line
 endfunction
 
@@ -116,7 +114,7 @@ endfunction
 
 let s:default_lhs_color='Function'
 let s:async_lhs_color='Constant'
-let s:modified_lhs_color='Identifier'
+let s:modified_lhs_color='ModeMsg'
 let s:current_statusline_status_highlight=s:default_lhs_color
 let s:async=0
 
@@ -215,11 +213,17 @@ let g:CurrentQuickfixStatusline =
       \ . '%{statusline#rhs()}'
       \ . '%*'
 
+function! statusline#is_modified() abort
+    " Heavy Ballot X - Unicode: U+2718
+    let l:symbol=&modified ? '✘ ' : '  '
+    return l:symbol
+endfunction
+
 " StatusLineNC configuration (no-current)
 function! statusline#blur_statusline() abort
-
     " Default blurred statusline (mofied symbol and the filename).
     let l:blurred='%{statusline#lhs()}'
+    let l:blurred.='%{statusline#is_modified()}'
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
     let l:blurred.='\ ' " space
