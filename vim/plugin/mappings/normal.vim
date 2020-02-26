@@ -2,6 +2,9 @@
 " Normal bindings
 "
 
+" NERDTree toggle
+nnoremap <silent> - :NERDTreeToggle<CR>
+
 " Change what selected on '*' command (if you want to change a word in multiple lines)
 " press 'n' then '.' after the first iteration. (mnemonic of 'c'hange)
 nnoremap c* *Ncgn

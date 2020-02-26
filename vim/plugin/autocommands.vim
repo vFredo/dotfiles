@@ -18,8 +18,6 @@ augroup latex_commands
     autocmd!
     " Deleting all the temp files that latexmk compiler make
     autocmd VimLeave *.tex !latexmk -c %
-    " Compile files with <leader>c only for tex files
-    autocmd FileType tex nnoremap <buffer> <leader>c :VimtexCompile<CR>
     " Edit a figure on inkscape (pip3 install inkscape-figures) for latex
     autocmd Filetype tex nnoremap <buffer> <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
     " Create a new figure on inkscape (pip3 install inkscape-figures) for latex
@@ -41,8 +39,8 @@ augroup refresh_statusline
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
 augroup END
 
-" Remember folds, only problem files that are created from plugins and temp files
-augroup remember_folds_cursor
+" Remember folds and cursor pos, the only problem: plugin's files creation ant temp files
+augroup automake_view
     autocmd BufWritePost *
     \   if expand('%') != '' && &buftype !~ 'nofile'
     \|      mkview
@@ -54,9 +52,17 @@ augroup remember_folds_cursor
 augroup END
 
 " Better focus with cursorline on and off
-augroup cool_focus
+augroup cursorline_focus
     autocmd!
     autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline
     autocmd FocusLost,WinLeave * set nocursorline
+augroup END
+
+" Depends on the filetype, it can be compiled with 'F5'
+augroup compilers_keybinding
+    autocmd!
+    autocmd FileType cpp nnoremap <buffer> <F5> :!g++ -Wall -Wno-unused-result -std=c++11 -O2 % -o %:r<CR>
+    autocmd FileType java nnoremap <buffer> <F5> !javac %<CR>
+    autocmd FileType tex nnoremap <buffer> <F5> :VimtexCompile<CR>
 augroup END
 

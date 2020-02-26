@@ -6,16 +6,7 @@
 
 scriptencoding utf-8
 
-function! statusline#active()
-    try
-        call pinnacle#highlight({})
-        return 1
-    catch /E117/
-        " Pinnacle probably isn't loaded
-        return 0
-    endtry
-endfunction
-
+" Merge line numbers and the width of the powerline arrow
 function! statusline#gutterpadding() abort
     let l:signcolumn=0
     if exists('+signcolumn')
@@ -42,6 +33,7 @@ function! statusline#gutterpadding() abort
     return l:padding
 endfunction
 
+" Where the file is place 'basename'
 function! statusline#fileprefix() abort
     let l:basename=expand('%:h')
     if l:basename ==# '' || l:basename ==# '.'
@@ -60,6 +52,7 @@ function! statusline#fileprefix() abort
     return basename
 endfunction
 
+" Filetype
 function! statusline#ft() abort
     if strlen(&ft)
         return ',' . &ft
@@ -68,6 +61,7 @@ function! statusline#ft() abort
     endif
 endfunction
 
+" Encoding, if is 'utf-8', don't show it
 function! statusline#fenc() abort
     if strlen(&fenc) && &fenc !=# 'utf-8'
         return ',' . &fenc
@@ -219,6 +213,8 @@ function! s:get_custom_statusline(action) abort
         return 'Undotree\ preview' " Less ugly, and nothing really useful to show.
     elseif &ft ==# 'undotree'
         return 0 " Don't override; undotree does its own thing.
+    elseif &ft ==# 'nerdtree'
+        return 0 " Don't override; NERDTree does its own thing.
     elseif &ft ==# 'qf'
         if a:action ==# 'blur'
             return
@@ -240,15 +236,14 @@ function! s:get_custom_statusline(action) abort
     return 1 " Use default.
 endfunction
 
+" Apply custom statusline, else use default.
 function! s:update_statusline(default, action) abort
     let l:statusline = s:get_custom_statusline(a:action)
     if type(l:statusline) == type('')
-        " Apply custom statusline.
         execute 'setlocal statusline=' . l:statusline
     elseif l:statusline == 0
         return
     else
-        " if can't apply custom, use default
         execute 'setlocal statusline=' . a:default
     endif
 endfunction

@@ -12,3 +12,8 @@ xnoremap <C-l> <C-w>l
 vnoremap < <gv
 vnoremap > >gv
 
+" Check if is need it to install: vim --version | grep clipboard
+" requiered for Ubuntu (vim-gtk/vim-gnome), CentOs/Redhat (vim-X11) and Arch (gvim)
+vnoremap <leader>y "+y
+vnoremap <leader>d "+d
+

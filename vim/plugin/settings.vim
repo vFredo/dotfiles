@@ -104,10 +104,10 @@ set smarttab        " Delete a hole tab in insert mode when you use <BS>
 set autoindent      " Copy the indent of the current line when a new line is create
 
 " Wildmenu configuration
-set wildmenu        " Completitions on command mode
-set wildmode=longest:full,full  "Long list on wildmenu
+set wildmenu                    " Completitions on command mode
+set wildmode=longest:full,full  " Long list on wildmenu
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.ttf
-set wildignore+=.DS_Store,*.pdf,*/target/*
+set wildignore+=.DS_Store,*.pdf,*/target/*,*/.git/*
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.class
 
 " Folds configurations
@@ -150,7 +150,7 @@ execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") .
             \ ' guifg=' . pinnacle#extract_bg("StatusLine")
 
 " Better search and quicfixline colors
-execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight("PmenuSel")
+execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight("CursorLine")
 highlight! clear Search
 execute 'highlight! Search ' . pinnacle#embolden("Underlined")
 

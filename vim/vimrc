@@ -4,6 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " Tree view of project
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'lervag/vimtex', { 'for': 'tex' } " Latex compiler, preview and syntax
 Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
@@ -23,7 +24,13 @@ call plug#end()
 " ------------------------ Plugins configurations --------------------
 "
 
-" " ------------------------- Smooth-scroll config -------------------------
+" ------------------------ NERDTree config ---------------------------
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeWinSize = 40
+let g:NERDTreeRespectWildIgnore = 1
+
+" ----------------------- Smooth-scroll config -----------------------
 noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 15, 1)<CR>
 noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 15, 1)<CR>
 noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 15, 2)<CR>

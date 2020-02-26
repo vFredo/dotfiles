@@ -9,22 +9,17 @@ let mapleader = " "
 "
 
 " Ultisnips edit on vertical split
-nnoremap <leader>u :UltiSnipsEdit<CR>
+nnoremap <silent> <leader>u :UltiSnipsEdit<CR>
 
 " FZF
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>h :Helptags<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>h :Helptags<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
 
 " Buffer and window related bindings
-nnoremap <leader>d :bdelete<CR>
+nnoremap <silent> <leader>d :bdelete<CR>
 nnoremap <leader><leader> <C-^>
 nnoremap <leader>L <C-w>L
-
-" Check if is need it to install: vim --version | grep clipboard
-" requiered for Ubuntu (vim-gtk/vim-gnome), CentOs/Redhat (vim-X11) and Arch (gvim)
-vnoremap <leader>y "+y
-vnoremap <leader>d "+d
 
 " Toggle accent keys
 nnoremap <leader>a :call ToggleAccent()<CR>
@@ -45,7 +40,7 @@ function! mappings#leader#toggle_spell(languaje) abort
     endif
 endfunction
 
-" mnemonic 's'pell 's'panish and 's'pell 'e'nglish
+" mnemonic ['s'pell 's'panish] and ['s'pell 'e'nglish]
 nnoremap <leader>ss :call mappings#leader#toggle_spell("Spanish")<CR>
 nnoremap <leader>se :call mappings#leader#toggle_spell("English")<CR>
 
