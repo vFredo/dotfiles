@@ -112,31 +112,25 @@ function! statusline#rhs() abort
     return l:rhs
 endfunction
 
+" Color of the left and powerline symbol with modified=0
 let s:default_lhs_color='Function'
-let s:async_lhs_color='Constant'
+" Color of the left and powerline symbol with modified=1
 let s:modified_lhs_color='ModeMsg'
+" Change highlight for the default
 let s:current_statusline_status_highlight=s:default_lhs_color
-let s:async=0
 
+" Check if the file is modified
 function! statusline#check_modified() abort
     if &modified && s:current_statusline_status_highlight != s:modified_lhs_color
         let s:current_statusline_status_highlight=s:modified_lhs_color
         call statusline#update_highlight()
-    elseif !&modified
-        if s:async && s:current_statusline_status_highlight != s:async_lhs_color
-            let s:current_statusline_status_highlight=s:async_lhs_color
-            call statusline#update_highlight()
-        elseif !s:async && s:current_statusline_status_highlight != s:default_lhs_color
-            let s:current_statusline_status_highlight=s:default_lhs_color
-            call statusline#update_highlight()
-        endif
+    elseif !&modified && s:current_statusline_status_highlight != s:default_lhs_color
+        let s:current_statusline_status_highlight=s:default_lhs_color
+        call statusline#update_highlight()
     endif
 endfunction
 
 function! statusline#update_highlight() abort
-    if !statusline#active()
-        return
-    endif
 
     " StatusLine = current Window, and wild menu colors
     execute 'highlight! StatusLine gui=italic guibg=' . pinnacle#extract_bg("Normal") .
@@ -184,6 +178,7 @@ function! statusline#update_highlight() abort
     highlight! link StatusLineNC User1
 endfunction
 
+" Git branch
 function! statusline#git_branch() abort
     if strlen(FugitiveHead())
         return ' (' . FugitiveHead() . ')'
@@ -219,41 +214,6 @@ function! statusline#is_modified() abort
     return l:symbol
 endfunction
 
-" StatusLineNC configuration (no-current)
-function! statusline#blur_statusline() abort
-    " Default blurred statusline (modified symbol and the filename).
-    let l:blurred='%{statusline#lhs()}'
-    let l:blurred.='%{statusline#is_modified()}'
-    let l:blurred.='\ ' " space
-    let l:blurred.='\ ' " space
-    let l:blurred.='\ ' " space
-    let l:blurred.='\ ' " space
-    let l:blurred.='%<' " truncation point
-    let l:blurred.='%f' " filename
-    let l:blurred.='%{statusline#git_branch()}' " Git branch name
-    let l:blurred.='%*' " reset highlight
-    let l:blurred.='%=' " split left/right halves (makes background cover whole)
-    call s:update_statusline(l:blurred, 'blur')
-endfunction
-
-function! statusline#focus_statusline() abort
-    " `setlocal statusline=` will revert to global 'statusline' setting.
-    call s:update_statusline('', 'focus')
-endfunction
-
-function! s:update_statusline(default, action) abort
-    let l:statusline = s:get_custom_statusline(a:action)
-    if type(l:statusline) == type('')
-        " Apply custom statusline.
-        execute 'setlocal statusline=' . l:statusline
-    elseif l:statusline == 0
-        return
-    else
-        " if can't apply custom, use default
-        execute 'setlocal statusline=' . a:default
-    endif
-endfunction
-
 function! s:get_custom_statusline(action) abort
     if &ft ==# 'diff' && exists('t:diffpanel') && t:diffpanel.bufname ==# bufname('%')
         return 'Undotree\ preview' " Less ugly, and nothing really useful to show.
@@ -280,13 +240,49 @@ function! s:get_custom_statusline(action) abort
     return 1 " Use default.
 endfunction
 
+function! s:update_statusline(default, action) abort
+    let l:statusline = s:get_custom_statusline(a:action)
+    if type(l:statusline) == type('')
+        " Apply custom statusline.
+        execute 'setlocal statusline=' . l:statusline
+    elseif l:statusline == 0
+        return
+    else
+        " if can't apply custom, use default
+        execute 'setlocal statusline=' . a:default
+    endif
+endfunction
+
+" StatusLineNC configuration (no-current)
+function! statusline#blur_statusline() abort
+    " Default blurred statusline (modified symbol and the filename).
+    let l:blurred='%{statusline#lhs()}'
+    let l:blurred.='%{statusline#is_modified()}'
+    let l:blurred.='\ ' " space
+    let l:blurred.='\ ' " space
+    let l:blurred.='\ ' " space
+    let l:blurred.='\ ' " space
+    let l:blurred.='%<' " truncation point
+    let l:blurred.='%f' " filename
+    let l:blurred.='%{statusline#git_branch()}' " Git branch name
+    let l:blurred.='%*' " reset highlight
+    let l:blurred.='%=' " split left/right halves (makes background cover whole)
+    call s:update_statusline(l:blurred, 'blur')
+endfunction
+
+function! statusline#focus_statusline() abort
+    " `setlocal statusline=` will revert to global 'statusline' setting.
+    call s:update_statusline('', 'focus')
+endfunction
+
+
 "
-"  StatusLine configurations (current)
+"  Current statusLine configuration
 "
 
 " https://github.com/wincent/wincent/blob/76690087d69730da681612785e2722904ddfc562/roles/dotfiles/files/.vim/plugin/statusline.vim
-set statusline=%4*                                 " Switch to User4 highlight group
-set statusline+=%{statusline#lhs()}
+set statusline=%4*                                 " Switch to User4 highlight group.
+set statusline+=%{statusline#lhs()}                " Change size of the color before powerline arrow.
 set statusline+=%*                                 " Reset highlight group.
 set statusline+=%3*                                " Switch to User3 highlight group (Powerline arrow).
 set statusline+=                                  " Powerline arrow.
@@ -297,7 +293,7 @@ set statusline+=%{statusline#fileprefix()}         " Relative path to file's dir
 set statusline+=%2*                                " Switch to User2 highlight group (bold).
 set statusline+=%t                                 " Filename.
 set statusline+=%5*                                " Switch to User5 highlight group.
-set statusline+=%{statusline#git_branch()}         " Git branch name
+set statusline+=%{statusline#git_branch()}         " Git branch name.
 set statusline+=%*                                 " Reset highlight group.
 
 " Needs to be all on one line:

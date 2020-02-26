@@ -23,7 +23,7 @@ call plug#end()
 " ------------------------ Plugins configurations --------------------
 "
 
-" ------------------------- Smooth-scroll config -------------------------
+" " ------------------------- Smooth-scroll config -------------------------
 noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 15, 1)<CR>
 noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 15, 1)<CR>
 noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 15, 2)<CR>
