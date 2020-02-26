@@ -157,7 +157,7 @@ function! statusline#update_highlight() abort
     let l:bg=pinnacle#extract_bg('StatusLine')
     execute 'highlight User3 ' . pinnacle#highlight({'fg': l:fg, 'bg': l:bg})
 
-    " And opposite when the file is modfied on the 'Powerline' triangle.
+    " And opposite when the file is modified on the 'Powerline' triangle.
     execute 'highlight User4 ' .
         \ pinnacle#highlight({
         \   'fg': pinnacle#extract_bg("Normal"),
@@ -175,7 +175,7 @@ function! statusline#update_highlight() abort
         \   'term': 'bold'
         \ })
 
-    " Italics for ft and fenc sepatators
+    " Italics for ft and fenc separators
     let l:highlight=pinnacle#italicize("StatusLine")
     execute 'highlight User6 ' . l:highlight
 
@@ -221,7 +221,7 @@ endfunction
 
 " StatusLineNC configuration (no-current)
 function! statusline#blur_statusline() abort
-    " Default blurred statusline (mofied symbol and the filename).
+    " Default blurred statusline (modified symbol and the filename).
     let l:blurred='%{statusline#lhs()}'
     let l:blurred.='%{statusline#is_modified()}'
     let l:blurred.='\ ' " space

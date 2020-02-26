@@ -8,7 +8,7 @@ let mapleader = " "
 " Plugin bindings
 "
 
-" Ultisnips edit on veritcal split
+" Ultisnips edit on vertical split
 nnoremap <leader>u :UltiSnipsEdit<CR>
 
 " FZF
@@ -38,13 +38,14 @@ function! mappings#leader#toggle_spell(languaje) abort
     endif
     setlocal spell!
     if &spell
-        inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+        inoremap <C-l> <C-g>u<Esc>[s1z=`]a<C-g>u
         echo "Spell with " . a:languaje . ": ON"
     else
         echo "Spell: OFF"
     endif
 endfunction
 
+" mnemonic 's'pell 's'panish and 's'pell 'e'nglish
 nnoremap <leader>ss :call mappings#leader#toggle_spell("Spanish")<CR>
 nnoremap <leader>se :call mappings#leader#toggle_spell("English")<CR>
 

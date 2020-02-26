@@ -46,7 +46,7 @@ function! AccentOn()
 endfunction
 
 function! AccentOff()
-    echo "Accentuaion Keys: Off"
+    echo "Accentuation Keys: Off"
     let g:AccentKeysOn=0
 
     " Unmapping umlauts

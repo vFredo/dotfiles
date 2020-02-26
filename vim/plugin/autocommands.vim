@@ -1,8 +1,8 @@
 "
-" Vim autocommands
+" Vim auto commands
 "
 
-" General configurartions
+" General configurations
 augroup general_config
     autocmd!
     " Automatic rezise buffers  when resizing window

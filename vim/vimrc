@@ -6,13 +6,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'lervag/vimtex', { 'for': 'tex' } " Latex compiler, preview and syntax
-Plug 'terryma/vim-smooth-scroll' " Smooth trancision while scrolling pages
-Plug 'chriskempson/base16-vim'  " Nice colorschemes
+Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
+Plug 'chriskempson/base16-vim'  " Nice color schemes
 Plug 'SirVer/ultisnips'         " Useful snippets
 Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'tpope/vim-commentary'     " Comment lines; the easy way
-Plug 'tpope/vim-surround'       " Easy motions with brakets, parentheses, etc.
+Plug 'tpope/vim-surround'       " Easy motions with brackets, parentheses, etc.
 Plug 'tpope/vim-fugitive'       " Git commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder
@@ -24,10 +24,10 @@ call plug#end()
 "
 
 " ------------------------- Smooth-scroll config -------------------------
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 15, 1)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 15, 1)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 15, 2)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 15, 2)<CR>
+noremap <silent> <C-u> :call smooth_scroll#up(&scroll, 15, 1)<CR>
+noremap <silent> <C-d> :call smooth_scroll#down(&scroll, 15, 1)<CR>
+noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 15, 2)<CR>
+noremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 15, 2)<CR>
 
 " ------------------------- Ultisnips config -------------------------
 let g:UltiSnipsExpandTrigger = '<tab>'
@@ -39,7 +39,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips']
 " Edit vertical Ultisnips edition
 let g:UltiSnipsEditSplit="vertical"
 
-" ------------------------- Vimtex cofig -----------------------------
+" ------------------------- Vimtex config -----------------------------
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=2
