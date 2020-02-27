@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " Tree view of project
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " Tree view of any dir
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'lervag/vimtex', { 'for': 'tex' } " Latex compiler, preview and syntax
 Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
@@ -15,6 +15,7 @@ Plug 'wincent/loupe'            " Enhance search commands
 Plug 'tpope/vim-commentary'     " Comment lines; the easy way
 Plug 'tpope/vim-surround'       " Easy motions with brackets, parentheses, etc.
 Plug 'tpope/vim-fugitive'       " Git commands on vim
+Plug 'tpope/vim-eunuch'         " Shell commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'         " Fuzzy finder
 
@@ -93,12 +94,5 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
 else
     colorscheme base16-classic-dark
-endif
-
-" True colors on terminal
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
 endif
 

@@ -26,13 +26,14 @@ nnoremap <leader>a :call ToggleAccent()<CR>
 
 " Toggle spelling syntax with es or us_en
 function! mappings#leader#toggle_spell(languaje) abort
-    if a:languaje == "Spanish"
-        setlocal spelllang=es
-    else
-        setlocal spelllang=en_us
-    endif
     setlocal spell!
     if &spell
+        if a:languaje == "Spanish"
+            setlocal spelllang=es
+        else
+            setlocal spelllang=en_us
+        endif
+
         inoremap <C-l> <C-g>u<Esc>[s1z=`]a<C-g>u
         echo "Spell with " . a:languaje . ": ON"
     else
