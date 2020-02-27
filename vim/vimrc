@@ -10,6 +10,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' } " Latex compiler, preview and syntax
 Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
 Plug 'chriskempson/base16-vim'  " Nice color schemes
 Plug 'SirVer/ultisnips'         " Useful snippets
+Plug 'ervandew/supertab'        " Enhance auto competition
 Plug 'wincent/pinnacle'         " Better control of the highlight groups
 Plug 'wincent/loupe'            " Enhance search commands
 Plug 'tpope/vim-commentary'     " Comment lines; the easy way
@@ -25,7 +26,10 @@ call plug#end()
 " ------------------------ Plugins configurations --------------------
 "
 
-" ------------------------ NERDTree config ---------------------------
+" ---------------------------- Subertab config -----------------------
+let g:SuperTabDefaultCompletionType = "context"
+
+" -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeWinSize = 40
