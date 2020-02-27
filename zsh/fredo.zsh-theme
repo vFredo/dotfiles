@@ -106,7 +106,7 @@ function +vi-git-st() {
 }
 
 #
-# Vi-mode indicator and PROMPT (PS1)
+# Right prompt and left prompt configs
 #
 
 # zle-keymap-select is executed every time KEYMAP changes.
@@ -114,8 +114,12 @@ function +vi-git-st() {
 function zle-line-init zle-keymap-select {
 
     # Vi-mode indicators
-    local MODE_INDICATOR=" %{$fg_bold[yellow]%}>>>%{$reset_color%} "
-    local VIMODE="${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
+    local NORMAL_MODE=" %{$fg_bold[yellow]%}<<<%{$reset_color%} "
+    local INSERT_MODE=" %{$fg_bold[blue]%}•••%{$reset_color%} "
+    local VIMODE="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/$INSERT_MODE}"
+
+    # Adding right prompt, contents: time and branch
+    RPROMPT_BASE='${VIMODE}${vcs_info_msg_0_} '
 
     # Look if tmux is runnit that way it doesn't have to nested another term
     if tmux info &> /dev/null; then
@@ -136,17 +140,14 @@ function zle-line-init zle-keymap-select {
         local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
     fi
 
-    PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b ${VIMODE}"
+    PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
 
     zle reset-prompt
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# Adding right prompt, contents: time and branch
-RPROMPT_BASE='${vcs_info_msg_0_}'
-
-export RPROMPT=$RPROMPT_BASE
+# export RPROMPT=$RPROMPT_BASE
 export SPROMPT="Correct %F{red}'%R'%f to %F{blue}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
@@ -192,7 +193,7 @@ function -report-start-time() {
         SECS="$((~~$SECS))s"
         fi
         ELAPSED="${ELAPSED}${SECS}"
-        export RPROMPT="%F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f $RPROMPT_BASE"
+        export RPROMPT="%F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f$RPROMPT_BASE"
         unset ZSH_START_TIME
     else
         export RPROMPT="$RPROMPT_BASE"

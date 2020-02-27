@@ -24,7 +24,7 @@ This configuration are set for Linux operating systems, this is really intended 
 
 ### Zsh
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
-    * If you are on vi-mode `>>>` will appear.
+    * If you set vi keys on normal mode `<<<` will appear and in insert mode `•••`.
     * Duration of previous command in adaptive units (seconds, minutes, hours or days) depending on duration.
     * Current version control branch name.
         * Green dot indicates staged changes.
