@@ -49,7 +49,7 @@ function! statusline#fileprefix() abort
         let l:basename = ''.join(arr[-2:], '/') . '/'
     endif
 
-    return basename
+    return l:basename
 endfunction
 
 " Filetype
@@ -126,21 +126,20 @@ endfunction
 
 function! statusline#update_highlight() abort
 
-    " StatusLine = current Window, and wild menu colors
-    execute 'highlight! StatusLine gui=italic guibg=' . pinnacle#extract_bg("Normal") .
-                \' guifg=' . pinnacle#extract_fg("Normal")
+    " Set the no-current statusline with italics
+    execute 'highlight! StatusLineNC ' . pinnacle#italicize("StatusLineNC")
 
-    " StatusLineNC = no-current window, with italics
-    execute 'highlight! StatusLineNC guibg=' . pinnacle#extract_fg("Normal") .
-                \' guifg=' . pinnacle#extract_bg("Normal")
-    let l:highlight=pinnacle#italicize('StatusLineNC')
-    execute 'highlight User1 ' . l:highlight
+    " StatusLine = current Window, and wild menu colors
+    execute 'highlight! StatusLine' .
+                \ ' guibg=' . pinnacle#extract_bg("Normal") .
+                \ ' guifg=' . pinnacle#extract_fg("Normal")
+
 
     " StatusLine + bold (used for file names and right hand section).
     let l:highlight=pinnacle#embolden("StatusLine")
     execute 'highlight User2 ' . l:highlight
 
-    " Inverted Error styling, for left-hand side 'Powerline' triangle.
+    " Adding styling for left-hand side 'Powerline' triangle.
     let l:fg=pinnacle#extract_fg(s:current_statusline_status_highlight)
     let l:bg=pinnacle#extract_bg('StatusLine')
     execute 'highlight User3 ' . pinnacle#highlight({'fg': l:fg, 'bg': l:bg})
@@ -148,14 +147,14 @@ function! statusline#update_highlight() abort
     " And opposite when the file is modified on the 'Powerline' triangle.
     execute 'highlight User4 ' .
         \ pinnacle#highlight({
-        \   'fg': pinnacle#extract_bg("Normal"),
+        \   'fg': pinnacle#extract_bg("StatusLine"),
         \   'bg': l:fg,
         \   'term': 'bold'
         \ })
 
     " Git branch separator color
     let l:fg=pinnacle#extract_fg("Constant")
-    let l:bg=pinnacle#extract_bg("Normal")
+    let l:bg=pinnacle#extract_bg("StatusLine")
     execute 'highlight User5 ' .
         \ pinnacle#highlight({
         \   'fg': l:fg,
@@ -167,17 +166,18 @@ function! statusline#update_highlight() abort
     let l:highlight=pinnacle#italicize("StatusLine")
     execute 'highlight User6 ' . l:highlight
 
-    " Set the no-current statusline colors
-    highlight clear StatusLineNC
-    highlight! link StatusLineNC User1
 endfunction
 
 " Git branch
 function! statusline#git_branch() abort
-    if strlen(FugitiveHead())
-        return ' (' . FugitiveHead() . ')'
-    else
-        return ''
+    let l:git_branch_text=""
+    " If fugitive is install then show branch
+    if exists('*FugitiveHead()')
+        if strlen(FugitiveHead())
+            let l:git_branch_text = ' (' . FugitiveHead() . ')'
+        endif
+    endif
+    return l:git_branch_text
 endfunction
 
 " Quickfix statusline
@@ -270,26 +270,25 @@ function! statusline#focus_statusline() abort
     call s:update_statusline('', 'focus')
 endfunction
 
-
 "
 "  Current statusLine configuration
 "
 
 " https://github.com/wincent/wincent/blob/76690087d69730da681612785e2722904ddfc562/roles/dotfiles/files/.vim/plugin/statusline.vim
-set statusline=%4*                                 " Switch to User4 highlight group.
-set statusline+=%{statusline#lhs()}                " Change size of the color before powerline arrow.
-set statusline+=%*                                 " Reset highlight group.
-set statusline+=%3*                                " Switch to User3 highlight group (Powerline arrow).
-set statusline+=                                  " Powerline arrow.
-set statusline+=%*                                 " Reset highlight group.
-set statusline+=\                                  " Space.
-set statusline+=%<                                 " Truncation point, if not enough width available.
-set statusline+=%{statusline#fileprefix()}         " Relative path to file's directory.
-set statusline+=%2*                                " Switch to User2 highlight group (bold).
-set statusline+=%t                                 " Filename.
-set statusline+=%5*                                " Switch to User5 highlight group.
-set statusline+=%{statusline#git_branch()}         " Git branch name.
-set statusline+=%*                                 " Reset highlight group.
+set statusline=%4*                          " Switch to User4 highlight group.
+set statusline+=%{statusline#lhs()}         " Change size of the color before powerline arrow.
+set statusline+=%*                          " Reset highlight group.
+set statusline+=%3*                         " Switch to User3 highlight group (Powerline arrow).
+set statusline+=                           " Powerline arrow.
+set statusline+=%*                          " Reset highlight group.
+set statusline+=\                           " Space.
+set statusline+=%<                          " Truncation point, if not enough width available.
+set statusline+=%{statusline#fileprefix()}  " Relative path to file's directory.
+set statusline+=%2*                         " Switch to User2 highlight (bold).
+set statusline+=%t                          " Filename.
+set statusline+=%5*                         " Switch to User5 highlight group.
+set statusline+=%{statusline#git_branch()}  " Git branch name.
+set statusline+=%*                          " Reset highlight group.
 
 " Needs to be all on one line:
 "   %(                           Start item group.

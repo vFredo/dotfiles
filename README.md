@@ -36,10 +36,10 @@ This configuration are set for Linux operating systems, this is really intended 
 ### Theme
 * Current terminal: [simple terminal](https://st.suckless.org/)([st](https://github.com/fredo0522/st) configuration).
 * Terminal theme: [base16_classic-dark](https://github.com/chriskempson/base16-shell).
-* Terminal font: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
+* Terminal font: [Source Code Pro Regular](https://github.com/adobe-fonts/source-code-pro).
 
 ### Select Theme
-* Run `base16_` and then hit `Tab` to see all the themes available.
+* Run `base16_` and then hit <kbd>Tab</kbd> to see all the themes available.
 
 ## Dependencies
 * Fonts

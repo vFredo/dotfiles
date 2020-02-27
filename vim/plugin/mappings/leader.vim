@@ -37,6 +37,7 @@ function! mappings#leader#toggle_spell(languaje) abort
         inoremap <C-l> <C-g>u<Esc>[s1z=`]a<C-g>u
         echo "Spell with " . a:languaje . ": ON"
     else
+        iunmap <C-l>
         echo "Spell: OFF"
     endif
 endfunction

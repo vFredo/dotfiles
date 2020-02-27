@@ -142,8 +142,9 @@ endif
 execute 'highlight! CursorLineNr cterm=NONE'
 execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 
-" Same background for line numbers
+" Same background for line numbers and blend VertSplit colors wiht LineNr
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
+execute 'highlight! VertSplit ' . pinnacle#extract_highlight("LineNr")
 
 " Match the cursorline colors to the visual colors
 execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
@@ -162,10 +163,14 @@ highlight! clear Search
 execute 'highlight! Search ' . pinnacle#embolden("Underlined")
 
 " Spell checking colors
-execute 'highlight! SpellBad cterm=bold,underline guibg=NONE guifg=' . pinnacle#extract_fg("Identifier")
-execute 'highlight! SpellLocal guibg=NONE cterm=bold,underline guifg=' . pinnacle#extract_fg("Constant")
-execute 'highlight! SpellCap guibg=NONE cterm=bold,underline guifg=' . pinnacle#extract_fg("Function")
-execute 'highlight! SpellRare cterm=bold,underline guibg=NONE guifg=' . pinnacle#extract_fg("Define")
+execute 'highlight! SpellBad cterm=bold,underline guibg=NONE guifg=' .
+            \ pinnacle#extract_fg("Identifier")
+execute 'highlight! SpellLocal guibg=NONE cterm=bold,underline guifg=' .
+            \ pinnacle#extract_fg("Constant")
+execute 'highlight! SpellCap guibg=NONE cterm=bold,underline guifg=' .
+            \ pinnacle#extract_fg("Function")
+execute 'highlight! SpellRare cterm=bold,underline guibg=NONE guifg=' .
+            \ pinnacle#extract_fg("Define")
 
 " Terminal buffer statusline
 highlight! link StatusLineTerm StatusLine

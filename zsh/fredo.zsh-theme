@@ -143,6 +143,7 @@ function zle-line-init zle-keymap-select {
     PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
 
     zle reset-prompt
+    zle -R
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
