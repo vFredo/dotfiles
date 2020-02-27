@@ -67,7 +67,6 @@ ZSH_TMUX_AUTOSTART=true
 plugins=(
     git
     tmux
-    vi-mode
     fzf
     zsh-autosuggestions
     colored-man-pages
@@ -79,13 +78,28 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 #
 
+# Vi-mode
+bindkey -v
+
+# Allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# Alllow ctrl-w to delete a word
+bindkey '^w' backward-kill-word
+
+# Allow v to edit the command line on vim
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
 # Some defaults
 export EDITOR='vim'
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export TERM=xterm-256color
 
-# Change colors of ow= other writable, tw= sticky writable on terminal
+# Change to clear colors of ow=other writable, tw=sticky writable on terminal
 export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
 
 # Specifics
