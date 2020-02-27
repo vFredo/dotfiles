@@ -8,20 +8,24 @@ augroup general_config
     " Automatic rezise buffers  when resizing window
     autocmd! VimResized * wincmd =
     " Disable auto comments on the next line
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+    autocmd FileType *
+                \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     " Disable paste mode on leaving insert mode event
     autocmd InsertLeave * set nopaste
 augroup END
 
+
 " Latex configurations
 augroup latex_commands
     autocmd!
-    " Deleting all the temp files that latexmk compiler make
-    autocmd VimLeave *.tex !latexmk -c %
+    " Deleting all the temp files that latexmk compiler make and close zathura
+    autocmd User VimtexEventQuit call CloseViewers() | !latexmk -c %
     " Edit a figure on inkscape (pip3 install inkscape-figures) for latex
     autocmd Filetype tex nnoremap <buffer> <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
     " Create a new figure on inkscape (pip3 install inkscape-figures) for latex
     autocmd Filetype tex inoremap <buffer> <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+    " Don't scan the file is very slow
+    autocmd Filetype tex setlocal complete-=i
 augroup END
 
 " https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/statusline.vim
