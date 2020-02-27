@@ -110,8 +110,8 @@ function +vi-git-st() {
 #
 
 # Vi-mode indicators
-NORMAL_MODE=" %{$fg_bold[yellow]%}<<<%{$reset_color%} "
-INSERT_MODE=" %{$fg_bold[blue]%}•••%{$reset_color%} "
+NORMAL_MODE="%{$fg_bold[yellow]%}<<<%{$reset_color%}"
+INSERT_MODE="%{$fg_bold[blue]%}•••%{$reset_color%}"
 VIMODE="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/$INSERT_MODE}"
 
 # zle-keymap-select is executed every time KEYMAP changes.
@@ -146,14 +146,6 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-
-
-# Adding right prompt, contents: time and branch
-RPROMPT_BASE='${VIMODE}${vcs_info_msg_0_} '
-export RPROMPT=$RPROMPT_BASE
-
-# This prompt pops when zsh think that your last command is misspelled
-export SPROMPT="Correct %F{red}'%R'%f to %F{blue}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 #
 # Hooks
@@ -198,13 +190,20 @@ function -report-start-time() {
         SECS="$((~~$SECS))s"
         fi
         ELAPSED="${ELAPSED}${SECS}"
-        export RPROMPT="%F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f$RPROMPT_BASE"
+        ELAPSED_TIME=" %F{cyan}%{$__FREDO[ITALIC_ON]%}${ELAPSED}%{$__FREDO[ITALIC_OFF]%}%f "
         unset ZSH_START_TIME
     else
-        export RPROMPT="$RPROMPT_BASE"
+        ELAPSED_TIME=" "
     fi
 }
 add-zsh-hook precmd -report-start-time
+
+# Adding right prompt, contents: time and branch
+RPROMPT_BASE='${VIMODE}${ELAPSED_TIME}${vcs_info_msg_0_}'
+export RPROMPT=$RPROMPT_BASE
+
+# This prompt pops when zsh think that your last command is misspelled
+export SPROMPT="Correct %F{red}'%R'%f to %F{blue}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 function -auto-ls-after-cd() {
     emulate -L zsh
