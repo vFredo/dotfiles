@@ -6,19 +6,21 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " Tree view of any dir
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
-Plug 'lervag/vimtex', { 'for': 'tex' } " Latex compiler, preview and syntax
+Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
 Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
-Plug 'chriskempson/base16-vim'  " Nice color schemes
-Plug 'SirVer/ultisnips'         " Useful snippets
-Plug 'ervandew/supertab'        " Enhance auto competition
-Plug 'wincent/pinnacle'         " Better control of the highlight groups
-Plug 'wincent/loupe'            " Enhance search commands
-Plug 'tpope/vim-commentary'     " Comment lines; the easy way
-Plug 'tpope/vim-surround'       " Easy motions with brackets, parentheses, etc.
-Plug 'tpope/vim-fugitive'       " Git commands on vim
-Plug 'tpope/vim-eunuch'         " Shell commands on vim
+Plug 'chriskempson/base16-vim'   " Nice color schemes
+Plug 'SirVer/ultisnips'          " Useful snippets
+Plug 'wincent/pinnacle'          " Better control of the highlight groups
+Plug 'wincent/loupe'             " Enhance search commands
+Plug 'tpope/vim-commentary'      " Comment lines; the easy way
+Plug 'tpope/vim-surround'        " Easy motions with brackets, parentheses, etc.
+Plug 'tpope/vim-fugitive'        " Git commands on vim
+Plug 'tpope/vim-eunuch'          " Shell commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'         " Fuzzy finder
+Plug 'junegunn/fzf.vim'          " Fuzzy finder
+Plug 'ervandew/supertab'         " Enhance completition with tab key
+" Plug 'davidhalter/jedi-vim'      " Python completition
+" Plug 'xavierd/clang_complete'    " C/C++ completition
 
 call plug#end()
 
@@ -27,7 +29,17 @@ call plug#end()
 "
 
 " ---------------------------- Subertab config -----------------------
+set omnifunc=syntaxcomplete#Complete
+let g:SuperTabClosePreviewOnPopupClose = 1
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextTextOmniPrecedence = ['&completefunc', '&omnifunc']
+
+" ---------------------------- Clang_complete config -----------------------
+ " let g:clang_library_path = '/usr/lib/x86_64-linux-gnu'
+ " let g:clang_complete_auto = 0
+
+" ---------------------------- Jedi config -----------------------
+" let g:jedi#popup_on_dot = 0
 
 " -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1
