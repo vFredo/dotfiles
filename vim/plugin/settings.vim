@@ -38,9 +38,9 @@ set timeoutlen=1000 ttimeoutlen=0
 set backspace=indent,eol,start
 
 " View configuration
-set number relativenumber
-set scrolloff=3     " Start scrolling 3 lines before edge of viewport
-set sidescrolloff=3 " Same to scrolloff but with columns
+set number relativenumber " Show numbers and relative numbers between current line
+set scrolloff=3           " Start scrolling 3 lines before edge of viewport
+set sidescrolloff=3       " Same to scrolloff but with columns
 set linebreak             " Wrap taking to account words
 set breakindent           " Indent wrap text
 
@@ -61,11 +61,11 @@ else
     set directory=~/.vim/tmp/swap//
     set directory+=.
 
-    set viewdir=~/.vim/tmp/view//
+    set viewdir=~/.vim/tmp/view
     set viewoptions=cursor,folds
 endif
 
-" Show invisible characters and editor options
+" Show invisible characters
 set list
 set listchars=nbsp:⦸                  " Empty set symbol (U+29B8)
 set listchars+=tab:\|\                " The normal pipe character
