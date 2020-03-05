@@ -12,12 +12,12 @@ augroup general_config
                 \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     " Disable paste mode on leaving insert mode event
     autocmd InsertLeave * set nopaste
-      autocmd FileType *
+    " First try omnicomplete, then defautl completition
+    autocmd FileType *
         \ if &omnifunc != '' |
         \   call SuperTabChain(&omnifunc, "<c-p>") |
         \ endif
 augroup END
-
 
 " Latex configurations
 augroup latex_commands
@@ -47,7 +47,7 @@ augroup refresh_statusline
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
 augroup END
 
-" Remember folds and cursor pos, the only problem: plugin's files creation ant temp files
+" Remember folds and cursor pos. the only problem: plugin's files creation and tmp files
 augroup automake_view
     autocmd BufWritePost *
     \   if expand('%') != '' && &buftype !~ 'nofile'
