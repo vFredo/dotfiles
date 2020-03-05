@@ -19,6 +19,7 @@ Plug 'tpope/vim-eunuch'          " Shell commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'ervandew/supertab'         " Enhance completition with tab key
+Plug 'jiangmiao/auto-pairs'      " Auto-close brackets, parenthesis, etc.
 
 call plug#end()
 
@@ -71,7 +72,7 @@ set conceallevel=1
 let g:tex_conceal='abdgm'
 
 " --------------------------- FZF config -----------------------------
-" Size and positibion of the buffer
+" Size and position of the buffer
 let g:fzf_layout = {'down': '36%'}
 
 " If the file is in a buffer, jump to the buffer
