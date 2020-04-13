@@ -12,11 +12,9 @@ nnoremap c* *Ncgn
 " Consistent movement
 noremap gh ^
 noremap gl $
-" Remember realive line numbers jumps if they exceed a threshold '5'
-nnoremap <expr> gk (v:count > 5 ? "m'" . v:count : '') . 'k'
-nnoremap <expr> gj (v:count > 5 ? "m'" . v:count : '') . 'j'
-nnoremap <expr> k (v:count > 5 ? "m'" . v:count : '') . 'gk'
-nnoremap <expr> j (v:count > 5 ? "m'" . v:count : '') . 'gj'
+" Move between wrapped lines unless I had a count ex. 10j
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 
 " Toggle folds (if not possible use the default behavior of <tab>)
 nnoremap <silent> <Tab> @=(foldlevel('.')?'za':"\<Tab>")<CR>
