@@ -43,6 +43,7 @@ set scrolloff=3           " Start scrolling 3 lines before edge of viewport
 set sidescrolloff=3       " Same to scrolloff but with columns
 set linebreak             " Wrap taking to account words
 set breakindent           " Indent wrap text
+set mouse=a               " Enable the use of mouse on vim
 
 if has('linebreak')
     let &showbreak='↳ '   " Downwards arrow with tip rightwards (U+21B3)

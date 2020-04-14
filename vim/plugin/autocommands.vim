@@ -69,7 +69,7 @@ augroup END
 " Depends on the filetype, it can be compiled with 'F5'
 augroup compilers_keybinding
     autocmd!
-    autocmd FileType cpp nnoremap <buffer> <F5> :!g++ -Wall -Wno-unused-result -std=c++11 -O2 % -o %:r && ./%:r<CR>
+    autocmd FileType cpp nnoremap <buffer> <F5> :!g++ -Wall -Wno-unused-result -std=c++11 -O2 % -o %:r<CR>
     autocmd FileType java nnoremap <buffer> <F5> !javac % && java -enableassertions %:r<CR>
     autocmd FileType tex nnoremap <buffer> <F5> :VimtexCompile<CR>
 augroup END
