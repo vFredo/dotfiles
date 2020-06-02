@@ -147,12 +147,8 @@ execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
 execute 'highlight! VertSplit ' . pinnacle#extract_highlight("LineNr")
 
-" Match the cursorline colors to the visual colors
-execute 'highlight! Visual guibg=' . pinnacle#extract_bg("CursorLine")
-
 " Stand out MatchParen
-execute 'highlight! MatchParen cterm=bold guibg=NONE' .
-            \ ' guifg=' . pinnacle#extract_bg("Error")
+highlight MatchParen guibg=brown
 
 " Wildmenu Colors
 execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") .
