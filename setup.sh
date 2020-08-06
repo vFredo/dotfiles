@@ -4,7 +4,7 @@
 if [ "Linux" = "$(uname -a | awk '{printf $1}')" ]
 then
     # Create folders need it if they don't exist already
-    mkdir -p ~/.config/zathura ~/.fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/view ~/.config/i3status
+    mkdir -p ~/.config/zathura ~/.fonts ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/view ~/.config/i3status ~/.local/share/fonts
 
     # Bae16 theme for the shell
     git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -95,6 +95,9 @@ then
         fi
     fi
 
+    # Install CoC extensions
+    vim -c "CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd|qall"
+
     # Install zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -102,8 +105,11 @@ then
     # Installing and updating fonts for shell
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
     cp -r "$(pwd)"/fonts/*.otf ~/.fonts
-    fc-cache -f -v
 
-    vim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd' +qall
+    # In case the folder ~/.fonts is not visited
+    cp -r "$(pwd)"/fonts/*.ttf ~/.local/share/fonts
+    cp -r "$(pwd)"/fonts/*.otf ~/.local/share/fonts
+
+    fc-cache -fv
 fi
 
