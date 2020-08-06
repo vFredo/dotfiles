@@ -9,7 +9,6 @@ Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
 Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
 Plug 'chriskempson/base16-vim'   " Nice color schemes
-Plug 'SirVer/ultisnips'          " Useful snippets
 Plug 'wincent/pinnacle'          " Better control of the highlight groups
 Plug 'wincent/loupe'             " Enhance search commands
 Plug 'tpope/vim-commentary'      " Comment lines; the easy way
@@ -18,8 +17,9 @@ Plug 'tpope/vim-fugitive'        " Git commands on vim
 Plug 'tpope/vim-eunuch'          " Shell commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'          " Fuzzy finder
-Plug 'ervandew/supertab'         " Enhance completition with tab key
 Plug 'jiangmiao/auto-pairs'      " Auto-close brackets, parenthesis, etc.
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better completition
+Plug 'SirVer/ultisnips'          " Useful snippets
 
 call plug#end()
 
@@ -27,10 +27,37 @@ call plug#end()
 " ------------------------ Plugins configurations --------------------
 "
 
-" ---------------------------- Subertab config -----------------------
-set omnifunc=syntaxcomplete#Complete
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabDefaultCompletionType = "context"
+" ---------------------------- COC config -----------------------
+set updatetime=300  " Improve the delay
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
 
 " -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1
@@ -45,9 +72,9 @@ noremap <silent> <C-b> :call smooth_scroll#up(&scroll*2, 15, 2)<CR>
 noremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 15, 2)<CR>
 
 " ------------------------- Ultisnips config -------------------------
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsExpandTrigger = '<C-n>'
+let g:UltiSnipsJumpForwardTrigger = '<C-n>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-p>'
 let g:UltiSnipsSnippetsDir="~/dotfiles/vim/vimSnips"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips']
 

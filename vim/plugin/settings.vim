@@ -8,6 +8,8 @@ set encoding=utf-8
 syntax enable
 set cursorline
 set laststatus=2
+set clipboard+=unnamedplus
+
 
 " Change cursors between modes (if tmux is running, use tmux's special characters)
 " (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
@@ -144,15 +146,12 @@ execute 'highlight! CursorLineNr cterm=NONE'
 execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 
 " Same background for line numbers and blend VertSplit colors wiht LineNr
-execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
-execute 'highlight! VertSplit ' . pinnacle#extract_highlight("LineNr")
+" execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
+execute 'highlight! VertSplit ' . pinnacle#extract_highlight("Normal")
 
 " Stand out MatchParen
 highlight MatchParen guibg=brown
 
-" Wildmenu Colors
-execute 'highlight! WildMenu guibg=' . pinnacle#extract_fg("Function") .
-            \ ' guifg=' . pinnacle#extract_bg("StatusLine")
 
 " Better search and quicfixline colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight("CursorLine")
