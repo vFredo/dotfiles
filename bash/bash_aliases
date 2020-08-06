@@ -31,6 +31,5 @@ alias ag='ag --hidden -U'
 # Open any file from terminal (Ranger use rifle to open files)
 alias open='rifle 2>/dev/null'
 
-# Manage screens connections
-alias screens='arandr &'
+alias vim='nvim'
 
