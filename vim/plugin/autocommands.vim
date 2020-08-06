@@ -80,13 +80,13 @@ augroup END
 " Better focus
 augroup focus_window
     autocmd!
-    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set winhighlight=
-
-    " autocmd BufEnter,FocusGained,VimEnter,WinEnter * execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
-
-    autocmd FocusLost,WinLeave * set winhighlight=CursorLineNr:LineNr,EndOfBuffer:ColorColumn,IncSearch:ColorColumn,Normal:ColorColumn,NormalNC:ColorColumn,SignColumn:ColorColumn
-
-    " autocmd FocusLost,WinLeave * execute 'highlight! LineNr guibg='. pinnacle#extract_bg("CursorLine")
+    if exists('+winhighlight')
+        autocmd BufEnter,FocusGained,VimEnter,WinEnter * set winhighlight=
+        autocmd FocusLost,WinLeave * set winhighlight=CursorLineNr:LineNr,EndOfBuffer:ColorColumn,IncSearch:ColorColumn,Normal:ColorColumn,NormalNC:ColorColumn,SignColumn:ColorColumn
+    else
+        autocmd BufEnter,FocusGained,VimEnter,WinEnter * setlocal cursorline
+        autocmd FocusLost,WinLeave * setlocal nocursorline
+    endif
 augroup END
 
 " Depends on the filetype, it can be compiled with 'F5'
