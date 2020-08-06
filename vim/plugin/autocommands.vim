@@ -14,7 +14,6 @@ augroup general_config
                 \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     " Disable paste mode on leaving insert mode event
     autocmd InsertLeave * set nopaste
-
 augroup END
 
 " Latex configurations
@@ -28,7 +27,6 @@ augroup latex_commands
     autocmd Filetype tex inoremap <buffer> <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
     " Don't scan the file is very slow
     autocmd Filetype tex setlocal complete-=i
-
 augroup END
 
 " https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/statusline.vim

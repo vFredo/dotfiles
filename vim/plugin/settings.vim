@@ -147,8 +147,11 @@ execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 " Stand out parenthesis
 highlight MatchParen guibg=brown
 
-" Same background for line numbers and blend VertSplit colors with LineNr
+" Stand out vertical split line.
 execute 'highlight! VertSplit guibg=NONE'
+
+" Now can see the numbers.
+execute 'highlight! LineNr guifg=gray'
 
 " Better search and quicfixline colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight("CursorLine")
