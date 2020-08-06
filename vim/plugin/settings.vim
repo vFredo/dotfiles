@@ -27,7 +27,7 @@ endif
 " Annoying things
 set lazyredraw          " Don't update the screen during macros or scripts executions
 set belloff=all         " Never ring the bell
-set shortmess+=I        " Dont'n show intro message of Vim
+set shortmess+=I        " Don't show intro message of Vim
 set shortmess+=T        " Too big for the command line? put ...
 set shortmess+=W        " Don't echo [w]/[written] when writing a file
 set shortmess+=a        " Use all abbreviations eg. [RO] instead of [readonly]
@@ -41,8 +41,8 @@ set backspace=indent,eol,start
 
 " View configuration
 set number relativenumber " Show numbers and relative numbers between current line
-set scrolloff=3           " Start scrolling 3 lines before edge of viewport
-set sidescrolloff=3       " Same to scrolloff but with columns
+set scrolloff=3           " Start scrolling 3 lines before edge of view port
+set sidescrolloff=3       " Same to scroll off but with columns
 set linebreak             " Wrap taking to account words
 set breakindent           " Indent wrap text
 set mouse=a               " Enable the use of mouse on vim
@@ -74,7 +74,7 @@ set listchars=nbsp:⦸                  " Empty set symbol (U+29B8)
 set listchars+=tab:\|\                " The normal pipe character
 set listchars+=extends:»              " Two right arrows (U+00BB)
 set listchars+=precedes:«             " Two left arrows (U+00AB)
-set listchars+=trail:•                " Middel dot(U+2022)
+set listchars+=trail:•                " Middle dot(U+2022)
 
 " Fill chars for diff and folds
 set fillchars=diff:∙          " Bullet operator (U+2219)
@@ -86,11 +86,11 @@ set formatoptions+=j    " Remove comment leader when joining lines
 set formatoptions+=n    " Recognize numbered lists
 
 " GUI options
-set guioptions-=T   " Don't show toolbar
+set guioptions-=T   " Don't show tool bar
 set guioptions-=l   " Don't show scroll bar on windows
 set guioptions-=L   " Don't show scrollbar on split windows
 set guioptions-=r   " Don't show right scrollbar
-set guioptions-=R   " Don't shor right scrollbar on split windows
+set guioptions-=R   " Don't show right scrollbar on split windows
 set guioptions-=b   " Don't show bottom scrollbar
 
 " Buffer related
@@ -141,17 +141,14 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
-" Change underlined for current line number and italics for comments
-execute 'highlight! CursorLineNr cterm=NONE'
+" Comments with italics
 execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 
-" Same background for line numbers and blend VertSplit colors wiht LineNr
-" execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
-execute 'highlight! VertSplit ' . pinnacle#extract_highlight("Normal")
-
-" Stand out MatchParen
+" Stand out parenthesis
 highlight MatchParen guibg=brown
 
+" Same background for line numbers and blend VertSplit colors with LineNr
+execute 'highlight! VertSplit guibg=NONE'
 
 " Better search and quicfixline colors
 execute 'highlight! QuickFixLine ' . pinnacle#extract_highlight("CursorLine")

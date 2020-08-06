@@ -2,6 +2,8 @@
 " Vim auto commands
 "
 
+let g:mkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit', '.fzf']
+
 " General configurations
 augroup general_config
     autocmd!
@@ -12,11 +14,7 @@ augroup general_config
                 \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     " Disable paste mode on leaving insert mode event
     autocmd InsertLeave * set nopaste
-    " First try omnicomplete, then defautl completition
-    autocmd FileType *
-        \ if &omnifunc != '' |
-        \   call SuperTabChain(&omnifunc, "<c-p>") |
-        \ endif
+
 augroup END
 
 " Latex configurations
@@ -30,6 +28,7 @@ augroup latex_commands
     autocmd Filetype tex inoremap <buffer> <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
     " Don't scan the file is very slow
     autocmd Filetype tex setlocal complete-=i
+
 augroup END
 
 " https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/statusline.vim
@@ -47,23 +46,47 @@ augroup refresh_statusline
     autocmd FocusLost,WinLeave * call statusline#blur_statusline()
 augroup END
 
-" Remember folds and cursor pos. the only problem: plugin's files creation and tmp files
+" Remember folds and cursor position.
+function! autocommands#should_mkview() abort
+  return
+        \ &buftype ==# '' &&
+        \ index(g:mkviewFiletypeBlacklist, &filetype) == -1 &&
+        \ !exists('$SUDO_USER') " Don't create root-owned files.
+endfunction
+
+function! autocommands#mkview() abort
+  try
+    if exists('*haslocaldir') && haslocaldir()
+      " We never want to save an :lcd command, so hack around it...
+      cd -
+      mkview
+      lcd -
+    else
+      mkview
+    endif
+  catch /\<E186\>/
+    " No previous directory: probably a `git` operation.
+  catch /\<E190\>/
+    " Could be name or path length exceeding NAME_MAX or PATH_MAX.
+  endtry
+endfunction
+
 augroup automake_view
-    autocmd BufWritePost *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      mkview
-    \|  endif
-    autocmd BufRead *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent loadview
-    \|  endif
+    autocmd!
+    autocmd BufWritePost,BufLeave,WinLeave ?* if autocommands#should_mkview() | call autocommands#mkview() | endif
+    autocmd BufWinEnter ?* if autocommands#should_mkview() | silent! loadview | endif
 augroup END
 
-" Better focus with cursorline on and off
-augroup cursorline_focus
+" Better focus
+augroup focus_window
     autocmd!
-    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set cursorline
-    autocmd FocusLost,WinLeave * set nocursorline
+    autocmd BufEnter,FocusGained,VimEnter,WinEnter * set winhighlight=
+
+    " autocmd BufEnter,FocusGained,VimEnter,WinEnter * execute 'highlight! LineNr guibg=' . pinnacle#extract_bg("Normal")
+
+    autocmd FocusLost,WinLeave * set winhighlight=CursorLineNr:LineNr,EndOfBuffer:ColorColumn,IncSearch:ColorColumn,Normal:ColorColumn,NormalNC:ColorColumn,SignColumn:ColorColumn
+
+    " autocmd FocusLost,WinLeave * execute 'highlight! LineNr guibg='. pinnacle#extract_bg("CursorLine")
 augroup END
 
 " Depends on the filetype, it can be compiled with 'F5'

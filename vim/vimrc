@@ -59,6 +59,15 @@ function! s:show_documentation()
     endif
 endfunction
 
+" Better colors for errors and warnings messages
+highlight! link CocErrorSign Statement
+highlight! link CocWarningSign Repeat
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
 " -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeCaseSensitiveSort = 1
