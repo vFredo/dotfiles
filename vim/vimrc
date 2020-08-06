@@ -58,6 +58,9 @@ endfunction
 highlight! link CocErrorSign Statement
 highlight! link CocWarningSign Repeat
 
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
 " -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeCaseSensitiveSort = 1

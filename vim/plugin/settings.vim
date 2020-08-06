@@ -71,7 +71,7 @@ endif
 " Show invisible characters
 set list
 set listchars=nbsp:⦸                  " Empty set symbol (U+29B8)
-set listchars+=tab:\|\                " The normal pipe character
+set listchars+=tab:\⎸\                " The normal pipe character
 set listchars+=extends:»              " Two right arrows (U+00BB)
 set listchars+=precedes:«             " Two left arrows (U+00AB)
 set listchars+=trail:•                " Middle dot(U+2022)
