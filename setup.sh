@@ -38,7 +38,7 @@ then
         ln -sf "$(pwd)"/config/dunstrc /"$(whoami)"/.config/dunst/dunstrc
         ln -sf "$(pwd)"/config/rofi /"$(whoami)"/.config/
         ln -sf "$(pwd)"/config/rofi /"$(whoami)"/.config/
-        ln -sf "$(pwd)"/config/i3status.conf /"$(whoami)"/.config/i3status/config
+        ln -sf "$(pwd)"/config/i3/i3status.conf /"$(whoami)"/.config/i3status/config
 
         # Latex
         ln -sf "$(pwd)"/config/zathura/zathurarc /"$(whoami)"/.config/zathura/zathurarc
@@ -67,7 +67,7 @@ then
         ln -sf "$(pwd)"/config/ranger/rc.conf /home/"$(whoami)"/.config/ranger/rc.conf
         ln -sf "$(pwd)"/config/dunstrc /home/"$(whoami)"/.config/dunst/dunstrc
         ln -sf "$(pwd)"/config/rofi /home/"$(whoami)"/.config/
-        ln -sf "$(pwd)"/config/i3status.conf /home/"$(whoami)"/.config/i3status/config
+        ln -sf "$(pwd)"/config/i3/i3status.conf /home/"$(whoami)"/.config/i3status/config
 
         # Latex
         ln -sf "$(pwd)"/config/zathura/zathurarc /home/"$(whoami)"/.config/zathura/zathurarc
