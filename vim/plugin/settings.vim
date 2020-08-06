@@ -145,7 +145,7 @@ endif
 execute 'highlight! Comment ' . pinnacle#italicize("Comment")
 
 " Stand out parenthesis
-highlight MatchParen guibg=brown
+highlight MatchParen guibg=brown guifg=white
 
 " Stand out vertical split line.
 execute 'highlight! VertSplit guibg=NONE'
