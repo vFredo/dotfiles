@@ -28,6 +28,7 @@ then
         # Vim
         ln -sf "$(pwd)"/vim/plugin /"$(whoami)"/.vim/
         ln -sf "$(pwd)"/vim/vimrc /"$(whoami)"/.vimrc
+        ln -sf "$(pwd)"/vim/coc-settings.json /"$(whoami)"/.vim/coc-settings.json
 
         # i3 related
         ln -sf "$(pwd)"/config/i3/config /"$(whoami)"/.i3/config
@@ -55,6 +56,7 @@ then
         # Vim
         ln -sf "$(pwd)"/vim/vimrc /home/"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/vim/plugin /home/"$(whoami)"/.vim/
+        ln -sf "$(pwd)"/vim/coc-settings.json /home/"$(whoami)"/.vim/coc-settings.json
 
         # i3
         ln -sf "$(pwd)"/config/i3/config /home/"$(whoami)"/.i3/config
@@ -75,6 +77,22 @@ then
 
     # Installing/Updating vim plugins
     vim +PlugInstall +PlugUpdate +qall
+    vim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd'
+
+    # Check if neovim is install
+    if command -v nvim &> /dev/null
+    then
+        mkdir -p ~/.config/nvim
+        if [ "root" = "$(whoami)" ]
+        then
+            ln -sf "$(pwd)"/vim/coc-settings.json /"$(whoami)"/.vim/coc-settings.json
+            ln -sf "$(pwd)"/vim/init.vim /"$(whoami)"/.config/nvim/init.vim
+        else
+            ln -sf "$(pwd)"/vim/coc-settings.json /home/"$(whoami)"/.config/nvim/coc-settings.json
+            ln -sf "$(pwd)"/vim/init.vim /home/"$(whoami)"/.config/nvim/init.vim
+        fi
+        nvim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd'
+    fi
 
     # Install zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions \

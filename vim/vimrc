@@ -18,8 +18,8 @@ Plug 'tpope/vim-eunuch'          " Shell commands on vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'jiangmiao/auto-pairs'      " Auto-close brackets, parenthesis, etc.
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better completition
 Plug 'SirVer/ultisnips'          " Useful snippets
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better completion
 
 call plug#end()
 
