@@ -100,6 +100,7 @@ then
 
     # Installing and updating fonts for shell
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
+    cp -r "$(pwd)"/fonts/*.otf ~/.fonts
     fc-cache -f -v
 fi
 
