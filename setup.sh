@@ -77,7 +77,7 @@ then
 
     # Installing/Updating vim plugins
     vim +PlugInstall +PlugUpdate +qall
-    vim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd'
+    vim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd' +qall
 
     # Check if neovim is install
     if command -v nvim &> /dev/null
@@ -91,7 +91,7 @@ then
             ln -sf "$(pwd)"/vim/coc-settings.json /home/"$(whoami)"/.config/nvim/coc-settings.json
             ln -sf "$(pwd)"/vim/init.vim /home/"$(whoami)"/.config/nvim/init.vim
         fi
-        nvim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd'
+        nvim -c 'CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd' +qall
     fi
 
     # Install zsh-autosuggestions
