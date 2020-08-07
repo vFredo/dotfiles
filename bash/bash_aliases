@@ -2,13 +2,14 @@
 # Own aliases
 #
 
-# Files folders
+# Most used folders
 alias doc='cd ~/Documents'
-alias drop='cd ~/Dropbox'
-alias u='cd ~/Dropbox/University'
-alias u5='cd ~/Dropbox/University/QuintoSemestre'
-alias project='cd ~/Dropbox/Projects'
-alias stuff='cd ~/Dropbox/Stuff'
+alias gdrive='cd ~/GoogleDrive'
+alias u='cd ~/GoogleDrive/University'
+alias u5='cd ~/GoogleDrive/University/Javeriana/QuintoSemestre'
+alias u6='cd ~/GoogleDrive/University/Javeriana/SextoSemestres'
+alias competitive='cd ~/GoogleDrive/CompetitivePrograming'
+alias project='cd ~/GoogleDrive/Projects'
 alias dot='cd ~/dotfiles'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
@@ -17,10 +18,11 @@ alias usb='cd /run/media/$(whoami)/'
 alias vc='vim ~/.vimrc'
 alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
-alias vz="vim ~/.zshrc"
-alias vt="vim ~/.tmux.conf"
-alias vi3="vim ~/.i3/config"
-alias :q="exit"
+alias vz='vim ~/.zshrc'
+alias vt='vim ~/.tmux.conf'
+alias vi3='vim ~/.i3/config'
+alias vim='nvim'
+alias :q='exit'
 
 # Current use
 alias la='ls -A'
@@ -28,8 +30,18 @@ alias ll='ls -alF'
 alias ..='cd ..'
 alias ag='ag --hidden -U'
 
-# Open any file from terminal (Ranger use rifle to open files)
-alias open='rifle 2>/dev/null'
-
-alias vim='nvim'
+# Run programs from terminal to open files (https://unix.stackexchange.com/questions/577727/exceptions-with-xdg-open-when-starting-programs-in-the-background/577794#577794)
+function open () {
+    for i in "$@"
+    do
+        mimetype=$(xdg-mime query filetype "$i")
+        prog=$(xdg-mime query default "$mimetype")
+        if grep -qs Terminal=true "/usr/share/applications/$prog"
+        then
+            xdg-open "$i"
+        else
+            xdg-open "$i" >/dev/null 2>/dev/null &
+        fi
+    done
+}
 

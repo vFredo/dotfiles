@@ -16,6 +16,10 @@ This configuration are set for Linux operating systems, this is really intended 
 * Latex [preamble](https://github.com/fredo0522/dotfiles/blob/master/latex/preamble.tex) for lectures.
 * Files to ignore for [ag](https://github.com/ggreer/the_silver_searcher) command. If `ag` is install vim will used for searching files with fzf-vim.
 
+## Google Drive
+* For Google Drive storage I use [drive](https://github.com/odeke-em/drive) and the
+[AUR repository](https://aur.archlinux.org/packages/drive-bin).
+
 ### Bash
 * Current version control branch name.
     * Red dot indicates unstaged changes.
