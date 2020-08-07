@@ -21,8 +21,12 @@ alias vba="vim ~/.bash_aliases"
 alias vz='vim ~/.zshrc'
 alias vt='vim ~/.tmux.conf'
 alias vi3='vim ~/.i3/config'
-alias vim='nvim'
 alias :q='exit'
+
+if command -v nvim &> /dev/null
+then
+    alias vim='nvim'
+fi
 
 # Current use
 alias la='ls -A'
