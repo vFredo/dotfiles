@@ -49,16 +49,9 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
-    * blueman (Bluetooth).
-    * Compton.
-    * dunst (notifications on i3).
     * [Rofi](https://github.com/davatorium/rofi).
+    * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
     * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
-        * imagemagick.
-        * feh.
-        * xorg-xrandr.
-        * xorg-xdpyinfo.
-        * i3lock-color.
 * Ranger
     * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux
