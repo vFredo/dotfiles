@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' } " Tree view of any dir
 Plug 'christoomey/vim-tmux-navigator'   " Move between tmux and vim panes
 Plug 'lervag/vimtex', { 'for': 'tex' }  " Latex compiler, preview and syntax
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'} " Better conceal on latex
 Plug 'terryma/vim-smooth-scroll' " Smooth transitions while scrolling pages
 Plug 'chriskempson/base16-vim'   " Nice color schemes
 Plug 'wincent/pinnacle'          " Better control of the highlight groups
@@ -105,6 +106,7 @@ function! CloseViewers()
     endif
 endfunction
 
+" --------------------------- tex-conceal config -----------------------------
 " Symbols and special characters view nice or invisible in .tex files
 set conceallevel=1
 let g:tex_conceal='abdgm'

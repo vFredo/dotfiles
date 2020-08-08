@@ -20,7 +20,7 @@ bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
-font pango:Iosevka Medium, Awesome 5 11
+font pango: Iosevka Medium, Material Design Icons Desktop 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -333,7 +333,7 @@ set $base0F #8F5536
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-    font pango: Iosevka Medium, Awesome 5 11
+    font pango: Iosevka Medium, Material Design Icons Desktop 11
     i3bar_command i3bar
     status_command i3status
     position top

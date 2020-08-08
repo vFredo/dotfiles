@@ -50,8 +50,7 @@ This configuration are set for Linux operating systems, this is really intended 
    * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own, but only for Source Code Pro fonts).
       * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
       * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
-      * [Material Icons](https://github.com/google/material-design-icons).
-      * [Font Awesome](https://fontawesome.com/).
+      * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font)
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
