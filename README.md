@@ -44,7 +44,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 ## Dependencies
 * Fonts you have to download and copy the next fonts on `~/.fonts` and then `fc-cache -fv` to update your font cache:
     * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
-    * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) to this for you).
+    * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this for you).
     * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font)
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
