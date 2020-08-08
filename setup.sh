@@ -25,7 +25,7 @@ then
         ln -sf "$(pwd)"/zsh/fredo.zsh-theme /"$(whoami)"/.oh-my-zsh/custom/themes/fredo.zsh-theme
         ln -sf "$(pwd)"/bash/agignore /"$(whoami)"/.agignore
 
-        # Vim
+        # Vim/Neovim
         ln -sf "$(pwd)"/vim/plugin /"$(whoami)"/.vim/
         ln -sf "$(pwd)"/vim/vimrc /"$(whoami)"/.vimrc
         ln -sf "$(pwd)"/vim/coc-settings.json /"$(whoami)"/.vim/coc-settings.json
@@ -102,9 +102,8 @@ then
     git clone https://github.com/zsh-users/zsh-autosuggestions \
         ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-    # Installing and updating fonts for shell
+    # Installing and updating fonts
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
-
     fc-cache -fv
 fi
 
