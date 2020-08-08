@@ -29,3 +29,5 @@ fi
 # Bloq. mayus key will become and Esc key
 setxkbmap -option caps:escape
 
+# Default terminal
+export TERMINAL=/usr/local/bin/st
