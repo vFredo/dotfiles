@@ -13,7 +13,6 @@ This configuration are set for Linux operating systems, this is really intended 
 * Latexmk compiler config.
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 * Rofi configurations.
-* Latex [preamble](https://github.com/fredo0522/dotfiles/blob/master/latex/preamble.tex) for lectures.
 * Files to ignore for [ag](https://github.com/ggreer/the_silver_searcher) command. If `ag` is install vim will used for searching files with fzf-vim.
 
 ## Google Drive
@@ -46,11 +45,10 @@ This configuration are set for Linux operating systems, this is really intended 
 * Run `base16_` and then hit <kbd>Tab</kbd> to see all the themes available.
 
 ## Dependencies
-* Fonts
-   * Download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this on his own, but only for Source Code Pro fonts).
-      * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
-      * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro).
-      * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font)
+* Fonts you have to download and copy the next fonts on `~/.fonts` and then `fc-cache -f -v` to update your font cache:
+    * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
+    * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) to this for you).
+    * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font)
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
@@ -65,11 +63,9 @@ This configuration are set for Linux operating systems, this is really intended 
         * xorg-xdpyinfo.
         * i3lock-color.
 * Ranger
-    * Atool (extract files with <kbd>Shift + x</kbd>).
+    * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux
     * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
-* Polybar
-    * Dbus-python `pip3 install dbus-python` (Spotify icons for change or pause songs).
 * Latex (if you want the vimtex workflow to work)
     * `apt-get install texlive-full` for Debian-based distros.
     * `pacman -S texlive-most texlive-lang` for Arch-based distros.
