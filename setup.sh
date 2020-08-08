@@ -104,11 +104,6 @@ then
 
     # Installing and updating fonts for shell
     cp -r "$(pwd)"/fonts/*.ttf ~/.fonts
-    cp -r "$(pwd)"/fonts/*.otf ~/.fonts
-
-    # In case the folder ~/.fonts is not visited
-    cp -r "$(pwd)"/fonts/*.ttf ~/.local/share/fonts
-    cp -r "$(pwd)"/fonts/*.otf ~/.local/share/fonts
 
     fc-cache -fv
 fi
