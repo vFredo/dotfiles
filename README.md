@@ -6,7 +6,6 @@ This configuration are set for Linux operating systems, this is really intended 
 * i3 gaps config.
     * Bettterlockscreen config file (alternative for i3lock).
 * Ranger configurations (terminal file manager).
-* Polybar configurations.
 * Zathura (PDF reader) config.
 * Vim config files.
 * Tmux config.
