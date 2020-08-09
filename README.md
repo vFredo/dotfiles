@@ -4,6 +4,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 ## Features
 * i3 gaps config.
     * Bettterlockscreen config file (alternative for i3lock).
+    * Polybar config.
 * Ranger configurations (terminal file manager).
 * Zathura (PDF reader) config.
 * Vim/Neovim config files.
@@ -34,7 +35,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
         * Yellow dot indicates pull to the current remote repo.
 
 ### Theme
-* Current terminal: [simple terminal](https://st.suckless.org/)([st](https://github.com/fredo0522/st) configuration).
+* Current terminal: [simple terminal](https://st.suckless.org/) ([st](https://github.com/fredo0522/st) configuration).
 * Terminal theme: [base16_classic-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Source Code Pro Regular](https://github.com/adobe-fonts/source-code-pro).
 
@@ -52,6 +53,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
     * [Rofi](https://github.com/davatorium/rofi).
     * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
     * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
+    * [polybar](https://github.com/polybar/polybar).
 * Ranger
     * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux

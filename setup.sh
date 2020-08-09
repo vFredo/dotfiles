@@ -27,11 +27,13 @@ ln -sf "$(pwd)"/vim/coc-settings.json ~/.vim/coc-settings.json
 # i3
 ln -sf "$(pwd)"/config/i3/config ~/.i3/config
 ln -sf "$(pwd)"/config/betterlockscreenrc ~/.config/betterlockscreenrc
-ln -sf "$(pwd)"/config/ranger/commands.py ~/.config/ranger/commands.py
-ln -sf "$(pwd)"/config/ranger/rc.conf ~/.config/ranger/rc.conf
+ln -sf "$(pwd)"/config/ranger ~/.config/
 ln -sf "$(pwd)"/config/dunstrc ~/.config/dunst/dunstrc
 ln -sf "$(pwd)"/config/rofi ~/.config/
 ln -sf "$(pwd)"/config/i3/i3status.conf ~/.config/i3status/config
+
+# Polybar
+ln -sf "$(pwd)"/config/polybar ~/.config/
 
 # Latex
 ln -sf "$(pwd)"/config/zathura/zathurarc ~/.config/zathura/zathurarc

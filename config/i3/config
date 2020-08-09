@@ -275,6 +275,7 @@ mode "resize" {
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -338,34 +339,34 @@ set $base0E #AA759F
 set $base0F #8F5536
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-    font pango: Iosevka Medium, Material Design Icons Desktop 11
-    i3bar_command i3bar
-    status_command i3status
-    position top
+# bar {
+#     font pango: Iosevka Medium, Material Design Icons Desktop 11
+#     i3bar_command i3bar
+#     status_command i3status
+#     position top
 
-    # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-    #   tray_output primary
-    #   tray_output eDP1
+#     # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+#     #   tray_output primary
+#     #   tray_output eDP1
 
-    bindsym button4 nop
-    bindsym button5 nop
-    strip_workspace_numbers yes
+#     bindsym button4 nop
+#     bindsym button5 nop
+#     strip_workspace_numbers yes
 
-    colors {
+#     colors {
 
-        background $base00
-        separator  $base01
-        statusline $base04
+#         background $base00
+#         separator  $base01
+#         statusline $base04
 
-        # State             Border  BG      Text
-        focused_workspace   $base00 $base0D $base00
-        active_workspace    $base00 $base03 $base00
-        inactive_workspace  $base00 $base00 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
-}
+#         # State             Border  BG      Text
+#         focused_workspace   $base00 $base0D $base00
+#         active_workspace    $base00 $base03 $base00
+#         inactive_workspace  $base00 $base00 $base05
+#         urgent_workspace    $base08 $base08 $base00
+#         binding_mode        $base00 $base0A $base00
+#     }
+# }
 
 # Theme colors
 # Basic color configuration using the Base16 variables for windows and borders.

@@ -27,7 +27,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Bloq. mayus key will become and Esc key
-setxkbmap -option caps:escape
+setxkbmap -layout us,latam -option 'grp:alt_space_toggle,caps:escape'
 
 # Default terminal
 export TERMINAL=/usr/local/bin/st
