@@ -44,7 +44,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Installing/Updating vim plugins
 vim +PlugInstall +PlugUpdate +qall
 
-# Check if Neovim is install
+# Check in if Neovim is install
 if command -v nvim &> /dev/null
 then
     mkdir -p ~/.config/nvim

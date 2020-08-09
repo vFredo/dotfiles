@@ -1,5 +1,5 @@
 # System configurations
-This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.  There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
+This configuration are set for my GNU/Linux operating systems, this is really intended for my own use. There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
 
 ## Features
 * i3 gaps config.
@@ -14,7 +14,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 * Files to ignore for [The silver searcher](https://github.com/ggreer/the_silver_searcher) command (`ag`). If it's is install, vim will used for searching files with fzf-vim.
 
 ## Google Drive
-* For cloud storage I use [drive](https://github.com/odeke-em/drive). If you want to install it you can use the [AUR repo](https://aur.archlinux.org/packages/drive-bin).
+* For cloud storage I use [drive](https://github.com/odeke-em/drive). The [AUR repo](https://aur.archlinux.org/packages/drive-bin).
 
 ### Bash
 * Current version control branch name.
@@ -44,8 +44,8 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 ## Dependencies
 * Fonts you have to download and copy the next fonts on `~/.fonts` and then `fc-cache -fv` to update your font cache:
     * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
-    * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) do this for you).
-    * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font)
+    * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) installed by itself).
+    * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font).
 * Zsh
     * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps

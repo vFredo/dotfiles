@@ -69,9 +69,15 @@ bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+# Locate files and open them
 bindsym $mod+f exec xdg-open "$(locate home media | rofi -threads 0 -dmenu -i -p "locate:")"
+
+# Password manager (need bitwarden-cli)
 bindsym $mod+p exec bwmenu
 
+# Lock screen
+bindsym $mod+9 exec betterlockscreen --lock blur
 
 # focus_follows_mouse no
 
@@ -265,8 +271,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+9 exec betterlockscreen --lock blur
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

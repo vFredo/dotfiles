@@ -113,7 +113,7 @@ let g:tex_conceal='abdgm'
 
 " --------------------------- FZF config -----------------------------
 " Size and position of the buffer
-let g:fzf_layout = {'down': '36%'}
+let g:fzf_layout = {'down': '38%'}
 
 " If the file is in a buffer, jump to the buffer
 let g:fzf_buffers_jump = 1
