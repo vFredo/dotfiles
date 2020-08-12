@@ -101,6 +101,14 @@ else
     export EDITOR='vim'
 fi
 
+if command -v go &> /dev/null
+then
+    export GOPATH=$HOME/go
+    export GOBIN=$GOPATH/bin
+    export PATH=$PATH:$GOBIN
+    export PATH=$PATH:/usr/local/go/bin
+fi
+
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export TERM=xterm-256color

@@ -3,13 +3,12 @@
 #
 
 # Most used folders
+alias ..='cd ..'
+alias ...='cd ../..'
 alias doc='cd ~/Documents'
 alias gdrive='cd ~/GoogleDrive'
 alias u='cd ~/GoogleDrive/University'
-alias u5='cd ~/GoogleDrive/University/Javeriana/QuintoSemestre'
 alias u6='cd ~/GoogleDrive/University/Javeriana/SextoSemestre'
-alias competitive='cd ~/GoogleDrive/CompetitivePrograming'
-alias project='cd ~/GoogleDrive/Projects'
 alias dot='cd ~/dotfiles'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
@@ -21,7 +20,6 @@ alias vba="vim ~/.bash_aliases"
 alias vz='vim ~/.zshrc'
 alias vt='vim ~/.tmux.conf'
 alias vi3='vim ~/.i3/config'
-alias vi3status='vim ~/.config/i3status/config'
 alias :q='exit'
 
 if command -v nvim &> /dev/null
@@ -29,11 +27,19 @@ then
     alias vim='nvim'
 fi
 
-# Current use
-alias la='ls -A'
-alias ll='ls -alF'
-alias ..='cd ..'
+# Current use always use colors
+colorflag="--color"
+alias ls="command ls ${colorflag}"
+alias la="ls -ah ${colorflag}"
+alias ll="ls -lah ${colorflag} --group-directories-first"
+alias grep='grep --color=auto '
 alias ag='ag --hidden -U'
+
+# extract tar files
+alias untar='tar xvf'
+
+# zip with tar
+alias targz='tar -czvf'
 
 # Run programs from terminal to open files (https://unix.stackexchange.com/questions/577727/exceptions-with-xdg-open-when-starting-programs-in-the-background/577794#577794)
 function open () {

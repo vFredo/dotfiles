@@ -54,9 +54,6 @@ then
     ln -sf "$(pwd)"/vim/init.vim ~/.config/nvim/init.vim
 fi
 
-# Install CoC extensions
-vim -c "CocInstall -sync coc-sh coc-vimslp coc-python coc-clangd|qall"
-
 # Install zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions \
     ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

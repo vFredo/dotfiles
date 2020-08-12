@@ -216,7 +216,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 1
 
-date = " 󰭧 %a %d/%m/%y"
+date = " 󰭧 %a. %d/%m/%y"
 time = "󰥔 %H:%M:%S"
 
 label = %date% %time%
