@@ -8,11 +8,6 @@ set encoding=utf-8
 syntax enable
 set cursorline
 set laststatus=2
-set clipboard+=unnamedplus
-" (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience
-set updatetime=300
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Change cursors between modes (if tmux is running, use tmux's special characters)
 " (compatible with urxvt, st, xterm, gnome-terminal 3.x, Konsole, KDE5)
@@ -37,11 +32,12 @@ set shortmess+=a        " Use all abbreviations eg. [RO] instead of [readonly]
 set shortmess+=t        " Truncate files messages at start
 set shortmess+=c        " Don't pass messages to ins-completion-menu
 
-" Fast toggle bewtween different modes
-set timeoutlen=1000 ttimeoutlen=0
-
-" Backspace to normal
-set backspace=indent,eol,start
+" Unusual things
+set clipboard+=unnamedplus        " Use clipboard by default register
+set updatetime=300                " Improve the delay
+set timeoutlen=1000 ttimeoutlen=0 " Fast toggle bewtween different modes
+set backspace=indent,eol,start    " Backspace to normal
+set cmdheight=2                   " Give more space for displaying messages.
 
 " View configuration
 set number relativenumber " Show numbers and relative numbers between current line

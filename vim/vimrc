@@ -31,9 +31,8 @@ call plug#end()
 "
 
 " ---------------------------- COC config -----------------------
-set updatetime=300  " Improve the delay
 
-" Completition
+" Tab key for competition
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -54,7 +53,7 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Documentation
+" Show documentation
 nmap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -72,7 +71,7 @@ highlight! link CocWarningSign Repeat
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
-" Install this extensionss if ther aren't install yet
+" Install this extensions if they aren't install yet
 let g:coc_global_extensions = ['coc-css', 'coc-tsserver', 'coc-vimlsp', 'coc-html', 'coc-json']
 let g:coc_global_extensions += [ 'coc-python', 'coc-clangd', 'coc-sh', 'coc-go', 'coc-texlab']
 
