@@ -21,6 +21,8 @@ Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'jiangmiao/auto-pairs'      " Auto-close brackets, parenthesis, etc.
 Plug 'SirVer/ultisnips'          " Useful snippets
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better completion
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 call plug#end()
 
@@ -70,6 +72,9 @@ highlight! link CocWarningSign Repeat
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
+" Install this extensionss if ther aren't install yet
+let g:coc_global_extensions = ['coc-css', 'coc-tsserver', 'coc-vimlsp', 'coc-html', 'coc-json']
+let g:coc_global_extensions += [ 'coc-python', 'coc-clangd', 'coc-sh', 'coc-go', 'coc-texlab']
 
 " -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1

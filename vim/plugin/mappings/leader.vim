@@ -46,3 +46,8 @@ endfunction
 nnoremap <leader>ss :call mappings#leader#toggle_spell("Spanish")<CR>
 nnoremap <leader>se :call mappings#leader#toggle_spell("English")<CR>
 
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+

@@ -2,7 +2,7 @@
 " Vim auto commands
 "
 
-let g:mkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit', '.fzf']
+let g:mkviewFiletypeBlacklist = ['diff', 'hgcommit', 'gitcommit', '.fzf', 'fzf']
 
 " General configurations
 augroup general_config
@@ -14,6 +14,8 @@ augroup general_config
                 \ setlocal formatoptions-=c formatoptions-=r formatoptions-=o
     " Disable paste mode on leaving insert mode event
     autocmd InsertLeave * set nopaste
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
 " Latex configurations
