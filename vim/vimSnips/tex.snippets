@@ -52,13 +52,13 @@ endsnippet
 
 snippet enum "Enumerate" bA
 \begin{enumerate}
-	\item $0
+	\item ${0:${VISUAL}}
 \end{enumerate}
 endsnippet
 
 snippet item "Itemize" bA
 \begin{itemize}
-	\item $0
+	\item ${0:${VISUAL}}
 \end{itemize}
 endsnippet
 
@@ -95,17 +95,12 @@ endsnippet
 
 context "math()"
 snippet // "Fraction" iA
-\\frac{$1}{$2}$0
+\\frac{${1:${VISUAL}}}{$2}$0
 endsnippet
 
 context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
-endsnippet
-
-context "math()"
-snippet / "Fraction and Visual" i
-\\frac{${VISUAL}}{$1}$0
 endsnippet
 
 context "math()"

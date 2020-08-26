@@ -73,7 +73,7 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Install this extensions if they aren't install yet
 let g:coc_global_extensions = ['coc-css', 'coc-tsserver', 'coc-vimlsp', 'coc-html', 'coc-json']
-let g:coc_global_extensions += [ 'coc-python', 'coc-clangd', 'coc-sh', 'coc-go', 'coc-texlab']
+let g:coc_global_extensions += [ 'coc-python', 'coc-clangd', 'coc-sh', 'coc-go', 'coc-ultisnips']
 
 " -------------------------- NERDTree config -------------------------
 let g:NERDTreeShowHidden = 1
