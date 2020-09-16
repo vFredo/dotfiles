@@ -68,7 +68,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+Shift+q --release exec --no-startup-id xkill
 
 # Locate files and open them
 bindsym $mod+f exec xdg-open "$(locate home media | rofi -threads 0 -dmenu -i -p "locate:")"
@@ -191,6 +191,7 @@ assign [class="(?i)Spotify"] $ws5
 assign [class="(?i)inkscape"] $ws6
 
 # Open specific applications in floating mode
+for_window [title="Microsoft Teams Notification"] floating enable
 for_window [class="(?i)inkscape"] focus
 for_window [title="File Upload*"] focus
 for_window [title="alsamixer"] floating enable border pixel 1
