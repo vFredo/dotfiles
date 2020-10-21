@@ -21,8 +21,9 @@ Plug 'junegunn/fzf.vim'          " Fuzzy finder
 Plug 'jiangmiao/auto-pairs'      " Auto-close brackets, parenthesis, etc.
 Plug 'SirVer/ultisnips'          " Useful snippets
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Better completion
-Plug 'yuezk/vim-js'
+Plug 'yuezk/vim-js'              " Better Javascript syntax
 Plug 'MaxMEllon/vim-jsx-pretty'  " Syntax highlight on React development
+Plug 'mattn/emmet-vim'           " HTML snippets
 
 call plug#end()
 
