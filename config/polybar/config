@@ -155,7 +155,7 @@ label-urgent-padding = 1
 type = internal/xbacklight
 
 format = <ramp> <label>
-label = %percentage%
+label = %%percentage%
 
 ramp-0 = 󰃞
 ramp-1 = 󰃝
@@ -286,7 +286,7 @@ format-full-prefix = "󰁹 "
 format-full-prefix-foreground = ${colors.foreground}
 
 format-discharging = <ramp-capacity> <label-discharging>
-label-discharging = %percentage%
+label-discharging = %%percentage%
 
 ramp-capacity-0 = 󰁺
 ramp-capacity-1 = 󰁼
@@ -303,7 +303,7 @@ animation-charging-1 = 󰂈
 animation-charging-2 = 󰂈
 animation-charging-3 = 󰂊
 animation-charging-4 = 󰂅
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
 
