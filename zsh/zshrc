@@ -97,8 +97,10 @@ bindkey -M vicmd 'v' edit-command-line
 if command -v nvim &> /dev/null
 then
     export EDITOR='nvim'
+    export VISUAL='nvim'
 else
     export EDITOR='vim'
+    export VISUAL='vim'
 fi
 
 if command -v go &> /dev/null
@@ -111,7 +113,6 @@ fi
 
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
-export TERM=xterm-256color
 
 # Change to clear colors of ow=other writable, tw=sticky writable on terminal
 export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
