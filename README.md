@@ -1,5 +1,5 @@
 # System configurations
-This configuration are set for my GNU/Linux operating systems, this is really intended for my own use. There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files (the setup don't install all dependencies need it).
+This configuration are set for my GNU/Linux operating systems, this is really intended for my own use. There is a [setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) script to configure the files, to see the options of the setup run `./setup.sh --help` (the setup don't install all dependencies need it).
 
 ## Features
 * i3 gaps config.
