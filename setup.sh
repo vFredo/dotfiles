@@ -142,6 +142,6 @@ then
       shift
   done
 else
-  echo "Choose which cofig files you want to install, see the list with -h or --help flags."
+  echo "Choose which config files you want to install, see the list with -h or --help flags."
 fi
 
