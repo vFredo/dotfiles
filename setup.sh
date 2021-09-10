@@ -26,11 +26,14 @@ function install_vim(){
 }
 
 function install_neovim(){
-  echo "Creating necessary folders..."
-  mkdir -p ~/.config/nvim
+  echo "Installing packer.nvim"
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   echo "Creating symbolic links for vim..."
-  ln -sf "$(pwd)"/config/nvim ~/.config/nvim
+  ln -s `pwd`/config/nvim ~/.config/nvim
 
   echo "DONE - NeoVim installation."
 }
@@ -63,28 +66,25 @@ function install_term(){
 
 
   echo "Installing fonts..."
-  # =============================================
-  # Uncomment the next two lines when you're done
-  # =============================================
-  # cp -r "$(pwd)"/fonts/* ~/.local/share/fonts
-  # fc-cache -f -v
+  cp -r "$(pwd)"/fonts/* ~/.local/share/fonts
+  fc-cache -f -v
 
   echo "Creating symbolic links for terminal..."
   ln -sf "$(pwd)"/bash/bash_aliases ~/.bash_aliases
 
-  if comand -v tmux
+  if command -v tmux &> /dev/null
   then
     ln -sf "$(pwd)"/config/tmux.conf ~/.tmux.conf
   fi
 
-  if comand -v alacritty
+  if command -v alacritty &> /dev/null
   then
     echo "Creating symbolic links for alacritty configuration..."
     mkdir -p ~/.config/alacritty
     ln -sf "$(pwd)"/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   fi
 
-  if command -v ag
+  if command -v ag &> /dev/null
   then
     echo "Creating symbolic links for ag (silver searcher) ..."
     ln -sf "$(pwd)"/bash/agignore ~/.agignore
@@ -106,7 +106,7 @@ function install_zsh(){
   install_term
 
   echo "Installing Oh-My-Zsh..."
-  # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
   echo "Creating symbolic links for zsh..."
   ln -sf "$(pwd)"/zsh/fredo.zsh-theme ~/.oh-my-zsh/custom/themes/fredo.zsh-theme
