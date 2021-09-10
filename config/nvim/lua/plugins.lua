@@ -4,10 +4,7 @@ local use = packer.use
 return packer.startup(
   function()
     -- Update packer manager
-    use {
-      "wbthomason/packer.nvim",
-      event = "VimEnter"
-    }
+    use { "wbthomason/packer.nvim" }
 
     --
     -- Miscellaneous
