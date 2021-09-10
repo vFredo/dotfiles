@@ -67,6 +67,6 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
 * Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
-* The Alacritty theme and some of the Neovim configurations comes from [TheRealKizu](https://github.com/TheRealKizu/dotfiles) and [Neovim repo](https://github.com/TheRealKizu/neodots).
+* The Alacritty theme and some of the Neovim configurations comes from [TheRealKizu dotfiles](https://github.com/TheRealKizu/dotfiles) and [Neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 
