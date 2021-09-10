@@ -9,6 +9,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 * Zathura (PDF reader) config.
 * Vim/Neovim config files.
 * Tmux config.
+* Alacritty config.
 * Latexmk compiler config.
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 * Rofi configurations.
