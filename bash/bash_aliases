@@ -6,15 +6,11 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias doc='cd ~/Documents'
-alias gdrive='cd ~/GoogleDrive'
-alias u='cd ~/GoogleDrive/University'
-alias u6='cd ~/GoogleDrive/University/Javeriana/SextoSemestre'
 alias dot='cd ~/dotfiles'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
 
 # Quick changes
-alias vc='vim ~/.vimrc'
 alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
 alias vz='vim ~/.zshrc'
@@ -22,37 +18,34 @@ alias vt='vim ~/.tmux.conf'
 alias vi3='vim ~/.i3/config'
 alias :q='exit'
 
+# Vim/neovim aliases
 if command -v nvim &> /dev/null
 then
-    alias vim='nvim'
+  alias vim='nvim'
+  alias vc='cd ~/.config/nvim && vim init.lua'
+elif command -v vim &> /dev/null
+then
+  alias vc='vim ~/.vimrc'
 fi
 
-# Current use always use colors
-colorflag="--color"
-alias ls="command ls ${colorflag}"
-alias la="ls -ah ${colorflag}"
-alias ll="ls -lah ${colorflag} --group-directories-first"
-alias grep='grep --color=auto '
-alias ag='ag --hidden -U'
-
-# extract tar files
-alias untar='tar xvf'
-
-# zip with tar
-alias targz='tar -czvf'
+# Alacritty alias
+if command -v alacritty &> /dev/null
+then
+  alias va='vim ~/.config/alacritty/alacritty.yml'
+fi
 
 # Run programs from terminal to open files (https://unix.stackexchange.com/questions/577727/exceptions-with-xdg-open-when-starting-programs-in-the-background/577794#577794)
 function open () {
-    for i in "$@"
-    do
-        mimetype=$(xdg-mime query filetype "$i")
-        prog=$(xdg-mime query default "$mimetype")
-        if grep -qs Terminal=true "/usr/share/applications/$prog"
-        then
-            xdg-open "$i"
-        else
-            xdg-open "$i" >/dev/null 2>/dev/null &
-        fi
-    done
+  for i in "$@"
+  do
+    mimetype=$(xdg-mime query filetype "$i")
+    prog=$(xdg-mime query default "$mimetype")
+    if grep -qs Terminal=true "/usr/share/applications/$prog"
+    then
+      xdg-open "$i"
+    else
+      xdg-open "$i" >/dev/null 2>/dev/null &
+    fi
+  done
 }
 

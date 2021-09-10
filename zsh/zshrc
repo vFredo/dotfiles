@@ -7,12 +7,6 @@ export ZSH="/home/$(whoami)/.oh-my-zsh"
 # ZSH theme
 ZSH_THEME="fredo"
 
-# Base16 Shell colorscheme
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -38,12 +32,6 @@ HYPHEN_INSENSITIVE="true"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -67,19 +55,24 @@ ZSH_TMUX_AUTOSTART=true
 plugins=(
     git
     tmux
-    fzf
-    zsh-autosuggestions
     colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
 
-#
+# ==================
 # User configuration
-#
+# ==================
+
+# Load aliases
+source $HOME/.bash_aliases
+
 
 # Vi-mode
 bindkey -v
+
+# Change between modes more quickly
+export KEYTIMEOUT=1
 
 # Allow ctrl-a and ctrl-e to move to beginning/end of line
 bindkey '^a' beginning-of-line
@@ -96,11 +89,11 @@ bindkey -M vicmd 'v' edit-command-line
 # Some defaults
 if command -v nvim &> /dev/null
 then
-    export EDITOR='nvim'
-    export VISUAL='nvim'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
 else
-    export EDITOR='vim'
-    export VISUAL='vim'
+  export EDITOR='vim'
+  export VISUAL='vim'
 fi
 
 if command -v go &> /dev/null
@@ -114,20 +107,8 @@ fi
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 
-# Change to clear colors of ow=other writable, tw=sticky writable on terminal
-export LS_COLORS="$LS_COLORS:ow=1;4;34:tw=1;4;34:"
-
 # Specifics
 # export ARCHFLAGS="-arch x86_64"
-
-# Change between modes more quickly
-export KEYTIMEOUT=1
-
-# Load aliases
-source $HOME/.bash_aliases
-
-# Flutter stuff
-export PATH=/home/fredo/flutter/bin:$PATH
 
 # Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
@@ -137,48 +118,35 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 
 # Make Ctrl-z background things and unbackground them.
 function fg-bg() {
-    if [[ $#BUFFER -eq 0  ]]; then
-        fg
-    else
-        zle push-input
-    fi
+  if [[ $#BUFFER -eq 0  ]]; then
+    fg
+  else
+    zle push-input
+  fi
 }
 
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-# Autosuggestions with zsh-autosuggestion
-bindkey '^n' autosuggest-accept
-
-# FZF configuration
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-_gen_fzf_default_opts() {
-
-    # base16 colors
-    local color00='#151515'
-    local color01='#202020'
-    local color02='#303030'
-    local color03='#505050'
-    local color04='#B0B0B0'
-    local color05='#D0D0D0'
-    local color06='#E0E0E0'
-    local color07='#F5F5F5'
-    local color08='#AC4142'
-    local color09='#D28445'
-    local color0A='#F4BF75'
-    local color0B='#90A959'
-    local color0C='#75B5AA'
-    local color0D='#6A9FB5'
-    local color0E='#AA759F'
-    local color0F='#8F5536'
-
-    export FZF_DEFAULT_OPTS="
-    --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color08
-    --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
-    --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color08
-    --no-mouse
-    "
+# Extract files more easily
+function extract()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
-_gen_fzf_default_opts
-
