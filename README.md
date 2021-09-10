@@ -35,15 +35,15 @@ This configuration are set for my GNU/Linux operating systems, this is really in
         * Yellow dot indicates pull to the current remote repo.
 
 ### Theme
-* Current terminal: [simple terminal](https://st.suckless.org/) ([st](https://github.com/fredo0522/st) configuration).
+* Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
 * Terminal theme: [base16_classic-dark](https://github.com/chriskempson/base16-shell).
-* Terminal font: [Source Code Pro Regular](https://github.com/adobe-fonts/source-code-pro).
+* Terminal font: [CaskaydiaCove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
 
 ### Select Theme
-* Run `base16_` and then hit <kbd>Tab</kbd> to see all the themes available.
+* On bash run `base16_` and then hit <kbd>Tab</kbd> to see all the themes available.
 
 ## Dependencies
-* Fonts you have to download and copy the next fonts on `~/.fonts` and then `fc-cache -fv` to update your font cache:
+* Fonts you have to download and copy the next fonts on `~/.local/share/fonts` and then `fc-cache -fv` to update your font cache:
     * [Iosevka](https://github.com/be5invis/Iosevka/tree/master) or installed with the [AUR repo](https://aur.archlinux.org/packages/ttf-iosevka/).
     * [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) ([setup.sh](https://github.com/fredo0522/Dotfiles/blob/master/setup.sh) installed by itself).
     * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font).
@@ -67,4 +67,6 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 # Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
 * Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
+* The Alacritty theme and some of the Neovim configurations comes from [TheRealKizu](https://github.com/TheRealKizu/dotfiles) and [Neovim repo](https://github.com/TheRealKizu/neodots).
+* Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 
