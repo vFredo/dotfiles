@@ -37,7 +37,7 @@ map("n", "<Leader>n", ":NvimTreeToggle<CR>", opt)
 map("n", "<F6>", ":NvimTreeRefresh<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>ff", ":lua require'plugins.telescope'.project_files()<CR>", opt)
+map("n", "<Leader>ff", ":Telescope find_files<CR>", opt)
 map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 map("n", "<Leader>fb", ":Telescope buffers<CR>", opt)
 
