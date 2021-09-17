@@ -5,7 +5,6 @@ local dbFg = "#a89984"
 local function fg(group, color)
   vim.cmd("hi " .. group .. " guifg=" .. color)
 end
-
 local function bg(group, color)
   vim.cmd("hi " .. group .. " guibg=" .. color)
 end

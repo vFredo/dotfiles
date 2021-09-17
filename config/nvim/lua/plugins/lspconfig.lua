@@ -25,54 +25,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
-  -- Creatte :Format command and Format after save file
+  -- Create :Format command and Format after save file
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
   vim.cmd([[ autocmd! BufWrite <buffer> lua vim.lsp.buf.formatting() ]])
-end
-
-local configs = require ("lspconfig/configs")
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.documentationFormat = {
-  'markdown',
-  'plaintext'
-}
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  },
-}
-
--- Emmet-ls LSP (npm install -g emmet-ls)
-if not lsp.emmet_ls then
-  configs.emmet_ls = {
-    default_config = {
-      cmd = {'emmet-ls', '--stdio'},
-      filetypes = {
-        "html",
-        "css",
-        -- "javascript",
-        -- "typescript",
-        -- "typescriptreact",
-        -- "javascriptreact",
-        -- "svelte",
-        -- "vue",
-      },
-      root_dir = function(fname)
-        return vim.loop.cwd()
-      end,
-      settings = {},
-    },
-  }
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -82,7 +37,7 @@ local servers = { 'tsserver', 'pyright', 'cssls' }
 for _, lang in ipairs(servers) do
   lsp[lang].setup {
     on_attach = on_attach,
-    capabilities = capabilities,
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
     flags = {
       debounce_text_changes = 150,
     }

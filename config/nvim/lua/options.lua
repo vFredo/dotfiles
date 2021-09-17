@@ -27,12 +27,12 @@ opt.relativenumber = true
 opt.hidden         = true
 opt.backspace      = "eol,start,indent"
 opt.updatetime     = 300
-opt.joinspaces     = false                     -- don't autoinsert two spaces after '.', '?', '!' for join command
-opt.scrolloff      = 3                         -- start scrolling 3 lines before edge of viewport
-opt.sidescrolloff  = 3                         -- start scrolling 3 lines before edge of column viewport
-opt.splitbelow     = true                      -- open horizontal splits below current window
-opt.splitright     = true                      -- open vertical splits to the right current window
-opt.wildmode       = 'longest:full,full'       -- shell-like autocomplete to unambiguous portion
+opt.joinspaces     = false               -- don't autoinsert two spaces after '.', '?', '!' for join command
+opt.scrolloff      = 3                   -- start scrolling 3 lines before edge of viewport
+opt.sidescrolloff  = 3                   -- start scrolling 3 lines before edge of column viewport
+opt.splitbelow     = true                -- open horizontal splits below current window
+opt.splitright     = true                -- open vertical splits to the right current window
+opt.wildmode       = 'longest:full,full' -- shell-like autocomplete to unambiguous portion
 opt.wildignore     = opt.wildignore + '*.o,*.rej,*.so' -- patterns to ignore in navigation
 
 -- Tab and indentation
@@ -50,26 +50,26 @@ opt.incsearch      = true
 --
 -- Characters
 --
-opt.joinspaces     = false            -- don't autoinsert two spaces after '.', '?', '!' for join command
-opt.laststatus     = 2                -- always show status line
-opt.lazyredraw     = true             -- don't bother updating screen during macro playback
-opt.linebreak      = true             -- wrap long lines at characters in 'breakat'
-opt.breakindent    = true             -- Indent wrap text
-opt.showbreak      = '↳ '             -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3)
-opt.list           = true             -- show whitespace and everything on the listchars
+opt.joinspaces     = false       -- don't autoinsert two spaces after '.', '?', '!' for join command
+opt.laststatus     = 2           -- always show status line
+opt.lazyredraw     = true        -- don't bother updating screen during macro playback
+opt.linebreak      = true        -- wrap long lines at characters in 'breakat'
+opt.breakindent    = true        -- Indent wrap text
+opt.showbreak      = '↳ '        -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3)
+opt.list           = true        -- show whitespace and everything on the listchars
 opt.listchars      = {
-  nbsp             = '⦸',             -- CIRCLED REVERSE SOLIDUS (U+29B8)
-  extends          = '»',             -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB)
-  precedes         = '«',             -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB)
-  tab              = ' →',            -- SPACE + RIGHTWARDS ARROW (U+2192)
-  trail            = '•',             -- MIDDLE BULLET (U+2022)
+  nbsp             = '⦸',        -- CIRCLED REVERSE SOLIDUS (U+29B8)
+  extends          = '»',        -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB)
+  precedes         = '«',        -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB)
+  tab              = ' →',       -- SPACE + RIGHTWARDS ARROW (U+2192)
+  trail            = '•',        -- MIDDLE BULLET (U+2022)
 }
 
 opt.fillchars      = {
-  diff             = '∙',             -- BULLET OPERATOR (U+2219)
-  eob              = ' ',             -- NO-BREAK SPACE (U+00A0) to suppress ~ at EndOfBuffer
-  fold             = '·',             -- MIDDLE DOT (U+00B7)
-  vert             = '┃',             -- BOX DRAWINGS HEAVY VERTICAL (U+2503)
+  diff             = '∙',        -- BULLET OPERATOR (U+2219)
+  eob              = ' ',        -- NO-BREAK SPACE (U+00A0) to suppress ~ at EndOfBuffer
+  fold             = '·',        -- MIDDLE DOT (U+00B7)
+  vert             = '┃',        -- BOX DRAWINGS HEAVY VERTICAL (U+2503)
 }
 
 opt.shortmess      = opt.shortmess + 'I' -- no splash screen
@@ -80,5 +80,5 @@ opt.shortmess      = opt.shortmess + 't' -- truncate file messages at start
 opt.shortmess      = opt.shortmess + 'c' -- completion messages
 
 opt.diffopt        = opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff viewopt.
-opt.foldlevelstart = 99                            -- start unfolded
+opt.foldlevelstart = 99      -- start unfolded
 

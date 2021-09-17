@@ -69,10 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  LuaSnip = {
-    loaded = true,
-    path = "/home/fredo/.local/share/nvim/site/pack/packer/start/LuaSnip"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/cmp-buffer"
@@ -81,14 +77,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
   },
-  cmp_luasnip = {
+  ["cmp-nvim-ultisnips"] = {
     loaded = true,
-    path = "/home/fredo/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
-  },
-  ["dashboard-nvim"] = {
-    config = { "\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.dashboard\frequire\0" },
-    loaded = true,
-    path = "/home/fredo/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
+    path = "/home/fredo/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips"
   },
   ["galaxyline.nvim"] = {
     config = { "\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.statusline\frequire\0" },
@@ -106,6 +97,7 @@ _G.packer_plugins = {
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   loupe = {
+    config = { "\27LJ\1\0024\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\0\0:\1\2\0G\0\1\0\23LoupeCenterResults\6g\bvim\0" },
     loaded = true,
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/loupe"
   },
@@ -179,6 +171,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["tex-conceal.vim"] = {
+    config = { "\27LJ\1\2T\0\0\2\0\6\0\t4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\3\0%\1\5\0:\1\4\0G\0\1\0\nabdmg\16tex_conceal\6g\17conceallevel\bopt\bvim\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/fredo/.local/share/nvim/site/pack/packer/opt/tex-conceal.vim"
+  },
+  ultisnips = {
+    config = { "\27LJ\1\2È\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\3\0%\1\5\0:\1\4\0004\0\0\0007\0\3\0'\1\0\0:\1\6\0G\0\1\0&UltiSnipsRemoveSelectModeMappings\rvertical\23UltiSnipsEditSplit\6gI let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips'] \bcmd\bvim\0" },
+    loaded = true,
+    path = "/home/fredo/.local/share/nvim/site/pack/packer/start/ultisnips"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/vim-commentary"
@@ -194,14 +197,20 @@ _G.packer_plugins = {
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/fredo/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator"
+  },
+  vimtex = {
+    config = { "\27LJ\1\2‰\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0%\1\5\0:\1\4\0004\0\0\0007\0\1\0'\1\2\0:\1\6\0G\0\1\0 vimtex_vimtex_quickfix_mode\fzathura\23vimtex_view_method\nlatex\15tex_flavor\6g\bvim\0" },
+    loaded = false,
+    needs_bufread = true,
+    path = "/home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
-time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\1\2+\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\16plugins.cmp\frequire\0", "config", "nvim-cmp")
@@ -222,22 +231,44 @@ time([[Config for indent-blankline.nvim]], false)
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: loupe
+time([[Config for loupe]], true)
+try_loadstring("\27LJ\1\0024\0\0\2\0\3\0\0054\0\0\0007\0\1\0'\1\0\0:\1\2\0G\0\1\0\23LoupeCenterResults\6g\bvim\0", "config", "loupe")
+time([[Config for loupe]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)
 try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.statusline\frequire\0", "config", "galaxyline.nvim")
 time([[Config for galaxyline.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\1\0022\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\23plugins.treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.dashboard\frequire\0", "config", "dashboard-nvim")
-time([[Config for dashboard-nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: ultisnips
+time([[Config for ultisnips]], true)
+try_loadstring("\27LJ\1\2È\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0%\1\2\0>\0\2\0014\0\0\0007\0\3\0%\1\5\0:\1\4\0004\0\0\0007\0\3\0'\1\0\0:\1\6\0G\0\1\0&UltiSnipsRemoveSelectModeMappings\rvertical\23UltiSnipsEditSplit\6gI let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips'] \bcmd\bvim\0", "config", "ultisnips")
+time([[Config for ultisnips]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+try_loadstring("\27LJ\1\0021\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0\22plugins.lspconfig\frequire\0", "config", "nvim-lspconfig")
+time([[Config for nvim-lspconfig]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType tex ++once lua require("packer.load")({'vimtex', 'tex-conceal.vim'}, { ft = "tex" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], true)
+vim.cmd [[source /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]]
+time([[Sourcing ftdetect script at: /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim]], false)
+time([[Sourcing ftdetect script at: /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], true)
+vim.cmd [[source /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]]
+time([[Sourcing ftdetect script at: /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim]], false)
+time([[Sourcing ftdetect script at: /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], true)
+vim.cmd [[source /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]]
+time([[Sourcing ftdetect script at: /home/fredo/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

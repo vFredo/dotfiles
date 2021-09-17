@@ -12,11 +12,38 @@ return packer.startup(
     use { "tpope/vim-commentary" }
     use { "tpope/vim-surround" }
 
+    --
+    -- Latex config
+    --
+    use {
+      "lervag/vimtex",
+      ft = 'tex',
+      config = function()
+        vim.g.tex_flavor = "latex"
+        vim.g.vimtex_view_method = "zathura"
+        vim.g.vimtex_vimtex_quickfix_mode = 2
+      end
+    }
+
+    use {
+      "KeitaNakamura/tex-conceal.vim",
+      ft = 'tex',
+      config = function()
+        vim.opt.conceallevel = 1
+        vim.g.tex_conceal = 'abdmg'
+      end
+    }
+
     -- tmux/nvim navigation
     use { "christoomey/vim-tmux-navigator" }
 
     -- Better text searches
-    use { "wincent/loupe" }
+    use {
+      "wincent/loupe",
+      config = function()
+        vim.g.LoupeCenterResults = 0
+      end
+    }
 
     --
     -- GUI Plugins
@@ -37,13 +64,6 @@ return packer.startup(
       requires = { "kyazdani42/nvim-web-devicons" },
       config = function()
         require "plugins.statusline"
-      end
-    }
-
-    use {
-      "glepnir/dashboard-nvim",
-      config = function()
-        require "plugins.dashboard"
       end
     }
 
@@ -100,7 +120,14 @@ return packer.startup(
     }
 
     -- Manage snippets
-    use { "L3MON4D3/LuaSnip" }
+    use {
+      "SirVer/ultisnips",
+      config = function()
+        vim.cmd([[ let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips'] ]])
+        vim.g.UltiSnipsEditSplit = "vertical"
+        vim.g.UltiSnipsRemoveSelectModeMappings = 0
+      end
+    }
 
     -- Autocomplete
     use {
@@ -109,7 +136,7 @@ return packer.startup(
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "onsails/lspkind-nvim",
-        "saadparwaiz1/cmp_luasnip"
+        "quangnguyen30192/cmp-nvim-ultisnips"
       },
       config = function()
         require "plugins.cmp"
