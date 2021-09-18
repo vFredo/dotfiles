@@ -1,4 +1,6 @@
+--
 -- Making sure that packer is Install
+--
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -6,7 +8,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd 'packadd packer.nvim'
 end
 
--- Lua config files
+--
+-- Lua setting up config files
+--
 require "options"
 
 local async
@@ -20,9 +24,7 @@ async =
         require "mappings"
 
         require "theme"
-
         require "highlights"
-
         async:close()
       end
     )
