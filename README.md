@@ -1,4 +1,6 @@
-<h2 align="center"> ━━━━━━  ❖  ━━━━━━ </h2>
+<h1 align="center"> ━━━━━━  ❖  ━━━━━━ </h1>
+
+<br/>
 
 
 This configuration are set for my GNU/Linux operating systems, this is really intended for my own use. There is a <code>setup.sh</code> script to configure the files, to see the options run `./setup.sh --help` (the setup don't install all dependencies need it).
@@ -39,11 +41,12 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 
 ### ❖ Theme
 * Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
-* Terminal theme: [base16_classic-dark](https://github.com/chriskempson/base16-shell).
 * Terminal font: [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka).
 
-### Select a Theme
+### ❖ Select a Theme
+If you want to select a theme to another terminal that isn't Alacritty:
 * On bash run `base16_` and then hit <kbd>Tab</kbd> to see all the themes available.
+* Theme that I used before [base16_classic-dark](https://github.com/chriskempson/base16-shell).
 
 ## ❖ Dependencies
 * Fonts you have to download and copy the next fonts on `~/.local/share/fonts` and then `fc-cache -fv` to update your font cache:
@@ -68,6 +71,6 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 # ❖ Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
 * Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
-* The Alacritty theme and some of the Neovim configurations comes from [TheRealKizu dotfiles](https://github.com/TheRealKizu/dotfiles) and [Neovim repo](https://github.com/TheRealKizu/neodots).
+* The Alacritty theme and some of the Neovim configurations comes from [TheRealKizu dotfiles](https://github.com/TheRealKizu/dotfiles) and his [Neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 
