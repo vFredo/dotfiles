@@ -20,7 +20,7 @@ ts.setup {
       preview_cutoff = 120,
     },
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    file_ignore_patterns = {"node_modules/*", ".git/*"},
+    file_ignore_patterns = {"node_modules/", ".git/*", "*.o"},
   }
 }
 

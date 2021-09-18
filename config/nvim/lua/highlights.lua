@@ -1,10 +1,12 @@
-local colors = require("colors")
+local theme = require("theme")
+local colors = theme.colors
 local dbFg = "#a89984"
 
 -- Helper functions
 local function fg(group, color)
   vim.cmd("hi " .. group .. " guifg=" .. color)
 end
+
 local function bg(group, color)
   vim.cmd("hi " .. group .. " guibg=" .. color)
 end
@@ -21,6 +23,13 @@ bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
 vim.cmd("hi StatusLineNC gui=underline guibg=NONE guifg=" .. colors.bgAlt)
+
+-- Italic Comments
+vim.cmd("hi Comment gui=italic")
+
+-- CursorLine
+vim.cmd("hi clear CursorLine")
+fgbg("CursorLineNr", colors.base04, colors.bg)
 
 --
 -- LSP
@@ -41,14 +50,6 @@ fg("LspDiagnosticsSignHint", colors.magenta)
 fg("LspDiagnosticsVirtualTextHint", colors.magenta)
 
 --
--- Dashboard
---
-fg("DashboardHeader", dbFg)
-fg("DashboardCenter", dbFg)
-fg("DashboardShortcut", dbFg)
-fg("DashboardFooter", dbFg)
-
---
 -- GitSigns
 --
 fgbg("GitSignsAdd", colors.green, colors.bg)
@@ -60,9 +61,6 @@ fgbg("GitSignsDelete", colors.red, colors.bg)
 -- BlankIndent Lines
 --
 fg("IndentBlanklineChar", colors.grey)
-fg("IndentBlanklineContextChar", colors.grey)
-fg("IndentBlanklineSpaceChar", colors.grey)
-fg("IndentBlanklineSpaceCharBlankline", colors.grey)
 
 --
 -- NvimTree
@@ -81,4 +79,9 @@ fgbg("NvimTreeVertSplit", colors.bg, colors.bg)
 fgbg("NvimTreeStatusLine", colors.bg, colors.bg)
 fgbg("NvimTreeEndOfBuffer", colors.bgAlt, colors.bgAlt)
 vim.cmd("hi NvimTreeStatusLineNC gui=underline guifg=" .. colors.bgAlt .. " guibg=" .. colors.bg)
+
+--
+-- Telescope
+--
+fg("TelescopeBorder", colors.bgAlt2)
 

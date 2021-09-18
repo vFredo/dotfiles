@@ -53,24 +53,23 @@ return packer.startup(
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
-        require "plugins.blankline"
+        require "plugins.configs.blankline"
       end
     }
 
     -- Statusline
     use {
       "glepnir/galaxyline.nvim",
-      branch = 'main',
       requires = { "kyazdani42/nvim-web-devicons" },
       config = function()
-        require "plugins.statusline"
+        require "plugins.configs.statusline"
       end
     }
 
     use {
       "kyazdani42/nvim-tree.lua",
       config = function()
-        require "plugins.nvim-tree"
+        require "plugins.configs.nvim-tree"
       end
     }
 
@@ -79,7 +78,7 @@ return packer.startup(
       "nvim-telescope/telescope.nvim",
       requires = { "nvim-lua/plenary.nvim" },
       config = function()
-        require "plugins.telescope"
+        require "plugins.configs.telescope"
       end
     }
 
@@ -115,7 +114,7 @@ return packer.startup(
     use {
       "neovim/nvim-lspconfig",
       config = function()
-        require "plugins.lspconfig"
+        require "plugins.configs.lspconfig"
       end
     }
 
@@ -139,7 +138,7 @@ return packer.startup(
         "quangnguyen30192/cmp-nvim-ultisnips"
       },
       config = function()
-        require "plugins.cmp"
+        require "plugins.configs.cmp"
       end
     }
 
@@ -156,7 +155,7 @@ return packer.startup(
       branch = "0.5-compat",
       run = ":TSUpdate",
       config = function()
-         require "plugins.treesitter"
+         require "plugins.configs.treesitter"
       end
     }
   end

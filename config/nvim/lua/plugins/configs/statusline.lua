@@ -1,9 +1,46 @@
-local colors = require("colors")
+local theme = require("theme")
+local colors = theme.colors
 
 local gl = require("galaxyline")
 local gls = gl.section
 
 local condition = require("galaxyline.condition")
+
+local get_filename = function()
+  local parentFolder = vim.fn.expand("%:h:t")
+  local filename = vim.fn.expand("%:t")
+
+  if parentFolder ~= "." then
+    filename = parentFolder .. "/" .. filename
+  end
+
+  return filename
+end
+
+local file_readonly = function(readonly_icon)
+  local icon = readonly_icon or ""
+  if vim.bo.readonly == true then
+    return " " .. icon .. " "
+  end
+  return ""
+end
+
+local current_file_name_provider = function()
+  local file = get_filename()
+  if vim.fn.empty(file) == 1 then
+    return ""
+  end
+  if string.len(file_readonly()) ~= 0 then
+    return file .. file_readonly()
+  end
+  local icon = ""
+  if vim.bo.modifiable then
+    if vim.bo.modified then
+      return file .. " " .. icon .. "  "
+    end
+  end
+  return file .. " "
+end
 
 gl.short_line_list = { "NvimTree" }
 
@@ -44,6 +81,33 @@ gls.left[2] = {
 }
 
 gls.left[3] = {
+  Separator = {
+    provider = function()
+      return " "
+    end,
+    highlight = { colors.bg, colors.bg }
+  }
+}
+
+gls.left[4] = {
+  FileIcon = {
+    provider = "FileIcon",
+    condition = condition.buffer_not_empty,
+    separator = " ",
+    -- separator_highlight = { colors.bgAlt, colors.bgAlt },
+    highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.bg }
+  }
+}
+
+gls.left[5] = {
+  FileName = {
+    provider = current_file_name_provider,
+    condition = condition.buffer_not_empty,
+    highlight = { colors.fg, colors.bg }
+  }
+}
+
+gls.left[6] = {
   Separator = {
     provider = function()
       return " "
@@ -96,34 +160,24 @@ gls.right[4] = {
 }
 
 gls.right[5] = {
-  FileIcon = {
-    provider = "FileIcon",
-    condition = condition.buffer_not_empty,
-    separator = " ",
-    separator_highlight = { colors.bgAlt, colors.bgAlt },
-    highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.bgAlt }
-  }
-}
-
-gls.right[6] = {
-  FileName = {
-    provider = "FileName",
-    condition = condition.buffer_not_empty,
-    highlight = { colors.fg, colors.bgAlt }
-  }
-}
-
-gls.right[7] = {
   GitBranch = {
     provider = "GitBranch",
     separator = ' ',
     icon = "  ",
-    condition = require("galaxyline.condition").check_git_workspace,
+    condition = function ()
+      local git_dir = condition.check_git_workspace()
+      local buff_empty = condition.buffer_not_empty()
+      if git_dir and buff_empty then
+        return true
+      else
+        return false
+      end
+    end,
     highlight = { colors.fg, colors.bg }
   }
 }
 
-gls.right[8] = {
+gls.right[6] = {
   LineColumn = {
     provider = "LineColumn",
     condition = condition.buffer_not_empty,
@@ -133,7 +187,7 @@ gls.right[8] = {
   }
 }
 
-gls.right[9] = {
+gls.right[7] = {
   EndBorder = {
     provider = function()
       return "▊"
