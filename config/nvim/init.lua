@@ -18,7 +18,7 @@ async =
   vim.loop.new_async(
     vim.schedule_wrap(
       function ()
-        require "plugins.init"
+        require "plugins"
         require "plugins.configs.bufferline"
 
         require "mappings"
