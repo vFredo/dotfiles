@@ -73,15 +73,6 @@ return packer.startup(
       end
     }
 
-    -- Fuzzy finder
-    use {
-      "nvim-telescope/telescope.nvim",
-      requires = { "nvim-lua/plenary.nvim" },
-      config = function()
-        require "plugins.configs.telescope"
-      end
-    }
-
     -- Theme
     use {
       "norcalli/nvim-base16.lua",
@@ -93,6 +84,18 @@ return packer.startup(
       "karb94/neoscroll.nvim",
       config = function()
         require("neoscroll").setup()
+      end
+    }
+
+    -- Fuzzy finder
+    use {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-fzy-native.nvim"
+      },
+      config = function()
+        require "plugins.configs.telescope"
       end
     }
 
@@ -155,7 +158,7 @@ return packer.startup(
       branch = "0.5-compat",
       run = ":TSUpdate",
       config = function()
-         require "plugins.configs.treesitter"
+        require "plugins.configs.treesitter"
       end
     }
   end
