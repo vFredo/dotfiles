@@ -21,16 +21,14 @@ ts.setup {
     },
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     file_ignore_patterns = {"node_modules/*", ".git/*", "%.o", "%.pdf", "%.class", "%.obj"},
+  },
+  extensions = {
+    fzy_native = {
+      override_generic_sorter = false,
+      override_file_sorter = true,
+    }
   }
 }
 
-local M = {}
+require('telescope').load_extension('fzy_native')
 
--- Falling back to find_files if git_files can't find a .git directory
-M.project_files = function()
-  local opts = {} -- define here if you want to define something
-  local ok = pcall(require'telescope.builtin'.git_files, opts)
-  if not ok then require'telescope.builtin'.find_files(opts) end
-end
-
-return M

@@ -11,8 +11,8 @@ bufferline.setup {
     show_buffer_close_icons = false,
 
     max_name_length = 14,
-    max_prefix_length = 13,
-    tab_size = 20,
+    max_prefix_length = 14,
+    tab_size = 18,
   },
   highlights = {
     background = {
@@ -35,6 +35,21 @@ bufferline.setup {
       gui = "bold"
     },
 
+    -- Same name buffer
+    duplicate_selected = {
+      guifg = colors.fgAlt,
+      guibg = colors.bgAlt2,
+      gui = "bold"
+    },
+    duplicate_visible = {
+      guifg = colors.fgAlt2,
+      guibg = colors.bgAlt
+    },
+    duplicate = {
+      guifg = colors.fgAlt2,
+      guibg = colors.bg
+    },
+
     -- Modified
     modified = {
       guifg = colors.red,
@@ -47,10 +62,6 @@ bufferline.setup {
     modified_visible = {
       guifg = colors.red,
       guibg = colors.bgAlt
-    },
-    indicator_selected = {
-      guifg = colors.fgAlt2,
-      guibg = colors.bg
     },
 
     -- Separator
