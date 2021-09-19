@@ -2,21 +2,20 @@
 # Own aliases
 #
 
-# Most used folders
+# Most used
 alias ..='cd ..'
 alias ...='cd ../..'
 alias doc='cd ~/Documents'
 alias dot='cd ~/dotfiles'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
+alias :q='exit'
 
-# Quick changes
-alias vb='vim ~/.bashrc'
+# Quick config changes alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
 alias vz='vim ~/.zshrc'
 alias vt='vim ~/.tmux.conf'
 alias vi3='vim ~/.i3/config'
-alias :q='exit'
 
 # Vim/neovim aliases
 if command -v nvim &> /dev/null
@@ -25,27 +24,11 @@ then
   alias vc='cd ~/.config/nvim && vim init.lua'
 elif command -v vim &> /dev/null
 then
-  alias vc='vim ~/.vimrc'
+  alias vc='cd ~/.vim && vim ~/.vimrc'
 fi
 
-# Alacritty alias
+# Alacritty config alias
 if command -v alacritty &> /dev/null
 then
   alias va='vim ~/.config/alacritty/alacritty.yml'
 fi
-
-# Run programs from terminal to open files (https://unix.stackexchange.com/questions/577727/exceptions-with-xdg-open-when-starting-programs-in-the-background/577794#577794)
-function open () {
-  for i in "$@"
-  do
-    mimetype=$(xdg-mime query filetype "$i")
-    prog=$(xdg-mime query default "$mimetype")
-    if grep -qs Terminal=true "/usr/share/applications/$prog"
-    then
-      xdg-open "$i"
-    else
-      xdg-open "$i" >/dev/null 2>/dev/null &
-    fi
-  done
-}
-
