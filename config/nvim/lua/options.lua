@@ -1,5 +1,5 @@
-local opt = vim.opt
 local g = vim.g
+local opt = vim.opt
 
 vim.cmd([[
   filetype plugin on
@@ -65,6 +65,7 @@ opt.listchars      = {
   trail            = '•',        -- MIDDLE BULLET (U+2022)
 }
 
+opt.diffopt        = opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff view.
 opt.fillchars      = {
   diff             = '∙',        -- BULLET OPERATOR (U+2219)
   eob              = ' ',        -- NO-BREAK SPACE (U+00A0) to suppress ~ at EndOfBuffer
@@ -78,7 +79,4 @@ opt.shortmess      = opt.shortmess + 'W' -- don't echo "[w]"/"[written]" when wr
 opt.shortmess      = opt.shortmess + 'a' -- Abreviations eg. `[RO]` instead of `[readonly]`
 opt.shortmess      = opt.shortmess + 't' -- truncate file messages at start
 opt.shortmess      = opt.shortmess + 'c' -- completion messages
-
-opt.diffopt        = opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff viewopt.
-opt.foldlevelstart = 99      -- start unfolded
 

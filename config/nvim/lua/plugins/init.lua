@@ -1,5 +1,6 @@
 local packer = require("packer")
 local use = packer.use
+
 return packer.startup(
   function()
     -- Update packer manager
@@ -10,7 +11,6 @@ return packer.startup(
     --
     use { "tpope/vim-commentary" }
     use { "tpope/vim-surround" }
-    use { "tweekmonster/startuptime.vim" }
 
     --
     -- Latex config
@@ -158,6 +158,5 @@ return packer.startup(
          require "plugins.configs.treesitter"
       end
     }
-
   end
 )

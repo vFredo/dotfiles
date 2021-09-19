@@ -19,6 +19,7 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
+fgbg("CursorLineNr", colors.base04, colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
@@ -26,10 +27,6 @@ vim.cmd("hi StatusLineNC gui=underline guibg=NONE guifg=" .. colors.bgAlt)
 
 -- Italic Comments
 vim.cmd("hi Comment gui=italic")
-
--- CursorLine
-vim.cmd("hi clear CursorLine")
-fgbg("CursorLineNr", colors.base04, colors.bg)
 
 --
 -- LSP

@@ -38,6 +38,8 @@ ts_config.setup{
   ensure_installed = {
     "lua",
     "python",
+    "c",
+    "cpp",
     "bash",
     "javascript",
     "typescript",
@@ -55,8 +57,9 @@ ts_config.setup{
   autopairs = { enable = true },
 }
 
-
+-- Folding config
 vim.cmd([[
   set foldmethod=expr
   set foldexpr=nvim_treesitter#foldexpr()
+  set foldlevelstart=99
 ]])

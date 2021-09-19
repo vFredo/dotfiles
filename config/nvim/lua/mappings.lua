@@ -3,7 +3,6 @@ local function map(mode, lhs, rhs, opts)
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
-
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
@@ -26,11 +25,6 @@ map("n", "<Tab>", "za", opt)
 
 -- ESC for turning off highlight search
 map("n", "<Esc>", ":nohl<CR>", opt)
-map("v", "<Esc>", ":nohl<CR>", opt)
-
--- Dashboard
-map("n", "<Leader>fn", ":DashboardNewFile<CR>", opt)
-map("n", "<Leader>Q", ":q!<CR>", opt)
 
 -- nvim-tree
 map("n", "<Leader>n", ":NvimTreeToggle<CR>", opt)

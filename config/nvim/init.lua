@@ -9,7 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 --
--- Lua setting up config files
+-- Setting up config files
 --
 require "options"
 
