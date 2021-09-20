@@ -115,6 +115,9 @@ function install_zsh(){
   echo "Installing Oh-My-Zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+  echo "Installing zsh-autosuggestions..."
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
   echo "Creating symbolic links for zsh..."
   ln -sf "$(pwd)"/zsh/fredo.zsh-theme ~/.oh-my-zsh/custom/themes/fredo.zsh-theme
   ln -sf "$(pwd)"/zsh/zshrc ~/.zshrc
