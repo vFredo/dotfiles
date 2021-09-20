@@ -3,7 +3,8 @@
 <br/>
 
 
-This configuration are set for my GNU/Linux operating systems, this is really intended for my own use. There is a <code>setup.sh</code> script to configure the files, to see the options run `./setup.sh --help` (the setup don't install all dependencies need it).
+This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.
+There is a <code>setup.sh</code> script to configure the files, to see the options run `./setup.sh --help`. (the setup don't install all dependencies need it).
 
 ## ❖ Features
 * i3 gaps config.
@@ -29,7 +30,9 @@ This configuration are set for my GNU/Linux operating systems, this is really in
   * Yellow dot indicates pull to the current remote repo.
 
 ### ❖ Zsh
-<img src="https://github.com/fredo0522/dotfiles/blob/media/zsh-screen.png" height="40" />
+<div align="center">
+  <img src="https://github.com/fredo0522/dotfiles/blob/media/zsh-prompt.png"/>
+</div>
 
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
   * If you set vi keys on normal mode `<<<` will appear and in insert mode `•••`.
