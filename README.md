@@ -29,6 +29,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
   * Yellow dot indicates pull to the current remote repo.
 
 ### ❖ Zsh
+![zsh-screen](https://github.com/fredo0522/dotfiles/blob/media/zsh-screen.png)
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
   * If you set vi keys on normal mode `<<<` will appear and in insert mode `•••`.
   * Duration of previous command in adaptive units (seconds, minutes, hours or days) depending on duration.
