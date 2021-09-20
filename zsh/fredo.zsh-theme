@@ -217,7 +217,7 @@ add-zsh-hook chpwd -auto-ls-after-cd
 
 # Call vcs_info as precmd before every prompt.
 prompt_precmd() {
-    vcs_info
+  vcs_info
 }
 add-zsh-hook precmd prompt_precmd
 
