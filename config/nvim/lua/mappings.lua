@@ -17,11 +17,9 @@ vim.cmd([[
   xnoremap <C-j> <C-w>j
   xnoremap <C-k> <C-w>k
   xnoremap <C-l> <C-w>l
+  nnoremap <silent> <Tab> @=(foldlevel('.')?'za':"\<Tab>")<CR>
   noremap <Leader>y "+y
 ]])
-
--- Folding
-map("n", "<Tab>", "za", opt)
 
 -- ESC for turning off highlight search
 map("n", "<Esc>", ":nohl<CR>", opt)
@@ -49,7 +47,16 @@ map("v", "gl", "$", opt)
 map("n", "<Leader>l", ":bn<CR>", opt)
 map("n", "<Leader>h", ":bp<CR>", opt)
 map("n", "<Leader>d", ":bd<CR>", opt)
+map("n", "<Leader><Leader>", "<C-^>", opt)
+map("n", "<Leader>L", "<C-w>L",opt)
 
 -- Edit tabulation on visual mode more easily
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
+
+-- Jump quickfix list
+map("n", "<Up>", ":cprevious<CR>", opt)
+map("n", "<Down>", ":cnext<CR>", opt)
+map("n", "<Left>", ":cpfile<CR>", opt)
+map("n", "<Right>", ":cnfile<CR>", opt)
+

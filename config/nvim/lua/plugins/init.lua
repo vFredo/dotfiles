@@ -48,6 +48,24 @@ return packer.startup(
     --
     -- GUI Plugins
     --
+
+    -- Icons for nvim-tree, telescope, bufferline, galaxyline
+    use {
+      "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("nvim-web-devicons").setup{
+          override = {
+            js = {
+              icon = "",
+              color = "#FFC745",
+              name = "js"
+            }
+          }
+        }
+      end
+    }
+
+    -- Bufferline
     use { "akinsho/nvim-bufferline.lua" }
 
     use {
@@ -60,7 +78,6 @@ return packer.startup(
     -- Statusline
     use {
       "glepnir/galaxyline.nvim",
-      requires = { "kyazdani42/nvim-web-devicons" },
       config = function()
         require "plugins.configs.statusline"
       end
