@@ -33,6 +33,10 @@ fgbg("Search", colors.red, colors.bg)
 vim.cmd("hi Search gui=underline,bold")
 vim.cmd("hi IncSearch gui=underline,bold")
 
+-- Completition menu (Pop up)
+bg("Pmenu", colors.bgAlt)
+fgbg("PmenuSel", colors.bgAlt, colors.fg)
+
 --
 -- LSP
 --

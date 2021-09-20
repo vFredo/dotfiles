@@ -18,6 +18,7 @@ vim.cmd([[
 
 g.mapleader        = " "
 g.encoding         = "utf8"
+opt.belloff        = "all"               -- Turn off sounds on nvim
 opt.ruler          = false
 opt.showmode       = false
 opt.termguicolors  = true
@@ -27,7 +28,7 @@ opt.relativenumber = true
 opt.hidden         = true
 opt.backspace      = "eol,start,indent"
 opt.updatetime     = 300
-opt.joinspaces     = false               -- don't autoinsert two spaces after '.', '?', '!' for join command
+opt.joinspaces     = false               -- don't autoinsert two spaces after punctuation
 opt.scrolloff      = 3                   -- start scrolling 3 lines before edge of viewport
 opt.sidescrolloff  = 3                   -- start scrolling 3 lines before edge of column viewport
 opt.splitbelow     = true                -- open horizontal splits below current window
@@ -73,10 +74,11 @@ opt.fillchars      = {
   vert             = '┃',        -- BOX DRAWINGS HEAVY VERTICAL (U+2503)
 }
 
-opt.shortmess      = opt.shortmess + 'I' -- no splash screen
-opt.shortmess      = opt.shortmess + 'T' -- truncate non-file messages in middle
-opt.shortmess      = opt.shortmess + 'W' -- don't echo "[w]"/"[written]" when writing
-opt.shortmess      = opt.shortmess + 'a' -- Abreviations eg. `[RO]` instead of `[readonly]`
-opt.shortmess      = opt.shortmess + 't' -- truncate file messages at start
-opt.shortmess      = opt.shortmess + 'c' -- completion messages
+opt.shortmess      = opt.shortmess
+  + 'I' -- no splash screen
+  + 'T' -- truncate non-file messages in middle
+  + 'W' -- don't echo "[w]"/"[written]" when writing
+  + 'a' -- Abreviations eg. `[RO]` instead of `[readonly]`
+  + 't' -- truncate file messages at start
+  + 'c' -- completion messages
 

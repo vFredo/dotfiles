@@ -13,20 +13,10 @@ end
 --
 require "options"
 
-local async
-async =
-  vim.loop.new_async(
-    vim.schedule_wrap(
-      function ()
-        require "plugins"
-        require "plugins.configs.bufferline"
+require "plugins"
+require "plugins.configs.bufferline"
 
-        require "mappings"
+require "mappings"
 
-        require "theme"
-        require "highlights"
-        async:close()
-      end
-    )
-  )
-async:send()
+require "theme"
+require "highlights"
