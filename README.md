@@ -1,8 +1,10 @@
-<h1 align="center"> ━━━━━━━  ❖  ━━━━━━━ </h1>
+<div align="center">
+  <h1>━━━━━━━  ❖  ━━━━━━━</h1>
+  <img src="https://github.com/fredo0522/dotfiles/blob/media/nvim-screenshot.png" />
+  <h1>System configuration</h1>
+</div>
 
-<img src="https://github.com/fredo0522/dotfiles/blob/media/nvim-screenshot.png" />
 
-<h1 align="center">  System configuration  </h1>
 
 This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.
 There is a <code>setup.sh</code> script to configure the files, to see the options run `./setup.sh --help`. (the setup don't install all dependencies need it).
