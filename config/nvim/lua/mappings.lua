@@ -60,3 +60,12 @@ map("n", "<Down>", ":cnext<CR>", opt)
 map("n", "<Left>", ":cpfile<CR>", opt)
 map("n", "<Right>", ":cnfile<CR>", opt)
 
+-- Command 'TrimSpaces' well... it's self-explanatory what this those
+vim.cmd([[
+  function TrimWhiteSpace()
+    %s/\s*$//
+    ''
+  endfunction
+  command! -bar -nargs=0 TrimSpaces call TrimWhiteSpace()
+]])
+
