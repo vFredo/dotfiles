@@ -43,6 +43,10 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 # ==================
 
+# colored-man-pages plugin colors
+# standout mode; the statusline of the man pages
+less_termcap[so]="${fg_bold[black]}${bg[blue]}"
+
 # Load aliases
 source $HOME/.bash_aliases
 
