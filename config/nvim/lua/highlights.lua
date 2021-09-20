@@ -28,6 +28,11 @@ vim.cmd("hi StatusLineNC gui=underline guibg=NONE guifg=" .. colors.bgAlt)
 -- Italic Comments
 vim.cmd("hi Comment gui=italic")
 
+-- Search
+fgbg("Search", colors.red, colors.bg)
+vim.cmd("hi Search gui=underline,bold")
+vim.cmd("hi IncSearch gui=underline,bold")
+
 --
 -- LSP
 --

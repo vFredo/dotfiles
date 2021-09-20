@@ -20,7 +20,7 @@ ts.setup {
       preview_cutoff = 120,
     },
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    file_ignore_patterns = {"node_modules/*", ".git/*", "%.o", "%.pdf", "%.class", "%.obj"},
+    file_ignore_patterns = {"node_modules", ".git", "%.o", "%.pdf", "%.class", "%.obj"},
   },
   extensions = {
     fzy_native = {
