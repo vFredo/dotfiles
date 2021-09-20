@@ -22,15 +22,11 @@ HYPHEN_INSENSITIVE="true"
 # tmux plugin: Start a shell with tmux already open
 ZSH_TMUX_AUTOSTART=true
 
-# Auto fetch interval plugin
-GIT_AUTO_FETCH_INTERVAL=1200 # in seconds
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(
   git
-  git-auto-fetch
   tmux
   colored-man-pages
   zsh-autosuggestions
