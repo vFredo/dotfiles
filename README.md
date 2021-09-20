@@ -46,7 +46,7 @@ There is a <code>setup.sh</code> script to configure the files, to see the optio
 
 ### ❖ Theme
 * Current terminal: [Kitty](https://github.com/kovidgoyal/kitty).
-* Terminal font: [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka).
+* Terminal font: [Caskaydia Cove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
 
 ### ❖ Select a Theme
 If you want to select a theme to another terminal that isn't Alacritty:
