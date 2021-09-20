@@ -1,6 +1,6 @@
 <h1 align="center">System configuration <br/> ━━━━━━━━  ❖  ━━━━━━━━ </h1>
 
-<br/>
+<img src="https://github.com/fredo0522/dotfiles/blob/media/nvim-screenshot.png" />
 
 
 This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.
