@@ -13,7 +13,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 * Zathura (PDF reader) config.
 * Vim/Neovim config files.
 * Tmux config.
-* Alacritty config.
+* Alacritty and Kitty configs.
 * Latexmk compiler config.
 * Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 * Rofi configurations.
@@ -29,7 +29,8 @@ This configuration are set for my GNU/Linux operating systems, this is really in
   * Yellow dot indicates pull to the current remote repo.
 
 ### ❖ Zsh
-![zsh-screen](https://github.com/fredo0522/dotfiles/blob/media/zsh-screen.png)
+<img src="https://github.com/fredo0522/dotfiles/blob/media/zsh-screen.png" height="40" />
+
 * Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
   * If you set vi keys on normal mode `<<<` will appear and in insert mode `•••`.
   * Duration of previous command in adaptive units (seconds, minutes, hours or days) depending on duration.
@@ -41,7 +42,7 @@ This configuration are set for my GNU/Linux operating systems, this is really in
     * Yellow dot indicates pull to the current remote repo.
 
 ### ❖ Theme
-* Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
+* Current terminal: [Kitty](https://github.com/kovidgoyal/kitty).
 * Terminal font: [Iosevka Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka).
 
 ### ❖ Select a Theme

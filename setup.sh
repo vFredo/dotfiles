@@ -84,6 +84,13 @@ function install_term(){
     ln -sf "$(pwd)"/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
   fi
 
+  if command -v kitty &> /dev/null
+  then
+    echo "Creating symbolic links for kitty configuration..."
+    mkdir -p ~/.config/kitty
+    ln -sf "$(pwd)"/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+  fi
+
   if command -v ag &> /dev/null
   then
     echo "Creating symbolic links for ag (silver searcher) ..."
