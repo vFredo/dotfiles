@@ -30,4 +30,4 @@ fi
 setxkbmap -layout us,latam -option 'grp:alt_space_toggle,caps:escape'
 
 # Default terminal
-export TERMINAL=/usr/local/bin/st
+export TERMINAL=/usr/bin/kitty

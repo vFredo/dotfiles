@@ -30,12 +30,13 @@ function install_neovim(){
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
   echo "Creating symbolic links for vim..."
   ln -s `pwd`/config/nvim ~/.config/nvim
 
-  echo "DONE - NeoVim installation."
+  echo "Installing and updating neovim packages"
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+  echo "DONE - NeoVim config installation."
 }
 
 function install_i3(){
@@ -77,15 +78,13 @@ function install_term(){
     ln -sf "$(pwd)"/config/tmux.conf ~/.tmux.conf
   fi
 
-  if command -v alacritty &> /dev/null
-  then
+  read -r -p "Which terminal config do you want to install? [(a)lacritty/(k)itty/(n)either]" opt_terminal
+
+  if [[ "$opt_terminal" == "a" ]]; then
     echo "Creating symbolic links for alacritty configuration..."
     mkdir -p ~/.config/alacritty
     ln -sf "$(pwd)"/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  fi
-
-  if command -v kitty &> /dev/null
-  then
+  elif [[ "$opt_terminal" == "k" ]]; then
     echo "Creating symbolic links for kitty configuration..."
     mkdir -p ~/.config/kitty
     ln -sf "$(pwd)"/config/kitty/kitty.conf ~/.config/kitty/kitty.conf

@@ -25,16 +25,14 @@ font pango: Iosevka Medium, Material Design Icons Desktop 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
+# start a terminal (i3-sensible-terminal sees the $TERMINAL variable)
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
 
 # start program launcher
-# bindsym $mod+d exec --no-startup-id dmenu_recency -nb '#212121' -nf '#eeffff' -sb '#82aaff' -sf '#212121' -fn 'Iosevka Medium:pixelsize=14'
-# bindsym $mod+d exec --no-startup-id dmenu_run
- bindsym $mod+d exec --no-startup-id "rofi -show drun -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
+bindsym $mod+d exec --no-startup-id "rofi -show drun -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
