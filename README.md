@@ -7,7 +7,7 @@
 
 
 This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.
-There is a <code>setup.sh</code> script to configure the files, to see the options run `./setup.sh --help`. (the setup don't install all dependencies need it).
+There is a <code>install</code> script to configure the files, to see the options run `./install --help`.
 
 ## ❖ Features
 * i3 gaps config.
