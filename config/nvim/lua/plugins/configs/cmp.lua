@@ -12,6 +12,13 @@ local check_back_space = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s") ~= nil
 end
 
+local source_mapping = {
+  nvim_lsp = "[LSP]",
+  ultisnips = "[SNP]",
+  buffer = "[BUF]",
+  cmp_tabnine = "[TB9]",
+}
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -20,33 +27,33 @@ cmp.setup {
   },
   formatting = {
     format = function(entry, vim_item)
+
+      -- default icon
       vim_item.kind = lspkind.presets.default[vim_item.kind]
-      vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        ultisnips = "[SNP]",
-        buffer = "[BUF]",
-      })[entry.source.name]
+
+
+      -- tabnine icon
+			local menu = source_mapping[entry.source.name]
+			if entry.source.name == 'cmp_tabnine' then
+				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+					menu = entry.completion_item.data.detail .. ' ' .. menu
+				end
+				vim_item.kind = ''
+			end
+
+      -- menu
+			vim_item.menu = menu
       return vim_item
     end
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
-    ["<C-Space>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        if vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-          return vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
-        end
-        vim.fn.feedkeys(t("<C-n>"), "n")
-      elseif check_back_space() then
-        vim.fn.feedkeys(t("<cr>"), "n")
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    ["<C-e>"] = cmp.mapping.close(),
+    ["<CR>"] = cmp.mapping.confirm {
+       behavior = cmp.ConfirmBehavior.Replace,
+       select = true,
+    },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
         vim.fn.feedkeys(t("<C-R>=UltiSnips#ExpandSnippet()<CR>"))
@@ -79,7 +86,8 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-    { name = 'ultisnips' }
+    { name = 'ultisnips' },
+    { name = 'cmp_tabnine' }
   },
 }
 
@@ -88,5 +96,14 @@ require("nvim-autopairs.completion.cmp").setup({
   map_cr = true, --  map <CR> on insert mode
   map_complete = true, -- it will auto insert `(` after select function or method item
   auto_select = true -- automatically select the first item
+})
+
+-- Configure tabnine
+local tabnine = reqire
+require("cmp_tabnine.config"):setup({
+  max_lines = 1000;
+  max_num_results = 20;
+  sort = true;
+  show_prediction_strength = true;
 })
 
