@@ -1,6 +1,68 @@
 #!/bin/bash
 
 # TODO: Finish the  *.list  packages that has to be install. DO IT!
+WHITE='\033[0;37m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+
+ON_BLUE='\033[44m'        # Blue Background
+ON_GREEN='\033[42m'       # Green Background
+ON_RED='\033[41m'         # Red Background
+ON_WHITE='\033[47m'       # White Background
+BBLACK='\033[1;30m'       # Bold Black
+NC='\033[0m'              # No Color
+
+function progress() {
+  echo -e "[.] ${ON_BLUE}${BBLACK} PROGR ${NC} $1..."
+  sleep 1
+}
+
+function error() {
+  echo -e "[~] ${ON_RED}${BBLACK} ERROR ${NC} $1..."
+  sleep 2
+}
+
+function success() {
+  echo -e "[*] ${ON_GREEN}${BBLACK} SUCCS ${NC} $1..."
+  sleep 1
+}
+
+function ignoring() {
+  echo -e "[.] ${ON_WHITE}${BBLACK} IGNOR ${NC} $1..."
+  sleep 1
+}
+
+# Checking if it is a soft link
+function check_link_file() {
+  if [[ -L $1 ]]; then
+    error "Se va a cambiar los contenidos del $1 pero es un symbolic link"
+    read -r -p "Do you want to remove the symbolic link? [y/n] " remove_it
+    if [[ "$remove_it" == "y" ]]; then
+      progress "Unlinking file: $1"
+      unlink $1
+      progress "Symbolic link $1 deleted"
+      return_val="DELETED"
+    else
+      ignoring "Ignoring link file $1"
+      return_val="NOT DELETED"
+    fi
+  else
+    return_val="NO LINK"
+  fi
+}
+
+function make_backup() {
+  if [[ -d $1 ]]; then
+    progress "Making backup of folder: $1"
+    mv $1 "$1.bak"
+  elif [[ -e $1 ]]; then
+    progress "Making backup of file: $1"
+    mv $1 "$1.bak"
+  else
+    progress "No file to backup"
+  fi
+}
 
 function install_vim(){
   # echo "Installing Vim dependencies..."
@@ -26,17 +88,27 @@ function install_vim(){
 }
 
 function install_neovim(){
-  echo "Installing packer.nvim"
+  progress "Installing packer.nvim"
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-  echo "Creating symbolic links for vim..."
-  ln -s `pwd`/config/nvim ~/.config/nvim
+  progress "Creating symbolic links for Neovim..."
 
-  echo "Installing and updating neovim packages"
+  # TODO: Podemos automatizar este condicional, ya que siempre lo tengo que hacer
+  check_link_file "$HOME/.config/nvim"
+  if [[ "$return_val" == "DELTED" ]]; then
+    ln -s `pwd`/config/nvim $HOME/.config/nvim
+  elif [[ "$return_val" == "NOT LINK" ]]; then
+    make_backup "$HOME/.config/nvim"
+  else
+    error "Can't continue without the symbolic link file"
+    return
+  fi
+
+  progress "Installing and updating neovim packages"
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
-  echo "DONE - NeoVim config installation."
+  success "NeoVim config was install"
 }
 
 function install_i3(){
@@ -62,41 +134,47 @@ function install_term(){
   # echo "Installling terminal dependencies..."
   # ./packages/installer.sh term
 
-  echo "Creating folders need it..."
-  mkdir -p ~/.local/share/fonts
+  progress "Creating folders need it..."
+  mkdir -p "$HOME"/.local/share/fonts
 
+  progress "Installing fonts..."
+  cp -r "$(pwd)"/fonts/* "$HOME"/.local/share/fonts
 
-  echo "Installing fonts..."
-  cp -r "$(pwd)"/fonts/* ~/.local/share/fonts
-  fc-cache -f -v
-
-  echo "Creating symbolic links for terminal..."
-  ln -sf "$(pwd)"/bash/bash_aliases ~/.bash_aliases
+  progress "Creating symbolic links Bash aliases"
+  make_backup "$HOME/.bash_aliases"
+  ln -sf "$(pwd)"/bash/bash_aliases "$HOME"/.bash_aliases
 
   if command -v tmux &> /dev/null
   then
-    ln -sf "$(pwd)"/config/tmux.conf ~/.tmux.conf
+    progress "Creating symbolic link for .tmux.conf"
+    make_backup "$HOME/.tmux.conf"
+    ln -sf "$(pwd)"/config/tmux.conf "$HOME"/.tmux.conf
   fi
 
   read -r -p "Which terminal config do you want to install? [(a)lacritty/(k)itty/(n)either]" opt_terminal
 
   if [[ "$opt_terminal" == "a" ]]; then
-    echo "Creating symbolic links for alacritty configuration..."
-    mkdir -p ~/.config/alacritty
-    ln -sf "$(pwd)"/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+    progress "Creating symbolic links for alacritty configuration..."
+    make_backup "$HOME/.config/alacritty"
+    ln -sf "$(pwd)"/config/alacritty "$HOME"/.config/alacritty
   elif [[ "$opt_terminal" == "k" ]]; then
-    echo "Creating symbolic links for kitty configuration..."
-    mkdir -p ~/.config/kitty
-    ln -sf "$(pwd)"/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+    progress "Creating symbolic links for kitty configuration..."
+    make_backup "$HOME/.config/kitty"
+    ln -sf "$(pwd)"/config/kitty/ "$HOME"/.config/kitty
   fi
 
   if command -v ag &> /dev/null
   then
-    echo "Creating symbolic links for ag (silver searcher) ..."
+    progress "Creating symbolic links for ag (silver searcher) ..."
+    make_backup "$HOME/.agignore"
     ln -sf "$(pwd)"/bash/agignore ~/.agignore
   fi
 
-  echo "DONE - terminal installation."
+  progress "Updating font cache"
+  fc-cache -f -v
+  clear
+
+  success "Terminal installation."
 }
 
 function install_bash(){

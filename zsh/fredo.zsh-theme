@@ -140,7 +140,7 @@ function zle-line-init zle-keymap-select {
         local SUFFIX=$(printf '%%F{red}$%.0s%%f' {1..$LVL})
     fi
 
-    PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%1~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
+    PROMPT="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%B%2~%b%F{yellow}%B%(1j.*.)%(?..!)%b %f%B${SUFFIX}%b "
 
     zle reset-prompt
     zle -R

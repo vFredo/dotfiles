@@ -15,7 +15,6 @@
    blackselect:      #282828;
    darkgray:         #b8b8b8;
    scrollbarcolor:   #181818;
-   font: "Iosevka Medium 13";
    background-color: @blackdarkest;
 }
 
@@ -38,7 +37,7 @@ message {
 }
 
 textbox {
-   text-color:@darkgray;
+   text-color: @darkgray;
    background-color:@blackwidget;
 }
 
