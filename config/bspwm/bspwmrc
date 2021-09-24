@@ -13,17 +13,17 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # Notifications
 dunst --config $HOME/.config/dunst/dunstrc &
 
-# Autostart picom (cool fadding elements)
-picom -b --config $HOME/.config/picom/picom.conf &
-
 # Wallpaper run the application from the first time to configure the wallpaper
 nitrogen --restore &
+
+# Autostart picom (cool fadding elements)
+picom -b --config $HOME/.config/picom/picom.conf &
 
 # For pamac to work authentification GUI prompt
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # auto start polybar
-sh $HOME/.config/polybar/launch.sh
+sh $HOME/.config/polybar/launch.sh --bspwm
 
 # ##############################################################################
 # #                                 WINDOW RULES                               #
