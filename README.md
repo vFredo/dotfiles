@@ -1,10 +1,11 @@
 <div align="center">
   <h1>━━━━━━━  ❖  ━━━━━━━</h1>
+  <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/bspwm-rice.png" />
   <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/nvim-screenshot.png" />
+  <h1>━━━━━━━  ❖  ━━━━━━━</h1>
+  <br />
   <h1>System configuration</h1>
 </div>
-
-
 
 This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.
 There is a <code>install</code> script to configure the files, to see the options run `./install --help`.
