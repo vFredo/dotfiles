@@ -142,6 +142,7 @@ function extract()
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
+      *.tar.xz)    tar xf $1    ;;
       *.bz2)       bunzip2 $1   ;;
       *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
@@ -157,20 +158,3 @@ function extract()
     echo "'$1' is not a valid file"
   fi
 }
-
-# Run programs from terminal to open files
-# (https://unix.stackexchange.com/questions/577727/exceptions-with-xdg-open-when-starting-programs-in-the-background/577794#577794)
-function open () {
-  for i in "$@"
-  do
-    mimetype=$(xdg-mime query filetype "$i")
-    prog=$(xdg-mime query default "$mimetype")
-    if grep -qs Terminal=true "/usr/share/applications/$prog"
-    then
-      xdg-open "$i"
-    else
-      xdg-open "$i" >/dev/null 2>/dev/null &
-    fi
-  done
-}
-
