@@ -1,6 +1,6 @@
 <div align="center">
   <h1>━━━━━━━  ❖  ━━━━━━━</h1>
-  <img src="https://github.com/fredo0522/dotfiles/blob/media/nvim-screenshot.png" />
+  <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/nvim-screenshot.png" />
   <h1>System configuration</h1>
 </div>
 
