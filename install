@@ -87,6 +87,41 @@ function install_vim(){
   echo "DONE - Vim installation."
 }
 
+function install_bspwm() {
+  progress "Creating necessary folders"
+  mkdir -p ~/.config/dunst ~/.config/bspwm ~/.config/sxhkd ~/.config/picom
+
+  progress "Creating symbolic links for bspwm config files"
+  ln -sf "$(pwd)"/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
+  ln -sf "$(pwd)"/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+  ln -sf "$(pwd)"/config/rofi ~/.config/
+  ln -sf "$(pwd)"/config/polybar ~/.config/
+  ln -sf "$(pwd)"/config/picom/picom.conf ~/.config/picom/picom.conf
+  ln -sf "$(pwd)"/config/dunstrc ~/.config/dunst/dunstrc
+  # ln -sf "$(pwd)"/config/ranger ~/.config/
+
+  success "Finish installing bspwm config"
+}
+
+function install_i3(){
+  # echo "Installing i3 dependencies..."
+  # ./packages/installer.sh i3
+
+  echo "Creating necessary folders..."
+  mkdir -p ~/.config/i3status ~/.i3
+
+  echo "Creating symbolic links for i3 and polybar..."
+  ln -sf "$(pwd)"/config/i3/config ~/.i3/config
+  ln -sf "$(pwd)"/config/betterlockscreenrc ~/.config/betterlockscreenrc
+  ln -sf "$(pwd)"/config/ranger ~/.config/
+  ln -sf "$(pwd)"/config/dunstrc ~/.config/dunst/dunstrc
+  ln -sf "$(pwd)"/config/rofi ~/.config/
+  ln -sf "$(pwd)"/config/i3/i3status.conf ~/.config/i3status/config
+  ln -sf "$(pwd)"/config/polybar ~/.config/
+
+  echo "DONE - i3 installation."
+}
+
 function install_neovim(){
   progress "Installing packer.nvim"
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -109,25 +144,6 @@ function install_neovim(){
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
   success "NeoVim config was install"
-}
-
-function install_i3(){
-  # echo "Installing i3 dependencies..."
-  # ./packages/installer.sh i3
-
-  echo "Creating necessary folders..."
-  mkdir -p ~/.config/i3status
-
-  echo "Creating symbolic links for i3 and polybar..."
-  ln -sf "$(pwd)"/config/i3/config ~/.i3/config
-  ln -sf "$(pwd)"/config/betterlockscreenrc ~/.config/betterlockscreenrc
-  ln -sf "$(pwd)"/config/ranger ~/.config/
-  ln -sf "$(pwd)"/config/dunstrc ~/.config/dunst/dunstrc
-  ln -sf "$(pwd)"/config/rofi ~/.config/
-  ln -sf "$(pwd)"/config/i3/i3status.conf ~/.config/i3status/config
-  ln -sf "$(pwd)"/config/polybar ~/.config/
-
-  echo "DONE - i3 installation."
 }
 
 function install_term(){
@@ -236,6 +252,9 @@ then
         ;;
       --i3)
         install_i3
+        ;;
+      --bspwm)
+        install_bspwm
         ;;
       --vim)
         install_vim
