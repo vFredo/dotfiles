@@ -8,25 +8,8 @@ end
 
 local opt = {  }
 
-vim.cmd([[
-  xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-  xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-  nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-  nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-  xnoremap <C-h> <C-w>h
-  xnoremap <C-j> <C-w>j
-  xnoremap <C-k> <C-w>k
-  xnoremap <C-l> <C-w>l
-  nnoremap <silent> <Tab> @=(foldlevel('.')?'za':"\<Tab>")<CR>
-  noremap <Leader>y "+y
-]])
-
--- ESC for turning off highlight search
-map("n", "<Esc>", ":nohl<CR>", opt)
-
--- nvim-tree
-map("n", "<Leader>n", ":NvimTreeToggle<CR>", opt)
-map("n", "<F6>", ":NvimTreeRefresh<CR>", opt)
+-- Yank text from neovim to the clipboard
+vim.cmd([[ noremap <Leader>y "+y ]])
 
 -- Telescope
 map("n", "<Leader>ff", ":Telescope find_files<CR>", opt)
@@ -42,6 +25,12 @@ map("n", "gh", "^", opt)
 map("n", "gl", "$", opt)
 map("v", "gh", "^", opt)
 map("v", "gl", "$", opt)
+vim.cmd([[
+  xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+  xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+  nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+  nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+]])
 
 -- Buffers
 map("n", "<Leader>l", ":bn<CR>", opt)
@@ -49,6 +38,12 @@ map("n", "<Leader>h", ":bp<CR>", opt)
 map("n", "<Leader>d", ":bd<CR>", opt)
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L",opt)
+vim.cmd([[
+  xnoremap <C-h> <C-w>h
+  xnoremap <C-j> <C-w>j
+  xnoremap <C-k> <C-w>k
+  xnoremap <C-l> <C-w>l
+]])
 
 -- Edit tabulation on visual mode more easily
 map("v", "<", "<gv", opt)

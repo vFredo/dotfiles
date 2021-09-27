@@ -1,5 +1,5 @@
 --
--- Making sure that packer is Install
+-- Making sure that packer is install
 --
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'

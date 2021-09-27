@@ -62,7 +62,6 @@ opt.listchars      = {
   nbsp             = '⦸',        -- CIRCLED REVERSE SOLIDUS (U+29B8)
   extends          = '»',        -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB)
   precedes         = '«',        -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB)
-  tab              = ' →',       -- SPACE + RIGHTWARDS ARROW (U+2192)
   trail            = '•',        -- MIDDLE BULLET (U+2022)
 }
 

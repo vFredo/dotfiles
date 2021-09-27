@@ -38,18 +38,13 @@ return packer.startup(
     use { "christoomey/vim-tmux-navigator" }
 
     -- Better text searches
-    use {
-      "wincent/loupe",
-      config = function()
-        vim.g.LoupeCenterResults = 0
-      end
-    }
+    use { "wincent/loupe" }
 
     --
     -- GUI Plugins
     --
 
-    -- Icons for nvim-tree, telescope, bufferline, galaxyline
+    -- Icons for telescope, bufferline, galaxyline
     use {
       "kyazdani42/nvim-web-devicons",
       config = function()
@@ -80,13 +75,6 @@ return packer.startup(
       "glepnir/galaxyline.nvim",
       config = function()
         require "plugins.configs.statusline"
-      end
-    }
-
-    use {
-      "kyazdani42/nvim-tree.lua",
-      config = function()
-        require "plugins.configs.nvim-tree"
       end
     }
 
