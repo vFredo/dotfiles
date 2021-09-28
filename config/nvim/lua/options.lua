@@ -5,6 +5,10 @@ vim.cmd([[
   filetype plugin on
   au FileType * set fo-=c fo-=r fo-=o fo+=j fo+=n
   au! VimResized * wincmd =
+]])
+
+-- Change cursor in normar, insert and replace modes
+vim.cmd([[
   if exists('$TMUX')
     let &t_SI = "\ePtmux;\e\e[6 q\e\\"
     let &t_SR = "\ePtmux;\e\e[4 q\e\\"

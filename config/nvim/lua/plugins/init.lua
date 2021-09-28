@@ -38,7 +38,12 @@ return packer.startup(
     use { "christoomey/vim-tmux-navigator" }
 
     -- Better text searches
-    use { "wincent/loupe" }
+    use {
+      "wincent/loupe",
+      config = function()
+        vim.g.LoupeCenterResults = 0
+      end
+    }
 
     --
     -- GUI Plugins
