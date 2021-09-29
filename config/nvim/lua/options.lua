@@ -66,7 +66,8 @@ opt.listchars      = {
   nbsp             = '⦸',        -- CIRCLED REVERSE SOLIDUS (U+29B8)
   extends          = '»',        -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB)
   precedes         = '«',        -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB)
-  trail            = '•',        -- MIDDLE BULLET (U+2022)
+  tab              = '  ',
+  trail            = '•'        -- MIDDLE BULLET (U+2022)
 }
 
 opt.diffopt        = opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff view.

@@ -17,9 +17,6 @@ map("n", "<Leader>fg", ":Telescope live_grep<CR>", opt)
 map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 map("n", "<Leader>fb", ":Telescope buffers<CR>", opt)
 
--- Ultisnips
-map("n", "<Leader>u", ":UltiSnipsEdit<CR>", opt)
-
 -- Consistent movement
 map("n", "gh", "^", opt)
 map("n", "gl", "$", opt)
