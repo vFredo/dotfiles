@@ -12,28 +12,6 @@ return packer.startup(
     use { "tpope/vim-commentary" }
     use { "tpope/vim-surround" }
 
-    --
-    -- Latex config
-    --
-    use {
-      "lervag/vimtex",
-      ft = 'tex',
-      config = function()
-        vim.g.tex_flavor = "latex"
-        vim.g.vimtex_view_method = "zathura"
-        vim.g.vimtex_vimtex_quickfix_mode = 2
-      end
-    }
-
-    use {
-      "KeitaNakamura/tex-conceal.vim",
-      ft = 'tex',
-      config = function()
-        vim.opt.conceallevel = 1
-        vim.g.tex_conceal = 'abdmg'
-      end
-    }
-
     -- tmux/nvim navigation
     use { "christoomey/vim-tmux-navigator" }
 
@@ -131,35 +109,33 @@ return packer.startup(
       end
     }
 
-    -- Manage snippets
-    use {
-      "SirVer/ultisnips",
-      config = function()
-        vim.cmd([[ let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips'] ]])
-        vim.g.UltiSnipsEditSplit = "vertical"
-        vim.g.UltiSnipsRemoveSelectModeMappings = 0
-      end
-    }
-
     -- Autocomplete
     use {
-      "hrsh7th/nvim-cmp",
-      requires = {
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-nvim-lsp",
-        "onsails/lspkind-nvim",
-        "quangnguyen30192/cmp-nvim-ultisnips"
-      },
-      config = function()
-        require "plugins.configs.cmp"
+      'ms-jpq/coq_nvim',
+      branch = 'coq',
+      setup = function()
+        vim.g.coq_settings = {
+          auto_start = 'shut-up',
+          ["keymap.recommended"] = false,
+          ["keymap.jump_to_mark"] = "<c-b>",
+          ["keymap.manual_complete"] = "<c-n>",
+          clients = {
+            tabnine = {
+              enabled = true,
+            }
+          }
+        }
+        vim.cmd([[
+          ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
+          ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
+          ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
+          ino <silent><expr> <Tab>   pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<Tab>"
+        ]])
       end
     }
 
-    use {
-      "tzachar/cmp-tabnine",
-      run = "./install.sh",
-      requires = "hrsh7th/nvim-cmp"
-    }
+    -- Snippets for coq_nvim
+    use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
 
     --
     -- Web development Javascript/React/Typescript

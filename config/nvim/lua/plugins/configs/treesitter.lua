@@ -38,6 +38,7 @@ ts_config.setup{
   ensure_installed = {
     "lua",
     "python",
+    "go",
     "c",
     "cpp",
     "bash",
@@ -48,10 +49,7 @@ ts_config.setup{
     "html",
     "css"
   },
-  highlight = {
-    enable = true,
-    use_languagetree = true,
-  },
+  highlight = { enable = true },
   context_commentstring = { enable = true },
   autotag = { enable = true },
   autopairs = { enable = true },

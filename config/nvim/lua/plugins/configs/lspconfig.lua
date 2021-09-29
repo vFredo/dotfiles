@@ -1,4 +1,5 @@
 local lsp = require("lspconfig")
+local coq = require("coq")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -37,12 +38,29 @@ local servers = { 'tsserver', 'pyright', 'cssls', 'bashls' }
 for _, lang in ipairs(servers) do
   lsp[lang].setup {
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
-    }
+    capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    flags = { debounce_text_changes = 150 }
   }
 end
+
+--
+-- go lsp
+--
+lsp.gopls.setup{
+  cmd = {'gopls'},
+  on_attach = on_attach,
+  capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
 
 -- replace the default lsp diagnostic symbols
 local function lspSymbol(name, icon)
