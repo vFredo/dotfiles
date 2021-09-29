@@ -64,29 +64,6 @@ function make_backup() {
   fi
 }
 
-function install_vim(){
-  # echo "Installing Vim dependencies..."
-  # ./packages/installer.sh vim
-
-  echo "Creating necessary folders..."
-  mkdir -p ~/.vim/tmp/backup ~/.vim/tmp/swap ~/.vim/tmp/view
-
-  echo "Creating symbolic links for vim..."
-  ln -sf "$(pwd)"/vim/vimrc ~/.vimrc
-  ln -sf "$(pwd)"/vim/plugin ~/.vim/
-  ln -sf "$(pwd)"/vim/coc-settings.json ~/.vim/coc-settings.json
-
-  echo "Installing vim-plug and plugins..."
-  # Installing vim-plug package manager for Vim
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-  # Installing/Updating vim plugins
-  vim +PlugInstall +PlugUpdate +qall
-
-  echo "DONE - Vim installation."
-}
-
 function install_bspwm() {
   progress "Creating necessary folders"
   mkdir -p ~/.config/dunst ~/.config/bspwm ~/.config/sxhkd ~/.config/picom
@@ -239,7 +216,6 @@ function install_latex(){
 function help_tag(){
   echo "Options for the installation:"
   echo "      --i3       Install config files for i3."
-  echo "      --vim      Install config files for vim."
   echo "      --nvim     Install config files for nvim."
   echo "      --latex    Install config files for latex."
   echo "      --zsh      Install config files for zsh."
@@ -262,9 +238,6 @@ then
       --bspwm)
         install_bspwm
         ;;
-      --vim)
-        install_vim
-        ;;
       --nvim)
         install_neovim
         ;;
@@ -281,7 +254,6 @@ then
         install_i3
         install_zsh
         install_bash
-        install_vim
         install_neovim
         install_latex
         ;;

@@ -29,5 +29,8 @@ fi
 # Bloq. mayus key will become and Esc key
 setxkbmap -layout us,latam -option 'grp:alt_space_toggle,caps:escape'
 
+# Cursor shape
+xsetroot -cursor_name left_ptr
+
 # Default terminal
 export TERMINAL=/usr/bin/kitty
