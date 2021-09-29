@@ -69,25 +69,13 @@ fgbg("GitSignsDelete", colors.red, colors.bg)
 fg("IndentBlanklineChar", colors.grey)
 
 --
--- NvimTree
---
-fg("NvimTreeFolderIcon", colors.blue)
-fg("NvimTreeFolderName", colors.blue)
-fg("NvimTreeOpenedFolderName", colors.blue)
-fg("NvimTreeEmptyFolderName", colors.blue)
-fg("NvimTreeFileDirty", colors.red)
-fg("NvimTreeExecFile", colors.fg)
-fg("NvimTreeGitDirty", colors.red)
-fg("NvimTreeRootFolder", colors.blue)
-fg("NvimTreeIndentMarker", colors.fgAlt2)
-bg("NvimTreeNormal", colors.bgAlt)
-fgbg("NvimTreeVertSplit", colors.bg, colors.bg)
-fgbg("NvimTreeStatusLine", colors.bg, colors.bg)
-fgbg("NvimTreeEndOfBuffer", colors.bgAlt, colors.bgAlt)
-vim.cmd("hi NvimTreeStatusLineNC gui=underline guifg=" .. colors.bgAlt .. " guibg=" .. colors.bg)
-
---
 -- Telescope
 --
 fg("TelescopeBorder", colors.bgAlt2)
+
+--
+-- Lsp neovim float window colors
+--
+bg("NormalFloat", colors.bgAlt)
+fgbg("FloatBorder", colors.fg, colors.bgAlt)
 
