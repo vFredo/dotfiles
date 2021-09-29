@@ -125,12 +125,9 @@ return packer.startup(
             }
           }
         }
-        vim.cmd([[
-          ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
-          ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
-          ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
-          ino <silent><expr> <Tab>   pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<Tab>"
-        ]])
+      end,
+      config =  function()
+        require "plugins.configs.coq"
       end
     }
 
