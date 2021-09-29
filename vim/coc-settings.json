@@ -1,8 +1,0 @@
-{
-    "diagnostic.errorSign": "",
-    "diagnostic.warningSign": "",
-
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true
-
-}
