@@ -14,7 +14,7 @@ __FREDO[ITALIC_OFF]=$'\e[23m'
 #
 
 autoload -U compinit
-compinit -u
+compinit -u -d ~/.cache/.zcompdump
 
 # Make completion:
 # - Try exact (case-sensitive) match first.

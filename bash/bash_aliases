@@ -12,7 +12,8 @@ alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
 alias :q='exit'
 
-# Quick config changes alias vb='vim ~/.bashrc'
+# Quick config changes
+alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
 alias vz='vim ~/.zshrc'
 alias vi3='vim ~/.i3/config'
