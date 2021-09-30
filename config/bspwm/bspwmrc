@@ -16,8 +16,8 @@ dunst --config $HOME/.config/dunst/dunstrc &
 # Wallpaper run the application from the first time to configure the wallpaper
 nitrogen --restore &
 
-# Autostart picom (cool fadding elements)
-picom -b --config $HOME/.config/picom/picom.conf &
+# Autostart picom (cool fadding elements, and transparency)
+picom --config $HOME/.config/picom/picom.conf &
 
 # For pamac to work authentification GUI prompt
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -33,7 +33,7 @@ sh $HOME/.config/polybar/launch.sh --bspwm
 # And clicking the window that you need the value from
 bspc rule -a Brave-browser desktop='^1'
 bspc rule -a discord desktop='^6'
-bspc rule -a Lxappearance desktop='^6' state=floating follow=on
+bspc rule -a Lxappearance desktop='^6' state=floating
 bspc rule -a Pamac-manager state=floating
 bspc rule -a Pavucontrol state=floating
 
@@ -43,12 +43,17 @@ bspc rule -a Pavucontrol state=floating
 
 bspc monitor -d I II III IV V VI VII VIII
 
-bspc config border_width         2
-bspc config window_gap           16
-bspc config top_padding          30
+bspc config window_gap 10
+bspc config border_width 3
+bspc config top_padding 30
+bspc config left_padding 1
+bspc config right_padding 1
+bspc config bottom_padding 1
 
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config gapless_monocle false
+bspc config single_monocle true
+bspc config borderless_monocle true
+bspc config paddingless_monocle false
 
 # ##############################################################################
 # #                            COLORS CONFIGURATION                            #
