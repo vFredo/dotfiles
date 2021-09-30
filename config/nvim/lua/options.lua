@@ -24,15 +24,12 @@ vim.cmd([[
 -- General options
 --
 g.mapleader        = " "                 -- Map leader is <Space>
-g.encoding         = "utf8"              -- How to enconde the files
 opt.termguicolors  = true                -- Use all the color pallette
-opt.belloff        = "all"               -- Turn off sounds in neovim
 opt.showmode       = false               -- Don't show current mode on the command line
 opt.mouse          = "a"                 -- Mouse support for neovim
 opt.number         = true                -- Line number
 opt.relativenumber = true                -- Relatives number to the current line
 opt.hidden         = true                -- Change between buffers even if I don't save the current one
-opt.backspace      = "eol,start,indent"  -- Get a normal backspace experience
 opt.updatetime     = 300                 -- Change between modes more faster
 opt.joinspaces     = false               -- don't autoinsert two spaces after punctuation
 opt.wildmode       = 'longest:full,full' -- shell-like autocomplete to unambiguous portion
@@ -48,13 +45,7 @@ opt.splitright     = true                -- open vertical splits to the right cu
 opt.shiftwidth     = 2
 opt.tabstop        = 2
 opt.expandtab      = true
-opt.smarttab       = true
-opt.autoindent     = true
 opt.smartindent    = true
-
--- Search
-opt.hlsearch       = true
-opt.incsearch      = true
 
 --
 -- Characters
