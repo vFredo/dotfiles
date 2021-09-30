@@ -1,6 +1,11 @@
 #!/bin/bash
 
 # TODO: Finish the  *.list  packages that has to be install. DO IT!
+# TODO: Adding a flag to create_link that means if the symbolic link is important or not
+
+#
+# Colors
+#
 WHITE='\033[0;37m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -13,6 +18,10 @@ ON_WHITE='\033[47m'       # White Background
 BBLACK='\033[1;30m'       # Bold Black
 NC='\033[0m'              # No Color
 
+
+#
+# Helper functions
+#
 function progress() {
   echo -e "[.] ${ON_BLUE}${BBLACK} PROGR ${NC} $1..."
   sleep 1
@@ -33,25 +42,28 @@ function ignoring() {
   sleep 1
 }
 
-# Checking if it is a soft link
-function check_link_file() {
-  if [[ -L $1 ]]; then
-    error "Se va a cambiar los contenidos del $1 pero es un symbolic link"
+# create create symbolic link and do backups to file/folder
+function create_link() {
+  if [[ -L $2 ]]; then
+    error "The content of $2 is going to be change"
     read -r -p "Do you want to remove the symbolic link? [y/n] " remove_it
     if [[ "$remove_it" == "y" ]]; then
-      progress "Unlinking file: $1"
-      unlink $1
-      progress "Symbolic link $1 deleted"
-      return_val="DELETED"
+      progress "Unlinking file: $2"
+      unlink $2
+      progress "Symbolic link $2 deleted"
     else
-      ignoring "Ignoring link file $1"
-      return_val="NOT DELETED"
+      ignoring "Ignoring link file $2"
+      error "The installation can't continue without the symbolic link for $1"
+      exit 1
     fi
   else
-    return_val="NO LINK"
+    make_backup $2
   fi
+  progress "Creating symbolic link for in $2"
+  ln -sf $1 $2
 }
 
+# Making backup of the file/folder if it exist
 function make_backup() {
   if [[ -d $1 ]]; then
     progress "Making backup of folder: $1"
@@ -60,21 +72,24 @@ function make_backup() {
     progress "Making backup of file: $1"
     mv $1 "$1.bak"
   else
-    progress "No file to backup"
+    ignoring "No file/folder: $1 to backup"
   fi
 }
 
 function install_bspwm() {
+  # echo "Installing i3 dependencies..."
+  # ./packages/installer.sh bspwm
+
   progress "Creating necessary folders"
   mkdir -p ~/.config/dunst ~/.config/bspwm ~/.config/sxhkd ~/.config/picom
 
   progress "Creating symbolic links for bspwm config files"
-  ln -sf "$(pwd)"/config/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
-  ln -sf "$(pwd)"/config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
-  ln -sf "$(pwd)"/config/rofi ~/.config/
-  ln -sf "$(pwd)"/config/polybar ~/.config/
-  ln -sf "$(pwd)"/config/picom/picom.conf ~/.config/picom/picom.conf
-  ln -sf "$(pwd)"/config/dunstrc ~/.config/dunst/dunstrc
+  create_link "$(pwd)/config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
+  create_link "$(pwd)/config/sxhkd/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
+  create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
+  create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
+  create_link "$(pwd)/config/picom/picom.conf" "$HOME/.config/picom/picom.conf"
+  create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
   # ln -sf "$(pwd)"/config/ranger ~/.config/
 
   success "Finish installing bspwm config"
@@ -84,38 +99,31 @@ function install_i3(){
   # echo "Installing i3 dependencies..."
   # ./packages/installer.sh i3
 
-  echo "Creating necessary folders..."
+  progress "Creating necessary folders"
   mkdir -p ~/.config/i3status ~/.i3
 
-  echo "Creating symbolic links for i3 and polybar..."
-  ln -sf "$(pwd)"/config/i3/config ~/.i3/config
-  ln -sf "$(pwd)"/config/betterlockscreenrc ~/.config/betterlockscreenrc
-  ln -sf "$(pwd)"/config/ranger ~/.config/
-  ln -sf "$(pwd)"/config/dunstrc ~/.config/dunst/dunstrc
-  ln -sf "$(pwd)"/config/rofi ~/.config/
-  ln -sf "$(pwd)"/config/i3/i3status.conf ~/.config/i3status/config
-  ln -sf "$(pwd)"/config/polybar ~/.config/
+  progress "Creating symbolic links for i3 and polybar..."
+  create_link "$(pwd)/config/i3/config" "$HOME/.i3/config"
+  create_link "$(pwd)/config/betterlockscreenrc" "$HOME/.config/betterlockscreenrc"
+  create_link "$(pwd)/config/ranger" "$HOME/.config/ranger"
+  create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
+  create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
+  create_link "$(pwd)/config/i3/i3status.conf" "$HOME/.config/i3status/config"
+  create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
 
-  echo "DONE - i3 installation."
+  success "i3 config installation."
 }
 
 function install_neovim(){
+  # echo "Installing i3 dependencies..."
+  # ./packages/installer.sh nvim
+
   progress "Installing packer.nvim"
   git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-  progress "Creating symbolic links for Neovim..."
-
-  # TODO: Podemos automatizar este condicional, ya que siempre lo tengo que hacer
-  check_link_file "$HOME/.config/nvim"
-  if [[ "$return_val" == "DELTED" ]]; then
-    ln -s `pwd`/config/nvim $HOME/.config/nvim
-  elif [[ "$return_val" == "NOT LINK" ]]; then
-    make_backup "$HOME/.config/nvim"
-  else
-    error "Can't continue without the symbolic link file"
-    return
-  fi
+  progress "Creating symbolic links for Neovim"
+  create_link "$(pwd)/config/nvim" "$HOME/.config/nvim"
 
   progress "Installing and updating neovim packages"
   nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
@@ -127,90 +135,88 @@ function install_term(){
   # echo "Installling terminal dependencies..."
   # ./packages/installer.sh term
 
-  progress "Creating folders need it..."
+  progress "Creating folders need it"
   mkdir -p "$HOME"/.local/share/fonts
 
   progress "Installing fonts..."
   cp -r "$(pwd)"/fonts/* "$HOME"/.local/share/fonts
 
-  progress "Creating symbolic links Bash aliases"
-  make_backup "$HOME/.bash_aliases"
-  ln -sf "$(pwd)"/bash/bash_aliases "$HOME"/.bash_aliases
+  progress "Creating symbolic links for Bash aliases"
+  create_link "$(pwd)/bash/bash_aliases" "$HOME/.bash_aliases"
 
   if command -v tmux &> /dev/null
   then
     progress "Creating symbolic link for .tmux.conf"
-    make_backup "$HOME/.tmux.conf"
-    ln -sf "$(pwd)"/config/tmux.conf "$HOME"/.tmux.conf
+    create_link "$(pwd)/config/tmux.conf" "$HOME/.tmux.conf"
   else
-    ignoring "Ignoring tmux configuration"
+    ignoring "Ignoring tmux configuration, not installed on the system"
   fi
 
   read -r -p "Which terminal config do you want to install? [(a)lacritty/(k)itty/(n)either]" opt_terminal
 
   if [[ "$opt_terminal" == "a" ]]; then
-    progress "Creating symbolic links for alacritty configuration..."
-    make_backup "$HOME/.config/alacritty"
-    ln -sf "$(pwd)"/config/alacritty "$HOME"/.config/alacritty
+    progress "Creating symbolic links for alacritty configuration"
+    create_link "$(pwd)/config/alacritty" "$HOME/.config/alacritty"
   elif [[ "$opt_terminal" == "k" ]]; then
-    progress "Creating symbolic links for kitty configuration..."
-    make_backup "$HOME/.config/kitty"
-    ln -sf "$(pwd)"/config/kitty/ "$HOME"/.config/kitty
+    progress "Creating symbolic links for kitty configuration"
+    create_link "$(pwd)/config/kitty/" "$HOME/.config/kitty"
   else
-    ignoring "Ignore Terminal installation"
+    ignoring "Ignore Terminal installation of config files"
   fi
 
   if command -v ag &> /dev/null
   then
-    progress "Creating symbolic links for ag (silver searcher) ..."
-    make_backup "$HOME/.agignore"
-    ln -sf "$(pwd)"/bash/agignore ~/.agignore
+    progress "Creating symbolic links for ag (silver searcher)"
+    create_link "$(pwd)/bash/agignore" "$HOME/.agignore"
   else
-    ignoring "Ignore silver searcher configuration"
+    ignoring "Ignore silver searcher configuration since it's not install"
   fi
 
   progress "Updating font cache"
   fc-cache -f -v
-  clear
 
-  success "Terminal installation."
+  success "Terminal config installation"
 }
 
 function install_bash(){
   install_term
 
-  echo "Creating symbolic links for bash..."
-  ln -sf "$(pwd)"/bash/Xresources ~/.Xresources
-  ln -sf "$(pwd)"/bash/bashrc ~/.bashrc
-  ln -sf "$(pwd)"/bash/profile ~/.profile
+  progress "Creating symbolic links for bash"
+  create_link "$(pwd)/bash/Xresources" "$HOME/.Xresources"
+  create_link "$(pwd)/bash/bashrc" "$HOME/.bashrc"
+  create_link "$(pwd)/bash/profile" "$HOME/.profile"
+
+  success "Bash config installation"
 }
 
 function install_zsh(){
   install_term
 
-  echo "Installing Oh-My-Zsh..."
+  progress "Installing Oh-My-Zsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-  echo "Installing zsh-autosuggestions..."
+  progress "Installing zsh-autosuggestions"
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-  echo "Creating symbolic links for zsh..."
-  ln -sf "$(pwd)"/zsh/fredo.zsh-theme ~/.oh-my-zsh/custom/themes/fredo.zsh-theme
-  ln -sf "$(pwd)"/zsh/zshrc ~/.zshrc
+  progress "Creating symbolic links for zsh"
+  create_link "$(pwd)/zsh/fredo.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/fredo.zsh-theme"
+  create_link "$(pwd)/zsh/zshrc" "$HOME/.zshrc"
+
+  success "Zsh config installation"
 }
 
 function install_latex(){
   # echo "Installing Latex dependencies..."
   # ./packages/installer.sh latex
 
-  echo "Creating folders need it..."
+  progress "Creating folders need it"
   mkdir -p ~/.config/zathura
 
-  echo "Creating symbolic links for latex..."
-  ln -sf "$(pwd)"/config/zathura/zathurarc ~/.config/zathura/zathurarc
-  ln -sf "$(pwd)"/config/latexmkrc ~/.latexmkrc
+  progress "Creating symbolic links for latex"
+  create_link "$(pwd)/config/zathura/zathurarc" "$HOME/.config/zathura/zathurarc"
+  create_link "$(pwd)/config/latexmkrc" "$HOME/.latexmkrc"
 
-  echo "DONE - Latex installation."
+  success "Latex config installation"
 }
 
 function help_tag(){
