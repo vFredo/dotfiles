@@ -44,7 +44,12 @@ return packer.startup(
     }
 
     -- Bufferline
-    use { "akinsho/nvim-bufferline.lua" }
+    use {
+      "akinsho/nvim-bufferline.lua",
+      config = function()
+        require "plugins.configs.bufferline"
+      end
+    }
 
     use {
       "lukas-reineke/indent-blankline.nvim",

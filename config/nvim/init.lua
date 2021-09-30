@@ -9,12 +9,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 --
--- Setting up config files
+-- Setting up lua config files
 --
 require "options"
 
 require "plugins"
-require "plugins.configs.bufferline"
 
 require "mappings"
 
