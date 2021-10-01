@@ -25,7 +25,7 @@ window {
   transparency:                   "real";
   background-color:               @background;
   text-color:                     @foreground;
-  border-radius:                  0px;
+  border-radius:                  40px;
   height:                         28.5%;
   width:                          48%;
   x-offset:                       -20px;
@@ -71,54 +71,31 @@ listview {
 
 mainbox {
   background-color:               @background;
-  children:                       [ inputbar, listview ];
   spacing:                        3.5%;
   padding:                        4% 0% 0% 2%;
 }
 
-element {
-  background-color:               @background-alt;
+element.alternate.normal,
+element.normal.normal {
+  background-color:               @background;
   text-color:                     @foreground;
   orientation:                    horizontal;
-  border-radius:                  0%;
+  border-radius:                  10px;
 }
 
 element-text {
-  background-color: 				#00000000;
+  background-color: 				inherit;
   text-color:       				inherit;
-  expand:                         true;
-  horizontal-align:               0.5;
-  vertical-align:                 0.5;
-  margin:                         4.5% 2.7% 4.5% 2.7%;
+  expand:                   true;
+  horizontal-align:         0.5;
+  vertical-align:           0.5;
+  margin:                   4.5% 2.7% 4.5% 2.7%;
 }
 
-element normal.urgent,
-element alternate.urgent {
-  background-color:               @urgent;
-  text-color:                     @foreground;
-  border-radius:                  0.2%;
-}
-
-element normal.active,
-element alternate.active {
-  background-color:               @background-alt;
-  text-color:                     @foreground;
-}
-
-element selected {
+element.selected.normal {
   background-color:               @background-alt;
   text-color:                     @foreground;
   border:                  	      0% 0% 0% 0.2%;
-  border-radius:                  0%;
+  border-radius:                  10px;
   border-color:                  	@accent;
-}
-
-element selected.urgent {
-  background-color:               @urgent;
-  text-color:                     @foreground;
-}
-
-element selected.active {
-  background-color:               @background-alt;
-  color:                          @foreground;
 }

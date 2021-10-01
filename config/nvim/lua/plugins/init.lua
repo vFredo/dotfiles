@@ -125,9 +125,7 @@ return packer.startup(
           ["keymap.jump_to_mark"] = "<c-b>",
           ["keymap.manual_complete"] = "<c-n>",
           clients = {
-            tabnine = {
-              enabled = true,
-            }
+            tabnine = { enabled = true }
           }
         }
       end,
