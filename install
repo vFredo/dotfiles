@@ -76,6 +76,9 @@ function make_backup() {
   fi
 }
 
+#
+# Installers
+#
 function install_bspwm() {
   # echo "Installing i3 dependencies..."
   # ./packages/installer.sh bspwm
@@ -230,6 +233,7 @@ function help_tag(){
   echo "More information about the files on the README."
 }
 
+# Checking parameters (flags) given to the script
 if [[ ! $# -eq 0 ]]
 then
   while [ ! $# -eq 0 ]
@@ -263,11 +267,11 @@ then
         install_neovim
         install_latex
         ;;
-      *) echo "Choose a valid option, see options with --help or -h flags.";;
+      *) error "Choose a valid option, see options with --help or -h flags.";;
     esac
     shift
   done
 else
-  echo "Choose which config files you want to install, see the list with -h or --help flags."
+  error "Choose which config files you want to install, see the list with -h or --help flags."
 fi
 
