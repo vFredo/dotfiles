@@ -13,7 +13,7 @@ super + p
 
 # program launcher
 super + d
-  rofi -no-lazy-grab -disable-history -modi "drun" -show drun
+  rofi -modi "drun" -show drun
 
 # Rofi Power menu
 # https://github.com/jluttine/rofi-power-menu
