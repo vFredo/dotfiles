@@ -1,8 +1,5 @@
 #! /bin/sh
 
-# Dependencies
-# sudo pacman -S bspwm sxhkd dunst arandr picom nitrogen polybar pavucontrol lxappearance-gtk3 bitwarden-cli bwmenu xorg-xsetroot
-
 # ##############################################################################
 # #                                AUTOSTART APPS                              #
 # ##############################################################################

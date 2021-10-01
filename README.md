@@ -63,6 +63,19 @@ There is a <code>install</code> script to configure the files, to see the option
     * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
   * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * [polybar](https://github.com/polybar/polybar).
+* Bspwm
+  * sxhkd
+  * dunst
+  * arandr
+  * picom
+  * nitrogen
+  * [polybar](https://github.com/polybar/polybar).
+  * pavucontrol
+  * [Rofi](https://github.com/davatorium/rofi).
+  * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
+    * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
+  * xorg-xsetroot
+  * lxappearance-gtk3
 * Ranger
   * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux
