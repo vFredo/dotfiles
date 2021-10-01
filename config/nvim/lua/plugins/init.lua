@@ -155,5 +155,15 @@ return packer.startup(
         require "plugins.configs.treesitter"
       end
     }
+
+    -- Color highlighter for hex, rgb, etc...
+    use {
+      "norcalli/nvim-colorizer.lua",
+      config = function()
+        require("colorizer").setup{
+          css = { rgb_fn = true }
+        }
+      end
+    }
   end
 )
