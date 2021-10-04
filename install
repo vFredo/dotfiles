@@ -1,7 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # TODO: Finish the  *.list  packages that has to be install. DO IT!
-# TODO: Adding a flag to create_link that means if the symbolic link is important or not
 
 #
 # Colors
@@ -42,6 +41,7 @@ function ignoring() {
   sleep 1
 }
 
+# TODO: Adding a flag; checking if the symbolic link is important or not to stop the installation
 # create create symbolic link and do backups to file/folder
 function create_link() {
   if [[ -L $2 ]]; then
@@ -93,7 +93,7 @@ function install_bspwm() {
   create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
   create_link "$(pwd)/config/picom/picom.conf" "$HOME/.config/picom/picom.conf"
   create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
-  # ln -sf "$(pwd)"/config/ranger ~/.config/
+  create_link "$(pwd)/config/ranger" "$HOME/.config/ranger"
 
   success "Finish installing bspwm config"
 }
