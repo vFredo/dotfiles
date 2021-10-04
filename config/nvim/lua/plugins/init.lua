@@ -16,14 +16,6 @@ return packer.startup(
     -- Operation between parenthesis, brackets, etc...
     use { "tpope/vim-surround" }
 
-    -- highlights todo, fix, note, hack, perf, comments...
-    use {
-      "folke/todo-comments.nvim",
-      config = function()
-        require("todo-comments").setup { signs = false }
-      end
-    }
-
     -- tmux/nvim navigation
     use { "christoomey/vim-tmux-navigator" }
 
@@ -76,6 +68,14 @@ return packer.startup(
       "glepnir/galaxyline.nvim",
       config = function()
         require "plugins.configs.statusline"
+      end
+    }
+
+    -- Tree view of the files
+    use {
+      "kyazdani42/nvim-tree.lua",
+      config = function()
+        require "plugins.configs.nvim-tree"
       end
     }
 

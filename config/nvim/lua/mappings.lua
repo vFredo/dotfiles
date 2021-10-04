@@ -17,6 +17,10 @@ map("n", "<Leader>fg", ":Telescope live_grep<CR>", opt)
 map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 map("n", "<Leader>fb", ":Telescope buffers<CR>", opt)
 
+-- nvim-tree
+map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
+map("n", "<F6>", ":NvimTreeRefresh<CR>", opt)
+
 -- Consistent movement
 map("n", "gh", "^", opt)
 map("n", "gl", "$", opt)

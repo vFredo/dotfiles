@@ -79,3 +79,22 @@ fg("TelescopeBorder", colors.bgAlt2)
 bg("NormalFloat", colors.bgAlt)
 fgbg("FloatBorder", colors.fg, colors.bgAlt)
 
+--
+-- NvimTree
+--
+fg("NvimTreeFolderIcon", colors.blue)
+fg("NvimTreeFolderName", colors.blue)
+fg("NvimTreeOpenedFolderName", colors.blue)
+fg("NvimTreeEmptyFolderName", colors.blue)
+fg("NvimTreeFileDirty", colors.red)
+fg("NvimTreeExecFile", colors.fg)
+fg("NvimTreeGitDirty", colors.red)
+fg("NvimTreeGitDeleted", colors.red)
+fg("NvimTreeRootFolder", colors.blue)
+fg("NvimTreeIndentMarker", colors.fgAlt2)
+bg("NvimTreeNormal", colors.bgAlt)
+fgbg("NvimTreeVertSplit", colors.bg, colors.bg)
+fgbg("NvimTreeStatusLine", colors.bg, colors.bg)
+fgbg("NvimTreeEndOfBuffer", colors.bgAlt, colors.bgAlt)
+vim.cmd("hi NvimTreeStatusLineNC gui=underline guifg=" .. colors.bgAlt .. " guibg=" .. colors.bg)
+
