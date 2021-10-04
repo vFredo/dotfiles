@@ -9,8 +9,20 @@ return packer.startup(
     --
     -- Miscellaneous
     --
+
+    -- Comment lines more easily
     use { "tpope/vim-commentary" }
+
+    -- Operation between parenthesis, brackets, etc...
     use { "tpope/vim-surround" }
+
+    -- highlights todo, fix, note, hack, perf, comments...
+    use {
+      "folke/todo-comments.nvim",
+      config = function()
+        require("todo-comments").setup { signs = false }
+      end
+    }
 
     -- tmux/nvim navigation
     use { "christoomey/vim-tmux-navigator" }
@@ -34,9 +46,9 @@ return packer.startup(
         require("nvim-web-devicons").setup{
           override = {
             js = {
+              name = "js",
               icon = "",
-              color = "#FFC745",
-              name = "js"
+              color = "#FFC745"
             }
           }
         }
@@ -51,6 +63,7 @@ return packer.startup(
       end
     }
 
+    -- Indentation guide
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
