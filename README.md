@@ -8,7 +8,7 @@
 </div>
 
 This configuration are set for my GNU/Linux operating systems, this is really intended for my own use,
-but you can steal it and modified if you want to. There is a <code>install</code> script to configure
+but you can steal it and modified if you want to. There is a `install` script to configure
 the files, to see the options run `./install --help`. This script creates backup copies of the current
 configurations that you have, but if the file that is trying to change is a symbolic link, then, if
 you want, the script removes it. For the moment, most dependencies have to be install by hand.
@@ -56,6 +56,8 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Terminal font: [Caskaydia Cove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
 
 ## ❖ Dependencies
+* Neovim
+  * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Zsh
   * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
