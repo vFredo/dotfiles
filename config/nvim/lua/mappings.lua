@@ -8,7 +8,7 @@ end
 
 local opt = {  }
 
--- Yank text from neovim to the clipboard
+-- Yank selected text from neovim to the clipboard
 vim.cmd([[ noremap <Leader>y "+y ]])
 
 -- Telescope
@@ -26,6 +26,7 @@ map("n", "gh", "^", opt)
 map("n", "gl", "$", opt)
 map("v", "gh", "^", opt)
 map("v", "gl", "$", opt)
+-- use gj/gk as j/k to move between lines, but if you do 10j, use the default 'j' key
 vim.cmd([[
   xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
   xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -34,11 +35,12 @@ vim.cmd([[
 ]])
 
 -- Buffers
-map("n", "<Leader>l", ":bn<CR>", opt)
-map("n", "<Leader>h", ":bp<CR>", opt)
-map("n", "<Leader>d", ":bd<CR>", opt)
+map("n", "<Leader>l", ":bnext<CR>", opt)
+map("n", "<Leader>h", ":bprevious<CR>", opt)
+map("n", "<Leader>d", ":bdelete<CR>", opt)
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L",opt)
+map("n", "<Leader>H", "<C-w>H",opt)
 vim.cmd([[
   xnoremap <C-h> <C-w>h
   xnoremap <C-j> <C-w>j
