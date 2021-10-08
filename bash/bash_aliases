@@ -7,14 +7,15 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias doc='cd ~/Documents'
 alias dot='cd ~/dotfiles'
+alias fun='cd ~/Documents/fun'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
 alias :q='exit'
 
-# Quick config changes alias vb='vim ~/.bashrc'
+# Quick config changes
+alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
 alias vz='vim ~/.zshrc'
-alias vt='vim ~/.tmux.conf'
 alias vi3='vim ~/.i3/config'
 alias vk='vim ~/.config/kitty/kitty.conf'
 alias vbsp='vim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
@@ -33,6 +34,16 @@ fi
 if command -v alacritty &> /dev/null
 then
   alias va='vim ~/.config/alacritty/alacritty.yml'
+fi
+
+# Tmux config alias
+if command -v tmux &> /dev/null
+then
+  alias vt='vim ~/.tmux.conf'
+  # mnemonic (t)mux (n)ew-(s)ession and put the name of the session ($1)
+  function tns(){
+    tmux new-session -d -s "$1" && tmux switch-client -t "$1"
+  }
 fi
 
 # Extract files more easily

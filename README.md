@@ -1,14 +1,17 @@
 <div align="center">
-  <h1>━━━━━━━  ❖  ━━━━━━━</h1>
+  <h1>━━━━  ❖  ━━━━</h1>
   <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/bspwm-rice.png" />
   <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/nvim-screenshot.png" />
-  <h1>━━━━━━━  ❖  ━━━━━━━</h1>
+  <h1>━━━━  ❖  ━━━━</h1>
   <br />
   <h1>System configuration</h1>
 </div>
 
-This configuration are set for my GNU/Linux operating systems, this is really intended for my own use.
-There is a <code>install</code> script to configure the files, to see the options run `./install --help`.
+This configuration are set for my GNU/Linux operating systems, this is really intended for my own use,
+but you can steal it and modified if you want to. There is a `install` script to configure
+the files, to see the options run `./install --help`. This script creates backup copies of the current
+configurations that you have, but if the file that is trying to change is a symbolic link, then, if
+you want, the script removes it. For the moment, most dependencies have to be install by hand.
 
 ## ❖ Features
 * i3 gaps config.
@@ -52,21 +55,30 @@ There is a <code>install</code> script to configure the files, to see the option
 * Current terminal: [Kitty](https://github.com/kovidgoyal/kitty).
 * Terminal font: [Caskaydia Cove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
 
-### ❖ Select a Theme
-If you want to select a theme to another terminal that isn't Alacritty:
-* On bash run `base16_` and then hit <kbd>Tab</kbd> to see all the themes available.
-* Theme that I used before [base16_classic-dark](https://github.com/chriskempson/base16-shell).
-
 ## ❖ Dependencies
-* Fonts you have to download and copy the next fonts on `~/.local/share/fonts` and then `fc-cache -fv` to update your font cache:
-  * [Material Design Desktop](https://github.com/Templarian/MaterialDesign-Font).
+* Neovim
+  * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Zsh
   * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
   * [Rofi](https://github.com/davatorium/rofi).
   * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
+    * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
   * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * [polybar](https://github.com/polybar/polybar).
+* Bspwm
+  * sxhkd
+  * dunst
+  * arandr
+  * picom
+  * nitrogen
+  * [polybar](https://github.com/polybar/polybar).
+  * pavucontrol
+  * [Rofi](https://github.com/davatorium/rofi).
+  * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
+    * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
+  * xorg-xsetroot
+  * lxappearance-gtk3
 * Ranger
   * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux

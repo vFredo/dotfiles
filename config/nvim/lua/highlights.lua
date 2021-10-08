@@ -23,15 +23,16 @@ fgbg("CursorLineNr", colors.base04, colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
+fgbg("MatchParen", colors.bg, colors.blue)
 vim.cmd("hi StatusLineNC gui=underline guibg=NONE guifg=" .. colors.bgAlt)
 
 -- Italic Comments
 vim.cmd("hi Comment gui=italic")
 
 -- Search
-fgbg("Search", colors.red, colors.bg)
-vim.cmd("hi Search gui=underline,bold")
-vim.cmd("hi IncSearch gui=underline,bold")
+fgbg("Search", colors.yellow, colors.bg)
+vim.cmd("hi Search gui=bold,underline")
+vim.cmd("hi IncSearch gui=bold")
 
 -- Completition menu (Pop up)
 bg("Pmenu", colors.bgAlt)
@@ -69,8 +70,20 @@ fgbg("GitSignsDelete", colors.red, colors.bg)
 fg("IndentBlanklineChar", colors.grey)
 
 --
+-- Telescope
+--
+fg("TelescopeBorder", colors.bgAlt2)
+
+--
+-- Lsp neovim float window colors
+--
+bg("NormalFloat", colors.bgAlt)
+fgbg("FloatBorder", colors.fg, colors.bgAlt)
+
+--
 -- NvimTree
 --
+fg("NvimTreeRootFolder", colors.green)
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
 fg("NvimTreeOpenedFolderName", colors.blue)
@@ -78,16 +91,11 @@ fg("NvimTreeEmptyFolderName", colors.blue)
 fg("NvimTreeFileDirty", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 fg("NvimTreeGitDirty", colors.red)
-fg("NvimTreeRootFolder", colors.blue)
+fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeIndentMarker", colors.fgAlt2)
 bg("NvimTreeNormal", colors.bgAlt)
 fgbg("NvimTreeVertSplit", colors.bg, colors.bg)
 fgbg("NvimTreeStatusLine", colors.bg, colors.bg)
 fgbg("NvimTreeEndOfBuffer", colors.bgAlt, colors.bgAlt)
 vim.cmd("hi NvimTreeStatusLineNC gui=underline guifg=" .. colors.bgAlt .. " guibg=" .. colors.bg)
-
---
--- Telescope
---
-fg("TelescopeBorder", colors.bgAlt2)
 

@@ -1,5 +1,5 @@
 --
--- Making sure that packer is Install
+-- Making sure that packer is install
 --
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -9,12 +9,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 --
--- Setting up config files
+-- Setting up lua config files
 --
 require "options"
 
 require "plugins"
-require "plugins.configs.bufferline"
 
 require "mappings"
 

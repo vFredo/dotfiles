@@ -9,30 +9,12 @@ return packer.startup(
     --
     -- Miscellaneous
     --
+
+    -- Comment lines more easily
     use { "tpope/vim-commentary" }
+
+    -- Operation between parenthesis, brackets, etc...
     use { "tpope/vim-surround" }
-
-    --
-    -- Latex config
-    --
-    use {
-      "lervag/vimtex",
-      ft = 'tex',
-      config = function()
-        vim.g.tex_flavor = "latex"
-        vim.g.vimtex_view_method = "zathura"
-        vim.g.vimtex_vimtex_quickfix_mode = 2
-      end
-    }
-
-    use {
-      "KeitaNakamura/tex-conceal.vim",
-      ft = 'tex',
-      config = function()
-        vim.opt.conceallevel = 1
-        vim.g.tex_conceal = 'abdmg'
-      end
-    }
 
     -- tmux/nvim navigation
     use { "christoomey/vim-tmux-navigator" }
@@ -49,16 +31,16 @@ return packer.startup(
     -- GUI Plugins
     --
 
-    -- Icons for nvim-tree, telescope, bufferline, galaxyline
+    -- Icons for telescope, bufferline, galaxyline
     use {
       "kyazdani42/nvim-web-devicons",
       config = function()
         require("nvim-web-devicons").setup{
           override = {
             js = {
+              name = "js",
               icon = "",
-              color = "#FFC745",
-              name = "js"
+              color = "#FFC745"
             }
           }
         }
@@ -66,8 +48,14 @@ return packer.startup(
     }
 
     -- Bufferline
-    use { "akinsho/nvim-bufferline.lua" }
+    use {
+      "akinsho/nvim-bufferline.lua",
+      config = function()
+        require "plugins.configs.bufferline"
+      end
+    }
 
+    -- Indentation guide
     use {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
@@ -83,6 +71,7 @@ return packer.startup(
       end
     }
 
+    -- Tree view of the files
     use {
       "kyazdani42/nvim-tree.lua",
       config = function()
@@ -122,7 +111,9 @@ return packer.startup(
     use {
       "lewis6991/gitsigns.nvim",
       config = function()
-        require("gitsigns").setup()
+        require("gitsigns").setup{
+          keymaps = { noremap = false }
+        }
       end
     }
 
@@ -138,35 +129,28 @@ return packer.startup(
       end
     }
 
-    -- Manage snippets
-    use {
-      "SirVer/ultisnips",
-      config = function()
-        vim.cmd([[ let g:UltiSnipsSnippetDirectories=[$HOME.'/dotfiles/vim/vimSnips'] ]])
-        vim.g.UltiSnipsEditSplit = "vertical"
-        vim.g.UltiSnipsRemoveSelectModeMappings = 0
-      end
-    }
-
     -- Autocomplete
     use {
-      "hrsh7th/nvim-cmp",
-      requires = {
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-nvim-lsp",
-        "onsails/lspkind-nvim",
-        "quangnguyen30192/cmp-nvim-ultisnips"
-      },
-      config = function()
-        require "plugins.configs.cmp"
+      'ms-jpq/coq_nvim',
+      branch = 'coq',
+      setup = function()
+        vim.g.coq_settings = {
+          auto_start = 'shut-up',
+          ["keymap.recommended"] = false,
+          ["keymap.jump_to_mark"] = "<c-b>",
+          ["keymap.manual_complete"] = "<c-n>",
+          clients = {
+            tabnine = { enabled = true }
+          }
+        }
+      end,
+      config =  function()
+        require "plugins.configs.coq"
       end
     }
 
-    use {
-      "tzachar/cmp-tabnine",
-      run = "./install.sh",
-      requires = "hrsh7th/nvim-cmp"
-    }
+    -- Snippets for coq_nvim
+    use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
 
     --
     -- Web development Javascript/React/Typescript
@@ -182,6 +166,16 @@ return packer.startup(
       run = ":TSUpdate",
       config = function()
         require "plugins.configs.treesitter"
+      end
+    }
+
+    -- Color highlighter for hex, rgb, etc...
+    use {
+      "norcalli/nvim-colorizer.lua",
+      config = function()
+        require("colorizer").setup{
+          css = { rgb_fn = true }
+        }
       end
     }
   end

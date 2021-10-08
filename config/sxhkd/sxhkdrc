@@ -8,12 +8,12 @@ super + Return
 
 # password manager
 super + p
-  bwmenu --auto-lock 0
+  bwmenu
   # bwmenu --auto-lock 0 -- -theme ~/.config/rofi/bwmenu.rasi
 
 # program launcher
 super + d
-  rofi -no-lazy-grab -disable-history -modi "drun" -show drun
+  rofi -modi "drun" -show drun
 
 # Rofi Power menu
 # https://github.com/jluttine/rofi-power-menu

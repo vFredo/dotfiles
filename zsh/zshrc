@@ -17,6 +17,7 @@ HYPHEN_INSENSITIVE="true"
 # History
 export HISTSIZE=100000
 export SAVEHIST=$HISTSIZE
+export HISTFILE=~/.cache/.zsh_history
 
 # Options
 setopt AUTO_CD                 # [default] .. is shortcut for cd .. (etc)

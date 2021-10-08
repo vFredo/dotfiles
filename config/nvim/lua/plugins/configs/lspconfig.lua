@@ -1,18 +1,30 @@
 local lsp = require("lspconfig")
+local coq = require("coq")
+
+local border = {
+  {"🭽", "FloatBorder"},
+  {"▔", "FloatBorder"},
+  {"🭾", "FloatBorder"},
+  {"▕", "FloatBorder"},
+  {"🭿", "FloatBorder"},
+  {"▁", "FloatBorder"},
+  {"🭼", "FloatBorder"},
+  {"▏", "FloatBorder"},
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
+  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings
   local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
@@ -25,9 +37,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
-  -- Create :Format command and Format after save file
-  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-  vim.cmd([[ autocmd! BufWrite <buffer> lua vim.lsp.buf.formatting() ]])
+  -- if the server client can format files then format on save
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd([[ autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting() ]])
+  end
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -37,12 +50,29 @@ local servers = { 'tsserver', 'pyright', 'cssls', 'bashls' }
 for _, lang in ipairs(servers) do
   lsp[lang].setup {
     on_attach = on_attach,
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = {
-      debounce_text_changes = 150,
-    }
+    capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    flags = { debounce_text_changes = 150 }
   }
 end
+
+--
+-- go lsp
+--
+lsp.gopls.setup{
+  cmd = {'gopls'},
+  on_attach = on_attach,
+  capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+}
 
 -- replace the default lsp diagnostic symbols
 local function lspSymbol(name, icon)
@@ -54,20 +84,14 @@ lspSymbol("Information", "")
 lspSymbol("Hint", "")
 lspSymbol("Warning", "")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = {
-    prefix = "",
-    spacing = 0,
-  },
-  signs = true,
-  underline = true,
-  update_in_insert = false, -- update diagnostics insert mode
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = {
+      prefix = "",
+      spacing = 4,
+    },
+    signs = false,
+    underline = true,
+    update_in_insert = false, -- don't update diagnostics in insert mode
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single",
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "single",
-})
