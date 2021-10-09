@@ -1,6 +1,5 @@
 local theme = require("theme")
 local colors = theme.colors
-local dbFg = "#a89984"
 
 -- Helper functions
 local function fg(group, color)
@@ -23,7 +22,7 @@ fgbg("CursorLineNr", colors.base04, colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
-fgbg("MatchParen", colors.bg, colors.blue)
+fgbg("MatchParen", colors.bg, colors.yellow)
 vim.cmd("hi StatusLineNC gui=underline guibg=NONE guifg=" .. colors.bgAlt)
 
 -- Italic Comments
