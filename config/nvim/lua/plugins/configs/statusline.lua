@@ -66,7 +66,7 @@ components.active[1][2] = {
   provider = function()
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
-    local icon, color = require('nvim-web-devicons').get_icon_color(filename, extension)
+    local icon = require('nvim-web-devicons').get_icon(filename, extension)
 
     if icon == nil then
       icon = ""
@@ -78,7 +78,7 @@ components.active[1][2] = {
     local val = {}
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
-    local icon, color  = require'nvim-web-devicons'.get_icon_color(filename, extension)
+    local icon, color = require('nvim-web-devicons').get_icon_color(filename, extension)
 
     if icon ~= nil then
       val.fg = color
@@ -99,8 +99,8 @@ components.active[1][3] = {
     local parentFolder = vim.fn.expand("%:h:t")
     local filename = vim.fn.expand("%:t")
 
-    -- No buffer filename or NvimTree or packer buffers
-    if vim.fn.empty(filename) == 1 or filename == "NvimTree" or filename:find("packer")  then
+    -- No filename buffer
+    if vim.fn.empty(filename) == 1 then
       filename = ''
     end
 
@@ -255,13 +255,13 @@ components.inactive[2][1] = {
     -- replace 'home/user' to '~'
     filename = filename:gsub(os.getenv("HOME"), '~')
 
-    -- No buffer filename
-    if vim.fn.empty(shortFilename) == 1 or shortFilename == "NvimTree" or shortFilename:find("packer")  then
+    -- No filename, NvimTree and packer buffers
+    if vim.fn.empty(shortFilename) == 1 or shortFilename:find('NvimTree') or shortFilename:find('packer')  then
       filename = ''
     end
 
     -- If filename is to big or screen to small, then show 'parent/filename'
-    if filename:len() > 85 or vim.api.nvim_win_get_width(0) < 60 then
+    if filename:len() > 85 or (vim.api.nvim_win_get_width(0) < 60 and filename ~= '') then
       local parentFolder = vim.fn.expand("%:h:t")
 
       if parentFolder ~= '.' then
