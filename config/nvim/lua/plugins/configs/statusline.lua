@@ -7,8 +7,7 @@ local icon_styles = {
   default = {
     left = "",
     right = " ",
-    -- main_icon = "  ",
-    main_icon = "   ",
+    main_icon = "   ",
     vi_mode_icon = " ",
     position_icon = " ",
   },
