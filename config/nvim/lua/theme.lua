@@ -11,6 +11,7 @@ theme.colors = {
   magenta = "#93869b",
   cyan = "#89b482",
   grey = "#665c54",
+  orange = "#dc9656",
 
   -- Alternative colors
   bgAlt = "#282828",

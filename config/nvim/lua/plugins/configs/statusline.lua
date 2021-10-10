@@ -61,41 +61,95 @@ components.active[1][1] = {
   }
 }
 
+-- File icon
 components.active[1][2] = {
-  provider = 'file_info',
-  colored_icon = true,
-  type = 'short-path',
-  file_readonly_icon = '',
+  provider = function()
+    local filename = vim.fn.expand('%:t')
+    local extension = vim.fn.expand('%:e')
+    local icon, color = require('nvim-web-devicons').get_icon_color(filename, extension)
+
+    if icon == nil then
+      icon = ""
+    end
+
+    return icon
+  end,
+  hl = function()
+    local val = {}
+    local filename = vim.fn.expand('%:t')
+    local extension = vim.fn.expand('%:e')
+    local icon, color  = require'nvim-web-devicons'.get_icon_color(filename, extension)
+
+    if icon ~= nil then
+      val.fg = color
+    else
+      val.fg = colors.yellow
+    end
+
+    val.bg = colors.bgAlt
+    return val
+  end,
+  right_sep = { str = icon_styles.block.right, hl = {bg = colors.bgAlt}}
+}
+
+-- File name
+components.active[1][3] = {
+  provider = function()
+    local parentFolder = vim.fn.expand("%:h:t")
+    local filename = vim.fn.expand("%:t")
+
+    if parentFolder ~= '.' then
+      filename = parentFolder .. '/' .. filename
+    end
+
+    -- No buffer filename
+    if vim.fn.empty(filename) == 1 then
+      filename = ''
+    end
+
+    -- readonly file
+    if vim.bo.readonly == true then
+      filename = filename .. ' '
+    end
+
+    -- modified file
+    if vim.bo.modifiable then
+      if vim.bo.modified then
+        filename = filename .. ' ●'
+      end
+    end
+
+    return filename .. ' '
+  end,
   hl = { bg = colors.bgAlt },
   right_sep = {
     str = icon_styles.default.right,
     hl = { fg = colors.bgAlt }
   },
-  left_sep = {
-    str = icon_styles.block.left,
-    hl = { bg = colors.bgAlt }
-  }
 }
 
-components.active[1][3] = {
+-- diffAdded
+components.active[1][4] = {
   provider = "git_diff_added",
   hl = { fg = colors.green },
   icon = " ",
 }
+
 -- diffModfified
-components.active[1][4] = {
+components.active[1][5] = {
   provider = "git_diff_changed",
   hl = { fg = colors.yellow },
   icon = "   ",
 }
 -- diffRemove
-components.active[1][5] = {
+components.active[1][6] = {
   provider = "git_diff_removed",
   hl = { fg = colors.red },
   icon = "  ",
 }
 
-components.active[1][6] = {
+-- Diagnostic errors
+components.active[1][7] = {
   provider = "diagnostic_errors",
   enabled = function()
     return lsp.diagnostics_exist "Error"
@@ -104,7 +158,8 @@ components.active[1][6] = {
   icon = "  ",
 }
 
-components.active[1][7] = {
+-- Diagnostic warning
+components.active[1][8] = {
   provider = "diagnostic_warnings",
   enabled = function()
     return lsp.diagnostics_exist "Warning"
@@ -113,7 +168,8 @@ components.active[1][7] = {
   icon = "  ",
 }
 
-components.active[1][8] = {
+-- Diagnostic hints
+components.active[1][9] = {
   provider = "diagnostic_hints",
   enabled = function()
     return lsp.diagnostics_exist "Hint"
@@ -122,7 +178,8 @@ components.active[1][8] = {
   icon = "  ",
 }
 
-components.active[1][9] = {
+-- Diagnostic info
+components.active[1][10] = {
   provider = "diagnostic_info",
   enabled = function()
     return lsp.diagnostics_exist "Information"
@@ -131,6 +188,7 @@ components.active[1][9] = {
   icon = "  ",
 }
 
+-- Check if a lsp server is running on file
 components.active[3][1] = {
   provider = function()
     if next(vim.lsp.buf_get_clients()) ~= nil then
@@ -145,6 +203,7 @@ components.active[3][1] = {
   hl = { fg = colors.fgAlt2 },
 }
 
+-- Git branch info
 components.active[3][2] = {
   provider = "git_branch",
   icon = "  ",
@@ -155,6 +214,7 @@ components.active[3][2] = {
   }
 }
 
+-- Icon for line porcentage
 components.active[3][3] = {
   provider = icon_styles.default.position_icon,
   enabled = function()
@@ -167,13 +227,14 @@ components.active[3][3] = {
   }
 }
 
+-- Line porcentage
 components.active[3][4] = {
   provider = 'line_percentage',
   enabled = function()
     return vim.api.nvim_win_get_width(0) > 70
   end,
-  left_sep = ' ',
   hl = { fg = colors.green },
+  left_sep = { str = icon_styles.block.left }
 }
 
 --
@@ -184,11 +245,45 @@ components.inactive[1][1] = {
   hl = { fg = colors.fgAlt2, bg = colors.bgAlt, style = 'italic' },
 }
 
+-- full path filename or just parent directory and filename
 components.inactive[2][1] = {
-  provider = 'file_info',
-  type = 'full-path',
-  file_readonly_icon = '',
-  hl = { fg = colors.fgAlt2, bg = colors.bgAlt, style = 'italic' },
+  provider = function()
+    local filename = vim.fn.expand("%:p")
+    -- replace 'home/user' to '~'
+    filename = filename:gsub(os.getenv("HOME"), '~')
+
+    -- No buffer filename
+    if vim.fn.empty(filename) == 1 then
+      filename = ''
+    end
+
+    -- If filename is to big, then show only the filename and parent directory
+    if filename:len() > 80 then
+      local parentFolder = vim.fn.expand("%:h:t")
+      local shortFilename = vim.fn.expand("%:t")
+
+      if parentFolder ~= '.' then
+        filename = parentFolder .. '/' .. shortFilename
+      else
+        filename = shortFilename
+      end
+    end
+
+    -- readonly file
+    if vim.bo.readonly == true then
+      filename = filename .. ' '
+    end
+
+    -- modified file
+    if vim.bo.modifiable then
+      if vim.bo.modified then
+        filename = filename .. ' ●'
+      end
+    end
+
+    return filename .. ' '
+  end,
+  hl = {fg = colors.grey, bg = colors.bgAlt, style = 'italic' },
 }
 
 local vi_mode_colors = {
@@ -202,11 +297,11 @@ local vi_mode_colors = {
   ['V-REPLACE'] = colors.red,
   ENTER = colors.yellow,
   MORE = colors.yellow,
-  SELECT = colors.cyan,
-  COMMAND = colors.cyan,
-  SHELL = colors.green,
-  TERM = colors.grey,
-  NONE = colors.grey
+  SELECT = colors.yellow,
+  COMMAND = colors.orange,
+  TERM = colors.orange,
+  SHELL = colors.cyan,
+  NONE = colors.cyan
 }
 
 require("feline").setup {
