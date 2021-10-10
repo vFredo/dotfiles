@@ -23,7 +23,6 @@ bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
 fgbg("MatchParen", colors.bg, colors.yellow)
-vim.cmd("hi StatusLineNC gui=underline guibg=NONE guifg=" .. colors.bgAlt)
 
 -- Italic Comments
 vim.cmd("hi Comment gui=italic")

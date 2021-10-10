@@ -31,7 +31,7 @@ return packer.startup(
     -- GUI Plugins
     --
 
-    -- Icons for telescope, bufferline, galaxyline
+    -- Icons for telescope, bufferline, feline (statusline)
     use {
       "kyazdani42/nvim-web-devicons",
       config = function()
@@ -65,7 +65,7 @@ return packer.startup(
 
     -- Statusline
     use {
-      "glepnir/galaxyline.nvim",
+      'famiu/feline.nvim',
       config = function()
         require "plugins.configs.statusline"
       end
