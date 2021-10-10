@@ -28,7 +28,6 @@ tree.setup{
   hijack_netrw = true,
   open_on_setup = false,
   auto_close = true,
-  lsp_diagnostics = false,
   hijack_cursor = true,
   update_cwd = true,
   update_focused_file = {
