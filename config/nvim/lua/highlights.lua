@@ -22,7 +22,6 @@ fgbg("CursorLineNr", colors.base04, colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
-fgbg("MatchParen", colors.bg, colors.yellow)
 
 -- Italic Comments
 vim.cmd("hi Comment gui=italic")

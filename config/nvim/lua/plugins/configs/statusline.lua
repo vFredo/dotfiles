@@ -7,16 +7,14 @@ local icon_styles = {
   default = {
     left = "",
     right = " ",
-    main_icon = "  ",
+    -- main_icon = "  ",
+    main_icon = "   ",
     vi_mode_icon = " ",
     position_icon = " ",
   },
   block = {
     left = " ",
     right = " ",
-    main_icon = "   ",
-    vi_mode_icon = "  ",
-    position_icon = "  ",
   },
 }
 
@@ -35,8 +33,7 @@ table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 
 components.active[1][1] = {
-  provider = 'vi_mode',
-  icon = '',
+  provider = icon_styles.default.main_icon,
   hl = function()
     return {
       name = require('feline.providers.vi_mode').get_mode_highlight_name(),
@@ -46,11 +43,11 @@ components.active[1][1] = {
     }
   end,
   left_sep = {
-    str = icon_styles.default.left,
+    str = icon_styles.block.left,
     hl = function()
       return {
-        fg = require('feline.providers.vi_mode').get_mode_color(),
-        bg = colors.bgAlt,
+        fg = colors.bgAlt,
+        bg = require('feline.providers.vi_mode').get_mode_color(),
       }
     end,
   },
@@ -69,10 +66,15 @@ components.active[1][2] = {
   provider = 'file_info',
   colored_icon = true,
   type = 'short-path',
+  file_readonly_icon = '',
   hl = { bg = colors.bgAlt },
   right_sep = {
     str = icon_styles.default.right,
     hl = { fg = colors.bgAlt }
+  },
+  left_sep = {
+    str = icon_styles.block.left,
+    hl = { bg = colors.bgAlt }
   }
 }
 
@@ -147,31 +149,26 @@ components.active[3][1] = {
 components.active[3][2] = {
   provider = "git_branch",
   icon = "  ",
-  hl = { fg = colors.yellow }
+  hl = { fg = colors.yellow },
+  right_sep = {
+    str = icon_styles.block.right,
+    hl = { fg = colors.bg },
+  }
 }
 
 components.active[3][3] = {
-  provider = icon_styles.default.left,
-  hl = { fg = colors.bg },
-}
-
-components.active[3][4] = {
-  provider = icon_styles.default.left,
-  enabled = function()
-    return vim.api.nvim_win_get_width(0) > 90
-  end,
-  hl = { fg = colors.green },
-}
-
-components.active[3][5] = {
   provider = icon_styles.default.position_icon,
   enabled = function()
     return vim.api.nvim_win_get_width(0) > 90
   end,
   hl = { fg = colors.bg, bg = colors.green },
+  left_sep = {
+    str = icon_styles.default.left,
+    hl = { fg = colors.green },
+  }
 }
 
-components.active[3][6] = {
+components.active[3][4] = {
   provider = 'line_percentage',
   enabled = function()
     return vim.api.nvim_win_get_width(0) > 70
@@ -191,6 +188,7 @@ components.inactive[1][1] = {
 components.inactive[2][1] = {
   provider = 'file_info',
   type = 'full-path',
+  file_readonly_icon = '',
   hl = { fg = colors.fgAlt2, bg = colors.bgAlt, style = 'italic' },
 }
 
@@ -203,13 +201,13 @@ local vi_mode_colors = {
   BLOCK = colors.magenta,
   REPLACE = colors.red,
   ['V-REPLACE'] = colors.red,
-  ENTER = colors.cyan,
-  MORE = colors.cyan,
-  SELECT = colors.yellow,
-  COMMAND = colors.yellow,
+  ENTER = colors.yellow,
+  MORE = colors.yellow,
+  SELECT = colors.cyan,
+  COMMAND = colors.cyan,
   SHELL = colors.green,
-  TERM = colors.gray,
-  NONE = colors.gray
+  TERM = colors.grey,
+  NONE = colors.grey
 }
 
 require("feline").setup {
