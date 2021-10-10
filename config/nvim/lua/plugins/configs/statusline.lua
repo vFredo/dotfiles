@@ -1,8 +1,8 @@
 local theme = require("theme")
 local colors = theme.colors
-
 local lsp = require "feline.providers.lsp"
 
+-- styles for special icons and separators
 local icon_styles = {
   default = {
     left = "",
@@ -29,6 +29,10 @@ table.insert(components.active, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
+
+--
+-- Active statusline components
+--
 
 -- Vi mode colors with main icon
 components.active[1][1] = {
@@ -239,14 +243,14 @@ components.active[3][4] = {
 }
 
 --
--- Inactive components of statusline
+-- Inactive statusline components
 --
 components.inactive[1][1] = {
   provider = "",
   hl = { fg = colors.fgAlt2, bg = colors.bgAlt, style = 'italic' },
 }
 
--- full path filename or just parent directory and filename
+-- full path filename or just parent directory and filename if screen is to small
 components.inactive[2][1] = {
   provider = function()
     local filename = vim.fn.expand("%:p")
@@ -295,17 +299,18 @@ local vi_mode_colors = {
   LINES = colors.magenta,
   OP = colors.magenta,
   BLOCK = colors.magenta,
-  REPLACE = colors.red,
-  ['V-REPLACE'] = colors.red,
+  REPLACE = colors.orange,
+  ['V-REPLACE'] = colors.orange,
   ENTER = colors.yellow,
   MORE = colors.yellow,
   SELECT = colors.yellow,
-  COMMAND = colors.orange,
-  TERM = colors.orange,
+  COMMAND = colors.red,
+  TERM = colors.red,
   SHELL = colors.cyan,
   NONE = colors.cyan
 }
 
+-- Initialize feline statusline
 require("feline").setup {
   colors = { fg = colors.fg, bg = colors.bg },
   components = components,
