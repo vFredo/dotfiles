@@ -1,7 +1,7 @@
 local theme = require("theme")
 local colors = theme.colors
 
--- Helper functions
+-- Helper functions for changging highlight groups
 local function fg(group, color)
   vim.cmd("hi " .. group .. " guifg=" .. color)
 end
@@ -14,6 +14,10 @@ local function fgbg(group, fgcol, bgcol)
   vim.cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
 end
 
+local function ui(group, gui)
+  vim.cmd("hi " .. group .. " gui=" .. gui)
+end
+
 --
 -- General
 --
@@ -24,12 +28,12 @@ bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
 
 -- Italic Comments
-vim.cmd("hi Comment gui=italic")
+ui("Comment", "italic")
 
 -- Search
 fgbg("Search", colors.yellow, colors.bg)
-vim.cmd("hi Search gui=bold,underline")
-vim.cmd("hi IncSearch gui=bold")
+ui("Search", "bold,underline")
+ui("IncSearch", "bold")
 
 -- Completition menu (Pop up)
 bg("Pmenu", colors.bgAlt)
@@ -95,6 +99,3 @@ fg("NvimTreeGitDirty", colors.red)
 fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
-fgbg("NvimTreeStatusLine", colors.bg, colors.bg)
-vim.cmd("hi NvimTreeStatusLineNC gui=underline guifg=" .. colors.bgAlt .. " guibg=" .. colors.bg)
-
