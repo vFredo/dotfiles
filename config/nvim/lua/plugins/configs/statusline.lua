@@ -8,7 +8,6 @@ local icon_styles = {
     left = "",
     right = " ",
     main_icon = "   ",
-    vi_mode_icon = " ",
     position_icon = " ",
   },
   block = {
@@ -31,7 +30,7 @@ table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 
--- Main icon and vi_mode colors
+-- Vi mode colors with main icon
 components.active[1][1] = {
   provider = icon_styles.default.main_icon,
   hl = function()
@@ -261,8 +260,8 @@ components.inactive[2][1] = {
       filename = ''
     end
 
-    -- If filename is to big, then show only the filename and parent directory
-    if filename:len() > 85 then
+    -- If filename is to big or screen to small, then show 'parent/filename'
+    if filename:len() > 85 or vim.api.nvim_win_get_width(0) < 60 then
       local parentFolder = vim.fn.expand("%:h:t")
 
       if parentFolder ~= '.' then
