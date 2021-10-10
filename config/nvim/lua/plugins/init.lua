@@ -173,9 +173,13 @@ return packer.startup(
     use {
       "norcalli/nvim-colorizer.lua",
       config = function()
-        require("colorizer").setup{
-          css = { rgb_fn = true }
-        }
+        require("colorizer").setup({"*"}, {
+          css = { rgb_fn = true },
+          RGB = true, -- #RGB hex codes
+          RRGGBB = true, -- #RRGGBB hex codes
+          RRGGBBAA = true, -- #RRGGBBAA hex codes
+          names = false, -- "Name" codes like 'blue'
+        })
       end
     }
   end
