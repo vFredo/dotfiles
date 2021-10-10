@@ -4,7 +4,7 @@ local opt = vim.opt
 -- Set format options for all files
 vim.cmd([[
   filetype plugin on
-  au FileType * set fo-=c fo-=r fo-=o fo+=j fo+=n 
+  au FileType * set fo-=c fo-=r fo-=o fo+=j fo+=n
 ]])
 
 -- Change cursor in normal, insert and replace modes on tmux and terminal

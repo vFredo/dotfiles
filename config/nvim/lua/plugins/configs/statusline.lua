@@ -31,6 +31,7 @@ table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 table.insert(components.inactive, {})
 
+-- Main icon and vi_mode colors
 components.active[1][1] = {
   provider = icon_styles.default.main_icon,
   hl = function()
@@ -89,7 +90,8 @@ components.active[1][2] = {
     val.bg = colors.bgAlt
     return val
   end,
-  right_sep = { str = icon_styles.block.right, hl = {bg = colors.bgAlt}}
+  left_sep = { str = icon_styles.block.left, hl = { bg = colors.bgAlt } },
+  right_sep = { str = icon_styles.block.right, hl = { bg = colors.bgAlt } }
 }
 
 -- File name
@@ -98,13 +100,13 @@ components.active[1][3] = {
     local parentFolder = vim.fn.expand("%:h:t")
     local filename = vim.fn.expand("%:t")
 
-    if parentFolder ~= '.' then
-      filename = parentFolder .. '/' .. filename
+    -- No buffer filename or NvimTree or packer buffers
+    if vim.fn.empty(filename) == 1 or filename == "NvimTree" or filename:find("packer")  then
+      filename = ''
     end
 
-    -- No buffer filename
-    if vim.fn.empty(filename) == 1 then
-      filename = ''
+    if parentFolder ~= '.' and filename ~= '' then
+      filename = parentFolder .. '/' .. filename
     end
 
     -- readonly file
@@ -132,14 +134,14 @@ components.active[1][3] = {
 components.active[1][4] = {
   provider = "git_diff_added",
   hl = { fg = colors.green },
-  icon = " ",
+  icon = "  ",
 }
 
 -- diffModfified
 components.active[1][5] = {
   provider = "git_diff_changed",
   hl = { fg = colors.yellow },
-  icon = "   ",
+  icon = "  ",
 }
 -- diffRemove
 components.active[1][6] = {
@@ -231,7 +233,7 @@ components.active[3][3] = {
 components.active[3][4] = {
   provider = 'line_percentage',
   enabled = function()
-    return vim.api.nvim_win_get_width(0) > 70
+    return vim.api.nvim_win_get_width(0) > 50
   end,
   hl = { fg = colors.green },
   left_sep = { str = icon_styles.block.left }
@@ -249,18 +251,19 @@ components.inactive[1][1] = {
 components.inactive[2][1] = {
   provider = function()
     local filename = vim.fn.expand("%:p")
+    local shortFilename = vim.fn.expand("%:t")
+
     -- replace 'home/user' to '~'
     filename = filename:gsub(os.getenv("HOME"), '~')
 
     -- No buffer filename
-    if vim.fn.empty(filename) == 1 then
+    if vim.fn.empty(shortFilename) == 1 or shortFilename == "NvimTree" or shortFilename:find("packer")  then
       filename = ''
     end
 
     -- If filename is to big, then show only the filename and parent directory
-    if filename:len() > 80 then
+    if filename:len() > 85 then
       local parentFolder = vim.fn.expand("%:h:t")
-      local shortFilename = vim.fn.expand("%:t")
 
       if parentFolder ~= '.' then
         filename = parentFolder .. '/' .. shortFilename
@@ -283,7 +286,7 @@ components.inactive[2][1] = {
 
     return filename .. ' '
   end,
-  hl = {fg = colors.grey, bg = colors.bgAlt, style = 'italic' },
+  hl = { fg = colors.grey, bg = colors.bgAlt, style = 'italic' },
 }
 
 local vi_mode_colors = {
