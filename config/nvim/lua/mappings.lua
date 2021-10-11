@@ -13,9 +13,9 @@ vim.cmd([[ noremap <Leader>y "+y ]])
 
 -- Telescope
 map("n", "<Leader>ff", ":Telescope find_files<CR>", opt)
+map("n", "<Leader>fb", ":Telescope buffers<CR>", opt)
 map("n", "<Leader>fg", ":Telescope live_grep<CR>", opt)
 map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
-map("n", "<Leader>fb", ":Telescope buffers<CR>", opt)
 
 -- nvim-tree
 map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
@@ -26,7 +26,8 @@ map("n", "gh", "^", opt)
 map("n", "gl", "$", opt)
 map("v", "gh", "^", opt)
 map("v", "gl", "$", opt)
--- use gj/gk as j/k to move between lines, but if you do 10j, use the default 'j' key
+
+-- use gj/gk as j/k to move between lines, but if you do <count>j/k, use the default 'j/k' key
 vim.cmd([[
   xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
   xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -66,4 +67,32 @@ vim.cmd([[
   endfunction
   command! -bar -nargs=0 TrimSpaces call TrimWhiteSpace()
 ]])
+
+-- Toggle maximize buffer and split structure
+-- https://github.com/caenrique/nvim-maximize-window-toggle
+vim.cmd([[
+  function ToggleOnlyBuffer()
+    if winnr("$") > 1
+    " There are more than one window in this tab
+      if exists("b:maximized_window_id")
+        call win_gotoid(b:maximized_window_id)
+      else
+        let b:origin_window_id = win_getid()
+        tab sp
+        let b:maximized_window_id = win_getid()
+      endif
+    else
+    " This is the only window in this tab
+      if exists("b:origin_window_id")
+        let l:origin_window_id = b:origin_window_id
+        tabclose
+        call win_gotoid(l:origin_window_id)
+        unlet b:maximized_window_id
+        unlet b:origin_window_id
+      endif
+    endif
+  endfunction
+  command! ToggleMaximize call ToggleOnlyBuffer()
+]])
+map("n", "<Leader>o", ":ToggleMaximize<CR>")
 

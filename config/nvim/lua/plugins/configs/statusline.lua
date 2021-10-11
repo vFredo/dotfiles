@@ -246,8 +246,7 @@ components.active[3][4] = {
 -- Inactive statusline components
 --
 components.inactive[1][1] = {
-  provider = "",
-  hl = { fg = colors.fgAlt2, bg = colors.bgAlt, style = 'italic' },
+  hl = { bg = colors.bgAlt },
 }
 
 -- full path filename or just parent directory and filename if screen is to small
