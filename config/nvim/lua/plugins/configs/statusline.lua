@@ -127,10 +127,7 @@ components.active[1][3] = {
     return filename .. ' '
   end,
   hl = { bg = colors.bgAlt },
-  right_sep = {
-    str = icon_styles.default.right,
-    hl = { fg = colors.bgAlt }
-  },
+  right_sep = { str = icon_styles.default.right, hl = { fg = colors.bgAlt } }
 }
 
 -- diffAdded
@@ -213,10 +210,7 @@ components.active[3][2] = {
   provider = "git_branch",
   icon = "  ",
   hl = { fg = colors.yellow },
-  right_sep = {
-    str = icon_styles.block.right,
-    hl = { fg = colors.bg },
-  }
+  right_sep = { str = icon_styles.block.right, hl = { fg = colors.bg } }
 }
 
 -- Icon for line porcentage
@@ -226,10 +220,7 @@ components.active[3][3] = {
     return vim.api.nvim_win_get_width(0) > 90
   end,
   hl = { fg = colors.bg, bg = colors.green },
-  left_sep = {
-    str = icon_styles.default.left,
-    hl = { fg = colors.green },
-  }
+  left_sep = { str = icon_styles.default.left, hl = { fg = colors.green } }
 }
 
 -- Line porcentage
@@ -239,7 +230,8 @@ components.active[3][4] = {
     return vim.api.nvim_win_get_width(0) > 50
   end,
   hl = { fg = colors.green },
-  left_sep = { str = icon_styles.block.left }
+  left_sep = { str = icon_styles.block.left },
+  right_sep = { str = icon_styles.block.right }
 }
 
 --

@@ -66,6 +66,7 @@ return packer.startup(
     -- Statusline
     use {
       'famiu/feline.nvim',
+      branch = 'master',
       config = function()
         require "plugins.configs.statusline"
       end
