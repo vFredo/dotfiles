@@ -10,11 +10,11 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 
-ON_BLUE='\033[44m'        # Blue Background
-ON_GREEN='\033[42m'       # Green Background
-ON_RED='\033[41m'         # Red Background
-ON_WHITE='\033[47m'       # White Background
-BBLACK='\033[1;30m'       # Bold Black
+ON_BLUE='\033[44m'        # blue Background
+ON_GREEN='\033[42m'       # green Background
+ON_RED='\033[41m'         # red Background
+ON_WHITE='\033[47m'       # white Background
+BBLACK='\033[1;30m'       # Bold black
 NC='\033[0m'              # No Color
 
 
