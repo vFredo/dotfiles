@@ -138,9 +138,7 @@ return packer.startup(
           ["keymap.recommended"] = false,
           ["keymap.jump_to_mark"] = "<c-b>",
           ["keymap.manual_complete"] = "<c-n>",
-          clients = {
-            tabnine = { enabled = true }
-          }
+          clients = { tabnine = { enabled = true } }
         }
       end,
       config =  function()
@@ -148,7 +146,7 @@ return packer.startup(
       end
     }
 
-    -- Snippets for coq_nvim
+    -- Snippets and thirdparty support for coq_nvim
     use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
     use { 'ms-jpq/coq.thirdparty', branch = '3p'}
 
