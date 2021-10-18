@@ -68,7 +68,7 @@ fgbg("GitSignsDelete", colors.red, colors.bg)
 --
 -- BlankIndent Lines
 --
-fg("IndentBlanklineChar", colors.grey)
+fg("IndentBlanklineChar", colors.base01)
 
 --
 -- Telescope
