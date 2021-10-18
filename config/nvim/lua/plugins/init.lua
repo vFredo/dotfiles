@@ -150,6 +150,7 @@ return packer.startup(
 
     -- Snippets for coq_nvim
     use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
+    use { 'ms-jpq/coq.thirdparty', branch = '3p'}
 
     --
     -- Web development Javascript/React/Typescript
