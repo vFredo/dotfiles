@@ -1,24 +1,11 @@
 local lsp = require("lspconfig")
 local coq = require("coq")
 
-local border = {
-  {"🭽", "FloatBorder"},
-  {"▔", "FloatBorder"},
-  {"🭾", "FloatBorder"},
-  {"▕", "FloatBorder"},
-  {"🭿", "FloatBorder"},
-  {"▁", "FloatBorder"},
-  {"🭼", "FloatBorder"},
-  {"▏", "FloatBorder"},
-}
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border})
-  vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border})
 
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -45,7 +32,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
--- You have to install them npm install -g <<server-name>>
+-- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 local servers = { 'tsserver', 'pyright', 'cssls', 'bashls' }
 for _, lang in ipairs(servers) do
   lsp[lang].setup {
@@ -62,6 +49,7 @@ lsp.gopls.setup{
   cmd = {'gopls'},
   on_attach = on_attach,
   capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  flags = { debounce_text_changes = 150 },
   settings = {
     gopls = {
       experimentalPostfixCompletions = true,
@@ -95,3 +83,10 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     update_in_insert = false, -- don't update diagnostics in insert mode
 })
 
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+   border = "single",
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+   border = "single",
+})
