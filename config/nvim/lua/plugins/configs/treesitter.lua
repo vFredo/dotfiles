@@ -11,6 +11,7 @@ ts_config.setup{
     "lua",
     "python",
     "go",
+    "gomod",
     "c",
     "cpp",
     "bash",
@@ -19,7 +20,9 @@ ts_config.setup{
     "tsx",
     "vue",
     "html",
-    "css"
+    "css",
+    "json",
+    "latex"
   },
   highlight = { enable = true },
   context_commentstring = { enable = true },
