@@ -4,7 +4,7 @@ local use = packer.use
 return packer.startup(
   function()
     -- Update packer manager
-    use { "wbthomason/packer.nvim" }
+    use { "wbthomason/packer.nvim", event = "VimEnter" }
 
     --
     -- Miscellaneous
@@ -50,6 +50,7 @@ return packer.startup(
     -- Bufferline
     use {
       "akinsho/nvim-bufferline.lua",
+      after = "nvim-web-devicons",
       config = function()
         require "plugins.configs.bufferline"
       end
@@ -67,6 +68,7 @@ return packer.startup(
     use {
       'famiu/feline.nvim',
       branch = 'master',
+      after = "nvim-web-devicons",
       config = function()
         require "plugins.configs.statusline"
       end
@@ -99,7 +101,7 @@ return packer.startup(
       "nvim-telescope/telescope.nvim",
       requires = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-fzy-native.nvim"
+        { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
       config = function()
         require "plugins.configs.telescope"

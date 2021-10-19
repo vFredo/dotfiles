@@ -66,16 +66,6 @@ fgbg("GitSignsChangeDelete", colors.red, colors.bg)
 fgbg("GitSignsDelete", colors.red, colors.bg)
 
 --
--- BlankIndent Lines
---
-fg("IndentBlanklineChar", colors.base01)
-
---
--- Telescope
---
-fg("TelescopeBorder", colors.bgAlt2)
-
---
 -- Lsp neovim float window colors
 --
 bg("NormalFloat", colors.bgAlt)

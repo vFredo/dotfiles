@@ -27,13 +27,10 @@ map("n", "gl", "$", opt)
 map("v", "gh", "^", opt)
 map("v", "gl", "$", opt)
 
--- use gj/gk as j/k to move between lines, but if you do <count>j/k, use the default 'j/k' key
-vim.cmd([[
-  xnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-  xnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-  nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
-  nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
-]])
+-- Allow moving the cursor through wrapped visual lines with 'j' and 'k', also
+-- don't use g[j|k] when in operator pending mode, so it doesn't alter 'd', 'y' or 'c'
+map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
+map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- Buffers
 map("n", "<Leader>l", ":bnext<CR>", opt)
@@ -42,12 +39,10 @@ map("n", "<Leader>d", ":bdelete<CR>", opt)
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L",opt)
 map("n", "<Leader>H", "<C-w>H",opt)
-vim.cmd([[
-  xnoremap <C-h> <C-w>h
-  xnoremap <C-j> <C-w>j
-  xnoremap <C-k> <C-w>k
-  xnoremap <C-l> <C-w>l
-]])
+map("x", "<C-h>", "<C-w>h", opt)
+map("x", "<C-j>", "<C-w>j", opt)
+map("x", "<C-k>", "<C-w>k", opt)
+map("x", "<C-l>", "<C-w>l", opt)
 
 -- Edit tabulation on visual mode more easily
 map("v", "<", "<gv", opt)
