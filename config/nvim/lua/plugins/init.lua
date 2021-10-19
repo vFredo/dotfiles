@@ -175,7 +175,6 @@ return packer.startup(function()
   -- Color highlighter for hex, rgb, etc...
   use {
     "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
     config = function()
       require("colorizer").setup({"*"}, {
         css = { rgb_fn = true },
@@ -184,7 +183,6 @@ return packer.startup(function()
         names = false, -- "Name" codes like 'blue'
         mode = "background"
       })
-      vim.cmd "ColorizerReloadAllBuffers"
     end
   }
 end)
