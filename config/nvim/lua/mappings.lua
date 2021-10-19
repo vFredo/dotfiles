@@ -90,4 +90,3 @@ vim.cmd([[
   command! ToggleMaximize call ToggleOnlyBuffer()
 ]])
 map("n", "<Leader>o", ":ToggleMaximize<CR>")
-

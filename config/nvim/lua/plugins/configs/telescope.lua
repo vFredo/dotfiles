@@ -1,6 +1,6 @@
-local ts = require("telescope")
+local telescope = require("telescope")
 
-ts.setup {
+telescope.setup {
   defaults = {
     vimgrep_arguments = {
        "rg",
@@ -44,5 +44,4 @@ ts.setup {
 }
 
 -- Loading fzf extension
-ts.load_extension('fzf')
-
+telescope.load_extension('fzf')

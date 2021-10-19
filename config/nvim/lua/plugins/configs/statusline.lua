@@ -307,4 +307,3 @@ require("feline").setup {
   components = components,
   vi_mode_colors = vi_mode_colors
 }
-

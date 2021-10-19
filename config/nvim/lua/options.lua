@@ -79,4 +79,3 @@ opt.shortmess      = opt.shortmess
   + 'a' -- Abreviations eg. `[RO]` instead of `[readonly]`
   + 't' -- truncate file messages at start
   + 'c' -- completion messages
-
