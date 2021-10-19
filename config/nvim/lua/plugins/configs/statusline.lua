@@ -8,7 +8,7 @@ local icon_styles = {
     left = "",
     right = " ",
     main_icon = "   ",
-    position_icon = " ",
+    porcentage_icon = " ",
   },
   block = {
     left = " ",
@@ -79,19 +79,18 @@ components.active[1][2] = {
     return icon
   end,
   hl = function()
-    local val = {}
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
     local icon, color = require('nvim-web-devicons').get_icon_color(filename, extension)
 
-    if icon ~= nil then
-      val.fg = color
-    else
-      val.fg = colors.fg
+    if icon == nil then
+      color = colors.fg
     end
 
-    val.bg = colors.bgAlt
-    return val
+    return {
+      fg = color,
+      bg = colors.bgAlt
+    }
   end,
   left_sep = { str = icon_styles.block.left, hl = { bg = colors.bgAlt } },
   right_sep = { str = icon_styles.block.right, hl = { bg = colors.bgAlt } }
@@ -127,31 +126,12 @@ components.active[1][3] = {
     return filename .. ' '
   end,
   hl = { bg = colors.bgAlt },
+  left_sep = { str = icon_styles.block.left, hl = { bg = colors.bgAlt } },
   right_sep = { str = icon_styles.default.right, hl = { fg = colors.bgAlt } }
 }
 
--- diffAdded
-components.active[1][4] = {
-  provider = "git_diff_added",
-  hl = { fg = colors.green },
-  icon = "  ",
-}
-
--- diffModfified
-components.active[1][5] = {
-  provider = "git_diff_changed",
-  hl = { fg = colors.yellow },
-  icon = "  ",
-}
--- diffRemove
-components.active[1][6] = {
-  provider = "git_diff_removed",
-  hl = { fg = colors.red },
-  icon = "  ",
-}
-
 -- Diagnostic errors
-components.active[1][7] = {
+components.active[1][4] = {
   provider = "diagnostic_errors",
   enabled = function()
     return lsp.diagnostics_exist "Error"
@@ -161,7 +141,7 @@ components.active[1][7] = {
 }
 
 -- Diagnostic warning
-components.active[1][8] = {
+components.active[1][5] = {
   provider = "diagnostic_warnings",
   enabled = function()
     return lsp.diagnostics_exist "Warning"
@@ -171,7 +151,7 @@ components.active[1][8] = {
 }
 
 -- Diagnostic hints
-components.active[1][9] = {
+components.active[1][6] = {
   provider = "diagnostic_hints",
   enabled = function()
     return lsp.diagnostics_exist "Hint"
@@ -181,7 +161,7 @@ components.active[1][9] = {
 }
 
 -- Diagnostic info
-components.active[1][10] = {
+components.active[1][7] = {
   provider = "diagnostic_info",
   enabled = function()
     return lsp.diagnostics_exist "Information"
@@ -215,7 +195,7 @@ components.active[3][2] = {
 
 -- Icon for line porcentage
 components.active[3][3] = {
-  provider = icon_styles.default.position_icon,
+  provider = icon_styles.default.porcentage_icon,
   enabled = function()
     return vim.api.nvim_win_get_width(0) > 90
   end,
@@ -227,7 +207,7 @@ components.active[3][3] = {
 components.active[3][4] = {
   provider = 'line_percentage',
   enabled = function()
-    return vim.api.nvim_win_get_width(0) > 50
+    return vim.api.nvim_win_get_width(0) > 40
   end,
   hl = { fg = colors.green },
   left_sep = { str = icon_styles.block.left },
