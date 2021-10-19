@@ -73,7 +73,7 @@ components.active[1][2] = {
     local icon = require('nvim-web-devicons').get_icon(filename, extension)
 
     if icon == nil then
-      icon = ""
+      icon = ""
     end
 
     return icon
@@ -87,7 +87,7 @@ components.active[1][2] = {
     if icon ~= nil then
       val.fg = color
     else
-      val.fg = colors.yellow
+      val.fg = colors.grey
     end
 
     val.bg = colors.bgAlt

@@ -9,7 +9,7 @@ bufferline.setup {
     modified_icon = "",
     show_close_icon = false,
     show_buffer_close_icons = false,
-
+    show_tab_indicators = true,
     max_name_length = 14,
     max_prefix_length = 14,
     tab_size = 18,
@@ -64,10 +64,35 @@ bufferline.setup {
       guibg = colors.bgAlt
     },
 
+    -- Tabs
+    tab = {
+      guifg = colors.fgAlt2,
+      guibg = colors.bgAlt
+    },
+    tab_selected = {
+      guifg = colors.fgAlt,
+      guibg = colors.bgAlt2,
+      gui = "bold"
+    },
+
     -- Separator
     separator = {
       guifg = colors.bg,
       guibg = colors.bg
+    },
+    separator_selected = {
+      guifg = colors.bg,
+      guibg = colors.bg
+    },
+    separator_visible = {
+      guifg = colors.bg,
+      guibg = colors.bg
+    },
+
+    -- Indicator
+    indicator_selected = {
+       guifg = colors.bg,
+       guibg = colors.bg,
     },
   }
 }
