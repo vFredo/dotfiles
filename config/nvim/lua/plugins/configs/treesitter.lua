@@ -24,7 +24,7 @@ ts_config.setup{
     "json",
     "latex"
   },
-  highlight = { enable = true },
+  highlight = { enable = true, use_languagetree = true },
   context_commentstring = { enable = true },
   autotag = { enable = true },
   autopairs = { enable = true },
