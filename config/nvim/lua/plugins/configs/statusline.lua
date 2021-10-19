@@ -87,7 +87,7 @@ components.active[1][2] = {
     if icon ~= nil then
       val.fg = color
     else
-      val.fg = colors.grey
+      val.fg = colors.fg
     end
 
     val.bg = colors.bgAlt
