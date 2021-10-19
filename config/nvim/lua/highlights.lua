@@ -72,6 +72,11 @@ bg("NormalFloat", colors.bgAlt)
 fgbg("FloatBorder", colors.fg, colors.bgAlt)
 
 --
+-- BlankIndent Lines
+--
+fg("IndentBlanklineChar", colors.base01)
+
+--
 -- NvimTree
 --
 fg("NvimTreeRootFolder", colors.green)
