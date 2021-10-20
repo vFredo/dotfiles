@@ -1,7 +1,14 @@
-local packer = require("packer")
-local use = packer.use
+--
+-- Making sure that packer is install
+--
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local packer_bootstrap = nil
 
-return packer.startup(function()
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
+return require("packer").startup(function(use)
   -- Update packer manager
   use { "wbthomason/packer.nvim" }
 
@@ -53,17 +60,13 @@ return packer.startup(function()
   use {
     "akinsho/nvim-bufferline.lua",
     after = "nvim-web-devicons",
-    config = function()
-      require "plugins.configs.bufferline"
-    end
+    config = [[ require "plugins.configs.bufferline" ]]
   }
 
   -- Indentation guide
   use {
     "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require "plugins.configs.blankline"
-    end
+    config = [[ require "plugins.configs.blankline" ]]
   }
 
   -- Statusline
@@ -71,17 +74,14 @@ return packer.startup(function()
     'famiu/feline.nvim',
     branch = 'master',
     after = "nvim-web-devicons",
-    config = function()
-      require "plugins.configs.statusline"
-    end
+    config = [[ require "plugins.configs.statusline" ]]
   }
 
   -- Tree view of the files
   use {
     "kyazdani42/nvim-tree.lua",
-    config = function()
-      require "plugins.configs.nvim-tree"
-    end
+    after = "nvim-web-devicons",
+    config = [[ require "plugins.configs.nvim-tree" ]]
   }
 
   -- Theme
@@ -106,9 +106,7 @@ return packer.startup(function()
       "nvim-lua/popup.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
     },
-    config = function()
-      require "plugins.configs.telescope"
-    end
+    config = [[ require "plugins.configs.telescope" ]]
   }
 
   --
@@ -116,9 +114,7 @@ return packer.startup(function()
   --
   use {
     "lewis6991/gitsigns.nvim",
-    config = function()
-      require "plugins.configs.gitsigns"
-    end
+    config = [[ require "plugins.configs.gitsigns" ]]
   }
 
   use { "tpope/vim-fugitive" }
@@ -129,9 +125,7 @@ return packer.startup(function()
   use {
     "neovim/nvim-lspconfig",
     requires = { "williamboman/nvim-lsp-installer"},
-    config = function()
-      require "plugins.configs.lspconfig"
-    end
+    config = [[ require "plugins.configs.lspconfig" ]]
   }
 
   -- Autocomplete
@@ -151,9 +145,7 @@ return packer.startup(function()
         clients = { tabnine = { enabled = true } }
       }
     end,
-    config =  function()
-      require "plugins.configs.coq"
-    end
+    config = [[ require "plugins.configs.coq" ]]
   }
 
   --
@@ -168,9 +160,7 @@ return packer.startup(function()
     },
     branch = "0.5-compat",
     run = ":TSUpdate",
-    config = function()
-      require "plugins.configs.treesitter"
-    end
+    config = [[ require "plugins.configs.treesitter" ]]
   }
 
   -- Color highlighter for hex, rgb, etc...
@@ -182,8 +172,12 @@ return packer.startup(function()
         RRGGBB = true,   -- #RRGGBB hex codes
         RRGGBBAA = true, -- #RRGGBBAA hex codes
         rgb_fn = true,   -- CSS rgb() and rgba() functions
-        css_fn = true,   -- Enable all CSS *functions*: rgb_fn, hsl_fn
       })
     end
   }
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  if packer_bootstrap ~= nil then
+    require('packer').sync()
+  end
 end)
