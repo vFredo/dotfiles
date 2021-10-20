@@ -22,9 +22,10 @@ ts_config.setup{
     "html",
     "css",
     "json",
-    "latex"
+    "latex",
+    "comment"
   },
-  highlight = { enable = true, use_languagetree = true },
+  highlight = { enable = true },
   context_commentstring = { enable = true },
   autotag = { enable = true },
   autopairs = { enable = true },

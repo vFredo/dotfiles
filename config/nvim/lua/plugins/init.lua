@@ -138,6 +138,10 @@ return packer.startup(function()
   use {
     'ms-jpq/coq_nvim',
     branch = 'coq',
+    requires = {
+      { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
+      { 'ms-jpq/coq.thirdparty', branch = '3p'}
+    },
     setup = function()
       vim.g.coq_settings = {
         auto_start = 'shut-up',
@@ -151,10 +155,6 @@ return packer.startup(function()
       require "plugins.configs.coq"
     end
   }
-
-  -- Snippets and thirdparty support for coq_nvim
-  use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-  use { 'ms-jpq/coq.thirdparty', branch = '3p'}
 
   --
   -- Web development Javascript/React/Typescript

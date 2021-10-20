@@ -3,7 +3,8 @@ local gitsigns = require("gitsigns")
 gitsigns.setup{
   keymaps = { noremap = false },
   signcolumn = true,
-  sign_priority = 5,
+  word_diff = false,
+  sign_priority = 8,
   status_formatter = nil, -- Use default
-  watch_gitdir = { interval = 100 },
+  watch_gitdir = { interval = 100, follow_files = true },
 }
