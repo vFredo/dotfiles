@@ -25,6 +25,9 @@ return require("packer").startup(function(use)
   -- tmux/nvim navigation
   use { "christoomey/vim-tmux-navigator" }
 
+  -- :bdelete, :close, :quit in one command
+  use { "mhinz/vim-sayonara" }
+
   -- Better text searches
   use {
     "wincent/loupe",
@@ -43,17 +46,7 @@ return require("packer").startup(function(use)
   -- Icons for telescope, bufferline, feline (statusline)
   use {
     "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("nvim-web-devicons").setup{
-        override = {
-          js = {
-            name = "js",
-            icon = "",
-            color = "#FFC745"
-          }
-        }
-      }
-    end
+    config = [[ require "plugins.configs.devicons" ]]
   }
 
   -- Bufferline
@@ -63,7 +56,7 @@ return require("packer").startup(function(use)
     config = [[ require "plugins.configs.bufferline" ]]
   }
 
-  -- Indentation guide
+  -- Indentation guides/tracking
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = [[ require "plugins.configs.blankline" ]]

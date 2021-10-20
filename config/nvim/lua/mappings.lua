@@ -33,9 +33,9 @@ map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 -- Buffers
+map("n", "<Leader>d", ":Sayonara<CR>", opt)
 map("n", "<Leader>l", ":bnext<CR>", opt)
 map("n", "<Leader>h", ":bprevious<CR>", opt)
-map("n", "<Leader>d", ":bdelete<CR>", opt)
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L",opt)
 map("n", "<Leader>H", "<C-w>H",opt)
