@@ -25,6 +25,8 @@ vim.cmd([[
 --
 opt.guifont        = 'Iosevka Nerd Font:h12' -- GUI font for eg: neovide
 g.mapleader        = " "                 -- Map leader is <Space>
+opt.ignorecase     = true                -- ignore case on '/', '?', '*', '#'
+opt.smartcase      = true                -- override ignorecase if there is an uppercase
 opt.termguicolors  = true                -- Use all the color pallette
 opt.showmode       = false               -- Don't show current mode on the command line
 opt.mouse          = "a"                 -- Mouse support for neovim

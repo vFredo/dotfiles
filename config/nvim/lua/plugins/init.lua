@@ -28,14 +28,6 @@ return require("packer").startup(function(use)
   -- :bdelete, :close, :quit in one command
   use { "mhinz/vim-sayonara" }
 
-  -- Better text searches
-  use {
-    "wincent/loupe",
-    config = function()
-      vim.g.LoupeCenterResults = 0
-    end
-  }
-
   -- Speed up lua modules on startup
   use { 'lewis6991/impatient.nvim' }
 
@@ -43,7 +35,7 @@ return require("packer").startup(function(use)
   -- GUI Plugins
   --
 
-  -- Icons for telescope, bufferline, feline (statusline)
+  -- Icons for telescope, bufferline, feline (statusline) and NvimTree
   use {
     "kyazdani42/nvim-web-devicons",
     config = [[ require "plugins.configs.devicons" ]]
@@ -70,7 +62,7 @@ return require("packer").startup(function(use)
     config = [[ require "plugins.configs.statusline" ]]
   }
 
-  -- Tree view of the files
+  -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
     after = "nvim-web-devicons",
@@ -107,17 +99,19 @@ return require("packer").startup(function(use)
   --
   use {
     "lewis6991/gitsigns.nvim",
+    requires = { "tpope/vim-fugitive" },
     config = [[ require "plugins.configs.gitsigns" ]]
   }
-
-  use { "tpope/vim-fugitive" }
 
   --
   -- LSP
   --
   use {
     "neovim/nvim-lspconfig",
-    requires = { "williamboman/nvim-lsp-installer"},
+    requires = {
+      "williamboman/nvim-lsp-installer",
+      "ray-x/lsp_signature.nvim"
+    },
     config = [[ require "plugins.configs.lspconfig" ]]
   }
 
