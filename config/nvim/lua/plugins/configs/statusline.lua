@@ -211,7 +211,7 @@ components.active[3][4] = {
 -- Inactive statusline components
 --
 components.inactive[1][1] = {
-  hl = { fg = colors.bgAlt2, bg = "NONE", style = "underline" },
+  hl = { fg = colors.bgAlt2, bg = colors.bg, style = "underline" },
 }
 
 local vi_mode_colors = {

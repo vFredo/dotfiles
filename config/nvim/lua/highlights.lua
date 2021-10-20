@@ -27,16 +27,15 @@ bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
 
--- Statusline
-fg_bg("StatusLineNC", colors.bgAlt, "NONE")
-bg("StatusLine", "NONE")
+-- Statusline active/inactive
+fg_bg("StatusLineNC", colors.bgAlt, colors.bg .. " gui=underline")
+fg_bg("StatusLine", colors.bgAlt, colors.bg .. " gui=underline")
 
 -- Italic Comments
 ui("Comment", "italic")
 
 -- Search
-fg_bg("Search", colors.yellow, colors.bg)
-ui("Search", "bold,underline")
+fg_bg("Search", colors.yellow, colors.bg .. " gui=bold,underline")
 ui("IncSearch", "bold")
 
 -- Popup menu (autocomplete menu)
@@ -83,8 +82,7 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 --
 -- NvimTree
 --
-fg("NvimTreeRootFolder", colors.green)
-ui("NvimTreeRootFolder", "underline")
+fg("NvimTreeRootFolder", colors.green .. " gui=underline")
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
 fg("NvimTreeOpenedFolderName", colors.blue)
