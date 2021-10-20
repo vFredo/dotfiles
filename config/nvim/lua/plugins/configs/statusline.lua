@@ -147,7 +147,7 @@ components.active[1][5] = {
     return lsp.diagnostics_exist "Warning"
   end,
   hl = { fg = colors.yellow },
-  icon = "  ",
+  icon = "   ",
 }
 
 -- Diagnostic hints

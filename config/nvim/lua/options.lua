@@ -23,8 +23,8 @@ vim.cmd([[
 --
 -- General options
 --
+opt.guifont        = 'Iosevka Nerd Font:h12' -- GUI font for eg: neovide
 g.mapleader        = " "                 -- Map leader is <Space>
-opt.guifont        = 'Iosevka Nerd Font:h13' -- GUI font for eg: neovide
 opt.termguicolors  = true                -- Use all the color pallette
 opt.showmode       = false               -- Don't show current mode on the command line
 opt.mouse          = "a"                 -- Mouse support for neovim
