@@ -27,8 +27,6 @@ table.insert(components.active, {})
 table.insert(components.active, {})
 table.insert(components.active, {})
 table.insert(components.inactive, {})
-table.insert(components.inactive, {})
-table.insert(components.inactive, {})
 
 --
 -- Active statusline components
@@ -218,49 +216,7 @@ components.active[3][4] = {
 -- Inactive statusline components
 --
 components.inactive[1][1] = {
-  hl = { bg = colors.bgAlt },
-}
-
--- full path filename or just parent directory and filename if screen is to small
-components.inactive[2][1] = {
-  provider = function()
-    local filename = vim.fn.expand("%:p")
-    local shortFilename = vim.fn.expand("%:t")
-
-    -- replace 'home/user' to '~'
-    filename = filename:gsub(os.getenv("HOME"), '~')
-
-    -- No filename, NvimTree and packer buffers
-    if vim.fn.empty(shortFilename) == 1 or shortFilename:find('NvimTree') or shortFilename:find('packer')  then
-      filename = ''
-    end
-
-    -- If filename is to big or screen to small, then show 'parent/filename'
-    if filename:len() > 85 or (vim.api.nvim_win_get_width(0) < 60 and filename ~= '') then
-      local parentFolder = vim.fn.expand("%:h:t")
-
-      if parentFolder ~= '.' then
-        filename = parentFolder .. '/' .. shortFilename
-      else
-        filename = shortFilename
-      end
-    end
-
-    -- readonly file
-    if vim.bo.readonly == true then
-      filename = filename .. ' '
-    end
-
-    -- modified file
-    if vim.bo.modifiable then
-      if vim.bo.modified then
-        filename = filename .. ' ●'
-      end
-    end
-
-    return filename .. ' '
-  end,
-  hl = { fg = colors.grey, bg = colors.bgAlt, style = 'italic' },
+  hl = { fg = colors.bgAlt2, bg = "NONE", style = "underline" },
 }
 
 local vi_mode_colors = {
@@ -285,5 +241,13 @@ local vi_mode_colors = {
 require("feline").setup {
   colors = { fg = colors.fg, bg = colors.bg },
   components = components,
-  vi_mode_colors = vi_mode_colors
+  vi_mode_colors = vi_mode_colors,
+  filetypes = {
+    '^NvimTree$',
+    '^packer$',
+    '^fugitive$',
+    '^fugitiveblame$',
+    '^help$'
+  },
+  buftypes = { '^terminal$' },
 }
