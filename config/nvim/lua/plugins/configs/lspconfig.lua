@@ -33,12 +33,11 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-local servers = { 'tsserver', 'pyright', 'cssls', 'bashls' }
+local servers = { 'tsserver', 'pyright', 'cssls', 'bashls', 'vuels' }
 for _, lang in ipairs(servers) do
   lsp[lang].setup {
     on_attach = on_attach,
     capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    flags = { debounce_text_changes = 150 }
   }
 end
 
@@ -49,7 +48,6 @@ lsp.gopls.setup{
   cmd = {'gopls'},
   on_attach = on_attach,
   capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  flags = { debounce_text_changes = 150 },
   settings = {
     gopls = {
       experimentalPostfixCompletions = true,
