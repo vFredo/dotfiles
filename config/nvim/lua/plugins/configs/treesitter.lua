@@ -26,6 +26,7 @@ ts_config.setup{
     "comment"
   },
   highlight = { enable = true },
+  indent = { enable = true },
   context_commentstring = { enable = true },
   autotag = { enable = true },
   autopairs = { enable = true },

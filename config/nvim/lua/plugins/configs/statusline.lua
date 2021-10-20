@@ -168,15 +168,10 @@ components.active[1][7] = {
   icon = "  ",
 }
 
--- Check if a lsp server is running on file
+-- LSP server name; if there's one attach to buffer
 components.active[3][1] = {
-  provider = function()
-    if next(vim.lsp.buf_get_clients()) ~= nil then
-       return "  LSP"
-    else
-       return ""
-    end
-  end,
+  provider = "lsp_client_names",
+  icon = "  ",
   enabled = function()
     return vim.api.nvim_win_get_width(0) > 70
   end,
