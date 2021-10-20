@@ -84,6 +84,7 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 -- NvimTree
 --
 fg("NvimTreeRootFolder", colors.green)
+ui("NvimTreeRootFolder", "underline")
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
 fg("NvimTreeOpenedFolderName", colors.blue)
@@ -98,3 +99,4 @@ fg("NvimTreeGitDirty", colors.red)
 fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
+fg("NvimTreeSpecialFile", colors.magenta)
