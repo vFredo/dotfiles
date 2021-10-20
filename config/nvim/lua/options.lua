@@ -35,6 +35,7 @@ opt.updatetime     = 300                 -- Change between modes more faster
 opt.joinspaces     = false               -- don't autoinsert two spaces after punctuation
 opt.wildmode       = 'longest:full,full' -- shell-like autocomplete to unambiguous portion
 opt.wildignore     = opt.wildignore + '*.o,*.rej,*.so' -- patterns to ignore in navigation
+opt.signcolumn     = "auto:4"            -- show when is a sign to display and max 4 signs we can see at a time
 
 -- Viewport
 opt.scrolloff      = 3                   -- start scrolling 3 lines before edge of the rows viewport
