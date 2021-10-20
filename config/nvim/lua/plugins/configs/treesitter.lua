@@ -9,6 +9,7 @@ npairs.setup{
 ts_config.setup{
   ensure_installed = {
     "lua",
+    "vim",
     "python",
     "go",
     "gomod",
@@ -23,7 +24,8 @@ ts_config.setup{
     "css",
     "json",
     "latex",
-    "comment"
+    "comment",
+    "jsdoc"
   },
   highlight = { enable = true },
   indent = { enable = true },
