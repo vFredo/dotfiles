@@ -30,7 +30,7 @@ theme.colors = {
   base07 = "#fbf1c7"
 }
 
-function stripHash(hex)
+local stripHash =  function(hex)
   return hex:gsub("#", "")
 end
 
