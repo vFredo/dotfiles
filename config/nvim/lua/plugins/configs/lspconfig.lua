@@ -26,39 +26,50 @@ local on_attach = function(client, bufnr)
 
   -- if the server client can format files then format on save
   if client.resolved_capabilities.document_formatting then
-    vim.cmd([[ autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting() ]])
+    vim.cmd([[ autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting(nil, 1000) ]])
   end
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
--- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-local servers = { 'tsserver', 'pyright', 'cssls', 'bashls', 'vuels' }
-for _, lang in ipairs(servers) do
-  lsp[lang].setup {
+local lsp_installer = require("nvim-lsp-installer")
+
+local checkInstall = function ()
+  local lsp_installer_servers = require('nvim-lsp-installer.servers')
+  local servers = { 'clangd', 'gopls', 'html', 'jsonls', 'tsserver', 'pyright', 'cssls', 'bashls', 'volar', 'sumneko_lua' }
+
+  for _, currServer in ipairs(servers) do
+    local ok, server =  lsp_installer_servers.get_server(currServer)
+    if ok then
+      if not server:is_installed() then
+        server:install()
+      end
+    end
+  end
+end
+
+lsp_installer.on_server_ready(function(server)
+  checkInstall()
+
+  local opts = {
     on_attach = on_attach,
     capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
   }
-end
 
---
--- go lsp
---
-lsp.gopls.setup{
-  cmd = {'gopls'},
-  on_attach = on_attach,
-  capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-      },
-      staticcheck = true,
-    },
-  },
-}
+  if server.name == "gopls" then
+    opts.cmd = { 'gopls' }
+    opts.settings = {
+      gopls = {
+        experimentalPostfixCompletions = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+      }
+    }
+  end
+  server:setup(opts)
+  vim.cmd [[ do User LspAttachBuffers ]]
+end)
 
 -- replace the default lsp diagnostic symbols
 local function lspSymbol(name, icon)

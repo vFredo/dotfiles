@@ -128,6 +128,7 @@ return packer.startup(function()
   --
   use {
     "neovim/nvim-lspconfig",
+    requires = { "williamboman/nvim-lsp-installer"},
     config = function()
       require "plugins.configs.lspconfig"
     end
@@ -177,11 +178,11 @@ return packer.startup(function()
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({"*"}, {
-        css = { rgb_fn = true },
+        names = false, -- "Name" codes like 'Blue'
         RRGGBB = true, -- #RRGGBB hex codes
         RRGGBBAA = true, -- #RRGGBBAA hex codes
-        names = false, -- "Name" codes like 'blue'
-        mode = "background"
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
       })
     end
   }
