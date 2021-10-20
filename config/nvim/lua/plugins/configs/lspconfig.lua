@@ -1,5 +1,18 @@
-local lsp = require("lspconfig")
+local lsp_installer = require("nvim-lsp-installer")
 local coq = require("coq")
+
+--
+-- Install servers that I'm using
+--
+local lsp_installer_servers = require('nvim-lsp-installer.servers')
+local servers = { 'clangd', 'gopls', 'html', 'jsonls', 'tsserver', 'pyright', 'cssls', 'bashls', 'volar', 'sumneko_lua' }
+
+for _, currServer in ipairs(servers) do
+  local ok, server =  lsp_installer_servers.get_server(currServer)
+  if ok and not server:is_installed() then
+    server:install()
+  end
+end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -30,25 +43,8 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local lsp_installer = require("nvim-lsp-installer")
-
-local checkInstall = function ()
-  local lsp_installer_servers = require('nvim-lsp-installer.servers')
-  local servers = { 'clangd', 'gopls', 'html', 'jsonls', 'tsserver', 'pyright', 'cssls', 'bashls', 'volar', 'sumneko_lua' }
-
-  for _, currServer in ipairs(servers) do
-    local ok, server =  lsp_installer_servers.get_server(currServer)
-    if ok then
-      if not server:is_installed() then
-        server:install()
-      end
-    end
-  end
-end
-
+-- servers setup with lsp_installer
 lsp_installer.on_server_ready(function(server)
-  checkInstall()
-
   local opts = {
     on_attach = on_attach,
     capabilities = coq.lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
