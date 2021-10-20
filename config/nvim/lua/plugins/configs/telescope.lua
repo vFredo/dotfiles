@@ -15,6 +15,7 @@ telescope.setup {
     selection_caret = " ",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
+    scroll_strategy = 'cycle',
     layout_config = {
       horizontal = {
         prompt_position = "top",

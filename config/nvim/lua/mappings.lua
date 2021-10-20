@@ -11,9 +11,12 @@ local opt = {  }
 -- Yank selected text from neovim to the clipboard
 vim.cmd([[ noremap <Leader>y "+y ]])
 
+-- use ESC in normal mode to turn off search highlighting
+map("n", "<Esc>", ":nohlsearch<CR>", opt)
+
 -- Telescope
 map("n", "<Leader>ff", ":Telescope find_files<CR>", opt)
-map("n", "<Leader>fb", ":Telescope buffers<CR>", opt)
+map("n", "<Leader>fb", ":Telescope buffers show_all_buffers=true<CR>", opt)
 map("n", "<Leader>fg", ":Telescope live_grep<CR>", opt)
 map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 
@@ -44,9 +47,10 @@ map("x", "<C-j>", "<C-w>j", opt)
 map("x", "<C-k>", "<C-w>k", opt)
 map("x", "<C-l>", "<C-w>l", opt)
 
--- Edit tabulation on visual mode more easily
+-- Easy edits
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
+map("n", "Y", "y$", opt)
 
 -- Jump quickfix list
 map("n", "<Up>", ":cprevious<CR>", opt)
@@ -89,4 +93,4 @@ vim.cmd([[
   endfunction
   command! ToggleMaximize call ToggleOnlyBuffer()
 ]])
-map("n", "<Leader>o", ":ToggleMaximize<CR>")
+map("n", "<Leader>o", ":ToggleMaximize<CR>", opt)
