@@ -62,7 +62,16 @@ lsp_installer.on_server_ready(function(server)
         staticcheck = true,
       }
     }
+  elseif server.name == "sumneko_lua" then
+    opts.settings = {
+      Lua = {
+        runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
+        workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+        diagnostics = { globals = { "vim" } },
+      },
+    }
   end
+
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
 end)
