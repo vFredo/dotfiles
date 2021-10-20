@@ -15,9 +15,9 @@ vim.cmd([[ noremap <Leader>y "+y ]])
 map("n", "<Esc>", ":nohlsearch<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>ff", ":Telescope find_files<CR>", opt)
-map("n", "<Leader>fb", ":Telescope buffers show_all_buffers=true<CR>", opt)
-map("n", "<Leader>fg", ":Telescope live_grep<CR>", opt)
+map("n", "<Leader>ff", ":Telescope find_files hidden=true no_ignore=true<CR>", opt)
+map("n", "<Leader>fb", ":Telescope buffers ignore_current_buffer=true<CR>", opt)
+map("n", "<Leader>fg", ":Telescope live_grep additional_args=--hidden<CR>", opt)
 map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 
 -- nvim-tree
