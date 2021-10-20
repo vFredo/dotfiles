@@ -1,11 +1,11 @@
 --
 -- Making sure that packer is install
 --
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 local packer_bootstrap = nil
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
 end
 
 return require("packer").startup(function(use)
@@ -25,11 +25,11 @@ return require("packer").startup(function(use)
   -- tmux/nvim navigation
   use { "christoomey/vim-tmux-navigator" }
 
-  -- :bdelete, :close, :quit in one command
+  -- :bdelete, :close and :quit in one smart command
   use { "mhinz/vim-sayonara" }
 
   -- Speed up lua modules on startup
-  use { 'lewis6991/impatient.nvim' }
+  use { "lewis6991/impatient.nvim" }
 
   --
   -- GUI Plugins
@@ -56,8 +56,8 @@ return require("packer").startup(function(use)
 
   -- Statusline
   use {
-    'famiu/feline.nvim',
-    branch = 'master',
+    "famiu/feline.nvim",
+    branch = "master",
     after = "nvim-web-devicons",
     config = [[ require "plugins.configs.statusline" ]]
   }
@@ -117,15 +117,15 @@ return require("packer").startup(function(use)
 
   -- Autocomplete
   use {
-    'ms-jpq/coq_nvim',
-    branch = 'coq',
+    "ms-jpq/coq_nvim",
+    branch = "coq",
     requires = {
-      { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-      { 'ms-jpq/coq.thirdparty', branch = '3p'}
+      { "ms-jpq/coq.artifacts", branch = "artifacts" },
+      { "ms-jpq/coq.thirdparty", branch = "3p"}
     },
     setup = function()
       vim.g.coq_settings = {
-        auto_start = 'shut-up',
+        auto_start = "shut-up",
         ["keymap.recommended"] = false,
         ["keymap.jump_to_mark"] = "<c-b>",
         ["keymap.manual_complete"] = "<c-n>",
@@ -165,6 +165,6 @@ return require("packer").startup(function(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   if packer_bootstrap ~= nil then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)

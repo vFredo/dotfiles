@@ -23,8 +23,8 @@ vim.cmd([[
 --
 -- General options
 --
-opt.guifont        = 'Iosevka Nerd Font:h12' -- GUI font for eg: neovide
 g.mapleader        = " "                 -- Map leader is <Space>
+opt.guifont        = "Iosevka Nerd Font:h12" -- GUI font for eg: neovide
 opt.ignorecase     = true                -- ignore case on '/', '?', '*', '#'
 opt.smartcase      = true                -- override ignorecase if there is an uppercase
 opt.termguicolors  = true                -- Use all the color pallette
@@ -35,8 +35,8 @@ opt.relativenumber = true                -- Relatives number to the current line
 opt.hidden         = true                -- Change between buffers even if I don't save the current one
 opt.updatetime     = 300                 -- Change between modes more faster
 opt.joinspaces     = false               -- don't autoinsert two spaces after punctuation
-opt.wildmode       = 'longest:full,full' -- shell-like autocomplete to unambiguous portion
-opt.wildignore     = opt.wildignore + '*.o,*.rej,*.so' -- patterns to ignore in navigation
+opt.wildmode       = "longest:full,full" -- shell-like autocomplete to unambiguous portion
+opt.wildignore     = opt.wildignore + "*.o,*.rej,*.so" -- patterns to ignore in navigation
 opt.signcolumn     = "auto:4"            -- show when is a sign to display and max 4 signs we can see at a time
 
 -- Viewport
@@ -68,7 +68,7 @@ opt.listchars      = {
   trail     = '•'         -- MIDDLE BULLET (U+2022)
 }
 
-opt.diffopt        = opt.diffopt + 'foldcolumn:0'  -- don't show fold column in diff view.
+opt.diffopt        = opt.diffopt + "foldcolumn:0"  -- don't show fold column in diff view.
 opt.fillchars      = {
   diff  =  '∙',        -- BULLET OPERATOR (U+2219)
   eob   =  ' ',        -- NO-BREAK SPACE (U+00A0) to suppress ~ at EndOfBuffer
