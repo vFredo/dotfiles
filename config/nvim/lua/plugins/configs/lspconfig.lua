@@ -44,6 +44,7 @@ lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = on_attach,
     capabilities = require("coq").lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    flags = { debounce_text_changes = 150 },
   }
 
   if server.name == "gopls" then
@@ -56,16 +57,22 @@ lsp_installer.on_server_ready(function(server)
           shadow = true,
         },
         staticcheck = true,
-      }
+      },
     }
   elseif server.name == "sumneko_lua" then
     opts.settings = {
       Lua = {
         runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
-        workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = {
+            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+          }
+        },
         diagnostics = { globals = { "vim" } },
         telemetry = { enable = false }
-      }
+      },
     }
   end
 
@@ -73,24 +80,20 @@ lsp_installer.on_server_ready(function(server)
   vim.cmd [[ do User LspAttachBuffers ]]
 end)
 
--- replace the default lsp diagnostic symbols
-local function lspSymbol(name, icon)
-  vim.fn.sign_define("LspDiagnosticsSign" .. name,
-    { text = icon, numhl = "LspDiagnosticsDefaul" .. name }
-  )
-end
+-- Change the default lsp diagnostic symbols
+local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
 
-lspSymbol("Error", "")
-lspSymbol("Information", "")
-lspSymbol("Hint", "")
-lspSymbol("Warning", "")
+for name, icon in pairs(signs) do
+  local hl = "LspDiagnosticsSign" .. name
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = { prefix = "", spacing = 4, },
     signs = true,
     underline = true,
-    update_in_insert = false, -- don't update diagnostics in insert mode
+    update_in_insert = false,
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(

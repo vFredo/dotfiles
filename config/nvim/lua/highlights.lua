@@ -52,26 +52,29 @@ fg("IndentBlanklineChar", colors.base01)
 --
 
 -- Errors
-fg_bg("LspDiagnosticsSignError", colors.red, "NONE")
+fg("LspDiagnosticsSignError", colors.red)
 fg("LspDiagnosticsVirtualTextError", colors.red)
-fg_bg("LspDiagnosticsSignWarning", colors.yellow, "NONE")
+
+-- Warnings
+fg("LspDiagnosticsSignWarning", colors.yellow)
 fg("LspDiagnosticsVirtualTextWarning", colors.yellow)
 
 -- Info
-fg_bg("LspDiagnosticsSignInformation", colors.green, "NONE")
+fg("LspDiagnosticsSignInformation", colors.green)
 fg("LspDiagnosticsVirtualTextInformation", colors.green)
 
 -- Hints
-fg_bg("LspDiagnosticsSignHint", colors.magenta, "NONE")
+fg("LspDiagnosticsSignHint", colors.magenta)
 fg("LspDiagnosticsVirtualTextHint", colors.magenta)
+
 
 --
 -- GitSigns
 --
-fg_bg("GitSignsAdd", colors.green, "NONE")
-fg_bg("GitSignsChange", colors.blue, "NONE")
-fg_bg("GitSignsChangeDelete", colors.red, "NONE")
-fg_bg("GitSignsDelete", colors.red, "NONE")
+fg("GitSignsAdd", colors.green)
+fg("GitSignsChange", colors.blue)
+fg("GitSignsChangeDelete", colors.red)
+fg("GitSignsDelete", colors.red)
 
 --
 -- Lsp neovim float window colors
