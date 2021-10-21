@@ -91,7 +91,10 @@ return require("packer").startup(function(use)
   use {
     "karb94/neoscroll.nvim",
     config = function()
-      require("neoscroll").setup()
+      require("neoscroll").setup{
+        use_local_scrolloff = true,
+        easing_function = "circular"
+      }
     end
   }
 
@@ -148,9 +151,12 @@ return require("packer").startup(function(use)
     setup = function()
       vim.g.coq_settings = {
         auto_start = "shut-up",
+        ["display.icons.mode"] = "short",
+        ["display.pum.kind_context"] = { "[", " ]" },
         ["keymap.recommended"] = false,
-        ["keymap.jump_to_mark"] = "<c-b>",
+        ["keymap.jump_to_mark"] = "<s-tab>",
         ["keymap.manual_complete"] = "<c-n>",
+        ["keymap.repeat"] = ".",
         clients = { tabnine = { enabled = true } }
       }
     end,
