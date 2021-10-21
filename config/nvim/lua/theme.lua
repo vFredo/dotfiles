@@ -3,7 +3,7 @@ local theme = {  }
 
 theme.colors = {
   bg = "#1d2021",
-  fg = "#fbf1c7",
+  fg = "#d5c4a1",
   red = "#ea6962",
   green = "#a9b665",
   yellow = "#ffc745",
@@ -12,22 +12,14 @@ theme.colors = {
   cyan = "#89b482",
   grey = "#665c54",
   orange = "#dc9656",
+  orangeAlt = "#d65d0e",
+  pink = "#d3869b",
 
   -- Alternative colors
   bgAlt = "#282828",
   bgAlt2 = "#32302f",
-  fgAlt = "#ebdbb2",
-  fgAlt2 = "#bdae93",
-
-  -- Base16
-  base00 = "#1d2021",
-  base01 = "#3c3836",
-  base02 = "#504945",
-  base03 = "#665c54",
-  base04 = "#bdae93",
-  base05 = "#d5c4a1",
-  base06 = "#ebdbb2",
-  base07 = "#fbf1c7"
+  fgAlt = "#bdae93",
+  fgAlt2 = "#ebdbb2",
 }
 
 local function stripHash (hex)
@@ -35,21 +27,32 @@ local function stripHash (hex)
 end
 
 local c = theme.colors
-local b00 = stripHash(c.base00)
-local b01 = stripHash(c.base01)
-local b02 = stripHash(c.base02)
-local b03 = stripHash(c.base03)
-local b04 = stripHash(c.base04)
-local b05 = stripHash(c.base05)
-local b06 = stripHash(c.base06)
-local b07 = stripHash(c.base07)
 
--- Set neovim theme.
+local b_theme = {
+  b00 = stripHash(c.bg), -- Default Background
+  b01 = stripHash(c.bgAlt), -- Lighter Background (Used for statusbar, line number and folding)
+  b02 = stripHash(c.bgAlt2), -- Selection Background
+  b03 = stripHash(c.grey), -- Comments, Invisibles, Line Highlighting
+  b04 = stripHash(c.fgAlt), -- Dark Foreground (Used for status bars)
+  b05 = stripHash(c.fg), -- Default Foreground, Caret, Delimiters, Operators
+  b06 = stripHash(c.fgAlt2), -- Light Foreground
+  b07 = stripHash(c.fg), -- Light Background
+  b08 = stripHash(c.red), -- Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  b09 = stripHash(c.yellow), -- Integers, Boolean, Constants, XML Attributes, Markup Link Url
+  b0A = stripHash(c.orange), -- Classes, Markup Bold, Search Text Background
+  b0B = stripHash(c.green), -- Strings, Inherited Class, Markup Code, Diff Inserted
+  b0C = stripHash(c.blue), -- Support, Regular Expressions, Escape Characters, Markup Quotes
+  b0D = stripHash(c.pink), -- Functions, Methods, Attribute IDs, Headings
+  b0E = stripHash(c.cyan), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
+  b0F = stripHash(c.orangeAlt) -- Deprecated, Opening/Closing Embedded Language Tags, e.g.
+}
+
+-- Set base16 neovim theme
 base16.themes["neodots"] = {
-  base00 = b00; base01 = b01; base02 = b02; base03 = b03;
-  base04 = b04; base05 = b05; base06 = b06; base07 = b07;
-  base08 = "ea6962"; base09 = "e0b34c"; base0A = "d48049"; base0B = "a9b665";
-  base0C = "7daea3"; base0D = "d3869b"; base0E = "89b482"; base0F = "d65d0e";
+  base00 = b_theme.b00; base01 = b_theme.b01; base02 = b_theme.b02; base03 = b_theme.b03;
+  base04 = b_theme.b04; base05 = b_theme.b05; base06 = b_theme.b06; base07 = b_theme.b07;
+  base08 = b_theme.b08; base09 = b_theme.b09; base0A = b_theme.b0A; base0B = b_theme.b0B;
+  base0C = b_theme.b0C; base0D = b_theme.b0D; base0E = b_theme.b0E; base0F = b_theme.b0F;
 }
 
 base16(base16.themes["neodots"], true)

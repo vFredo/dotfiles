@@ -175,7 +175,7 @@ components.active[3][1] = {
   enabled = function()
     return vim.api.nvim_win_get_width(0) > 70
   end,
-  hl = { fg = colors.fgAlt2 },
+  hl = { fg = colors.fgAlt },
 }
 
 -- Git branch info

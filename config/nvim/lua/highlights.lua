@@ -22,7 +22,7 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
-fg_bg("CursorLineNr", colors.base04, colors.bg)
+fg_bg("CursorLineNr", colors.fgAlt2, colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
@@ -45,7 +45,7 @@ fg_bg("PmenuSel", colors.bgAlt, colors.fg)
 --
 -- BlankIndent Lines
 --
-fg("IndentBlanklineChar", colors.base01)
+fg("IndentBlanklineChar", colors.bgAlt)
 
 --
 -- LSP
@@ -107,6 +107,6 @@ fg("NvimTreeSpecialFile", colors.magenta)
 --
 fg_bg("NeogitDiffAddHighlight", colors.green, colors.bgAlt)
 fg_bg("NeogitDiffDeleteHighlight", colors.red, colors.bgAlt)
-fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt2)
-bg("NeogitDiffContextHighlight", colors.bgAlt2)
-fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt2)
+fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt)
+bg("NeogitDiffContextHighlight", colors.bgAlt)
+fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt)

@@ -16,37 +16,37 @@ bufferline.setup {
   },
   highlights = {
     background = {
-      guifg = colors.fgAlt2,
+      guifg = colors.fgAlt,
       guibg = colors.bg,
     },
     fill = {
-      guifg = colors.fgAlt,
+      guifg = colors.fgAlt2,
       guibg = colors.bg
     },
 
     -- Buffer
     buffer_visible = {
-      guifg = colors.fgAlt2,
+      guifg = colors.fgAlt,
       guibg = colors.bgAlt
     },
     buffer_selected = {
-      guifg = colors.fgAlt,
+      guifg = colors.fgAlt2,
       guibg = colors.bgAlt2,
       gui = "bold"
     },
 
     -- Same name buffer
     duplicate_selected = {
-      guifg = colors.fgAlt,
+      guifg = colors.fgAlt2,
       guibg = colors.bgAlt2,
       gui = "bold"
     },
     duplicate_visible = {
-      guifg = colors.fgAlt2,
+      guifg = colors.fgAlt,
       guibg = colors.bgAlt
     },
     duplicate = {
-      guifg = colors.fgAlt2,
+      guifg = colors.fgAlt,
       guibg = colors.bg
     },
 
@@ -66,11 +66,11 @@ bufferline.setup {
 
     -- Tabs
     tab = {
-      guifg = colors.fgAlt2,
+      guifg = colors.fgAlt,
       guibg = colors.bgAlt
     },
     tab_selected = {
-      guifg = colors.fgAlt,
+      guifg = colors.fgAlt2,
       guibg = colors.bgAlt2,
       gui = "bold"
     },
