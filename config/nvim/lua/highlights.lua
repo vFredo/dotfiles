@@ -98,3 +98,12 @@ fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.magenta)
+
+--
+-- Neogit
+--
+fg_bg("NeogitDiffAddHighlight", colors.green, colors.bgAlt)
+fg_bg("NeogitDiffDeleteHighlight", colors.red, colors.bgAlt)
+fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt2)
+bg("NeogitDiffContextHighlight", colors.bgAlt2)
+fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt2)
