@@ -22,7 +22,8 @@ return require("packer").startup(function(use)
     config = function()
       require('nvim_comment').setup {
         hook = function()
-          require("ts_context_commentstring.internal").update_commentstring()
+          local ts_comment = require("ts_context_commentstring.internal")
+          ts_comment.update_commentstring()
         end,
         comment_empty = false
       }
@@ -91,7 +92,7 @@ return require("packer").startup(function(use)
   use {
     "karb94/neoscroll.nvim",
     config = function()
-      require("neoscroll").setup{
+      require("neoscroll").setup {
         use_local_scrolloff = true,
         easing_function = "circular"
       }
