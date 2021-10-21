@@ -149,18 +149,7 @@ return require("packer").startup(function(use)
       { "ms-jpq/coq.artifacts", branch = "artifacts" },
       { "ms-jpq/coq.thirdparty", branch = "3p"}
     },
-    setup = function()
-      vim.g.coq_settings = {
-        auto_start = "shut-up",
-        ["display.icons.mode"] = "short",
-        ["display.pum.kind_context"] = { "[", " ]" },
-        ["keymap.recommended"] = false,
-        ["keymap.jump_to_mark"] = "<s-tab>",
-        ["keymap.manual_complete"] = "<c-n>",
-        ["keymap.repeat"] = ".",
-        clients = { tabnine = { enabled = true } }
-      }
-    end,
+    setup = function() require "plugins.configs.coq_setup" end,
     config = function() require "plugins.configs.coq" end
   }
 
