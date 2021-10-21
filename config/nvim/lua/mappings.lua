@@ -24,6 +24,9 @@ map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
 map("n", "<F6>", ":NvimTreeRefresh<CR>", opt)
 
+-- Neogit
+map("n", "<Leader>g", ":Neogit<CR>", opt)
+
 -- Consistent movement
 map("n", "gh", "^", opt)
 map("n", "gl", "$", opt)

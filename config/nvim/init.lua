@@ -14,8 +14,6 @@ async =
 
         require "theme"
         require "highlights"
-
-        require("impatient").enable_profile()
         async:close()
       end
     )

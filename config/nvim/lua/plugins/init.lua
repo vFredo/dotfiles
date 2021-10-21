@@ -17,7 +17,17 @@ return require("packer").startup(function(use)
   --
 
   -- Comment lines more easily
-  use { "tpope/vim-commentary" }
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup {
+        ignore = '^$',
+        pre_hook = function()
+          return require('ts_context_commentstring.internal').calculate_commentstring()
+        end
+      }
+    end
+  }
 
   -- Operation between parenthesis, brackets, etc...
   use { "tpope/vim-surround" }
@@ -28,9 +38,6 @@ return require("packer").startup(function(use)
   -- :bdelete, :close and :quit in one smart command
   use { "mhinz/vim-sayonara" }
 
-  -- Speed up lua modules on startup
-  use { "lewis6991/impatient.nvim" }
-
   --
   -- GUI Plugins
   --
@@ -38,20 +45,20 @@ return require("packer").startup(function(use)
   -- Icons for telescope, bufferline, feline (statusline) and NvimTree
   use {
     "kyazdani42/nvim-web-devicons",
-    config = [[ require "plugins.configs.devicons" ]]
+    config = function() require "plugins.configs.devicons" end
   }
 
   -- Bufferline
   use {
     "akinsho/nvim-bufferline.lua",
     after = "nvim-web-devicons",
-    config = [[ require "plugins.configs.bufferline" ]]
+    config = function() require "plugins.configs.bufferline" end
   }
 
   -- Indentation guides/tracking
   use {
     "lukas-reineke/indent-blankline.nvim",
-    config = [[ require "plugins.configs.blankline" ]]
+    config = function() require "plugins.configs.blankline" end
   }
 
   -- Statusline
@@ -59,14 +66,14 @@ return require("packer").startup(function(use)
     "famiu/feline.nvim",
     branch = "master",
     after = "nvim-web-devicons",
-    config = [[ require "plugins.configs.statusline" ]]
+    config = function() require "plugins.configs.statusline" end
   }
 
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
     after = "nvim-web-devicons",
-    config = [[ require "plugins.configs.nvim-tree" ]]
+    config = function() require "plugins.configs.nvim-tree" end
   }
 
   -- Theme
@@ -91,7 +98,7 @@ return require("packer").startup(function(use)
       "nvim-lua/popup.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
     },
-    config = [[ require "plugins.configs.telescope" ]]
+    config = function() require "plugins.configs.telescope" end
   }
 
   --
@@ -101,7 +108,7 @@ return require("packer").startup(function(use)
     {
       "lewis6991/gitsigns.nvim",
       requires = { "nvim-lua/plenary.nvim" },
-      config = [[ require "plugins.configs.gitsigns" ]]
+      config = function() require "plugins.configs.gitsigns" end
     },
     {
       "TimUntersberger/neogit",
@@ -122,7 +129,7 @@ return require("packer").startup(function(use)
   use {
     "neovim/nvim-lspconfig",
     requires = { "williamboman/nvim-lsp-installer" },
-    config = [[ require "plugins.configs.lspconfig" ]]
+    config = function() require "plugins.configs.lspconfig" end
   }
 
   -- Autocomplete
@@ -142,7 +149,7 @@ return require("packer").startup(function(use)
         clients = { tabnine = { enabled = true } }
       }
     end,
-    config = [[ require "plugins.configs.coq" ]]
+    config = function() require "plugins.configs.coq" end
   }
 
   --
@@ -157,7 +164,7 @@ return require("packer").startup(function(use)
     },
     branch = "0.5-compat",
     run = ":TSUpdate",
-    config = [[ require "plugins.configs.treesitter" ]]
+    config = function() require "plugins.configs.treesitter" end
   }
 
   -- Color highlighter for hex, rgb, etc...
