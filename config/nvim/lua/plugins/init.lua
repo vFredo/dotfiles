@@ -18,19 +18,24 @@ return require("packer").startup(function(use)
 
   -- Comment lines more easily
   use {
-    'numToStr/Comment.nvim',
+    "terrortylor/nvim-comment",
     config = function()
-      require('Comment').setup {
-        ignore = '^$',
-        pre_hook = function()
-          return require('ts_context_commentstring.internal').calculate_commentstring()
-        end
+      require('nvim_comment').setup {
+        hook = function()
+          require("ts_context_commentstring.internal").update_commentstring()
+        end,
+        comment_empty = false
       }
     end
   }
 
   -- Operation between parenthesis, brackets, etc...
-  use { "tpope/vim-surround" }
+  use {
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require"surround".setup { mappings_style = "surround" }
+    end
+  }
 
   -- tmux/nvim navigation
   use { "christoomey/vim-tmux-navigator" }
