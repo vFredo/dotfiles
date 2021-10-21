@@ -98,9 +98,22 @@ return require("packer").startup(function(use)
   -- Git
   --
   use {
-    "lewis6991/gitsigns.nvim",
-    requires = { "tpope/vim-fugitive" },
-    config = [[ require "plugins.configs.gitsigns" ]]
+    {
+      "lewis6991/gitsigns.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = [[ require "plugins.configs.gitsigns" ]]
+    },
+    -- { "tpope/vim-fugitive" },
+    {
+      "TimUntersberger/neogit",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require("neogit").setup {
+          disable_signs = true,
+          disable_commit_confirmation = true
+        }
+      end
+    },
   }
 
   --
