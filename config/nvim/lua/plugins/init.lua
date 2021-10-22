@@ -97,7 +97,7 @@ return packer.startup(function(use)
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = function() require "plugins.configs.blankline" end
+    config = function() require "plugins.configs.others".blankline() end
   }
 
   -- Smooth scrolling

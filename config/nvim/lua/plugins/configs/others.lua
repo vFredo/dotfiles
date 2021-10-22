@@ -8,7 +8,31 @@ local function verify(module)
   return plugin
 end
 
-M.colorizer = function ()
+M.blankline = function()
+  local blankline = verify("indent_blankline")
+  if blankline == nil then
+    return
+  end
+  blankline.setup {
+    indentLine_enabled = 1,
+    char = "▏",
+    filetype_exclude = {
+      "help",
+      "terminal",
+      "dashboard",
+      "packer",
+      "lspinfo",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "lsp-installer"
+    },
+    buftype_exclude = { "terminal" },
+    show_trailing_blankline_indent = false,
+    show_first_indent_level = false,
+  }
+end
+
+M.colorizer = function()
   local colorizer = verify("colorizer")
   if colorizer == nil then
     return
