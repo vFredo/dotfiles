@@ -21,6 +21,7 @@ return packer.startup(function()
   use {
     "terrortylor/nvim-comment",
     after = "nvim-treesitter",
+    event = "BufRead",
     config = function()
       require('nvim_comment').setup {
         hook = function()
@@ -123,6 +124,7 @@ return packer.startup(function()
   use {
     {
       "lewis6991/gitsigns.nvim",
+      event = "BufRead",
       requires = { "nvim-lua/plenary.nvim" },
       config = function() require "plugins.configs.gitsigns" end
     },
@@ -144,6 +146,7 @@ return packer.startup(function()
   --
   use {
     "neovim/nvim-lspconfig",
+    event = "BufRead",
     requires = { "williamboman/nvim-lsp-installer" },
     config = function() require "plugins.configs.lspconfig" end
   }
@@ -164,19 +167,25 @@ return packer.startup(function()
   }
 
   --
-  -- Web development Javascript/React/Typescript
+  -- TreeSitter
   --
   use {
-    "nvim-treesitter/nvim-treesitter",
-    requires = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "windwp/nvim-ts-autotag",
-      "windwp/nvim-autopairs",
-      { "nvim-treesitter/nvim-treesitter-textobjects", branch = "0.5-compat" }
+    {
+      "nvim-treesitter/nvim-treesitter",
+      requires = "windwp/nvim-autopairs" ,
+      branch = "0.5-compat",
+      run = ":TSUpdate",
+      config = function()
+        require "plugins.configs.treesitter"
+      end
     },
-    branch = "0.5-compat",
-    run = ":TSUpdate",
-    config = function() require "plugins.configs.treesitter" end
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      branch = "0.5-compat",
+      after = "nvim-treesitter"
+    },
+    { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
+    { "windwp/nvim-ts-autotag", after = "nvim-treesitter"}
   }
 
   -- Color highlighter for hex, rgb, etc...
