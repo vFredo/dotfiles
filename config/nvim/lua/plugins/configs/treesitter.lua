@@ -42,7 +42,7 @@ ts_config.setup{
   ensure_installed = "maintained",
   highlight = { enable = true },
   indent = { enable = true },
-  context_commentstring = { enable = true },
+  context_commentstring = { enable = true, enable_autocmd = false },
   autotag = { enable = true },
   autopairs = { enable = true },
   textobjects = {

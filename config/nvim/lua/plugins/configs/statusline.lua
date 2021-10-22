@@ -223,6 +223,7 @@ local vi_mode_colors = {
   BLOCK = colors.magenta,
   REPLACE = colors.orange,
   ['V-REPLACE'] = colors.orange,
+  PROMPT = colors.orange,
   ENTER = colors.yellow,
   MORE = colors.yellow,
   SELECT = colors.yellow,
@@ -240,8 +241,6 @@ require("feline").setup {
   filetypes = {
     '^NvimTree$',
     '^packer$',
-    '^fugitive$',
-    '^fugitiveblame$',
     '^help$'
   },
   buftypes = { '^terminal$' },
