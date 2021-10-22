@@ -149,7 +149,7 @@ return require("packer").startup(function(use)
     branch = "coq",
     requires = {
       { "ms-jpq/coq.artifacts", branch = "artifacts" },
-      { "ms-jpq/coq.thirdparty", branch = "3p"}
+      { "ms-jpq/coq.thirdparty", branch = "3p" }
     },
     setup = function() require "plugins.configs.coq_setup" end,
     config = function()
@@ -166,7 +166,8 @@ return require("packer").startup(function(use)
     requires = {
       "JoosepAlviste/nvim-ts-context-commentstring",
       "windwp/nvim-ts-autotag",
-      "windwp/nvim-autopairs"
+      "windwp/nvim-autopairs",
+      { "nvim-treesitter/nvim-treesitter-textobjects", branch = "0.5-compat" }
     },
     branch = "0.5-compat",
     run = ":TSUpdate",
