@@ -44,8 +44,13 @@ return packer.startup(function()
     end
   }
 
-  -- tmux/nvim navigation
-  use { "christoomey/vim-tmux-navigator" }
+  -- Navigation between tmux and nvim
+  use {
+    'numToStr/Navigator.nvim',
+    config = function()
+      require('Navigator').setup { auto_save = 'current' }
+    end
+  }
 
   -- :bdelete, :close and :quit in one smart command
   use { "mhinz/vim-sayonara" }
