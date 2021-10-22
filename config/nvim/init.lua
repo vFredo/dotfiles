@@ -9,11 +9,9 @@ async =
     vim.schedule_wrap(
       function ()
         require "plugins"
-
-        require "mappings"
-
-        require "theme"
         require "highlights"
+        require "theme"
+        require "mappings"
         async:close()
       end
     )

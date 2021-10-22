@@ -16,7 +16,7 @@ gitsigns.setup{
   },
   signcolumn = true,
   word_diff = false,
-  sign_priority = 8,
+  sign_priority = 100,
   status_formatter = nil, -- Use default
   watch_gitdir = { interval = 100, follow_files = true },
 }

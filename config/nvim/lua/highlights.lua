@@ -35,8 +35,8 @@ fg_bg("StatusLine", colors.bgAlt, colors.bg .. " gui=underline")
 ui("Comment", "italic")
 
 -- Search
-fg_bg("Search", colors.yellow, colors.bg .. " gui=bold,underline")
-ui("IncSearch", "bold")
+fg_bg("Search", colors.yellow, colors.bg .. " gui=bold,underline ")
+fg_bg("IncSearch", colors.bg, colors.yellow .. " gui=bold")
 
 -- Popup menu (autocomplete menu)
 bg("Pmenu", colors.bgAlt)
@@ -53,20 +53,23 @@ fg("IndentBlanklineChar", colors.bgAlt)
 
 -- Errors
 fg("LspDiagnosticsSignError", colors.red)
+fg("LspDiagnosticsDefaultError", colors.red)
 fg("LspDiagnosticsVirtualTextError", colors.red)
 
 -- Warnings
 fg("LspDiagnosticsSignWarning", colors.yellow)
+fg("LspDiagnosticsDefaultWarning", colors.yellow)
 fg("LspDiagnosticsVirtualTextWarning", colors.yellow)
 
 -- Info
 fg("LspDiagnosticsSignInformation", colors.green)
+fg("LspDiagnosticsDefaultInformation", colors.green)
 fg("LspDiagnosticsVirtualTextInformation", colors.green)
 
 -- Hints
 fg("LspDiagnosticsSignHint", colors.magenta)
+fg("LspDiagnosticsDefaultHint", colors.magenta)
 fg("LspDiagnosticsVirtualTextHint", colors.magenta)
-
 
 --
 -- GitSigns

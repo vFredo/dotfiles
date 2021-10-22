@@ -44,7 +44,7 @@ local b_theme = {
   b0C = stripHash(c.blue), -- Support, Regular Expressions, Escape Characters, Markup Quotes
   b0D = stripHash(c.pink), -- Functions, Methods, Attribute IDs, Headings
   b0E = stripHash(c.cyan), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
-  b0F = stripHash(c.orangeAlt) -- Deprecated, Opening/Closing Embedded Language Tags, e.g.
+  b0F = stripHash(c.orangeAlt) -- Opening/Closing Embedded Language Tags
 }
 
 -- Set base16 neovim theme

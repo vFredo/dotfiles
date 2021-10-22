@@ -19,6 +19,7 @@ return require("packer").startup(function(use)
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",
+    after = "nvim-treesitter",
     config = function()
       require('nvim_comment').setup {
         hook = function()
@@ -48,6 +49,12 @@ return require("packer").startup(function(use)
   -- GUI Plugins
   --
 
+  -- Theme
+  use {
+    "norcalli/nvim-base16.lua",
+    requires = { "norcalli/nvim.lua" }
+  }
+
   -- Icons for telescope, bufferline, feline (statusline) and NvimTree
   use {
     "kyazdani42/nvim-web-devicons",
@@ -59,12 +66,6 @@ return require("packer").startup(function(use)
     "akinsho/nvim-bufferline.lua",
     after = "nvim-web-devicons",
     config = function() require "plugins.configs.bufferline" end
-  }
-
-  -- Indentation guides/tracking
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function() require "plugins.configs.blankline" end
   }
 
   -- Statusline
@@ -82,10 +83,22 @@ return require("packer").startup(function(use)
     config = function() require "plugins.configs.nvim-tree" end
   }
 
-  -- Theme
+  -- Fuzzy finder
   use {
-    "norcalli/nvim-base16.lua",
-    requires = { "norcalli/nvim.lua" }
+    "nvim-telescope/telescope.nvim",
+    after = "nvim-web-devicons",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+    },
+    config = function() require "plugins.configs.telescope" end
+  }
+
+  -- Indentation guides/tracking
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require "plugins.configs.blankline" end
   }
 
   -- Smooth scrolling
@@ -97,17 +110,6 @@ return require("packer").startup(function(use)
         easing_function = "circular"
       }
     end
-  }
-
-  -- Fuzzy finder
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-    },
-    config = function() require "plugins.configs.telescope" end
   }
 
   --
@@ -150,7 +152,10 @@ return require("packer").startup(function(use)
       { "ms-jpq/coq.thirdparty", branch = "3p"}
     },
     setup = function() require "plugins.configs.coq_setup" end,
-    config = function() require "plugins.configs.coq" end
+    config = function()
+      require "plugins.configs.coq"
+      vim.cmd([[ COQnow --shut-up ]])
+    end
   }
 
   --
