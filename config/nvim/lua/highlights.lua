@@ -2,16 +2,31 @@ local theme = require("theme")
 local colors = theme.colors
 
 -- Helper functions for changging highlight groups
-local function fg(group, color)
-  vim.cmd("hi " .. group .. " guifg=" .. color)
+local function fg(group, color, opts)
+  local gui = opts or ''
+  if gui ~= '' then
+    vim.cmd("hi " .. group .. " guifg=" .. color .. " gui=" .. gui)
+  else
+    vim.cmd("hi " .. group .. " guifg=" .. color)
+  end
 end
 
-local function bg(group, color)
-  vim.cmd("hi " .. group .. " guibg=" .. color)
+local function bg(group, color, opts)
+  local gui = opts or ''
+  if gui ~= '' then
+    vim.cmd("hi " .. group .. " guibg=" .. color .. " gui=" .. gui)
+  else
+    vim.cmd("hi " .. group .. " guibg=" .. color)
+  end
 end
 
-local function fg_bg(group, fgcol, bgcol)
-  vim.cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+local function fg_bg(group, fgcol, bgcol, opts)
+  local gui = opts or ''
+  if gui ~= '' then
+    vim.cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol .. " gui=" .. gui)
+  else
+    vim.cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+  end
 end
 
 local function ui(group, gui)
@@ -28,15 +43,15 @@ bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
 
 -- Statusline active/inactive
-fg_bg("StatusLineNC", colors.bgAlt, colors.bg .. " gui=underline")
-fg_bg("StatusLine", colors.bgAlt, colors.bg .. " gui=underline")
+fg_bg("StatusLineNC", colors.bgAlt, colors.bg, "underline")
+fg_bg("StatusLine", colors.bgAlt, colors.bg, "underline")
 
 -- Italic Comments
 ui("Comment", "italic")
 
 -- Search
-fg_bg("Search", colors.yellow, colors.bg .. " gui=bold,underline ")
-fg_bg("IncSearch", colors.bg, colors.yellow .. " gui=bold")
+fg_bg("Search", colors.yellow, colors.bg, "bold,underline")
+fg_bg("IncSearch", colors.bg, colors.yellow, "bold")
 
 -- Popup menu (autocomplete menu)
 bg("Pmenu", colors.bgAlt)
@@ -88,7 +103,7 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 --
 -- NvimTree
 --
-fg("NvimTreeRootFolder", colors.green .. " gui=underline")
+fg("NvimTreeRootFolder", colors.green, "underline")
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
 fg("NvimTreeOpenedFolderName", colors.blue)

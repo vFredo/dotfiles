@@ -1,9 +1,9 @@
 --
 -- Check if packer is installed
 --
-local present, packer = pcall(require, "plugins.packerInit")
+local ok, packer = pcall(require, "plugins.packerInit")
 
-if not present then
+if not ok then
    return false
 end
 
@@ -33,7 +33,7 @@ return packer.startup(function()
 
   -- Navigation between tmux and nvim
   use {
-    'numToStr/Navigator.nvim',
+    "numToStr/Navigator.nvim",
     config = function() require "plugins.configs.others".navigator() end
   }
 
@@ -116,7 +116,7 @@ return packer.startup(function()
     },
     {
       "TimUntersberger/neogit",
-      cmd = 'Neogit',
+      cmd = "Neogit",
       requires = { "nvim-lua/plenary.nvim" },
       config = function() require "plugins.configs.others".neogit() end
     }
