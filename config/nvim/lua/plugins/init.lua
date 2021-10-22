@@ -22,34 +22,19 @@ return packer.startup(function()
     "terrortylor/nvim-comment",
     after = "nvim-treesitter",
     event = "BufRead",
-    config = function()
-      require('nvim_comment').setup {
-        hook = function()
-          local ts_comment = require("ts_context_commentstring.internal")
-          ts_comment.update_commentstring()
-        end,
-        comment_empty = false
-      }
-    end
+    config = function() require "plugins.configs.others".comment() end
   }
 
   -- Operation between parenthesis, brackets, etc...
   use {
     "blackCauldron7/surround.nvim",
-    config = function()
-      require("surround").setup {
-        mappings_style = "sandwich",
-        map_insert_mode = false
-      }
-    end
+    config = function() require "plugins.configs.others".surround() end
   }
 
   -- Navigation between tmux and nvim
   use {
     'numToStr/Navigator.nvim',
-    config = function()
-      require('Navigator').setup { auto_save = 'current' }
-    end
+    config = function() require "plugins.configs.others".navigator() end
   }
 
   -- :bdelete, :close and :quit in one smart command
@@ -68,13 +53,14 @@ return packer.startup(function()
   -- Icons for telescope, bufferline, feline (statusline) and NvimTree
   use {
     "kyazdani42/nvim-web-devicons",
+    module = "nvim-web-devicons",
     config = function() require "plugins.configs.devicons" end
   }
 
   -- Bufferline
   use {
     "akinsho/nvim-bufferline.lua",
-    after = "nvim-web-devicons",
+    requires = "nvim-web-devicons",
     config = function() require "plugins.configs.bufferline" end
   }
 
@@ -82,24 +68,24 @@ return packer.startup(function()
   use {
     "famiu/feline.nvim",
     branch = "master",
-    after = "nvim-web-devicons",
+    requires = "nvim-web-devicons",
     config = function() require "plugins.configs.statusline" end
   }
 
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
-    after = "nvim-web-devicons",
+    requires = "nvim-web-devicons",
     config = function() require "plugins.configs.nvim-tree" end
   }
 
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
-    after = "nvim-web-devicons",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
+      "nvim-web-devicons",
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
     },
     config = function() require "plugins.configs.telescope" end
@@ -115,12 +101,7 @@ return packer.startup(function()
   -- Smooth scrolling
   use {
     "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup {
-        use_local_scrolloff = true,
-        easing_function = "circular"
-      }
-    end
+    config = function() require "plugins.configs.others".neoscroll() end
   }
 
   --
@@ -137,12 +118,7 @@ return packer.startup(function()
       "TimUntersberger/neogit",
       cmd = 'Neogit',
       requires = { "nvim-lua/plenary.nvim" },
-      config = function()
-        require("neogit").setup {
-          disable_signs = true,
-          disable_commit_confirmation = true
-        }
-      end
+      config = function() require "plugins.configs.others".neogit() end
     }
   }
 
@@ -194,14 +170,6 @@ return packer.startup(function()
   use {
     "norcalli/nvim-colorizer.lua",
     event = "BufRead",
-    config = function()
-      require("colorizer").setup({"*"}, {
-        names = false,   -- "Name" codes like 'Blue'
-        RRGGBB = true,   -- #RRGGBB hex codes
-        RRGGBBAA = true, -- #RRGGBBAA hex codes
-        rgb_fn = true,   -- CSS rgb() and rgba() functions
-      })
-      vim.cmd "ColorizerReloadAllBuffers"
-    end
+    config = function() require "plugins.configs.others".colorizer() end
   }
 end)
