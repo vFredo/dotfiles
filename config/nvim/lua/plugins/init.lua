@@ -15,6 +15,9 @@ return packer.startup(function(use)
   -- Miscellaneous
   --
 
+  -- :bdelete, :close and :quit in one smart command
+  use { "mhinz/vim-sayonara" }
+
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",
@@ -35,8 +38,12 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.others".navigator() end
   }
 
-  -- :bdelete, :close and :quit in one smart command
-  use { "mhinz/vim-sayonara" }
+  -- Color highlighter for hex, rgb, etc...
+  use {
+    "norcalli/nvim-colorizer.lua",
+    event = "BufRead",
+    config = function() require "plugins.configs.others".colorizer() end
+  }
 
   --
   -- GUI Plugins
@@ -184,10 +191,4 @@ return packer.startup(function(use)
     { "windwp/nvim-ts-autotag", after = "nvim-treesitter"}
   }
 
-  -- Color highlighter for hex, rgb, etc...
-  use {
-    "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
-    config = function() require "plugins.configs.others".colorizer() end
-  }
 end)

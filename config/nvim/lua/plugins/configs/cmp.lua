@@ -13,6 +13,7 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+-- Tabnine configuration
 local tabnine = require('cmp_tabnine.config')
 
 tabnine:setup({
@@ -48,7 +49,7 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
-    { name = 'cmp_tabnine', keyword_length = 2 },
+    { name = 'cmp_tabnine', keyword_length = 3 },
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
