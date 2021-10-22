@@ -1,4 +1,8 @@
-local ts_config = require("nvim-treesitter.configs")
+local ok, ts_config = pcall(require, "nvim-treesitter.configs")
+if not ok then
+  return
+end
+
 local npairs = require("nvim-autopairs")
 local Rule = require("nvim-autopairs.rule")
 

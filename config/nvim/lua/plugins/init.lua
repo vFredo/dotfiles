@@ -1,14 +1,15 @@
 --
--- Making sure that packer is install
+-- Check if packer is installed
 --
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local packer_bootstrap = nil
+local present, packer = pcall(require, "plugins.packerInit")
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
+if not present then
+   return false
 end
 
-return require("packer").startup(function(use)
+local use = packer.use
+
+return packer.startup(function()
   -- Update packer manager
   use { "wbthomason/packer.nvim" }
 
@@ -35,7 +36,10 @@ return require("packer").startup(function(use)
   use {
     "blackCauldron7/surround.nvim",
     config = function()
-      require"surround".setup { mappings_style = "surround" }
+      require("surround").setup {
+        mappings_style = "sandwich",
+        map_insert_mode = false
+      }
     end
   }
 
@@ -98,6 +102,7 @@ return require("packer").startup(function(use)
   -- Indentation guides/tracking
   use {
     "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
     config = function() require "plugins.configs.blankline" end
   }
 
@@ -177,6 +182,7 @@ return require("packer").startup(function(use)
   -- Color highlighter for hex, rgb, etc...
   use {
     "norcalli/nvim-colorizer.lua",
+    event = "BufRead",
     config = function()
       require("colorizer").setup({"*"}, {
         names = false,   -- "Name" codes like 'Blue'
@@ -184,11 +190,7 @@ return require("packer").startup(function(use)
         RRGGBBAA = true, -- #RRGGBBAA hex codes
         rgb_fn = true,   -- CSS rgb() and rgba() functions
       })
+      vim.cmd "ColorizerReloadAllBuffers"
     end
   }
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  if packer_bootstrap ~= nil then
-    require("packer").sync()
-  end
 end)
