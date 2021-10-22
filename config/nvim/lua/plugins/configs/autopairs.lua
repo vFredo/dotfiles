@@ -8,7 +8,11 @@ local Rule = require("nvim-autopairs.rule")
 
 npairs.setup{
   check_ts = true,
-  map_bs = false
+  map_cr = true, --  map <CR> on insert mode
+  map_complete = true, -- it will auto insert `(` (map_char)
+  auto_select = true, -- automatically select the first item
+  insert = false, -- use insert confirm behavior instead of replace
+  map_char = { all = '(', tex = '{' }
 }
 
 -- Add spaces between parentheses
@@ -37,30 +41,3 @@ npairs.add_rules {
     end)
     :use_key(']')
 }
-local map = require("core.utils").map
-local opt = { noremap = true, expr = true }
-
-_G.MUtils= {  }
-
-MUtils.CR = function()
-  if vim.fn.pumvisible() ~= 0 then
-    if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
-      return npairs.esc('<C-y>')
-    else
-      return npairs.esc('<C-e>') .. npairs.autopairs_cr()
-    end
-  else
-    return npairs.autopairs_cr()
-  end
-end
-map('i', '<CR>', 'v:lua.MUtils.CR()', opt)
-
-MUtils.BS = function()
-  if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
-    return npairs.esc('<C-e>') .. npairs.autopairs_bs()
-  else
-    return npairs.autopairs_bs()
-  end
-end
-map('i', '<BS>', 'v:lua.MUtils.BS()', opt)
-

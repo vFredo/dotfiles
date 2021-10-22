@@ -39,11 +39,13 @@ local on_attach = function(client, bufnr)
   end
 end
 
+local cmp_capabilities = require("cmp_nvim_lsp").update_capabilities
+
 -- servers setup with lsp_installer
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = on_attach,
-    capabilities = require("coq").lsp_ensure_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = cmp_capabilities(vim.lsp.protocol.make_client_capabilities()),
     flags = { debounce_text_changes = 150 },
   }
 

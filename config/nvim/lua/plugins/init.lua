@@ -130,7 +130,8 @@ return packer.startup(function(use)
   --
   use {
     { "williamboman/nvim-lsp-installer" },
-    { "neovim/nvim-lspconfig",
+    {
+      "neovim/nvim-lspconfig",
       opt = true,
       event = "BufRead",
       after = "nvim-lsp-installer",
@@ -140,16 +141,19 @@ return packer.startup(function(use)
 
   -- Autocomplete
   use {
-    "ms-jpq/coq_nvim",
-    branch = "coq",
+    "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    module = "coq",
+    module = "cmp",
     requires = {
-      { "ms-jpq/coq.artifacts", branch = "artifacts" },
-      { "ms-jpq/coq.thirdparty", branch = "3p" }
+      { "onsails/lspkind-nvim" },
+      { "L3MON4D3/LuaSnip" },
+      { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", opt = true},
+      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
+      { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
+      { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
+      { "saadparwaiz1/cmp_luasnip", opt = true },
     },
-    setup = function() require("plugins.configs.coq").setup() end,
-    config = function() require("plugins.configs.coq").config() end
+    config = function() require "plugins.configs.cmp" end
   }
 
   --
@@ -166,7 +170,7 @@ return packer.startup(function(use)
     },
     {
       "windwp/nvim-autopairs",
-      after = "nvim-treesitter",
+      after = { "nvim-treesitter", "nvim-cmp" },
       config = function() require "plugins.configs.autopairs" end
     },
     {
