@@ -139,19 +139,21 @@ return packer.startup(function(use)
     }
   }
 
-  -- Autocomplete
+  -- Autocomplete/Snippets
   use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     module = "cmp",
+    after = "LuaSnip",
     requires = {
-      { "onsails/lspkind-nvim" },
-      { "L3MON4D3/LuaSnip" },
+      { "L3MON4D3/LuaSnip", requires = {"rafamadriz/friendly-snippets", event = "InsertEnter"}}, -- Snippets
+      { "onsails/lspkind-nvim" }, -- icons in complete menu
+      { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", opt = true},
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
       { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
-      { "saadparwaiz1/cmp_luasnip", opt = true },
+      { "saadparwaiz1/cmp_luasnip", after = {"nvim-cmp", "LuaSnip"}, opt = true },
     },
     config = function() require "plugins.configs.cmp" end
   }

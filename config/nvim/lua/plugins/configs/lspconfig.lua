@@ -87,7 +87,7 @@ local signs = { Error = " ", Warning = " ", Hint = " ", Information = "
 
 for name, icon in pairs(signs) do
   local hl = "LspDiagnosticsSign" .. name
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

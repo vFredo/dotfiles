@@ -13,6 +13,14 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local tabnine = require('cmp_tabnine.config')
+
+tabnine:setup({
+  max_lines = 1000;
+  max_num_results = 5;
+  sort = true;
+})
+
 cmp.setup {
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -40,6 +48,7 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
+    { name = 'cmp_tabnine', keyword_length = 2 },
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
@@ -56,19 +65,29 @@ cmp.setup {
     end,
   },
   formatting = {
-    -- Youtube: How to set up nice formatting for your sources.
-    format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
+    format = function(entry, vim_item)
+      local source_mapping = {
         nvim_lua = "[api]",
         nvim_lsp = "[LSP]",
         path = "[path]",
         luasnip = "[snip]",
         buffer = "[buf]",
-      },
-    },
+        cmp_tabnine = "[tb9]"
+      }
+
+      vim_item.kind = lspkind.presets.default[vim_item.kind]
+      local menu = source_mapping[entry.source.name]
+      if entry.source.name == 'cmp_tabnine' then
+        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+          menu = entry.completion_item.data.detail .. ' ' .. menu
+        end
+        vim_item.kind = ''
+      end
+      vim_item.menu = menu
+      return vim_item
+    end
   },
-  documentation = { border = "rounded", },
+  documentation = { border = "rounded" },
   experimental = {
     native_menu = false, -- I like the new menu better!
     ghost_text = true,
