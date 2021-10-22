@@ -53,23 +53,16 @@ M.setup = function()
 end
 
 --
--- Configuration
+-- Configuration and windp/nvim-autopairs integration
 --
 M.config = function()
-  -- For coq bidnings and windp/nvim-autopairs integration
-  local function remap(mode, lhs, rhs, opts)
-    local options = { noremap = true, expr = true }
-    if opts then
-      options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-  end
+  local map = require("core.utils").map
 
-  local opt = {  }
+  local opt = { noremap = true, expr = true }
 
-  remap('i', '<Esc>', [[pumvisible() ? "<C-e><Esc>" : "<Esc>"]], opt)
-  remap('i', '<C-c>', [[pumvisible() ? "<C-e><C-c>" : "<C-c>"]], opt)
-  remap('i', '<Tab>', [[pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<Tab>"]], opt)
+  map('i', '<Esc>', [[pumvisible() ? "<C-e><Esc>" : "<Esc>"]], opt)
+  map('i', '<C-c>', [[pumvisible() ? "<C-e><C-c>" : "<C-c>"]], opt)
+  map('i', '<Tab>', [[pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<Tab>"]], opt)
 
   local npairs = require("nvim-autopairs")
 
@@ -86,7 +79,7 @@ M.config = function()
       return npairs.autopairs_cr()
     end
   end
-  remap('i', '<CR>', 'v:lua.MUtils.CR()', opt)
+  map('i', '<CR>', 'v:lua.MUtils.CR()', opt)
 
   MUtils.BS = function()
     if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
@@ -95,7 +88,7 @@ M.config = function()
       return npairs.autopairs_bs()
     end
   end
-  remap('i', '<BS>', 'v:lua.MUtils.BS()', opt)
+  map('i', '<BS>', 'v:lua.MUtils.BS()', opt)
 
   -- Start COQ
   vim.cmd([[ COQnow --shut-up ]])

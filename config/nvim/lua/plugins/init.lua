@@ -140,8 +140,8 @@ return packer.startup(function()
       { "ms-jpq/coq.artifacts", branch = "artifacts" },
       { "ms-jpq/coq.thirdparty", branch = "3p" }
     },
-    setup = function() require "plugins.configs.coq".setup() end,
-    config = function() require "plugins.configs.coq".config() end
+    setup = function() require("plugins.configs.coq").setup() end,
+    config = function() require("plugins.configs.coq").config() end
   }
 
   --

@@ -1,7 +1,7 @@
 --
 -- Setting up lua config files in a async way
 --
-require "options"
+require "core.options"
 
 local async
 async =
@@ -9,9 +9,9 @@ async =
     vim.schedule_wrap(
       function ()
         require "plugins"
-        require "highlights"
-        require "theme"
-        require "mappings"
+        require "core.mappings"
+        require "core.theme"
+        require "core.highlights"
         async:close()
       end
     )

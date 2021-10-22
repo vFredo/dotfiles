@@ -1,4 +1,4 @@
-local theme = require("theme")
+local theme = require("core.theme")
 local colors = theme.colors
 
 -- Helper functions for changging highlight groups

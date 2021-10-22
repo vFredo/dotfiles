@@ -1,22 +1,5 @@
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-
-  -- Adding opts to options table
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-
-  -- check if mode is a table or just a string
-  if type(mode) == "table" then
-    for _, m in ipairs(mode) do
-      vim.api.nvim_set_keymap(m, lhs, rhs, options)
-    end
-  else
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-  end
-end
-
-local opt = {  }
+local map = require("core.utils").map
+local opt = { noremap = true, silent = true }
 
 -- Yank and paste text from clipboard
 map({ "n", "v" }, "<Leader>y", [["+y]], opt)

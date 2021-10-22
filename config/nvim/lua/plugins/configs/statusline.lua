@@ -1,4 +1,4 @@
-local theme = require("theme")
+local theme = require("core.theme")
 local colors = theme.colors
 local lsp = require "feline.providers.lsp"
 
