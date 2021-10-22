@@ -1,9 +1,19 @@
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true, silent = true }
+
+  -- Adding opts to options table
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+
+  -- check if mode is a table or just a string
+  if type(mode) == "table" then
+    for _, m in ipairs(mode) do
+      vim.api.nvim_set_keymap(m, lhs, rhs, options)
+    end
+  else
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  end
 end
 
 local opt = {  }
@@ -28,13 +38,12 @@ map("n", "<F6>", ":NvimTreeRefresh<CR>", opt)
 map("n", "<Leader>g", ":Neogit<CR>", opt)
 
 -- Consistent movement
-map("n", "gh", "^", opt)
-map("n", "gl", "$", opt)
-map("v", "gh", "^", opt)
-map("v", "gl", "$", opt)
+map({ "n", "v" }, "gh", "^", opt)
+map({ "n", "v" }, "gl", "$", opt)
 
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k', also
 -- don't use g[j|k] when in operator pending mode, so it doesn't alter 'd', 'y' or 'c'
+-- empty mode is same as using :map
 map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
 map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 

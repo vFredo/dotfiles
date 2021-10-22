@@ -1,13 +1,21 @@
 -- For coq bidnings and windp/nvim-autopairs integration
-local remap = vim.api.nvim_set_keymap
+local function remap(mode, lhs, rhs, opts)
+  local options = { noremap = true, expr = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
 
-remap('i', '<Esc>', [[pumvisible() ? "<C-e><Esc>" : "<Esc>"]], { expr = true, noremap = true })
-remap('i', '<C-c>', [[pumvisible() ? "<C-e><C-c>" : "<C-c>"]], { expr = true, noremap = true })
-remap('i', '<Tab>', [[pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<Tab>"]], { expr = true, noremap = true })
+local opt = {  }
+
+remap('i', '<Esc>', [[pumvisible() ? "<C-e><Esc>" : "<Esc>"]], opt)
+remap('i', '<C-c>', [[pumvisible() ? "<C-e><C-c>" : "<C-c>"]], opt)
+remap('i', '<Tab>', [[pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<Tab>"]], opt)
 
 local npairs = require("nvim-autopairs")
 
-_G.MUtils= {}
+_G.MUtils= {  }
 
 MUtils.CR = function()
   if vim.fn.pumvisible() ~= 0 then
@@ -20,7 +28,7 @@ MUtils.CR = function()
     return npairs.autopairs_cr()
   end
 end
-remap('i', '<CR>', 'v:lua.MUtils.CR()', { expr = true, noremap = true })
+remap('i', '<CR>', 'v:lua.MUtils.CR()', opt)
 
 MUtils.BS = function()
   if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
@@ -29,4 +37,4 @@ MUtils.BS = function()
     return npairs.autopairs_bs()
   end
 end
-remap('i', '<BS>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
+remap('i', '<BS>', 'v:lua.MUtils.BS()', opt)
