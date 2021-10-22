@@ -142,8 +142,8 @@ return packer.startup(function(use)
   use {
     "ms-jpq/coq_nvim",
     branch = "coq",
-    module = "coq",
     event = "InsertEnter",
+    module = "coq",
     requires = {
       { "ms-jpq/coq.artifacts", branch = "artifacts" },
       { "ms-jpq/coq.thirdparty", branch = "3p" }

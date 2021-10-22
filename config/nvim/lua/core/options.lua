@@ -1,14 +1,10 @@
 local g = vim.g
 local opt = vim.opt
 
--- Set format options for all files
-vim.cmd([[
-  filetype plugin on
-  au FileType * set fo-=c fo-=r fo-=o fo+=j fo+=n
-]])
-
 -- Change cursor in normal, insert and replace modes on tmux and terminal
 vim.cmd([[
+  filetype plugin on
+
   if exists('$TMUX')
     let &t_SI = "\ePtmux;\e\e[6 q\e\\"
     let &t_SR = "\ePtmux;\e\e[4 q\e\\"

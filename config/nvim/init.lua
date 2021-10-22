@@ -13,6 +13,7 @@ async =
         require "core.mappings"
         require "core.theme"
         require "core.highlights"
+        require "core.autocmds"
         async:close()
       end
     )
