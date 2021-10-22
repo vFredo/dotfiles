@@ -71,7 +71,7 @@ fg("CmpItemAbbrDeprecated", colors.red, "italic") -- ??
 --
 -- BlankIndent Lines
 --
-fg("IndentBlanklineChar", colors.bgAlt)
+fg("IndentBlanklineChar", colors.bgAlt2)
 
 --
 -- LSP
@@ -139,4 +139,3 @@ fg_bg("NeogitDiffDeleteHighlight", colors.red, colors.bgAlt)
 fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt)
 bg("NeogitDiffContextHighlight", colors.bgAlt)
 fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt)
-

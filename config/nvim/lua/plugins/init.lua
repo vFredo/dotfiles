@@ -89,8 +89,6 @@ return packer.startup(function(use)
   -- Fuzzy finder (Telescope)
   use {
     "nvim-telescope/telescope.nvim",
-    module = "telescope",
-    cmd = "Telescope",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
@@ -149,7 +147,6 @@ return packer.startup(function(use)
   -- Autocomplete/Snippets
   use {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     module = "cmp",
     after = "LuaSnip",
     requires = {
