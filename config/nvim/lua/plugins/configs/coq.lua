@@ -1,4 +1,4 @@
--- For coq bidnings
+-- For coq bidnings and windp/nvim-autopairs integration
 local remap = vim.api.nvim_set_keymap
 
 remap('i', '<Esc>', [[pumvisible() ? "<C-e><Esc>" : "<Esc>"]], { expr = true, noremap = true })
