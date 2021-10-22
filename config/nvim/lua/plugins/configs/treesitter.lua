@@ -3,41 +3,6 @@ if not ok then
   return
 end
 
-local npairs = require("nvim-autopairs")
-local Rule = require("nvim-autopairs.rule")
-
-npairs.setup{
-  check_ts = true,
-  map_bs = false
-}
-
--- Add spaces between parentheses
-npairs.add_rules {
-  Rule(' ', ' ')
-    :with_pair(function (opts)
-      local pair = opts.line:sub(opts.col - 1, opts.col)
-      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    end),
-  Rule('( ', ' )')
-    :with_pair(function() return false end)
-    :with_move(function(opts)
-      return opts.prev_char:match('.%)') ~= nil
-    end)
-    :use_key(')'),
-  Rule('{ ', ' }')
-    :with_pair(function() return false end)
-    :with_move(function(opts)
-      return opts.prev_char:match('.%}') ~= nil
-    end)
-    :use_key('}'),
-  Rule('[ ', ' ]')
-    :with_pair(function() return false end)
-    :with_move(function(opts)
-      return opts.prev_char:match('.%]') ~= nil
-    end)
-    :use_key(']')
-}
-
 ts_config.setup{
   ensure_installed = "maintained",
   highlight = { enable = true },
@@ -117,7 +82,6 @@ ts_config.setup{
 
 -- Folding config
 vim.cmd([[
-  set foldexpr=nvim_treesitter#foldexpr()
   set foldmethod=expr
-  set foldlevelstart=99
+  set foldexpr=nvim_treesitter#foldexpr()
 ]])
