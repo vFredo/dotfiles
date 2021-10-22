@@ -9,6 +9,7 @@ async =
     vim.schedule_wrap(
       function ()
         require "plugins"
+        require "core.utils".packer_lazy_load()
         require "core.mappings"
         require "core.theme"
         require "core.highlights"

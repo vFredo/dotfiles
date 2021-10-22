@@ -4,7 +4,7 @@
 local ok, packer = pcall(require, "plugins.packerInit")
 
 if not ok then
-   return false
+  return false
 end
 
 return packer.startup(function(use)
@@ -73,18 +73,22 @@ return packer.startup(function(use)
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
+    opt = true,
+    cmd = "NvimTreeToggle",
     requires = "nvim-web-devicons",
     config = function() require "plugins.configs.nvim-tree" end
   }
 
-  -- Fuzzy finder
+  -- Fuzzy finder (Telescope)
   use {
     "nvim-telescope/telescope.nvim",
+    module = "telescope",
+    cmd = "Telescope",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
       "nvim-web-devicons",
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
     },
     config = function() require "plugins.configs.telescope" end
   }
@@ -138,6 +142,8 @@ return packer.startup(function(use)
   use {
     "ms-jpq/coq_nvim",
     branch = "coq",
+    module = "coq",
+    event = "InsertEnter",
     requires = {
       { "ms-jpq/coq.artifacts", branch = "artifacts" },
       { "ms-jpq/coq.thirdparty", branch = "3p" }
@@ -152,12 +158,16 @@ return packer.startup(function(use)
   use {
     {
       "nvim-treesitter/nvim-treesitter",
-      requires = "windwp/nvim-autopairs" ,
       branch = "0.5-compat",
       run = ":TSUpdate",
       config = function()
         require "plugins.configs.treesitter"
       end
+    },
+    {
+      "windwp/nvim-autopairs",
+      after = "nvim-treesitter",
+      config = function() require "plugins.configs.autopairs" end
     },
     {
       "nvim-treesitter/nvim-treesitter-textobjects",

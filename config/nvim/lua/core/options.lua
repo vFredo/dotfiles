@@ -38,6 +38,7 @@ opt.joinspaces     = false               -- don't autoinsert two spaces after pu
 opt.wildmode       = "longest:full,full" -- shell-like autocomplete to unambiguous portion
 opt.wildignore     = opt.wildignore + "*.o,*.rej,*.so" -- patterns to ignore in navigation
 opt.signcolumn     = "yes:2"             -- show when is a sign to display and max 4 signs we can see at a time
+opt.foldlevelstart = 99
 
 -- Viewport
 opt.scrolloff      = 3                   -- start scrolling 3 lines before edge of the rows viewport
