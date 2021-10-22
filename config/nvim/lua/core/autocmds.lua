@@ -1,6 +1,9 @@
 local create_autocommands = require("core.utils").create_autocommands
 
 local autocmds = {
+  packer = {
+    { "BufWritePost", "*.lua", "source <afile> | PackerCompile" };
+  };
   format_options = {
     { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" };
   };

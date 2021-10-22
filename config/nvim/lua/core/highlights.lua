@@ -54,8 +54,19 @@ fg_bg("Search", colors.yellow, colors.bg, "bold,underline")
 fg_bg("IncSearch", colors.bg, colors.yellow, "bold")
 
 -- Popup menu (autocomplete menu)
-bg("Pmenu", colors.bgAlt)
-fg_bg("PmenuSel", colors.bgAlt, colors.fg)
+bg("Pmenu", colors.bgAlt) -- completition box
+fg_bg("PmenuSel", colors.bgAlt, colors.blue, "bold") -- item selected
+bg("PmenuSbar", colors.bgAlt) -- scrollbar
+bg("PmenuThumb", colors.fgAlt) -- thumb scrollbar
+
+--
+-- nvim-cmp autocomplete menu
+--
+fg("CmpItemAbbr", colors.grey) -- text autocomplete
+fg("CmpItemKind", colors.blue) -- icon and kind info
+ui("CmpItemMenu", "bold") -- source
+fg("CmpItemAbbrMatchFuzzy", colors.blue, "italic") -- fuzzy match
+fg("CmpItemAbbrDeprecated", colors.red, "italic") -- ??
 
 --
 -- BlankIndent Lines
@@ -128,3 +139,4 @@ fg_bg("NeogitDiffDeleteHighlight", colors.red, colors.bgAlt)
 fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt)
 bg("NeogitDiffContextHighlight", colors.bgAlt)
 fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt)
+
