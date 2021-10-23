@@ -69,11 +69,6 @@ components.active[1][2] = {
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
     local icon = require('nvim-web-devicons').get_icon(filename, extension)
-
-    if icon == nil then
-      icon = ""
-    end
-
     return icon
   end,
   hl = function()
@@ -102,10 +97,10 @@ components.active[1][3] = {
 
     -- No filename buffer
     if vim.fn.empty(filename) == 1 then
-      filename = ''
+      filename = '[No Name]'
     end
 
-    if parentFolder ~= '.' and filename ~= '' then
+    if parentFolder ~= '.' and filename ~= '[No Name]' then
       filename = parentFolder .. '/' .. filename
     end
 
@@ -176,6 +171,8 @@ components.active[3][1] = {
     return vim.api.nvim_win_get_width(0) > 70
   end,
   hl = { fg = colors.fgAlt },
+  left_sep = { str = icon_styles.block.left },
+  right_sep = { str = icon_styles.block.right }
 }
 
 -- Git branch info
