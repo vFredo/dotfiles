@@ -4,10 +4,13 @@ if not ok then
   return
 end
 
-local Rule = require("nvim-autopairs.rule")
+-- global configurations
+npairs.setup {
+  check_ts = true,
+  disable_filetype = { "TelescopePrompt" },
+}
 
-npairs.setup{ check_ts = true }
-
+-- nvim-cmp integration
 require("nvim-autopairs.completion.cmp").setup({
   map_cr = true, --  map <CR> on insert mode
   map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
@@ -18,6 +21,11 @@ require("nvim-autopairs.completion.cmp").setup({
     tex = '{'
   }
 })
+
+--
+-- Rules
+--
+local Rule = require("nvim-autopairs.rule")
 
 -- Add spaces between parentheses
 npairs.add_rules {
