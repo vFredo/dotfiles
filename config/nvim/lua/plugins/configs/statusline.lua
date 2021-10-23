@@ -69,6 +69,9 @@ components.active[1][2] = {
     local filename = vim.fn.expand('%:t')
     local extension = vim.fn.expand('%:e')
     local icon = require('nvim-web-devicons').get_icon(filename, extension)
+    if icon == nil then
+      icon = ""
+    end
     return icon
   end,
   hl = function()
