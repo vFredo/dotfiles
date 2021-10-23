@@ -4,6 +4,7 @@ local colors = theme.colors
 
 bufferline.setup {
   options = {
+    view = "multiwindow",
     offsets = {{ filetype = "NvimTree", text = "", padding = 1, highlight = "Directory" }},
     indicator_icon = "",
     modified_icon = "",
@@ -11,8 +12,10 @@ bufferline.setup {
     show_buffer_close_icons = false,
     show_tab_indicators = true,
     max_name_length = 14,
-    max_prefix_length = 14,
-    tab_size = 18,
+    max_prefix_length = 10,
+    tab_size = 16,
+    always_show_bufferline = false,
+    sort_by = "directory"
   },
   highlights = {
     background = {

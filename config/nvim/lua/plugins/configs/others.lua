@@ -38,7 +38,7 @@ M.colorizer = function()
     return
   end
 
-  colorizer.setup( {
+  colorizer.setup({
     "*"; -- Highlight all files with defautls, but customize some others.
     "!NeogiStatus"; -- exclude filetype
     "!NeogitCommitMessage";

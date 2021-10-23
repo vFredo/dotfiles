@@ -65,6 +65,8 @@ return packer.startup(function(use)
   -- Bufferline
   use {
     "akinsho/nvim-bufferline.lua",
+    event = "UIEnter",
+    opt = "true",
     requires = "nvim-web-devicons",
     config = function() require "plugins.configs.bufferline" end
   }
