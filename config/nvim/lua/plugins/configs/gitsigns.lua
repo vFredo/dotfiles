@@ -7,8 +7,8 @@ gitsigns.setup{
   },
   keymaps = {
     noremap = true,
-    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
-    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+    ['n ]h'] = { expr = true, "&diff ? ']h' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
+    ['n [h'] = { expr = true, "&diff ? '[h' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
     ['n <Leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
     ['v <Leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
     ['n <Leader>hS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
@@ -17,10 +17,7 @@ gitsigns.setup{
     ['n <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
     ['v <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
     ['n <Leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-    ['n <Leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
     ['n <Leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-    ['n <leader>hd'] = '<cmd>lua require"gitsigns".diffthis()<CR>',
-    ['n <leader>hD'] = '<cmd>lua require"gitsigns".diffthis("~")<CR>',
     -- Text objects (i)nside (h)unk
     ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
     ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'

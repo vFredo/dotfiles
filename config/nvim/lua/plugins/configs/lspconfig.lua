@@ -29,9 +29,9 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
   buf_map(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_map(bufnr, 'n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_map(bufnr, 'n', '<Leader>e', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', opts)
-  buf_map(bufnr, 'n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_map(bufnr, 'n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_map(bufnr, 'n', '<Leader>d', '<cmd>lua require("telescope.builtin").lsp_document_diagnostics()<CR>', opts)
+  buf_map(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_map(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 
   -- if the server client can format files then format on save
   if client.resolved_capabilities.document_formatting then

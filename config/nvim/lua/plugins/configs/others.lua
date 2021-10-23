@@ -42,7 +42,7 @@ M.colorizer = function()
     "*"; -- Highlight all files with defautls, but customize some others.
     "!NeogiStatus"; -- exclude filetype
     "!NeogitCommitMessage";
-    css = { rgb_fn = true, names = true }; -- CSS rgb() and rgba() functions + defaults
+    css = { rgb_fn = true, names = true }; -- CSS rgb() and rgba() + defaults
     },{ -- defaults
     names = false,   -- "Name" codes like 'Blue'
     RGB = false,     -- #RGB hex codes
