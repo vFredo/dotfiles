@@ -1,21 +1,18 @@
 local create_autocommands = require("core.utils").create_autocommands
 
 local autocmds = {
-  packer = {
-    { "BufWritePost", "*.lua", "source <afile> | PackerCompile" };
+  general_options = {
+    { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" }; -- format options
+    { "VimResized", "*", ":wincmd =" }; -- responsive windows size
+    { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] }; -- restore cursor last pos
   };
-  format_options = {
-    { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" };
+  unique_filetypes = {
+    { "BufWritePost", "*.lua", "source <afile> | PackerCompile" };
+    { "FileType", "NeogitCommitMessage", "setlocal spell spelllang=en_us" };
   };
   terminal_job = {
     { "TermOpen", "*", "startinsert" };
     { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" };
-  };
-  restore_cursor = {
-    { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] };
-  };
-  responsive_window_size = {
-    { "VimResized", "*", ":wincmd =" };
   };
   highlight_yank = {
     {
