@@ -21,6 +21,9 @@ telescope.setup {
       preview_cutoff = 120,
     },
     file_ignore_patterns = { "^node_modules/", "^.git/", "%.o", "%.pdf", "%.class", "%.obj" },
+    mappings = {
+      i = { ["<esc>"] = require('telescope.actions').close },
+    },
   },
   extensions = {
     fzf = {
