@@ -54,7 +54,7 @@ fg_bg("Search", colors.yellow, colors.bg, "bold,underline")
 fg_bg("IncSearch", colors.bg, colors.yellow, "bold")
 
 -- Spell colors
-fg("SpellBad", colors.red)
+fg("SpellBad", colors.orangeAlt)
 fg("SpellRare", colors.yellow)
 fg("SpellCap", colors.blue)
 
@@ -135,6 +135,7 @@ fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.magenta)
+fg("NvimTreeOpenedFile", colors.orangeAlt)
 
 --
 -- Neogit

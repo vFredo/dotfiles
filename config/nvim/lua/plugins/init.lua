@@ -80,7 +80,6 @@ return packer.startup(function(use)
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
-    opt = true,
     cmd = "NvimTreeToggle",
     requires = "nvim-web-devicons",
     config = function() require "plugins.configs.nvim-tree" end
