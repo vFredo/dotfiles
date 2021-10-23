@@ -30,12 +30,12 @@ opt.number         = true                -- Line number
 opt.relativenumber = true                -- Relatives number to the current line
 opt.hidden         = true                -- Change between buffers even if I don't save the current one
 opt.updatetime     = 300                 -- Change between modes more faster
-opt.joinspaces     = false               -- don't autoinsert two spaces after punctuation
-opt.wildmode       = "longest:full,full" -- shell-like autocomplete to unambiguous portion
+opt.joinspaces     = false               -- don't auto insert two spaces after punctuation
+opt.wildmode       = "longest:full,full" -- shell-like auto complete to unambiguous portion
 opt.wildignore     = opt.wildignore + "*.o,*.rej,*.so" -- patterns to ignore in navigation
 opt.signcolumn     = "yes:2"             -- show when is a sign to display and max 4 signs we can see at a time
-opt.foldlevelstart = 99
-opt.spelllang = { 'en_us', 'es' }
+opt.spelllang      = { 'en_us', 'es' }   -- spell check on this languages
+opt.spellsuggest   = { "best" , 9 }      -- Nine spell checking candidates at most
 
 -- Viewport
 opt.scrolloff      = 3                   -- start scrolling 3 lines before edge of the rows viewport
@@ -66,6 +66,7 @@ opt.listchars      = {
   trail     = '•'         -- MIDDLE BULLET (U+2022)
 }
 
+opt.foldlevelstart = 99  -- Fold level start '99' = without folds
 opt.diffopt        = opt.diffopt + "foldcolumn:0"  -- don't show fold column in diff view.
 opt.fillchars      = {
   diff  =  '∙',        -- BULLET OPERATOR (U+2219)

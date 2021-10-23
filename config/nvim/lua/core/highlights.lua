@@ -53,6 +53,11 @@ ui("Comment", "italic")
 fg_bg("Search", colors.yellow, colors.bg, "bold,underline")
 fg_bg("IncSearch", colors.bg, colors.yellow, "bold")
 
+-- Spell colors
+fg("SpellBad", colors.red)
+fg("SpellRare", colors.yellow)
+fg("SpellCap", colors.blue)
+
 -- Popup menu (autocomplete menu)
 bg("Pmenu", colors.bgAlt) -- completition box
 fg_bg("PmenuSel", colors.bgAlt, colors.blue, "bold") -- item selected
