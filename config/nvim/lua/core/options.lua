@@ -53,14 +53,14 @@ opt.smartindent    = true
 opt.shortmess:append('I') -- no splash screen
 opt.shortmess:append('a') -- Abreviations eg. `[RO]` instead of `[readonly]`
 opt.shortmess:append('c') -- avoid show extra message in completion
-opt.completeopt:append{'noinsert','menuone','noselect','preview'} -- https://www.youtube.com/watch?v=-3S4xVDpLzI
+opt.completeopt:append{'menuone','noinsert','noselect', 'preview'} -- https://www.youtube.com/watch?v=-3S4xVDpLzI
 opt.diffopt:append('vertical')  -- Show diffs in vertical splits
 
 -- Folds
 opt.diffopt:append('foldcolumn:0')  -- don't show foldcolumn in diff view
 opt.foldlevelstart = 99             -- Fold level start '99' = without folds
 opt.foldmethod     = 'indent'       -- default fold method
-vim.cmd([[set foldtext=luaeval(\"require('core.utils').fold_text()\")]])
+vim.cmd([[set foldtext=luaeval(\"require('core.utils').fold_text()\")]]) -- custom foldtext
 
 --
 -- Characters

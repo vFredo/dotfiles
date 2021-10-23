@@ -54,12 +54,12 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
-    { name = "nvim_lua" },
+    { name = "nvim_lua", max_item_count = 10 },
     { name = 'cmp_tabnine', keyword_length = 3 },
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp", max_item_count = 10 },
     { name = "luasnip" },
-    { name = "buffer", keyword_length = 5 },
-    { name = "path" },
+    { name = "buffer", keyword_length = 4 },
+    { name = "path", max_item_count = 5 },
   },
   snippet = {
     expand = function(args)
@@ -79,7 +79,10 @@ cmp.setup {
       local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
       if entry.source.name == 'cmp_tabnine' then
         if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-          kind = '' .. ' ' .. entry.completion_item.data.detail -- tabnine porcentage assertion
+          -- tabnine porcentage assertion
+          kind = '' .. ' ' .. entry.completion_item.data.detail
+        else
+          kind = ''
         end
       end
       vim_item.kind = kind

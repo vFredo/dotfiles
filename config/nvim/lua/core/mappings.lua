@@ -71,3 +71,8 @@ vim.cmd([[
 vim.cmd([[
   command! Reindent lua require("core.utils").preserve("sil keepj normal! gg=G")
 ]])
+
+-- Disabling LSP
+vim.cmd([[
+  command! LspDisable lua vim.lsp.stop_client(vim.lsp.get_active_clients())
+]])
