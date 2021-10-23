@@ -14,7 +14,9 @@ M.packer_lazy_load = function(timer)
     return
   end
 
-  local plugins = "surround.nvim gitsigns.nvim neogit nvim-lspconfig nvim-tree.lua"
+  -- which plugins are we lazy loading
+  local plugins = "surround.nvim gitsigns.nvim neogit nvim-tree.lua"
+
   vim.defer_fn(function()
     packer.loader(plugins)
   end, timer)
