@@ -17,9 +17,11 @@ end
 local tabnine = require('cmp_tabnine.config')
 
 tabnine:setup({
-  sort = true;
   max_lines = 1000;
   max_num_results = 4;
+  sort = true;
+	run_on_every_keystroke = true;
+	snippet_placeholder = '..';
 })
 
 cmp.setup {
@@ -29,20 +31,24 @@ cmp.setup {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.close(),
+    -- confirm autocomplete = <Tab>
+    -- jump next place holder = <Tab> (this happens when there's no selection)
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif has_words_before() then
+      if has_words_before() and cmp.get_selected_entry() then
         cmp.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true})
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
-        fallback()
+        fallback() -- else do a simple char <Tab>
       end
     end, { "i", "s" }),
+    -- FIX: <S-Tab> seems like is not working
+    -- jump prev place holder = <S-Tab>
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
-        fallback()
+        fallback() -- else do a simple char <S-Tab>
       end
     end, { "i", "s" }),
   },
@@ -51,11 +57,10 @@ cmp.setup {
     { name = "nvim_lua" },
     { name = 'cmp_tabnine', keyword_length = 3 },
     { name = "nvim_lsp" },
-    { name = "path" },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 5 },
+    { name = "path" },
   },
-  completion = { completeopt = "menu,menuone,noselect" },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -64,7 +69,7 @@ cmp.setup {
   formatting = {
     format = function(entry, vim_item)
       local source_mapping = {
-        nvim_lua = "[api]",
+        nvim_lua = "[lua]",
         nvim_lsp = "[LSP]",
         path = "[path]",
         luasnip = "[snip]",
