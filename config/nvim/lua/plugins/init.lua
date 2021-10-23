@@ -150,7 +150,7 @@ return packer.startup(function(use)
     module = "cmp",
     after = "LuaSnip",
     requires = {
-      { "L3MON4D3/LuaSnip", requires = {"rafamadriz/friendly-snippets", event = "InsertEnter"}}, -- Snippets
+      { "L3MON4D3/LuaSnip", requires = {"rafamadriz/friendly-snippets"}}, -- Snippets
       { "onsails/lspkind-nvim" }, -- icons in complete menu
       { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", opt = true},

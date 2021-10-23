@@ -53,14 +53,6 @@ map("n", "<Down>", ":cnext<CR>", opt)
 map("n", "<Left>", ":cpfile<CR>", opt)
 map("n", "<Right>", ":cnfile<CR>", opt)
 
--- Helper function for commands
-function _G.preserve(cmd)
-  cmd = string.format('keepjumps keeppatterns execute %q', cmd)
-  local original_cursor = vim.fn.winsaveview()
-  vim.api.nvim_command(cmd)
-  vim.fn.winrestview(original_cursor)
-end
-
 --
 -- Command configurations
 --

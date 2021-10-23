@@ -6,7 +6,7 @@ if not ok_cmp or not ok_luasnip or not ok_lspkind  then
   return
 end
 
-lspkind.init()
+lspkind.init( { with_text = true, } )
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -48,17 +48,14 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
-    { name = 'cmp_tabnine', keyword_length = 3 },
     { name = "nvim_lua" },
+    { name = 'cmp_tabnine', keyword_length = 3 },
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 5 },
   },
-  completion = {
-    autocomplete = {require("cmp.types").cmp.TriggerEvent.TextChanged},
-    completeopt = "menu,menuone,noselect"
-  },
+  completion = { completeopt = "menu,menuone,noselect" },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -74,16 +71,14 @@ cmp.setup {
         buffer = "[buf]",
         cmp_tabnine = "[tb9]"
       }
-
-      vim_item.kind = lspkind.presets.default[vim_item.kind]
-      local menu = source_mapping[entry.source.name]
+      local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
       if entry.source.name == 'cmp_tabnine' then
         if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-          menu = entry.completion_item.data.detail .. ' ' .. menu
+          kind = '' .. ' ' .. entry.completion_item.data.detail -- tabnine porcentage assertion
         end
-        vim_item.kind = ''
       end
-      vim_item.menu = menu
+      vim_item.kind = kind
+      vim_item.menu = source_mapping[entry.source.name]
       return vim_item
     end
   },

@@ -6,5 +6,5 @@ local ok, core = pcall(require, "core")
 if ok then
   core.init()
 else
-  print("Couldn't log configuration")
+  print("Couldn't run configuration...")
 end
