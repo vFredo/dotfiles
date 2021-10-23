@@ -61,7 +61,16 @@ function _G.preserve(cmd)
   vim.fn.winrestview(original_cursor)
 end
 
+--
+-- Command configurations
+--
+
 -- Command 'TrimSpaces' well... it's self-explanatory what this does
-vim.cmd([[command! TrimSpaces lua preserve('%s/\\s\\+$//ge')]])
+vim.cmd([[
+  command! TrimSpaces lua require("core.utils").preserve('%s/\\s\\+$//ge')
+]])
+
 -- Reindent the current buffer
-vim.cmd([[command! Reindent lua preserve("sil keepj normal! gg=G")]])
+vim.cmd([[
+  command! Reindent lua require("core.utils").preserve("sil keepj normal! gg=G")
+]])

@@ -48,4 +48,12 @@ M.create_autocommands = function (definitions)
   end
 end
 
+-- Helper function for commands
+M.preserve = function (cmd)
+  cmd = string.format('keepjumps keeppatterns execute %q', cmd)
+  local original_cursor = vim.fn.winsaveview()
+  vim.api.nvim_command(cmd)
+  vim.fn.winrestview(original_cursor)
+end
+
 return M
