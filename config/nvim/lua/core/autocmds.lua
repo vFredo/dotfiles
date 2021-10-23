@@ -8,7 +8,7 @@ local autocmds = {
   };
   unique_filetypes = {
     { "BufWritePost", "*.lua", "source <afile> | PackerCompile" };
-    { "FileType", "NeogitCommitMessage", "setlocal spell spelllang=en_us" };
+    { "FileType", "NeogitCommitMessage", "lua require('core.utils').toggleSpelling('ft')" };
   };
   terminal_job = {
     { "TermOpen", "*", "startinsert" };

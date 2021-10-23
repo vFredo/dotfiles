@@ -59,16 +59,19 @@ end
 _G.Spell_on = false
 
 -- Toggle spelling on buffer
-M.toggleSpelling = function (lang)
-  if Spell_on then
-    vim.cmd[[setlocal spell!]]
+M.toggleSpelling = function (option)
+
+  if Spell_on and option ~= "ft" then
+    vim.cmd[[setlocal nospell]]
+    M.map("i", "<C-l>", "<Nop>", {noremap = true, silent = true})
     Spell_on = false
     print("Spell OFF")
     return
   end
 
+  M.map("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", {noremap = true, silent = true})
   Spell_on = true
-  if lang == "es" then
+  if option == "es" then
     vim.cmd[[setlocal spell spelllang=es]]
     print("Spell ON: Spanish...")
   else
