@@ -56,4 +56,25 @@ M.preserve = function (cmd)
   vim.fn.winrestview(original_cursor)
 end
 
+_G.Spell_on = false
+
+-- Toggle spelling on buffer
+M.toggleSpelling = function (lang)
+  if Spell_on then
+    vim.cmd[[setlocal spell!]]
+    Spell_on = false
+    print("Spell OFF")
+    return
+  end
+
+  Spell_on = true
+  if lang == "es" then
+    vim.cmd[[setlocal spell spelllang=es]]
+    print("Spell ON: Spanish...")
+  else
+    vim.cmd[[setlocal spell spelllang=en_us]]
+    print("Spell ON: English...")
+  end
+end
+
 return M

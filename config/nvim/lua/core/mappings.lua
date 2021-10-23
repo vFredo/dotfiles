@@ -53,6 +53,10 @@ map("n", "<Down>", ":cnext<CR>", opt)
 map("n", "<Left>", ":cpfile<CR>", opt)
 map("n", "<Right>", ":cnfile<CR>", opt)
 
+-- Spelling optiontions
+map("n", "<Leader>ss", "<cmd>lua require('core.utils').toggleSpelling('es')<CR>")
+map("n", "<Leader>se", "<cmd>lua require('core.utils').toggleSpelling('en_us')<CR>")
+
 --
 -- Command configurations
 --
