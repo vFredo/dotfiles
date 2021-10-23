@@ -33,7 +33,6 @@ opt.hidden         = true                -- Change between buffers even if I don
 opt.updatetime     = 300                 -- Change between modes more faster
 opt.joinspaces     = false               -- don't auto insert two spaces after punctuation
 opt.wildmode       = "longest:full,full" -- shell-like auto complete to unambiguous portion
-opt.completeopt    = "menu,menuone,noinsert,noselect" -- https://www.youtube.com/watch?v=-3S4xVDpLzI
 opt.wildignore     = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
 opt.spelllang      = { 'en_us', 'es' }   -- spell check on this languages
 opt.spellsuggest   = { "best" , 9 }      -- Nine spell checking candidates at most
@@ -49,6 +48,19 @@ opt.shiftwidth     = 2
 opt.tabstop        = 2
 opt.expandtab      = true
 opt.smartindent    = true
+
+-- Abreviations
+opt.shortmess:append('I') -- no splash screen
+opt.shortmess:append('a') -- Abreviations eg. `[RO]` instead of `[readonly]`
+opt.shortmess:append('c') -- avoid show extra message in completion
+opt.completeopt:append{'noinsert','menuone','noselect','preview'} -- https://www.youtube.com/watch?v=-3S4xVDpLzI
+opt.diffopt:append('vertical')  -- Show diffs in vertical splits
+
+-- Folds
+opt.diffopt:append('foldcolumn:0')  -- don't show foldcolumn in diff view
+opt.foldlevelstart = 99             -- Fold level start '99' = without folds
+opt.foldmethod     = 'indent'       -- default fold method
+vim.cmd([[set foldtext=luaeval(\"require('core.utils').fold_text()\")]])
 
 --
 -- Characters
@@ -66,9 +78,6 @@ opt.listchars      = {
   tab       = '  ',       -- I have plugin that takes cares of this character
   trail     = '•'         -- MIDDLE BULLET (U+2022)
 }
-
-opt.foldlevelstart = 99  -- Fold level start '99' = without folds
-opt.diffopt        = opt.diffopt + "foldcolumn:0"  -- don't show fold column in diff view.
 opt.fillchars      = {
   diff  =  '∙',        -- BULLET OPERATOR (U+2219)
   eob   =  ' ',        -- NO-BREAK SPACE (U+00A0) to suppress ~ at EndOfBuffer
@@ -76,10 +85,3 @@ opt.fillchars      = {
   vert  =  '┃',        -- BOX DRAWINGS HEAVY VERTICAL (U+2503)
 }
 
-opt.shortmess      = opt.shortmess
-  + 'I' -- no splash screen
-  + 'T' -- truncate non-file messages in middle
-  + 'W' -- don't echo "[w]"/"[written]" when writing
-  + 'a' -- Abreviations eg. `[RO]` instead of `[readonly]`
-  + 't' -- truncate file messages at start
-  + 'c' -- completion messages

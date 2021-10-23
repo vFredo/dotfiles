@@ -1,15 +1,27 @@
-local ok, ts_config = pcall(require, "nvim-treesitter.configs")
+local ok, treesitter = pcall(require, "nvim-treesitter")
 if not ok then
   return
 end
 
-ts_config.setup{
+treesitter.define_modules {
+  fold = {
+    attach = function(_, _)
+      vim.cmd'set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()'
+    end,
+    detach = function() end,
+  }
+}
+
+local ts_config = require("nvim-treesitter.configs")
+
+ts_config.setup {
   ensure_installed = "maintained",
   highlight = { enable = true },
   indent = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
   autotag = { enable = true },
   autopairs = { enable = true },
+  fold = { enable = true, disable = {'rst', 'python'} },
   textobjects = {
     enable = true,
     keymaps = {
@@ -79,9 +91,3 @@ ts_config.setup{
     },
   },
 }
-
--- Folding config
-vim.cmd([[
-  set foldmethod=expr
-  set foldexpr=nvim_treesitter#foldexpr()
-]])
