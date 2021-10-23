@@ -192,5 +192,4 @@ return packer.startup(function(use)
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
     { "windwp/nvim-ts-autotag", after = "nvim-treesitter"}
   }
-
 end)

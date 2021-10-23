@@ -37,11 +37,18 @@ M.colorizer = function()
   if colorizer == nil then
     return
   end
-  colorizer.setup({"*"}, {
+
+  colorizer.setup( {
+    "*"; -- Highlight all files with defautls, but customize some others.
+    "!NeogiStatus"; -- exclude filetype
+    "!NeogitCommitMessage";
+    css = { rgb_fn = true, names = true }; -- CSS rgb() and rgba() functions + defaults
+    },{ -- defaults
     names = false,   -- "Name" codes like 'Blue'
+    RGB = false,     -- #RGB hex codes
     RRGGBB = true,   -- #RRGGBB hex codes
     RRGGBBAA = true, -- #RRGGBBAA hex codes
-    rgb_fn = true,   -- CSS rgb() and rgba() functions
+    mode = 'background', -- Set the display mode.
   })
   vim.cmd "ColorizerReloadAllBuffers"
 end
