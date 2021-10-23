@@ -36,6 +36,7 @@ end
 
 -- Buffer specific mappings
 M.buf_map = function (bufnr, ...)
+  -- if bufnr == 0 this means make the map on the current buffer
   vim.api.nvim_buf_set_keymap(bufnr, ...)
 end
 
@@ -61,33 +62,33 @@ M.preserve = function (cmd)
   vim.fn.winrestview(original_cursor)
 end
 
-_G.Spell_on = false
-
 -- Toggle spelling on buffer
 M.toggleSpelling = function (option)
 
-  if Spell_on and option ~= "ft" then
-    vim.cmd[[setlocal nospell]]
-    M.map("i", "<C-l>", "<Nop>", {noremap = true, silent = true})
-    Spell_on = false
+  local opts = { noremap = true, silent = true }
+
+  if vim.b.spell_toggle and option ~= "ft" then
+    vim.cmd([[ setlocal nospell ]])
+    vim.b.spell_toggle = false
     vim.notify("Spell OFF...")
+    M.buf_map(0, "i", "<C-l>", "<Nop>", opts) -- delete spell mapping
     return
   end
 
   if option ~= "ft" then
-    Spell_on = true
+    vim.b.spell_toggle = true
   end
 
   if option == "es" then
-    vim.cmd[[setlocal spell spelllang=es]]
+    vim.cmd([[ setlocal spell spelllang=es ]])
     vim.notify("Spell ON: Spanish...")
   else
-    vim.cmd[[setlocal spell spelllang=en_us]]
+    vim.cmd([[ setlocal spell spelllang=en_us ]])
     vim.notify("Spell ON: English...")
   end
 
   -- Easy mapping for fix last spell error
-  M.buf_map(0, "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", {noremap = true, silent = true})
+  M.buf_map(0, "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
 end
 
 return M
