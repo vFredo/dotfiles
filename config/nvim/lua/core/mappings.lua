@@ -9,10 +9,10 @@ map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 map("n", "<Esc>", ":nohlsearch<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>ff", ":Telescope find_files hidden=true no_ignore=true<CR>", opt)
-map("n", "<Leader>fb", ":Telescope buffers ignore_current_buffer=true<CR>", opt)
-map("n", "<Leader>fg", ":Telescope live_grep additional_args=--hidden<CR>", opt)
-map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
+map("n", "<Leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden = true, no_ignore = true})<cr>", opt)
+map("n", "<Leader>fb", "<cmd>lua require('telescope.builtin').buffers({ignore_current_buffer = true})<cr>", opt)
+map("n", "<Leader>fg", "<cmd>lua require('telescope.builtin').live_grep(additional_args = '--hidden')<cr>", opt)
+map("n", "<Leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opt)
 
 -- nvim-tree
 map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)

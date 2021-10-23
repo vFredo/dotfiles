@@ -88,14 +88,16 @@ return packer.startup(function(use)
 
   -- Fuzzy finder (Telescope)
   use {
-    "nvim-telescope/telescope.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
-      "nvim-web-devicons",
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-    },
-    config = function() require "plugins.configs.telescope" end
+    { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- fzf with telescope
+    {
+      "nvim-telescope/telescope.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-lua/popup.nvim",
+        "nvim-web-devicons",
+      },
+      config = function() require "plugins.configs.telescope" end
+    }
   }
 
   -- Indentation guides/tracking

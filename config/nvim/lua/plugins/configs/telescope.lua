@@ -1,4 +1,7 @@
-local telescope = require("telescope")
+local ok, telescope = pcall(require, "telescope")
+if not ok then
+  return
+end
 
 telescope.setup {
   defaults = {
@@ -17,7 +20,7 @@ telescope.setup {
       height = 0.80,
       preview_cutoff = 120,
     },
-    file_ignore_patterns = { "node_modules", ".git", "%.o", "%.pdf", "%.class", "%.obj" },
+    file_ignore_patterns = { "^node_modules/", "^.git/", "%.o", "%.pdf", "%.class", "%.obj" },
   },
   extensions = {
     fzf = {
