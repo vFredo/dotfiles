@@ -76,3 +76,6 @@ vim.cmd([[
 vim.cmd([[
   command! LspDisable lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 ]])
+
+-- Neogit commit prompt
+vim.cmd([[ command! Commit Neogit commit ]])

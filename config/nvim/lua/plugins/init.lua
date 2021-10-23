@@ -128,7 +128,7 @@ return packer.startup(function(use)
     {
       "TimUntersberger/neogit",
       cmd = "Neogit",
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
       config = function() require "plugins.configs.others".neogit() end
     }
   }

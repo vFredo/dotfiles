@@ -60,7 +60,9 @@ M.neogit = function ()
   end
   neogit.setup {
     disable_signs = true,
-    disable_commit_confirmation = true
+    disable_commit_confirmation = true,
+    commit_popup = { kind = "vsplit" },
+    integrations = { diffview = true } -- diffview plugin
   }
 end
 
