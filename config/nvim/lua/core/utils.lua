@@ -77,20 +77,18 @@ M.toggleSpelling = function (option)
     return
   end
 
-  if option ~= "ft" then
+  if not vim.b.spell_toggle then
+    if option == "es" then
+      vim.cmd([[ setlocal spell spelllang=es ]])
+      vim.notify("Spell ON: Spanish...")
+    else
+      vim.cmd([[ setlocal spell spelllang=en_us ]])
+      vim.notify("Spell ON: English...")
+    end
     vim.b.spell_toggle = true
+    -- Easy mapping for fix last spell error
+    M.buf_map(0, "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
   end
-
-  if option == "es" then
-    vim.cmd([[ setlocal spell spelllang=es ]])
-    vim.notify("Spell ON: Spanish...")
-  else
-    vim.cmd([[ setlocal spell spelllang=en_us ]])
-    vim.notify("Spell ON: English...")
-  end
-
-  -- Easy mapping for fix last spell error
-  M.buf_map(0, "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
 end
 
 return M

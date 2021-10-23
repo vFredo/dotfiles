@@ -82,7 +82,7 @@ M.surround = function()
     return
   end
   surround.setup {
-    mappings_style = "sandwich",
+    mappings_style = "surround",
     map_insert_mode = false
   }
 end
