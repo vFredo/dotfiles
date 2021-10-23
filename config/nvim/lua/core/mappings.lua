@@ -1,5 +1,6 @@
 local map = require("core.utils").map
 local opt = { noremap = true, silent = true }
+local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 
 -- Yank and paste text from clipboard
 map({ "n", "v" }, "<Leader>y", [["+y]], opt)
@@ -27,20 +28,20 @@ map({ "n", "v" }, "gl", "$", opt)
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k', also
 -- don't use g[j|k] when in operator pending mode, so it doesn't alter 'd', 'y' or 'c'
 -- empty mode is same as using :map
-map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
-map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
+map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opt_expr)
+map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr)
 
 -- Buffers
-map("n", "<Leader>d", ":Sayonara<CR>", opt)
-map("n", "<Leader>l", ":bnext<CR>", opt)
-map("n", "<Leader>h", ":bprevious<CR>", opt)
 map("n", "<Leader><Leader>", "<C-^>", opt)
-map("n", "<Leader>L", "<C-w>L",opt)
-map("n", "<Leader>H", "<C-w>H",opt)
-map({ "n", "v" }, "<C-h>", "<CMD>lua require('Navigator').left()<CR>", opt)
-map({ "n", "v" }, "<C-j>", "<CMD>lua require('Navigator').down()<CR>", opt)
-map({ "n", "v" }, "<C-k>", "<CMD>lua require('Navigator').up()<CR>", opt)
-map({ "n", "v" }, "<C-l>", "<CMD>lua require('Navigator').right()<CR>", opt)
+map("n", "<Leader>L", "<C-w>L", opt)
+map("n", "<Leader>H", "<C-w>H", opt)
+map("n", "<Leader>d", ":Sayonara<CR>", opt)
+map("n", "[b", ":BufferLineCyclePrev<CR>", opt)
+map("n", "]b", ":BufferLineCycleNext<CR>", opt)
+map({ "n", "v" }, "<C-h>", "<cmd>lua require('Navigator').left()<CR>", opt)
+map({ "n", "v" }, "<C-j>", "<cmd>lua require('Navigator').down()<CR>", opt)
+map({ "n", "v" }, "<C-k>", "<cmd>lua require('Navigator').up()<CR>", opt)
+map({ "n", "v" }, "<C-l>", "<cmd>lua require('Navigator').right()<CR>", opt)
 
 -- Easy edits
 map("v", "<", "<gv", opt)
@@ -53,12 +54,12 @@ map("n", "<Down>", ":cnext<CR>", opt)
 map("n", "<Left>", ":cpfile<CR>", opt)
 map("n", "<Right>", ":cnfile<CR>", opt)
 
--- Spelling optiontions
-map("n", "<Leader>ss", "<cmd>lua require('core.utils').toggleSpelling('es')<CR>")
-map("n", "<Leader>se", "<cmd>lua require('core.utils').toggleSpelling('en_us')<CR>")
+-- Toggle spelling (spanish and english)
+map("n", "<Leader>ss", "<cmd>lua require('core.utils').toggleSpelling('es')<CR>", opt)
+map("n", "<Leader>se", "<cmd>lua require('core.utils').toggleSpelling('en_us')<CR>", opt)
 
 --
--- Command configurations
+-- Commands
 --
 
 -- Command 'TrimSpaces' well... it's self-explanatory what this does
