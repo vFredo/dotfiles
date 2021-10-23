@@ -34,7 +34,7 @@ opt.updatetime     = 300                 -- Change between modes more faster
 opt.joinspaces     = false               -- don't auto insert two spaces after punctuation
 opt.wildmode       = "longest:full,full" -- shell-like auto complete to unambiguous portion
 opt.completeopt    = "menu,menuone,noinsert,noselect" -- https://www.youtube.com/watch?v=-3S4xVDpLzI
-opt.wildignore     = { '*/cache/*', '*/tmp/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
+opt.wildignore     = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
 opt.spelllang      = { 'en_us', 'es' }   -- spell check on this languages
 opt.spellsuggest   = { "best" , 9 }      -- Nine spell checking candidates at most
 

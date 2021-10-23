@@ -20,7 +20,7 @@ M.packer_lazy_load = function(timer)
   end, timer)
 end
 
--- Mappings
+-- General mappings
 M.map = function(mode, lhs, rhs, opts)
   local options = opts or {  }
 
@@ -34,6 +34,7 @@ M.map = function(mode, lhs, rhs, opts)
   end
 end
 
+-- Buffer specific mappings
 M.buf_map = function (bufnr, ...)
   vim.api.nvim_buf_set_keymap(bufnr, ...)
 end
@@ -69,7 +70,7 @@ M.toggleSpelling = function (option)
     vim.cmd[[setlocal nospell]]
     M.map("i", "<C-l>", "<Nop>", {noremap = true, silent = true})
     Spell_on = false
-    print("Spell OFF")
+    vim.notify("Spell OFF...")
     return
   end
 
@@ -79,10 +80,10 @@ M.toggleSpelling = function (option)
 
   if option == "es" then
     vim.cmd[[setlocal spell spelllang=es]]
-    print("Spell ON: Spanish...")
+    vim.notify("Spell ON: Spanish...")
   else
     vim.cmd[[setlocal spell spelllang=en_us]]
-    print("Spell ON: English...")
+    vim.notify("Spell ON: English...")
   end
 
   -- Easy mapping for fix last spell error
