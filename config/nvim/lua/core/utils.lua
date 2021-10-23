@@ -34,6 +34,10 @@ M.map = function(mode, lhs, rhs, opts)
   end
 end
 
+M.buf_map = function (bufnr, ...)
+  vim.api.nvim_buf_set_keymap(bufnr, ...)
+end
+
 -- Autocommands groups
 -- This function is taken from https://github.com/norcalli/nvim_utils
 M.create_autocommands = function (definitions)
@@ -69,8 +73,10 @@ M.toggleSpelling = function (option)
     return
   end
 
-  M.map("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", {noremap = true, silent = true})
-  Spell_on = true
+  if option ~= "ft" then
+    Spell_on = true
+  end
+
   if option == "es" then
     vim.cmd[[setlocal spell spelllang=es]]
     print("Spell ON: Spanish...")
@@ -78,6 +84,9 @@ M.toggleSpelling = function (option)
     vim.cmd[[setlocal spell spelllang=en_us]]
     print("Spell ON: English...")
   end
+
+  -- Easy mapping for fix last spell error
+  M.buf_map(0, "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", {noremap = true, silent = true})
 end
 
 return M

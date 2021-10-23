@@ -25,6 +25,7 @@ opt.ignorecase     = true                -- ignore case on '/', '?', '*', '#'
 opt.smartcase      = true                -- override ignorecase if there is an uppercase
 opt.termguicolors  = true                -- Use all the color pallette
 opt.showmode       = false               -- Don't show current mode on the command line
+opt.signcolumn     = "yes:2"             -- show when is a sign to display and max 4 signs we can see at a time
 opt.mouse          = "a"                 -- Mouse support for neovim
 opt.number         = true                -- Line number
 opt.relativenumber = true                -- Relatives number to the current line
@@ -32,8 +33,7 @@ opt.hidden         = true                -- Change between buffers even if I don
 opt.updatetime     = 300                 -- Change between modes more faster
 opt.joinspaces     = false               -- don't auto insert two spaces after punctuation
 opt.wildmode       = "longest:full,full" -- shell-like auto complete to unambiguous portion
-opt.wildignore     = opt.wildignore + "*.o,*.rej,*.so" -- patterns to ignore in navigation
-opt.signcolumn     = "yes:2"             -- show when is a sign to display and max 4 signs we can see at a time
+opt.wildignore     = { '*/cache/*', '*/tmp/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
 opt.spelllang      = { 'en_us', 'es' }   -- spell check on this languages
 opt.spellsuggest   = { "best" , 9 }      -- Nine spell checking candidates at most
 
