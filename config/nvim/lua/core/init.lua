@@ -3,25 +3,43 @@
 --
 local M = {  }
 
-M.init = function()
+M.load_modules = function ()
+  local modules = {
+    "plugins",
+    "core.autocmds",
+    "core.mappings",
+    "core.theme",
+    "core.highlights",
+  }
+
+  for _, module in ipairs(modules) do
+    local ok, err = pcall(require, module)
+    if not ok then
+      error("Error loading " .. module .. "\n\n" .. err)
+    end
+  end
+end
+
+M.init = function(opt)
+  local is_async = opt or 'yes'
   require "core.options"
 
-  local async
-  async =
-    vim.loop.new_async(
-      vim.schedule_wrap(
-        function ()
-          require "plugins"
-          -- require "core.utils".packer_lazy_load(80)
-          require "core.mappings"
-          require "core.theme"
-          require "core.highlights"
-          require "core.autocmds"
-          async:close()
-        end
+  if is_async == 'yes' then
+    local async
+    async =
+      vim.loop.new_async(
+        vim.schedule_wrap(
+          function ()
+            M.load_modules()
+            async:close()
+          end
+        )
       )
-    )
-  async:send()
+    async:send()
+  else
+    M.load_modules()
+  end
+  require "core.utils".packer_lazy_load(80)
 end
 
 return M

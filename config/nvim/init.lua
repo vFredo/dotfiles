@@ -4,7 +4,7 @@
 local ok, core = pcall(require, "core")
 
 if ok then
-  core.init()
+  core.init('yes')
 else
   vim.notify("Couldn't run configuration...")
 end
