@@ -4,7 +4,7 @@ local autocmds = {
   general_options = {
     { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" }; -- format options
     { "VimResized", "*", ":wincmd =" }; -- responsive windows size
-    { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] }; -- restore cursor last pos
+    { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] }; -- restore cursor pos
   };
   unique_filetypes = {
     { "BufWritePost", "*.lua", "source <afile> | PackerCompile" };

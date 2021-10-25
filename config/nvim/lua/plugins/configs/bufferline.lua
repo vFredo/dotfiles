@@ -15,7 +15,6 @@ bufferline.setup {
     max_prefix_length = 10,
     tab_size = 16,
     always_show_bufferline = false,
-    sort_by = "directory"
   },
   highlights = {
     background = {

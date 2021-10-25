@@ -31,22 +31,19 @@ cmp.setup {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.close(),
-    -- confirm autocomplete = <Tab>
-    -- jump next place holder = <Tab> (this happens when there's no selection)
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if has_words_before() and cmp.get_selected_entry() then
+      if has_words_before() and cmp.get_selected_entry() then -- confirm completion
         cmp.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true})
-      elseif luasnip.expand_or_jumpable() then
+      elseif luasnip.expand_or_jumpable() then -- jump next placeholder
         luasnip.expand_or_jump()
       else
         fallback() -- else do a simple char <Tab>
       end
     end, { "i", "s" }),
-    -- FIX: <S-Tab> seems like is not working
-    -- jump prev place holder = <S-Tab>
     ["<S-Tab>"] = cmp.mapping(function(fallback)
+      -- FIX: Seems like is not working jumping to previous placeholder
       if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
+        luasnip.jump(-1) -- jump previous placeholder
       else
         fallback() -- else do a simple char <S-Tab>
       end
@@ -76,11 +73,13 @@ cmp.setup {
         buffer = "[buf]",
         cmp_tabnine = "[tb9]"
       }
+
       local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
+      local data = entry.completion_item.data
       if entry.source.name == 'cmp_tabnine' then
-        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-          -- tabnine porcentage assertion
-          kind = '' .. ' ' .. entry.completion_item.data.detail
+        if  data ~= nil and data.detail ~= nil then
+          -- put tabnine porcentage value if exists
+          kind = '' .. ' ' .. data.detail
         else
           kind = ''
         end
@@ -92,7 +91,7 @@ cmp.setup {
   },
   documentation = { border = "rounded" },
   experimental = {
-    native_menu = false, -- I like the new menu better!
+    native_menu = false, -- Better menubar theme
     ghost_text = true,
   },
 }
