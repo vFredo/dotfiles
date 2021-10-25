@@ -92,6 +92,6 @@ you want, the script removes it. For the moment, most dependencies have to be in
 # ❖ Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
 * Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
-* The Alacritty theme and some of the Neovim configurations comes from [TheRealKizu dotfiles](https://github.com/TheRealKizu/dotfiles) and his [Neovim repo](https://github.com/TheRealKizu/neodots).
+* The theme colors and some neovim configurations comes from TheRealKizu [dotfiles](https://github.com/TheRealKizu/dotfiles) and his [neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 
