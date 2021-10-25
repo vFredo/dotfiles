@@ -149,7 +149,7 @@ return packer.startup(function(use)
 
   -- Autocomplete/Snippets
   use {
-    { "L3MON4D3/LuaSnip", requires = {"rafamadriz/friendly-snippets"}}, -- Snippets
+    { "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets" } }, -- Snippets
     {
       "hrsh7th/nvim-cmp",
       module = "cmp",
@@ -158,11 +158,11 @@ return packer.startup(function(use)
       requires = {
         { "onsails/lspkind-nvim" }, -- icons in complete menu
         { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
-        { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", opt = true},
+        { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
-        { "saadparwaiz1/cmp_luasnip", after = {"nvim-cmp", "LuaSnip"}, opt = true },
+        { "saadparwaiz1/cmp_luasnip", after = { "nvim-cmp", "LuaSnip" }, opt = true },
       },
       config = function() require "plugins.configs.cmp" end
     }
@@ -176,9 +176,7 @@ return packer.startup(function(use)
       "nvim-treesitter/nvim-treesitter",
       branch = "0.5-compat",
       run = ":TSUpdate",
-      config = function()
-        require "plugins.configs.treesitter"
-      end
+      config = function() require "plugins.configs.treesitter" end
     },
     {
       "windwp/nvim-autopairs",
@@ -191,6 +189,6 @@ return packer.startup(function(use)
       after = "nvim-treesitter"
     },
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
-    { "windwp/nvim-ts-autotag", after = "nvim-treesitter"}
+    { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
   }
 end)

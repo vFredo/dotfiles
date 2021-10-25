@@ -20,6 +20,7 @@ vim.cmd([[
 -- General options
 --
 g.mapleader        = " "                 -- Map leader is <Space>
+opt.virtualedit    = "block"             -- edit lines in v-block with no characters
 opt.guifont        = "Iosevka Nerd Font:h12" -- GUI font for eg: neovide
 opt.ignorecase     = true                -- ignore case on '/', '?', '*', '#'
 opt.smartcase      = true                -- override ignorecase if there is an uppercase
