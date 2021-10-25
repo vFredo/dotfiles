@@ -182,7 +182,7 @@ return packer.startup(function(use)
     },
     {
       "windwp/nvim-autopairs",
-      after = { "nvim-treesitter", "nvim-cmp" },
+      after =  "nvim-treesitter",
       config = function() require "plugins.configs.autopairs" end
     },
     {
