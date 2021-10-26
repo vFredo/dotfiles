@@ -3,8 +3,22 @@
 --
 local lsp_installer = require("nvim-lsp-installer")
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
-local servers = { 'clangd', 'gopls', 'html', 'jsonls', 'tsserver', 'pyright', 'cssls', 'bashls', 'volar', 'sumneko_lua' }
 
+-- Servers to install with nvim-lsp-intaller
+local servers = {
+  'clangd',
+  'gopls',
+  'html',
+  'jsonls',
+  'tsserver',
+  'pyright',
+  'cssls',
+  'bashls',
+  'volar',
+  'sumneko_lua'
+}
+
+-- Install servers of the list if they aren't installed
 for _, currServer in ipairs(servers) do
   local ok, server =  lsp_installer_servers.get_server(currServer)
   if ok and not server:is_installed() then
@@ -41,7 +55,7 @@ end
 
 local cmp_capabilities = require("cmp_nvim_lsp").update_capabilities
 
--- servers setup with lsp_installer
+-- server's setup via lsp_installer
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = on_attach,
@@ -96,7 +110,8 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     signs = true,
     underline = true,
     update_in_insert = false,
-})
+  }
+)
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover,

@@ -37,7 +37,7 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
-fg_bg("CursorLineNr", colors.fgAlt2, colors.bg)
+fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)

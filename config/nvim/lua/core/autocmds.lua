@@ -3,7 +3,7 @@ local create_autocommands = require("core.utils").create_autocommands
 local autocmds = {
   general_options = {
     { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" }; -- format options
-    { "VimResized", "*", ":wincmd =" }; -- responsive windows size
+    { "VimResized", "*", ":wincmd =" }; -- responsive panel/window size
     { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] }; -- restore cursor pos
   };
   unique_filetypes = {

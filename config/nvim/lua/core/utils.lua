@@ -14,7 +14,7 @@ M.packer_lazy_load = function(timer)
     return
   end
 
-  -- which plugins are we lazy loading
+  -- which plugins are we lazy load
   local plugins = "surround.nvim gitsigns.nvim neogit nvim-tree.lua"
 
   vim.defer_fn(function()
@@ -22,7 +22,7 @@ M.packer_lazy_load = function(timer)
   end, timer)
 end
 
--- General mappings
+-- Create global mapping
 M.map = function(mode, lhs, rhs, opts)
   local options = opts or {  }
 
@@ -36,13 +36,13 @@ M.map = function(mode, lhs, rhs, opts)
   end
 end
 
--- Buffer specific mappings
+-- Key mapping to a specific buffer
 M.buf_map = function (bufnr, ...)
   -- if bufnr == 0 this means make the map on the current buffer
   vim.api.nvim_buf_set_keymap(bufnr, ...)
 end
 
--- Autocommands groups
+-- Create Autocommand groups
 -- This function is taken from https://github.com/norcalli/nvim_utils
 M.create_autocommands = function (definitions)
   for group_name, definition in pairs(definitions) do
@@ -56,7 +56,7 @@ M.create_autocommands = function (definitions)
   end
 end
 
--- Helper function for commands
+-- Save current cursor position after running a command(cmd)
 M.preserve = function (cmd)
   cmd = string.format('keepjumps keeppatterns execute %q', cmd)
   local original_cursor = vim.fn.winsaveview()
@@ -69,15 +69,13 @@ M.toggleSpelling = function (option)
 
   local opts = { noremap = true, silent = true }
 
+  -- using a vim buffer variable to store value of spell_toggle
   if vim.b.spell_toggle and option ~= "ft" then
     vim.cmd([[ setlocal nospell ]])
     vim.b.spell_toggle = false
     vim.notify("Spell OFF...")
-    M.buf_map(0, "i", "<C-l>", "<Nop>", opts) -- delete spell mapping
-    return
-  end
-
-  if not vim.b.spell_toggle then
+    M.buf_map(0, "i", "<C-l>", "<Nop>", opts) -- delete instert mapping
+  else
     if option == "es" then
       vim.cmd([[ setlocal spell spelllang=es ]])
       vim.notify("Spell ON: Spanish...")
@@ -86,7 +84,7 @@ M.toggleSpelling = function (option)
       vim.notify("Spell ON: English...")
     end
     vim.b.spell_toggle = true
-    -- Easy mapping for fix last spell error
+    -- mapping for fix last spell error on insert mode
     M.buf_map(0, "i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
   end
 end
