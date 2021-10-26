@@ -3,25 +3,6 @@
 --
 local M = {  }
 
--- Load plugin after entering vim ui
--- With a little changes https://github.com/NvChad/NvChad/blob/main/lua/core/utils.lua
-M.packer_lazy_load = function(timer)
-  timer = timer or 0
-
-  vim.cmd "packadd packer.nvim"
-  local present, packer = pcall(require, "packer")
-  if not present then
-    return
-  end
-
-  -- which plugins are we lazy load
-  local plugins = "surround.nvim gitsigns.nvim neogit nvim-tree.lua"
-
-  vim.defer_fn(function()
-    packer.loader(plugins)
-  end, timer)
-end
-
 -- Create global mapping
 M.map = function(mode, lhs, rhs, opts)
   local options = opts or {  }

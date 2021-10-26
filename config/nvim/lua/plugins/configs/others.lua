@@ -1,13 +1,5 @@
 local M = {  }
 
-local function verify(module)
-  local ok, plugin = pcall(require, module)
-  if not ok then
-    return nil
-  end
-  return plugin
-end
-
 M.blankline = function()
   local ok, blankline = pcall(require, "indent_blankline")
   if not ok then
@@ -72,7 +64,10 @@ M.neoscroll = function()
     return
   end
   neoscroll.setup {
-    use_local_scrolloff = true,
+    respect_scroll_off = true,
+    hide_curor = true,
+    stop_eof = true,
+    cursor_scrolls_alone = false,
     easing_function = "circular"
   }
 end

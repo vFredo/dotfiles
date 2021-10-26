@@ -6,6 +6,9 @@ local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 map({ "n", "v" }, "<Leader>y", [["+y]], opt)
 map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 
+-- New line up the current line in insert mode
+map("i", "<C-k>", "<cmd>normal O<CR>", opt)
+
 -- use ESC in normal mode to turn off search highlighting
 map("n", "<Esc>", ":nohlsearch<CR>", opt)
 
