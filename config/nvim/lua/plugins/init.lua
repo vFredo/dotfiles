@@ -65,8 +65,8 @@ return packer.startup(function(use)
   -- Bufferline
   use {
     "akinsho/nvim-bufferline.lua",
+    opt = true,
     event = "UIEnter",
-    opt = "true",
     requires = "nvim-web-devicons",
     config = function() require "plugins.configs.bufferline" end
   }
@@ -82,6 +82,7 @@ return packer.startup(function(use)
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
+    opt = true,
     cmd = "NvimTreeToggle",
     requires = "nvim-web-devicons",
     config = function() require "plugins.configs.nvim-tree" end
@@ -128,6 +129,7 @@ return packer.startup(function(use)
     },
     {
       "TimUntersberger/neogit",
+      opt = true,
       cmd = "Neogit",
       requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
       config = function() require "plugins.configs.others".neogit() end

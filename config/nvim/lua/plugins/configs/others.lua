@@ -33,8 +33,8 @@ M.blankline = function()
 end
 
 M.colorizer = function()
-  local colorizer = verify("colorizer")
-  if colorizer == nil then
+  local ok, colorizer = pcall(require, "colorizer")
+  if not ok then
     return
   end
 
@@ -54,8 +54,8 @@ M.colorizer = function()
 end
 
 M.neogit = function ()
-  local neogit = verify("neogit")
-  if neogit == nil then
+  local ok, neogit = pcall(require, "neogit")
+  if not ok then
     return
   end
   neogit.setup {
@@ -67,8 +67,8 @@ M.neogit = function ()
 end
 
 M.neoscroll = function()
-  local neoscroll = verify("neoscroll")
-  if neoscroll == nil then
+  local ok, neoscroll = pcall(require, "neoscroll")
+  if not ok then
     return
   end
   neoscroll.setup {
@@ -78,16 +78,16 @@ M.neoscroll = function()
 end
 
 M.navigator = function()
-  local navigator = verify("Navigator")
-  if navigator == nil then
+  local ok, navigator = pcall(require, "Navigator")
+  if not ok then
     return
   end
   navigator.setup { auto_save = 'current' }
 end
 
 M.surround = function()
-  local surround = verify("surround")
-  if surround == nil then
+  local ok, surround = pcall(require, "surround")
+  if not ok then
     return
   end
   surround.setup {
@@ -97,8 +97,8 @@ M.surround = function()
 end
 
 M.comment = function()
-  local comment = verify("nvim_comment")
-  if comment == nil then
+  local ok, comment = pcall(require, "nvim_comment")
+  if not ok then
     return
   end
   comment.setup {

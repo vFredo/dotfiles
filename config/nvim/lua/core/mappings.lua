@@ -49,10 +49,8 @@ map("v", ">", ">gv", opt)
 map({ "n", "x" }, "Y", "y$", opt)
 
 -- Jump quickfix list
-map("n", "<Up>", ":cprevious<CR>", opt)
-map("n", "<Down>", ":cnext<CR>", opt)
-map("n", "<Left>", ":cpfile<CR>", opt)
-map("n", "<Right>", ":cnfile<CR>", opt)
+map("n", "[l", ":cprevious<CR>", opt)
+map("n", "]l", ":cnext<CR>", opt)
 
 -- Toggle spelling (spanish and english)
 map("n", "<Leader>ss", "<cmd>lua require('core.utils').toggleSpelling('es')<CR>", opt)
@@ -72,5 +70,3 @@ vim.cmd([[
   command! Reindent lua require("core.utils").preserve("sil keepj normal! gg=G")
 ]])
 
--- Neogit commit prompt
-vim.cmd([[ command! Commit Neogit commit ]])
