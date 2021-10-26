@@ -1,17 +1,18 @@
-local ok_lspkind, lspkind = pcall(require, "lspkind")
 local ok_cmp, cmp = pcall(require, "cmp")
 local ok_luasnip, luasnip = pcall(require, "luasnip")
+local ok_lspkind, lspkind = pcall(require, "lspkind")
 
-if not ok_cmp or not ok_luasnip or not ok_lspkind  then
+if not ok_cmp or not ok_luasnip or not ok_lspkind then
   return
 end
-
-lspkind.init( { with_text = true, } )
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
+
+-- lspkind icon config
+lspkind.init( { with_text = true, } )
 
 -- Tabnine configuration
 local tabnine = require('cmp_tabnine.config')

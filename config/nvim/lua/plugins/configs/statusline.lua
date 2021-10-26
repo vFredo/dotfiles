@@ -1,5 +1,11 @@
 local theme = require("core.theme")
 local colors = theme.colors
+
+local ok, feline_line = pcall(require, "feline")
+if not ok then
+  return
+end
+
 local lsp = require "feline.providers.lsp"
 
 -- styles for special icons and separators
@@ -233,8 +239,8 @@ local vi_mode_colors = {
   NONE = colors.cyan
 }
 
--- Initialize feline statusline
-require("feline").setup {
+-- Initialize feline statusline with line components
+feline_line.setup {
   colors = { fg = colors.fg, bg = colors.bg },
   components = components,
   vi_mode_colors = vi_mode_colors,
