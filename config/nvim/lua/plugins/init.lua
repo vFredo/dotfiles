@@ -92,6 +92,7 @@ return packer.startup(function(use)
     { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- fzf with telescope
     {
       "nvim-telescope/telescope.nvim",
+      event = "UIEnter",
       requires = {
         "nvim-lua/plenary.nvim",
         "nvim-lua/popup.nvim",
@@ -121,7 +122,7 @@ return packer.startup(function(use)
     {
       "lewis6991/gitsigns.nvim",
       opt = true,
-      event = "BufRead",
+      event = { 'BufRead','BufNewFile' },
       requires = { "nvim-lua/plenary.nvim" },
       config = function() require "plugins.configs.gitsigns" end
     },
@@ -141,7 +142,7 @@ return packer.startup(function(use)
     {
       "neovim/nvim-lspconfig",
       opt = true,
-      event = "BufRead",
+      event = 'BufReadPre',
       after = "nvim-lsp-installer",
       config = function() require "plugins.configs.lspconfig" end,
     }

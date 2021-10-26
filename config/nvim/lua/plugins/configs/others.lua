@@ -43,13 +43,13 @@ M.colorizer = function()
     "!NeogiStatus"; -- exclude filetype
     "!NeogitCommitMessage";
     css = { rgb_fn = true, names = true }; -- CSS rgb() and rgba() + defaults
-    },{ -- defaults
-    names = false,   -- "Name" codes like 'Blue'
-    RGB = false,     -- #RGB hex codes
-    RRGGBB = true,   -- #RRGGBB hex codes
-    RRGGBBAA = true, -- #RRGGBBAA hex codes
-    mode = 'background', -- Set the display mode.
-  })
+  },{ -- defaults
+      names = false,   -- "Name" codes like 'Blue'
+      RGB = false,     -- #RGB hex codes
+      RRGGBB = true,   -- #RRGGBB hex codes
+      RRGGBBAA = true, -- #RRGGBBAA hex codes
+      mode = 'background', -- Set the display mode.
+    })
   vim.cmd "ColorizerReloadAllBuffers"
 end
 
