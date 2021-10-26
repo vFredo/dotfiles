@@ -9,7 +9,7 @@ npairs.setup {
   check_ts = true,
   disable_filetype = { "TelescopePrompt" },
   autopairs = { enable = true },
-  ignored_next_char = "[%w%.']",
+  ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
   enable_check_bracket_line = false,
   html_break_line_filetype = {
     'html',

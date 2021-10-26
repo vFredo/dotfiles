@@ -135,7 +135,7 @@ fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.magenta)
-fg("NvimTreeOpenedFile", colors.orangeAlt)
+fg("NvimTreeOpenedFile", colors.red, "underline")
 
 --
 -- Neogit

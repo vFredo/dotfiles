@@ -9,8 +9,8 @@ local function verify(module)
 end
 
 M.blankline = function()
-  local blankline = verify("indent_blankline")
-  if blankline == nil then
+  local ok, blankline = pcall(require, "indent_blankline")
+  if not ok then
     return
   end
   blankline.setup {
