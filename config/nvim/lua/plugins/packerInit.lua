@@ -31,12 +31,6 @@ if not present then
 end
 
 packer.init {
-  display = {
-    open_fn = function()
-       return require("packer.util").float { border = "single" }
-    end,
-    prompt_border = "single",
-  },
   git = { clone_timeout = 300 }, -- 5 mins
   auto_clean = true,
   compile_on_sync = true,
