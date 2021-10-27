@@ -21,8 +21,8 @@ return packer.startup(function(use)
   -- Move between lines as fast as the light itself
   use {
     "ggandor/lightspeed.nvim",
-    as = "lightspeed",
     opt = true,
+    as = "lightspeed",
     keys = { 'f', 'F', 't', 'T', 'S', 's' },
     config = function() require "plugins.configs.others".lightspeed() end
   }
@@ -91,7 +91,7 @@ return packer.startup(function(use)
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeOpen" },
+    event = "UIEnter",
     requires = "nvim-web-devicons",
     setup = function() require "plugins.configs.nvim-tree".tree_setup() end,
     config = function() require "plugins.configs.nvim-tree".tree_config() end
