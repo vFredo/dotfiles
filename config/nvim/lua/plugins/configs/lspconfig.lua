@@ -1,6 +1,10 @@
 --
 -- Install servers
 --
+if not packer_plugins["nvim-lsp-installer"].loaded then
+  require"packer".loader("nvim-lsp-installer")
+end
+
 local lsp_installer = require("nvim-lsp-installer")
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
 
