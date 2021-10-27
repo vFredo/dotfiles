@@ -145,3 +145,14 @@ fg_bg("NeogitDiffDeleteHighlight", colors.red, colors.bgAlt)
 fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt)
 bg("NeogitDiffContextHighlight", colors.bgAlt)
 fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt)
+
+--
+-- Lightspeed
+--
+fg("LightspeedUnlabeledMatc", colors.green, "bold") -- match that can jump be automatic
+fg_bg("LightspeedOneCharMatch", colors.bg, colors.yellow, "bold") -- f/F or t/T
+fg_bg("LightspeedShortcut", colors.bg, colors.red, "bold") -- needs only one char
+fg_bg("LightspeedLabel", colors.red, colors.bg, "bold,underline") -- need 2 chars to jump
+fg_bg("LightspeedGreyWash", colors.grey, colors.bg) -- rest of characters color
+-- second lable on the same spot of another label
+fg_bg("LightspeedLabelOverlapped", colors.red, colors.bg, "underline,bold")

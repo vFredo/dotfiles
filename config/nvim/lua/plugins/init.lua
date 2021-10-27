@@ -18,6 +18,15 @@ return packer.startup(function(use)
   -- :bdelete, :close and :quit in one smart command
   use { "mhinz/vim-sayonara" }
 
+  -- Move between lines as fast as the light itself
+  use {
+    "ggandor/lightspeed.nvim",
+    as = "lightspeed",
+    opt = true,
+    keys = { 'f', 'F', 't', 'T', 'S', 's' },
+    config = function() require "plugins.configs.others".lightspeed() end
+  }
+
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",
@@ -28,7 +37,7 @@ return packer.startup(function(use)
 
   -- Operation between parenthesis, brackets, etc...
   use {
-    "blackCauldron7/surround.nvim",
+    "tpope/vim-surround",
     config = function() require "plugins.configs.others".surround() end
   }
 
