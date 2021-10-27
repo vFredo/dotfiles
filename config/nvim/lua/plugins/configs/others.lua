@@ -54,7 +54,7 @@ M.neogit = function ()
     disable_signs = true,
     disable_commit_confirmation = true,
     commit_popup = { kind = "vsplit" },
-    integrations = { diffview = true } -- diffview plugin
+    integrations = { diffview = true } -- diffview plugin integration
   }
 end
 
@@ -97,16 +97,22 @@ M.comment = function()
     return
   end
   comment.setup {
+    comment_empty = false,
     hook = function()
       local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+
       if  filetype == "c" or filetype == "cpp"  then
         vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-      else
+      elseif filetype == 'typescriptreact'
+        or filetype == 'javascriptreact'
+        or filetype == 'javascript'
+        or filetype == 'css'
+        or filetype == 'html'
+      then
         local ts_comment = require("ts_context_commentstring.internal")
         ts_comment.update_commentstring()
       end
-    end,
-    comment_empty = false
+    end
   }
 end
 

@@ -2,7 +2,10 @@ local ok_cmp, cmp = pcall(require, "cmp")
 local ok_luasnip, luasnip = pcall(require, "luasnip")
 local ok_lspkind, lspkind = pcall(require, "lspkind")
 
-if not ok_cmp or not ok_luasnip or not ok_lspkind then
+if not ok_cmp
+  or not ok_luasnip
+  or not ok_lspkind
+then
   return
 end
 
