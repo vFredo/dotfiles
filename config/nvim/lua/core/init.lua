@@ -1,9 +1,9 @@
 --
--- Setting up lua config files in a async way
+-- Setting up lua config files
 --
 local M = {  }
 
-local function disable_nvim_default_plugins()
+local function disable_default_plugins()
   vim.g.loaded_gzip = 1
   vim.g.loaded_tar = 1
   vim.g.loaded_tarPlugin = 1
@@ -25,7 +25,7 @@ local function disable_nvim_default_plugins()
 end
 
 M.init = function()
-  disable_nvim_default_plugins()
+  disable_default_plugins()
   local modules = {
     "core.options",
     "plugins",

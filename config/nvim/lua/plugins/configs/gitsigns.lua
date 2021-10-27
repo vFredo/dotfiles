@@ -21,9 +21,6 @@ gitsigns.setup{
     ['v <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
     ['n <Leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
     ['n <Leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-    -- Text objects (i)nside (h)unk
-    ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-    ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
   },
   signcolumn = true,
   word_diff = false,

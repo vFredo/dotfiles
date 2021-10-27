@@ -116,6 +116,9 @@ fg("GitSignsDelete", colors.red)
 bg("NormalFloat", colors.bgAlt)
 fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 
+-- Telescope
+fg("TelescopeBorder", colors.grey)
+
 --
 -- NvimTree
 --
