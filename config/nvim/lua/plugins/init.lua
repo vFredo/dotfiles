@@ -82,10 +82,10 @@ return packer.startup(function(use)
   -- Tree view of the project
   use {
     "kyazdani42/nvim-tree.lua",
-    opt = true,
-    cmd = "NvimTreeToggle",
+    cmd = { "NvimTreeToggle", "NvimTreeOpen" },
     requires = "nvim-web-devicons",
-    config = function() require "plugins.configs.nvim-tree" end
+    setup = function() require "plugins.configs.nvim-tree".tree_setup() end,
+    config = function() require "plugins.configs.nvim-tree".tree_config() end
   }
 
   -- Fuzzy finder (Telescope)
