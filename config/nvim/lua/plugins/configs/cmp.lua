@@ -55,9 +55,8 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
-    { name = "nvim_lua", max_item_count = 10 },
     { name = 'cmp_tabnine', keyword_length = 3 },
-    { name = "nvim_lsp", max_item_count = 10 },
+    { name = "nvim_lsp", max_item_count = 8 },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 4 },
     { name = "path", max_item_count = 5 },
@@ -70,7 +69,6 @@ cmp.setup {
   formatting = {
     format = function(entry, vim_item)
       local source_mapping = {
-        nvim_lua = "[lua]",
         nvim_lsp = "[LSP]",
         path = "[path]",
         luasnip = "[snip]",

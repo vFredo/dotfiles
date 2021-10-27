@@ -170,7 +170,6 @@ return packer.startup(function(use)
       requires = {
         { "onsails/lspkind-nvim" }, -- icons in complete menu
         { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
-        { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
