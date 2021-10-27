@@ -1,7 +1,7 @@
 local theme = require("core.theme")
 local colors = theme.colors
 
--- Helper functions for changging highlight groups
+-- Helper functions for changing highlight groups
 local function fg(group, color, opts)
   local gui = opts or ''
   if gui ~= '' then
@@ -65,7 +65,7 @@ bg("PmenuSbar", colors.bgAlt) -- scrollbar
 bg("PmenuThumb", colors.fgAlt) -- thumb scrollbar
 
 --
--- nvim-cmp autocomplete menu
+-- nvim-cmp completion menu
 --
 fg("CmpItemAbbr", colors.grey) -- text autocomplete
 fg("CmpItemKind", colors.blue) -- icon and kind info
@@ -119,14 +119,14 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 --
 -- NvimTree
 --
-fg("NvimTreeRootFolder", colors.green, "underline")
+fg("NvimTreeRootFolder", colors.blue, "italic")
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
 fg("NvimTreeOpenedFolderName", colors.blue)
 fg("NvimTreeEmptyFolderName", colors.cyan)
 bg("NvimTreeNormal", colors.bgAlt)
 bg("NvimTreeNormalNC", colors.bgAlt)
-fg("NvimTreeIndentMarker", colors.fgAlt2)
+fg("NvimTreeIndentMarker", colors.fgAlt)
 fg_bg("NvimTreeEndOfBuffer", colors.bgAlt, colors.bgAlt)
 fg_bg("NvimTreeVertSplit", colors.bg, colors.bg)
 fg("NvimTreeFileDirty", colors.red)
@@ -135,7 +135,7 @@ fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.magenta)
-fg("NvimTreeOpenedFile", colors.red, "underline")
+fg("NvimTreeOpenedFile", colors.green, "underline")
 
 --
 -- Neogit
@@ -149,7 +149,7 @@ fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt)
 --
 -- Lightspeed
 --
-fg("LightspeedUnlabeledMatc", colors.green, "bold") -- match that can jump be automatic
+fg("LightspeedUnlabeledMatch", colors.green, "bold") -- match that can jump be automatic
 fg_bg("LightspeedOneCharMatch", colors.bg, colors.yellow, "bold") -- f/F or t/T
 fg_bg("LightspeedShortcut", colors.bg, colors.red, "bold") -- needs only one char
 fg_bg("LightspeedLabel", colors.red, colors.bg, "bold,underline") -- need 2 chars to jump

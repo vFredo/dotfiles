@@ -101,6 +101,7 @@ return packer.startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     opt = true,
+    module = "telescope",
     cmd = "Telescope",
     requires = {
       "nvim-lua/plenary.nvim",
@@ -149,14 +150,11 @@ return packer.startup(function(use)
   -- LSP
   --
   use {
-    { "williamboman/nvim-lsp-installer" },
-    {
-      "neovim/nvim-lspconfig",
-      opt = true,
-      event = 'BufReadPre',
-      after = "nvim-lsp-installer",
-      config = function() require "plugins.configs.lspconfig" end,
-    }
+    "neovim/nvim-lspconfig",
+    opt = true,
+    event = 'BufReadPre',
+    requires = "williamboman/nvim-lsp-installer",
+    config = function() require "plugins.configs.lspconfig" end,
   }
 
   -- Autocomplete/Snippets
