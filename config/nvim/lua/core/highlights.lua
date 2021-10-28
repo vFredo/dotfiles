@@ -118,6 +118,7 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 
 -- Telescope
 fg("TelescopeBorder", colors.grey)
+fg("TelescopeTitle", colors.fgAlt2)
 
 --
 -- NvimTree
