@@ -18,15 +18,6 @@ return packer.startup(function(use)
   -- :bdelete, :close and :quit in one smart command
   use { "mhinz/vim-sayonara" }
 
-  -- Move between lines as fast as the light itself
-  use {
-    "ggandor/lightspeed.nvim",
-    opt = true,
-    as = "lightspeed",
-    keys = { 'f', 'F', 't', 'T', 'S', 's' },
-    config = function() require "plugins.configs.others".lightspeed() end
-  }
-
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",
@@ -49,9 +40,9 @@ return packer.startup(function(use)
 
   -- Color highlighter for hex, rgb, etc...
   use {
-    "norcalli/nvim-colorizer.lua",
-    event = "BufRead",
-    config = function() require "plugins.configs.others".colorizer() end
+    "rrethy/vim-hexokinase",
+    run = "make hexokinase",
+    config = function() require "plugins.configs.others".hexokinase() end
   }
 
   --
@@ -97,7 +88,7 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.nvim-tree".tree_config() end
   }
 
-  -- Fuzzy finder (Telescope)
+  -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
     opt = true,

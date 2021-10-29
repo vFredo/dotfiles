@@ -25,7 +25,6 @@ ts_config.setup {
   textobjects = {
     enable = true,
     keymaps = {
-      -- or you use the queries from supported languages with textobjects.scm
       ["af"] = "@function.outer",
       ["if"] = "@function.inner",
       ["aC"] = "@class.outer",
@@ -48,7 +47,6 @@ ts_config.setup {
     select = {
       enable = true,
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",

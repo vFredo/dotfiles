@@ -1,32 +1,5 @@
 local M = {  }
 
-M.lightspeed = function ()
-  require("lightspeed").setup {
-    jump_to_first_match = true,
-    jump_on_partial_input_safety_timeout = 400,
-    highlight_unique_chars = true,
-    grey_out_search_area = true,
-    match_only_the_start_of_same_char_seqs = true,
-    limit_ft_matches = 5,
-    x_mode_prefix_key = '<c-x>',
-    substitute_chars = { ['\r'] = '¬' },
-    instant_repeat_fwd_key = ';',
-    instant_repeat_bwd_key = ',',
-    -- If no values are given, these will be set at runtime,
-    -- based on `jump_to_first_match`.
-    labels = nil,
-    cycle_group_bwd_key = '[',
-    cycle_group_fwd_key = ']',
-  }
-  -- Allows using macros with 'f/F' and 't/T' with the normal behavior
-  vim.cmd([[
-    nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
-    nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
-    nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
-    nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
-  ]])
-end
-
 M.surround = function ()
   -- we have to do this since lightspeed takes 'S' binding on visual mode
   if packer_plugins["lightspeed"] then
@@ -54,20 +27,19 @@ M.blankline = function()
   }
 end
 
-M.colorizer = function()
-  require("colorizer").setup({
-    "*"; -- Highlight all files with defautls, but customize some others.
-    "!NeogiStatus"; -- exclude filetype
-    "!NeogitCommitMessage";
-    css = { rgb_fn = true, names = true }; -- CSS rgb() and rgba() + defaults
-  },{ -- defaults
-      names = false,   -- "Name" codes like 'Blue'
-      RGB = false,     -- #RGB hex codes
-      RRGGBB = true,   -- #RRGGBB hex codes
-      RRGGBBAA = true, -- #RRGGBBAA hex codes
-      mode = 'background', -- Set the display mode.
-    })
-  vim.cmd "ColorizerReloadAllBuffers"
+M.hexokinase = function ()
+  vim.g.Hexokinase_highlighters = { "virtual" }
+  vim.g.Hexokinase_optInPatterns = { "full_hex", "rgb", "rgba", "hsl", "hsla" }
+  vim.g.Hexokinase_ftEnabled = {
+    'css',
+    'sass',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'typescriptreact',
+    'typescript',
+    'lua'
+  }
 end
 
 M.neogit = function ()

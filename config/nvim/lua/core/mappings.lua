@@ -13,7 +13,7 @@ map("i", "<C-k>", "<cmd>normal O<CR>", opt)
 map("n", "<Esc>", ":nohlsearch<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true no_ignore=true<CR>", opt)
+map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opt)
 map("n", "<Leader>fb", "<cmd>Telescope buffers ignore_current_buffer=true<CR>", opt)
 map("n", "<Leader>fg", "<cmd>Telescope live_grep additional_args='--hidden'<CR>", opt)
 map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>", opt)
