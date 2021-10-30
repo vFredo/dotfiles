@@ -1,12 +1,5 @@
 local M = {  }
 
-M.surround = function ()
-  -- we have to do this since lightspeed takes 'S' binding on visual mode
-  if packer_plugins["lightspeed"] then
-    vim.cmd([[ xmap gs <Plug>VSurround ]])
-  end
-end
-
 M.blankline = function()
   require("indent_blankline").setup {
     indentLine_enabled = 1,

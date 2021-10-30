@@ -6,9 +6,7 @@ M.tree_setup = function ()
   g.nvim_tree_indent_markers = 1
   g.nvim_tree_highlight_opened_files = 2
   g.nvim_tree_width_allow_resize = 1
-  g.nvim_tree_hide_dotfiles = 0
   g.nvim_tree_gitignore = 0
-  g.nvim_tree_ignore = { "^.git/", "^node_modules/", "^.cache/" }
   g.nvim_tree_icons = {
     default = "",
     symlink = "",
@@ -23,7 +21,7 @@ M.tree_config = function ()
   tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = false,
+    open_on_setup = true,
     auto_close = true,
     hijack_cursor = true,
     update_cwd = true,
@@ -33,7 +31,11 @@ M.tree_config = function ()
       width = 30,
       side = 'left',
       auto_resize = true
-    }
+    },
+    filters = {
+      dotfiles = true,
+      custom = { "^.git/", "^node_modules/", "^.cache/" } -- ignore this
+    },
   }
 end
 

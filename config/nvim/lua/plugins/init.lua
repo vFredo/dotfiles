@@ -29,7 +29,7 @@ return packer.startup(function(use)
   -- Operation between parenthesis, brackets, etc...
   use {
     "tpope/vim-surround",
-    config = function() require "plugins.configs.others".surround() end
+    config = function () vim.cmd([[ xmap gs <Plug>VSurround ]]) end
   }
 
   -- Navigation between tmux and nvim
