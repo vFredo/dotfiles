@@ -73,7 +73,7 @@ bufferline.setup {
     -- Tabs
     tab = {
       guifg = colors.fgAlt,
-      guibg = colors.bgAlt
+      guibg = colors.bg
     },
     tab_selected = {
       guifg = colors.fgAlt2,
