@@ -8,6 +8,16 @@ end
 local lsp_installer = require("nvim-lsp-installer")
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
 
+lsp_installer.settings {
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+}
+
 -- Servers to install with nvim-lsp-intaller
 local servers = {
   'clangd',

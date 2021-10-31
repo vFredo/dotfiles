@@ -71,7 +71,7 @@ font:
     style: Medium Italic
 
   # Point size
-  size: 12
+  size: 11.9
 
   offset:
     y: -1
