@@ -40,7 +40,7 @@ return packer.startup(function(use)
 
   -- Color highlighter for hex, rgb, etc...
   use {
-    "rrethy/vim-hexokinase",
+    "rrethy/vim-hexokinase", -- NOTE: This needs golang to work
     run = "make hexokinase",
     config = function() require "plugins.configs.others".hexokinase() end
   }
@@ -169,7 +169,7 @@ return packer.startup(function(use)
   }
 
   --
-  -- TreeSitter
+  -- Treesitter
   --
   use {
     {

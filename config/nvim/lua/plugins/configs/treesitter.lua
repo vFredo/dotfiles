@@ -1,18 +1,7 @@
-local ok, treesitter = pcall(require, "nvim-treesitter")
+local ok, ts_config = pcall(require, "nvim-treesitter.configs")
 if not ok then
   return
 end
-
-treesitter.define_modules {
-  fold = {
-    attach = function(_, _)
-      vim.cmd'set foldmethod=expr foldexpr=nvim_treesitter#foldexpr()'
-    end,
-    detach = function() end,
-  }
-}
-
-local ts_config = require("nvim-treesitter.configs")
 
 ts_config.setup {
   ensure_installed = "maintained",
