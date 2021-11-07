@@ -34,7 +34,9 @@ M.tree_config = function ()
     },
     filters = {
       dotfiles = true,
-      custom = { "^.git/", "^node_modules/", "^.cache/" } -- ignore this
+      custom = {
+        "^node_modules/", "^.git/", "^.cache/", "%.o", "%.pdf", "%.class", "%.obj"
+      },
     },
   }
 end

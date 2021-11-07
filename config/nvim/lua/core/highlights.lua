@@ -138,7 +138,7 @@ fg("NvimTreeGitDirty", colors.red)
 fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
-fg("NvimTreeSpecialFile", colors.magenta)
+fg("NvimTreeSpecialFile", colors.orange, "underline")
 fg("NvimTreeOpenedFile", colors.green, "underline")
 
 --
