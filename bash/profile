@@ -22,7 +22,7 @@ fi
 setxkbmap -layout us,latam -option 'grp:alt_space_toggle,caps:escape'
 
 # Default terminal
-export TERMINAL=/usr/bin/kitty
+export TERMINAL=/usr/bin/alacritty
 
 # Cursor shape
 xsetroot -cursor_name left_ptr

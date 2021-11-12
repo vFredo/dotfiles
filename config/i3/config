@@ -60,8 +60,6 @@ bindsym $mod+F2 exec brave
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec i3-sensible-terminal -e 'mocp'
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -116,9 +114,9 @@ bindsym $mod+minus split v;exec notify-send 'Tile vertically'
 bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking;exec notify-send 'Stack mode'
+bindsym $mod+t layout toggle split; exec notify-send 'Tilling mode toggle'
+bindsym $mod+s layout stacking; exec notify-send 'Stack mode'
 bindsym $mod+w layout tabbed; exec notify-send 'Tabbed mode'
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -276,7 +274,7 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b -f
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --i3
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
