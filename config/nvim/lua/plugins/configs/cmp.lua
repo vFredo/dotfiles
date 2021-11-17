@@ -9,12 +9,7 @@ then
   return
 end
 
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
--- lspkind icon config
+-- lspkind icon config for completion menu
 lspkind.init( { with_text = true, } )
 
 -- Tabnine configuration
@@ -36,8 +31,8 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.close(),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if has_words_before() and cmp.get_selected_entry() then -- confirm completion
-        cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+      if cmp.get_selected_entry() then -- confirm completion
+        cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
       elseif luasnip.expand_or_jumpable() then -- jump next placeholder
         luasnip.expand_or_jump()
       else
@@ -45,7 +40,6 @@ cmp.setup {
       end
     end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      -- FIX: Seems like is not working jumping to previous placeholder
       if luasnip.jumpable(-1) then
         luasnip.jump(-1) -- jump previous placeholder
       else
@@ -56,7 +50,7 @@ cmp.setup {
   sources = {
     -- the order of your sources matter (by default). That gives them priority
     { name = 'cmp_tabnine', keyword_length = 3 },
-    { name = "nvim_lsp", max_item_count = 8 },
+    { name = "nvim_lsp", max_item_count = 6 },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 4 },
     { name = "path", max_item_count = 5 },
@@ -93,7 +87,7 @@ cmp.setup {
   },
   documentation = { border = "rounded" },
   experimental = {
-    native_menu = false, -- Better menubar theme
-    ghost_text = true,
+    native_menu = false, -- betterr highlight groups for menubar
+    ghost_text = true,   -- nice comment color text of completion
   },
 }

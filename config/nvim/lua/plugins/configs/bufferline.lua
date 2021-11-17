@@ -18,7 +18,6 @@ bufferline.setup {
     max_name_length = 14,
     max_prefix_length = 10,
     tab_size = 16,
-    always_show_bufferline = false,
   },
   highlights = {
     background = {
