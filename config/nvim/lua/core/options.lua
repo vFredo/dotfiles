@@ -20,12 +20,12 @@ vim.cmd([[
 -- General options
 --
 g.mapleader        = " "                 -- Map leader is <Space>
+opt.laststatus     = 0                   -- Don't show statusline
 opt.virtualedit    = "block"             -- edit lines in v-block with no characters
 opt.guifont        = "Iosevka Nerd Font:h12" -- GUI font for eg: neovide
 opt.ignorecase     = true                -- ignore case on '/', '?', '*', '#'
 opt.smartcase      = true                -- override ignorecase if there is an uppercase
 opt.termguicolors  = true                -- Use all the color pallette
-opt.showmode       = false               -- Don't show current mode on the command line
 opt.signcolumn     = "yes:2"             -- show signcolumn and the number is max signs to show
 opt.mouse          = "a"                 -- Mouse support for neovim
 opt.number         = true                -- Line number

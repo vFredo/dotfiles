@@ -72,12 +72,12 @@ return packer.startup(function(use)
   }
 
   -- Statusline
-  use {
-    "famiu/feline.nvim",
-    branch = "master",
-    requires = "nvim-web-devicons",
-    config = function() require "plugins.configs.statusline" end
-  }
+  -- use {
+  --   "famiu/feline.nvim",
+  --   branch = "master",
+  --   requires = "nvim-web-devicons",
+  --   config = function() require "plugins.configs.statusline" end
+  -- }
 
   -- Tree view of the project
   use {

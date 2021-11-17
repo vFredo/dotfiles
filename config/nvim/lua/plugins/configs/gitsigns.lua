@@ -20,7 +20,7 @@ gitsigns.setup{
     ['n <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
     ['v <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
     ['n <Leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-    ['n <Leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+    ['n <Leader>hb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
   },
   signcolumn = true,
   word_diff = false,
