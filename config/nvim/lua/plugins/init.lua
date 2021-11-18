@@ -4,7 +4,7 @@
 local ok, packer = pcall(require, "plugins.packerInit")
 
 if not ok then
-  return false
+  return
 end
 
 return packer.startup(function(use)
@@ -71,6 +71,19 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.bufferline" end
   }
 
+  -- Indentation guides/tracking
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    config = function() require "plugins.configs.others".blankline() end
+  }
+
+  -- Smooth scrolling
+  use {
+    "karb94/neoscroll.nvim",
+    config = function() require "plugins.configs.others".neoscroll() end
+  }
+
   -- Statusline
   -- use {
   --   "famiu/feline.nvim",
@@ -78,6 +91,10 @@ return packer.startup(function(use)
   --   requires = "nvim-web-devicons",
   --   config = function() require "plugins.configs.statusline" end
   -- }
+
+  --
+  -- Find files
+  --
 
   -- Tree view of the project
   use {
@@ -104,19 +121,6 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.telescope".config() end
   }
 
-  -- Indentation guides/tracking
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-    config = function() require "plugins.configs.others".blankline() end
-  }
-
-  -- Smooth scrolling
-  use {
-    "karb94/neoscroll.nvim",
-    config = function() require "plugins.configs.others".neoscroll() end
-  }
-
   --
   -- Git
   --
@@ -138,7 +142,7 @@ return packer.startup(function(use)
   }
 
   --
-  -- LSP
+  -- LSP (Language Server Protocol)
   --
   use {
     "neovim/nvim-lspconfig",
@@ -157,7 +161,7 @@ return packer.startup(function(use)
       after = "LuaSnip",
       event = "InsertEnter",
       requires = {
-        { "onsails/lspkind-nvim" }, -- icons in complete menu
+        { "onsails/lspkind-nvim" }, -- icons in completion menu
         { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
@@ -169,12 +173,13 @@ return packer.startup(function(use)
   }
 
   --
-  -- Treesitter
+  -- Treesitter (syntax highlight, autopairs and comment strings)
   --
   use {
     {
       "nvim-treesitter/nvim-treesitter",
       branch = "0.5-compat",
+      event = "CursorHold",
       run = ":TSUpdate",
       config = function() require "plugins.configs.treesitter" end
     },
