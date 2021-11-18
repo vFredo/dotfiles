@@ -6,9 +6,6 @@ local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 map({ "n", "v" }, "<Leader>y", [["+y]], opt)
 map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 
--- New line up the current line in insert mode
-map("i", "<C-k>", "<cmd>normal O<CR>", opt)
-
 -- use ESC in normal mode to turn off search highlighting
 map("n", "<Esc>", ":nohlsearch<CR>", opt)
 
@@ -41,6 +38,8 @@ map("n", "<Leader>H", "<C-w>H", opt)
 map("n", "<Leader>q", ":Sayonara<CR>", opt)
 map("n", "[b", ":BufferLineCyclePrev<CR>", opt)
 map("n", "]b", ":BufferLineCycleNext<CR>", opt)
+
+-- Navigate between vim buffers, vim splits and tmux panes
 map({ "n", "v" }, "<C-h>", "<cmd>lua require('Navigator').left()<CR>", opt)
 map({ "n", "v" }, "<C-j>", "<cmd>lua require('Navigator').down()<CR>", opt)
 map({ "n", "v" }, "<C-k>", "<cmd>lua require('Navigator').up()<CR>", opt)
@@ -72,4 +71,3 @@ vim.cmd([[
 vim.cmd([[
   command! Reindent lua require("core.utils").preserve("sil keepj normal! gg=G")
 ]])
-

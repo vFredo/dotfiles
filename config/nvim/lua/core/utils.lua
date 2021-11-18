@@ -70,16 +70,4 @@ M.toggleSpelling = function (option)
   end
 end
 
--- https://github.com/wincent/wincent/blob/main/aspects/nvim/files/.config/nvim/lua/wincent/foldtext.lua
-M.fold_text = function()
-  local middot = '·'
-  local raquo = '»'
-  local small_l = 'ℓ'
-  local lines = '[' .. (vim.v.foldend - vim.v.foldstart + 1) .. small_l .. ']'
-  local first = ({vim.api.nvim_buf_get_lines(0, vim.v.foldstart - 1, vim.v.foldstart, true)[1]:gsub(' *', '', 1)})[1]
-  local dashes = ({vim.v.folddashes:gsub('-', middot)})[1]
-
-  return raquo .. middot .. middot .. lines .. dashes .. ': ' .. first
-end
-
 return M

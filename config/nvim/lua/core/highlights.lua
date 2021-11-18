@@ -58,7 +58,7 @@ fg("SpellBad", colors.orangeAlt)
 fg("SpellRare", colors.yellow)
 fg("SpellCap", colors.blue)
 
--- Popup menu (autocomplete menu)
+-- Popup menu (default completion menu)
 bg("Pmenu", colors.bgAlt) -- completition box
 fg_bg("PmenuSel", colors.bgAlt, colors.blue, "bold") -- item selected
 bg("PmenuSbar", colors.bgAlt) -- scrollbar

@@ -61,7 +61,6 @@ opt.diffopt:append('vertical')  -- Show diffs in vertical splits
 opt.diffopt:append('foldcolumn:0')  -- don't show foldcolumn in diff view
 opt.foldlevelstart = 99             -- Fold level start '99' = without folds
 opt.foldmethod     = 'indent'       -- default fold method
-vim.cmd([[set foldtext=luaeval(\"require('core.utils').fold_text()\")]]) -- custom foldtext
 
 --
 -- Characters
