@@ -1,6 +1,6 @@
 local ok, gitsigns = pcall(require, "gitsigns")
 if not ok then
-  return
+  error("Couldn't load gitsigns " .. gitsigns .. "/n")
 end
 
 gitsigns.setup{

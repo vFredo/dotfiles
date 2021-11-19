@@ -1,7 +1,7 @@
 local ok, npairs = pcall(require, "nvim-autopairs")
 
 if not ok then
-  return
+  error("Couldn't load autopairs " .. npairs .. "\n")
 end
 
 -- global configurations

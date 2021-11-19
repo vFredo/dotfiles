@@ -4,7 +4,7 @@
 local ok, packer = pcall(require, "plugins.packerInit")
 
 if not ok then
-  return
+  error("Couldn't load packer " .. packer .. "\n")
 end
 
 return packer.startup(function(use)

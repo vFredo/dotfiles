@@ -3,7 +3,7 @@ local colors = theme.colors
 
 local ok, feline_line = pcall(require, "feline")
 if not ok then
-  return
+  error("Couldn't load feline statusline " .. feline_line .. "\n")
 end
 
 local lsp = require "feline.providers.lsp"

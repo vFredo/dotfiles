@@ -16,7 +16,7 @@ end
 M.tree_config = function ()
   local ok, tree = pcall(require, "nvim-tree")
   if not ok then
-    return
+    error("Couldn't load nvim-tree " .. tree .. "\n")
   end
   tree.setup {
     disable_netrw = true,

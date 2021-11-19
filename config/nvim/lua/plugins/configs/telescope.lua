@@ -12,7 +12,7 @@ end
 M.config = function()
   local ok, telescope = pcall(require, "telescope")
   if not ok then
-    return
+    error("Couldn't load telescope " .. telescope .. "\n")
   end
 
   telescope.setup {
