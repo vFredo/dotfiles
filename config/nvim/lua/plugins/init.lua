@@ -8,7 +8,7 @@ if not ok then
 end
 
 return packer.startup(function(use)
-  -- Update packer manager
+  -- Update plugin manager
   use { "wbthomason/packer.nvim" }
 
   --
@@ -128,7 +128,7 @@ return packer.startup(function(use)
     {
       "lewis6991/gitsigns.nvim",
       opt = true,
-      event = { 'BufRead','BufNewFile' },
+      event = { "BufRead","BufNewFile" },
       requires = { "nvim-lua/plenary.nvim" },
       config = function() require "plugins.configs.gitsigns" end
     },
@@ -147,7 +147,7 @@ return packer.startup(function(use)
   use {
     "neovim/nvim-lspconfig",
     opt = true,
-    event = 'BufReadPre',
+    event = "BufReadPre",
     requires = "williamboman/nvim-lsp-installer",
     config = function() require "plugins.configs.lspconfig" end,
   }

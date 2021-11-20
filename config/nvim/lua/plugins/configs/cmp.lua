@@ -11,7 +11,7 @@ elseif not ok_lspkind then
 end
 
 -- lspkind icon config for completion menu
-lspkind.init( { with_text = true, } )
+lspkind.init({ with_text = true, })
 
 -- Tabnine configuration
 local tabnine = require('cmp_tabnine.config')
@@ -34,7 +34,7 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.get_selected_entry() then -- confirm completion
         cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-      elseif luasnip.expand_or_jumpable() then -- jump next placeholder
+      elseif luasnip.expand_or_locally_jumpable() then -- jump next placeholder
         luasnip.expand_or_jump()
       else
         fallback() -- else do a simple char <Tab>
@@ -88,7 +88,7 @@ cmp.setup {
   },
   documentation = { border = "rounded" },
   experimental = {
-    native_menu = false, -- betterr highlight groups for menubar
+    native_menu = false, -- better highlight groups for menubar
     ghost_text = true,   -- nice comment color text of completion
   },
 }
