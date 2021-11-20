@@ -100,7 +100,7 @@ lsp_installer.on_server_ready(function(server)
             [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
           }
         },
-        diagnostics = { globals = { "vim" } },
+        diagnostics = { globals = { "vim", "packer_plugins" } },
         telemetry = { enable = false }
       },
     }
