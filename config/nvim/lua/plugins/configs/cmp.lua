@@ -34,8 +34,8 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.get_selected_entry() then -- confirm completion
         cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
-      elseif luasnip.expand_or_locally_jumpable() then -- jump next placeholder
-        luasnip.expand_or_jump()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump() -- jump next placeholder
       else
         fallback() -- else do a simple char <Tab>
       end
@@ -51,10 +51,10 @@ cmp.setup {
   sources = {
     -- the order of your sources matter (by default). That gives them priority
     { name = 'cmp_tabnine', keyword_length = 3 },
-    { name = "nvim_lsp", max_item_count = 6 },
+    { name = "nvim_lsp", max_item_count = 4 },
     { name = "luasnip" },
-    { name = "buffer", keyword_length = 4 },
-    { name = "path", max_item_count = 5 },
+    { name = "buffer", keyword_length = 3 },
+    { name = "path", max_item_count = 4 },
   },
   snippet = {
     expand = function(args)
@@ -75,7 +75,7 @@ cmp.setup {
       local data = entry.completion_item.data
       if entry.source.name == 'cmp_tabnine' then
         if  data ~= nil and data.detail ~= nil then
-          -- put tabnine porcentage value if exists
+          -- put tabnine porcentage value if it exist
           kind = '' .. ' ' .. data.detail
         else
           kind = ''

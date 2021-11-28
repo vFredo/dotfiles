@@ -5,7 +5,7 @@ end
 
 ts_config.setup {
   ensure_installed = "maintained",
-  highlight = { enable = true },
+  highlight = { enable = true, additional_vim_regex_highlight = false },
   indent = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
   autotag = { enable = true },
