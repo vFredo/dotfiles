@@ -18,7 +18,7 @@ lsp_installer.settings{
   }
 }
 
--- Servers to install with nvim-lsp-intaller
+-- Servers to install with nvim-lsp-installer
 local servers = {
   'clangd',
   'gopls',
@@ -67,10 +67,10 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local cmp_capabilities = require("cmp_nvim_lsp").update_capabilities
-
 -- server's setup via lsp_installer
 lsp_installer.on_server_ready(function(server)
+  local cmp_capabilities = require("cmp_nvim_lsp").update_capabilities
+
   local opts = {
     on_attach = on_attach,
     capabilities = cmp_capabilities(vim.lsp.protocol.make_client_capabilities()),
