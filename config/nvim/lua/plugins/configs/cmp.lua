@@ -35,14 +35,14 @@ cmp.setup {
       if cmp.get_selected_entry() then -- confirm completion
         cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
       elseif luasnip.expand_or_locally_jumpable() then
-        luasnip.expand_or_jump() -- jump next placeholder
+        luasnip.expand_or_jump() -- jump next snippet placeholder
       else
         fallback() -- else do a simple char <Tab>
       end
     end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
-        luasnip.jump(-1) -- jump previous placeholder
+        luasnip.jump(-1) -- jump previous snippet placeholder
       else
         fallback() -- else do a simple char <S-Tab>
       end
@@ -50,7 +50,7 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
-    { name = 'cmp_tabnine', keyword_length = 3 },
+    { name = 'cmp_tabnine' },
     { name = "nvim_lsp", max_item_count = 4 },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 3 },

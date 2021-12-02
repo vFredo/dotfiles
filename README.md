@@ -52,7 +52,7 @@ you want, the script removes it. For the moment, most dependencies have to be in
     * Yellow dot indicates pull to the current remote repo.
 
 ### ❖ Theme
-* Current terminal: [Kitty](https://github.com/kovidgoyal/kitty).
+* Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
 * Terminal font: [Caskaydia Cove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
 
 ## ❖ Dependencies
