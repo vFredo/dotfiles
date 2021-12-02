@@ -179,7 +179,6 @@ return packer.startup(function(use)
     {
       "nvim-treesitter/nvim-treesitter",
       branch = "0.5-compat",
-      event = "CursorHold",
       run = ":TSUpdate",
       config = function() require "plugins.configs.treesitter" end
     },
