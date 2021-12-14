@@ -7,13 +7,13 @@ configuration {
   width: 30;
   padding: 20px;
   line-padding: 10px;
+  show-icons: true;
+  location: 0;
   display-ssh:    "";
   display-run:    "";
   display-drun:   "︁";
   display-window: "";
   display-combi:  "";
-  show-icons:     true;
-  location: center;
 }
 
 @import "colors.rasi"
