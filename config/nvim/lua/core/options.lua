@@ -20,6 +20,7 @@ vim.cmd([[
 -- General options
 --
 g.mapleader        = " "                 -- Map leader is <Space>
+opt.cursorline     = true                -- Current line highlight
 opt.laststatus     = 0                   -- Don't show statusline
 opt.virtualedit    = "block"             -- edit lines in v-block with no characters
 opt.guifont        = "Iosevka Nerd Font:h12" -- GUI font for eg: neovide

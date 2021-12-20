@@ -37,6 +37,7 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
+vim.cmd("hi clear CursorLine")
 fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
