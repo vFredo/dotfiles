@@ -3,7 +3,7 @@
 --
 local M = {  }
 
-local function disable_default_plugins()
+M.disable_default_plugins = function()
   local g = vim.g
   g.loaded_gzip = 1
   g.loaded_tar = 1
@@ -26,7 +26,7 @@ local function disable_default_plugins()
 end
 
 M.init = function()
-  disable_default_plugins()
+  M.disable_default_plugins()
   local modules = {
     "core.options",
     "plugins",
