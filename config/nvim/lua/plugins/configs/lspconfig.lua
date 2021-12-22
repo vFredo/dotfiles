@@ -111,12 +111,15 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 -- Change the default lsp diagnostic symbols
-local signs = { Error = " ", Warning = " ", Hint = " ", Information = " " }
-
-for name, icon in pairs(signs) do
-  local hl = "LspDiagnosticsSign" .. name
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+local function lspSymbol(name, icon)
+  local hl = "DiagnosticSign" .. name
+  vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
+
+ lspSymbol("Error", "")
+ lspSymbol("Info", "")
+ lspSymbol("Hint", "")
+ lspSymbol("Warn", "")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
