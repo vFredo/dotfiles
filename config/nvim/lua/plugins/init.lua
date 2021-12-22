@@ -168,7 +168,7 @@ return packer.startup(function(use)
         { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
         { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip", "nvim-cmp" }, opt = true },
       },
-      config = function() require "plugins.configs.cmp" end
+      config = function() require "plugins.configs.cmp-completion" end
     }
   }
 
