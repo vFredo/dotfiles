@@ -48,7 +48,7 @@ map({ "n", "v" }, "<C-l>", "<cmd>lua require('Navigator').right()<CR>", opt)
 -- Easy edits
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
-map({ "n", "x" }, "Y", "y$", opt)
+map({ "n", "x" }, "Y", "yg$", opt)
 
 -- Jump quickfix list
 map("n", "[l", ":cprevious<CR>", opt)
