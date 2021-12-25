@@ -82,26 +82,10 @@ fg("IndentBlanklineChar", colors.bgAlt2)
 --
 -- LSP
 --
-
--- Errors
-fg("LspDiagnosticsSignError", colors.red)
-fg("LspDiagnosticsDefaultError", colors.red)
-fg("LspDiagnosticsVirtualTextError", colors.red)
-
--- Warnings
-fg("LspDiagnosticsSignWarning", colors.yellow)
-fg("LspDiagnosticsDefaultWarning", colors.yellow)
-fg("LspDiagnosticsVirtualTextWarning", colors.yellow)
-
--- Info
-fg("LspDiagnosticsSignInformation", colors.green)
-fg("LspDiagnosticsDefaultInformation", colors.green)
-fg("LspDiagnosticsVirtualTextInformation", colors.green)
-
--- Hints
-fg("LspDiagnosticsSignHint", colors.magenta)
-fg("LspDiagnosticsDefaultHint", colors.magenta)
-fg("LspDiagnosticsVirtualTextHint", colors.magenta)
+fg("DiagnosticError", colors.red)
+fg("DiagnosticWarn", colors.yellow)
+fg("DiagnosticInformation", colors.green)
+fg("DiagnosticHint", colors.magenta)
 
 --
 -- GitSigns
@@ -141,12 +125,3 @@ fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.orange, "underline")
 fg("NvimTreeOpenedFile", colors.green, "underline")
-
---
--- Neogit
---
-fg_bg("NeogitDiffAddHighlight", colors.green, colors.bgAlt)
-fg_bg("NeogitDiffDeleteHighlight", colors.red, colors.bgAlt)
-fg_bg("NeogitHunkHeader", colors.blue , colors.bgAlt)
-bg("NeogitDiffContextHighlight", colors.bgAlt)
-fg_bg("NeogitHunkHeaderHighlight", colors.yellow, colors.bgAlt)
