@@ -37,7 +37,7 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
-vim.cmd("hi clear CursorLine")
+vim.cmd("hi clear CursorLine") -- disable cursorline
 fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
@@ -123,5 +123,5 @@ fg("NvimTreeGitDirty", colors.red)
 fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
-fg("NvimTreeSpecialFile", colors.orange, "underline")
-fg("NvimTreeOpenedFile", colors.green, "underline")
+fg("NvimTreeSpecialFile", colors.yellow, "underline")
+fg("NvimTreeOpenedFile", colors.pink, "underline")

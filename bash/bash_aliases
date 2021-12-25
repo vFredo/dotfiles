@@ -71,7 +71,7 @@ function extract() {
 
 # Run programs from terminal to open files
 # https://unix.stackexchange.com/questions/577727/exceptions-with-xdg-open-when-starting-programs-in-the-background/577794#577794
-function open () {
+function open() {
   for i in "$@"
   do
     mimetype=$(xdg-mime query filetype "$i")
