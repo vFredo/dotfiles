@@ -33,7 +33,7 @@ cmp.setup {
     ['<C-e>'] = cmp.mapping.close(),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.get_selected_entry() then -- confirm completion
-        cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+        cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump() -- jump next snippet placeholder
       else

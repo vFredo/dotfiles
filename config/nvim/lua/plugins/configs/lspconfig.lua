@@ -29,6 +29,7 @@ local servers = {
   'cssls',
   'bashls',
   'volar',
+  "rust_analyzer",
   'sumneko_lua'
 }
 
