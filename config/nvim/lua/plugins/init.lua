@@ -84,14 +84,6 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.others".neoscroll() end
   }
 
-  -- Statusline
-  -- use {
-  --   "famiu/feline.nvim",
-  --   branch = "master",
-  --   requires = "nvim-web-devicons",
-  --   config = function() require "plugins.configs.statusline" end
-  -- }
-
   --
   -- Find files
   --
