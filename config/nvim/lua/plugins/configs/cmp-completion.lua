@@ -11,7 +11,37 @@ elseif not ok_lspkind then
 end
 
 -- lspkind icon config for completion menu
-lspkind.init({ with_text = true, })
+lspkind.init({
+  mode = "symbol_text",
+  symbol_map = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+  },
+})
+
 
 -- Tabnine configuration
 local tabnine = require('cmp_tabnine.config')
