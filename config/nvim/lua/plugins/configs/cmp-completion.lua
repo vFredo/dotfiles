@@ -10,6 +10,8 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
+require("luasnip.loaders.from_vscode").load()
+
 -- lspkind icon config for completion menu
 lspkind.init({
   mode = "symbol_text",
@@ -48,7 +50,7 @@ local tabnine = require('cmp_tabnine.config')
 
 tabnine:setup({
   max_lines = 1000;
-  max_num_results = 4;
+  max_num_results = 6;
   sort = true;
 	run_on_every_keystroke = true;
 	snippet_placeholder = '..';
@@ -78,14 +80,15 @@ cmp.setup {
       end
     end, { "i", "s" }),
   },
-  sources = {
+  sources = cmp.config.sources({
     -- the order of your sources matter (by default). That gives them priority
-    { name = 'cmp_tabnine' },
-    { name = "nvim_lsp", max_item_count = 4 },
-    { name = "luasnip" },
-    { name = "buffer", keyword_length = 3 },
+    { name = "cmp_tabnine" },
+    { name = "nvim_lsp", max_item_count = 10 },
+    { name = 'luasnip' }, -- For luasnip users.
+  }, {
+    { name = 'buffer' },
     { name = "path", max_item_count = 4 },
-  },
+  }),
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -98,7 +101,8 @@ cmp.setup {
         path = "[path]",
         luasnip = "[snip]",
         buffer = "[buf]",
-        cmp_tabnine = "[tb9]"
+        cmp_tabnine = "[tb9]",
+        cmdline = "[cmd]"
       }
 
       local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
@@ -110,6 +114,8 @@ cmp.setup {
         else
           kind = ''
         end
+      elseif entry.source.name == 'cmdline' then
+        kind = ""
       end
       vim_item.kind = kind
       vim_item.menu = source_mapping[entry.source.name]
@@ -122,3 +128,17 @@ cmp.setup {
     ghost_text = true,   -- nice comment color text of completion
   },
 }
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = { { name = 'buffer' } }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
