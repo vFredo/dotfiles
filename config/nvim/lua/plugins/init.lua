@@ -146,7 +146,7 @@ return packer.startup(function(use)
 
   -- Autocomplete/Snippets
   use {
-    { "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets" } }, -- Snippets
+    { "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets", event = "InsertEnter" } }, -- Snippets
     {
       "hrsh7th/nvim-cmp",
       module = "cmp",
@@ -171,7 +171,7 @@ return packer.startup(function(use)
   use {
     {
       "nvim-treesitter/nvim-treesitter",
-      branch = "0.5-compat",
+      branch = "master",
       run = ":TSUpdate",
       config = function() require "plugins.configs.treesitter" end
     },
@@ -182,7 +182,7 @@ return packer.startup(function(use)
     },
     {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      branch = "0.5-compat",
+      branch = "master",
       after = "nvim-treesitter"
     },
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
