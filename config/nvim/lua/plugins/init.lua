@@ -153,6 +153,7 @@ return packer.startup(function(use)
       after = "LuaSnip",
       event = "InsertEnter",
       requires = {
+        { 'tami5/lspsaga.nvim' },
         { "onsails/lspkind-nvim" }, -- icons in completion menu
         { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
