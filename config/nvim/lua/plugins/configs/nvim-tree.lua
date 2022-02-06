@@ -8,6 +8,15 @@ M.tree_setup = function ()
   g.nvim_tree_icons = {
     default = "",
     symlink = "",
+    git = {
+      unstaged = "",
+      staged = "",
+      unmerged = "",
+      renamed = "凜",
+      untracked = "",
+      deleted = "",
+      ignored = ""
+    },
   }
 end
 
@@ -19,7 +28,8 @@ M.tree_config = function ()
   tree.setup {
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = true,
+    open_on_setup = false,
+    open_on_tab = false,
     auto_close = true,
     hijack_cursor = true,
     update_cwd = true,
@@ -29,7 +39,7 @@ M.tree_config = function ()
     view = {
       width = 30,
       side = 'left',
-      auto_resize = true
+      auto_resize = false
     },
     filters = {
       dotfiles = true,
