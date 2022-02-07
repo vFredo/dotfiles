@@ -146,14 +146,17 @@ return packer.startup(function(use)
 
   -- Autocomplete/Snippets
   use {
-    { "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets", event = "InsertEnter" } }, -- Snippets
+    {
+      "L3MON4D3/LuaSnip", -- snippets
+      requires = { "rafamadriz/friendly-snippets", event = "InsertEnter" },
+      config = function() require "plugins.configs.luasnip_config" end
+    },
     {
       "hrsh7th/nvim-cmp",
       module = "cmp",
       after = "LuaSnip",
       event = "InsertEnter",
       requires = {
-        { 'tami5/lspsaga.nvim' },
         { "onsails/lspkind-nvim" }, -- icons in completion menu
         { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },

@@ -10,8 +10,6 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
-require("luasnip.loaders.from_vscode").load()
-
 -- lspkind icon config for completion menu
 lspkind.init({
   mode = "symbol_text",
@@ -80,15 +78,14 @@ cmp.setup {
       end
     end, { "i", "s" }),
   },
-  sources = cmp.config.sources({
+  sources = {
     -- the order of your sources matter (by default). That gives them priority
     { name = "cmp_tabnine" },
     { name = "nvim_lsp", max_item_count = 10 },
     { name = 'luasnip' }, -- For luasnip users.
-  }, {
     { name = 'buffer' },
     { name = "path", max_item_count = 4 },
-  }),
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -136,9 +133,9 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
+  sources = {
+    { name = 'path' },
     { name = 'cmdline', keyword_length = 2 }
-  })
+  }
 })
+
