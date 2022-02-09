@@ -48,8 +48,8 @@ cmp.setup {
   sources = {
     -- the order of your sources matter (by default). That gives them priority
     { name = "cmp_tabnine" },
-    { name = "nvim_lsp", max_item_count = 10 },
-    { name = 'luasnip' }, -- For luasnip users.
+    { name = "nvim_lsp", max_item_count = 15 },
+    { name = 'luasnip' },
     { name = 'buffer' },
     { name = "path", max_item_count = 4 },
   },
