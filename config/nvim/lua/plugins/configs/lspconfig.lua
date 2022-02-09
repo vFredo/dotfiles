@@ -47,12 +47,10 @@ end
 local servers = {
   'clangd',
   'gopls',
-  'html',
-  'jsonls',
-  'tsserver',
   'pyright',
+  'html',
   'cssls',
-  'bashls',
+  'tsserver',
   'tailwindcss',
   'sumneko_lua'
 }
