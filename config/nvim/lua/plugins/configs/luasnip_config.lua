@@ -17,9 +17,6 @@ local ls = require("luasnip")
 -- local types = require("luasnip.util.types")
 -- local conds = require("luasnip.extras.expand_conditions")
 
--- initialize luasnip
--- ls.set_config({})
-
 -- ls.snippets= {
 --   tex = {
 --     -- Using the condition, it's possible to allow expansion only in specific cases.
@@ -35,6 +32,6 @@ local ls = require("luasnip")
 -- }
 
 -- in a vimwiki file: search vimwiki-, then tex-, then all-snippets
-ls.filetype_extend("vimwiki", { "tex" })
+ls.filetype_extend("markdown", { "tex" })
 
 require("luasnip.loaders.from_vscode").load()

@@ -10,39 +10,6 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
--- lspkind icon config for completion menu
-lspkind.init({
-  mode = "symbol_text",
-  symbol_map = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "",
-    Field = "ﰠ",
-    Variable = "",
-    Class = "ﴯ",
-    Interface = "",
-    Module = "",
-    Property = "ﰠ",
-    Unit = "塞",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "פּ",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-  },
-})
-
-
 -- Tabnine configuration
 local tabnine = require('cmp_tabnine.config')
 
@@ -92,32 +59,33 @@ cmp.setup {
     end,
   },
   formatting = {
-    format = function(entry, vim_item)
-      local source_mapping = {
+    format = lspkind.cmp_format {
+      mode = "symbol_text",
+      menu = {
         nvim_lsp = "[LSP]",
         path = "[path]",
         luasnip = "[snip]",
         buffer = "[buf]",
         cmp_tabnine = "[tb9]",
         cmdline = "[cmd]"
-      }
-
-      local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
-      local data = entry.completion_item.data
-      if entry.source.name == 'cmp_tabnine' then
-        if  data ~= nil and data.detail ~= nil then
-          -- put tabnine porcentage value if it exist
-          kind = '' .. ' ' .. data.detail
-        else
-          kind = ''
+      },
+      before = function (entry, vim_item)
+        local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
+        local data = entry.completion_item.data
+        if entry.source.name == 'cmp_tabnine' then
+          if  data ~= nil and data.detail ~= nil then
+            -- put tabnine porcentage value if it exist
+            kind = '' .. ' ' .. data.detail
+          else
+            kind = ''
+          end
+        elseif entry.source.name == 'cmdline' then
+          kind = ""
         end
-      elseif entry.source.name == 'cmdline' then
-        kind = ""
+        vim_item.kind = kind
+        return vim_item
       end
-      vim_item.kind = kind
-      vim_item.menu = source_mapping[entry.source.name]
-      return vim_item
-    end
+    },
   },
   documentation = { border = "rounded" },
   experimental = {
