@@ -9,15 +9,19 @@ local colors = theme.colors
 bufferline.setup {
   options = {
     view = "multiwindow",
-    offsets = {{ filetype = "NvimTree", text = "", padding = 1, highlight = "Directory" }},
-    indicator_icon = "",
-    modified_icon = "",
+    offsets = {{
+      filetype = "NvimTree",
+      text = "Files",
+      -- padding = 1,
+      -- highlight = "Directory"
+      highlight = "NvimTreeNormal"
+    }},
+    indicator_icon = '▎',
+    modified_icon = "●",
     show_close_icon = false,
     show_buffer_close_icons = false,
     show_tab_indicators = true,
-    max_name_length = 14,
-    max_prefix_length = 10,
-    tab_size = 16,
+    tab_size = 17,
   },
   highlights = {
     background = {
@@ -96,8 +100,8 @@ bufferline.setup {
 
     -- Indicator
     indicator_selected = {
-       guifg = colors.bg,
-       guibg = colors.bg,
+       guifg = colors.blue,
+       guibg = colors.bgAlt2,
     },
   }
 }

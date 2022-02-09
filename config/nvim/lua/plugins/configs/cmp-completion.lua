@@ -17,8 +17,8 @@ tabnine:setup({
   max_lines = 1000;
   max_num_results = 6;
   sort = true;
-	run_on_every_keystroke = true;
-	snippet_placeholder = '..';
+  run_on_every_keystroke = true;
+  snippet_placeholder = '..';
 })
 
 cmp.setup {
@@ -60,7 +60,7 @@ cmp.setup {
   },
   formatting = {
     format = lspkind.cmp_format {
-      mode = "symbol_text",
+      mode = "symbol",
       menu = {
         nvim_lsp = "[LSP]",
         path = "[path]",
@@ -70,21 +70,13 @@ cmp.setup {
         cmdline = "[cmd]"
       },
       before = function (entry, vim_item)
-        local kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
-        local data = entry.completion_item.data
         if entry.source.name == 'cmp_tabnine' then
-          if  data ~= nil and data.detail ~= nil then
-            -- put tabnine porcentage value if it exist
-            kind = '' .. ' ' .. data.detail
-          else
-            kind = ''
-          end
+          vim_item.kind = "Event"
         elseif entry.source.name == 'cmdline' then
-          kind = ""
+          vim_item.kind = "TypeParameter"
         end
-        vim_item.kind = kind
         return vim_item
-      end
+      end,
     },
   },
   documentation = { border = "rounded" },
@@ -102,8 +94,8 @@ cmp.setup.cmdline('/', {
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = {
-    { name = 'path' },
-    { name = 'cmdline', keyword_length = 2 }
+  { name = 'path' },
+  { name = 'cmdline', keyword_length = 2 }
   }
 })
 
