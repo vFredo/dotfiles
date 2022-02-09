@@ -5,8 +5,11 @@ end
 
 gitsigns.setup{
   signs = {
-    add       = {text = '┃' },
-    change    = {text = '┃' },
+    add = { text = '┃' },
+    change = { text = '┃' },
+    delete = { text = '_' },
+    topdelte = { text = '‾' },
+    changedelete = { text = '~' },
   },
   keymaps = {
     noremap = true,
@@ -27,6 +30,9 @@ gitsigns.setup{
   sign_priority = 100,
   status_formatter = nil, -- Use default
   preview_config = { border = 'rounded' },
-  current_line_blame_opts = { delay = 200 },
+  current_line_blame_opts = {
+    delay = 200,
+    virt_text_pos = "eol",
+  },
   current_line_blame_formatter_opts = { relative_time = false },
 }

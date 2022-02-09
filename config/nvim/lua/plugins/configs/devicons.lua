@@ -13,7 +13,7 @@ devicons.setup {
     out = {
       icon = "",
       color = "#ea6962",
-      name = "out",
+      name = "output",
     },
     input = {
       icon = "",
@@ -37,12 +37,12 @@ devicons.setup {
     },
     ts = {
       icon = "ﯤ",
-      color = "#7daea3",
+      color = "#2E6379",
       name = "ts",
     },
     html = {
       icon = "",
-      color = "#dc9656",
+      color = "#ea6962",
       name = "html",
     },
     css = {
