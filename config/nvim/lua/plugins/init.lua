@@ -49,7 +49,11 @@ return packer.startup(function(use)
   -- GUI Plugins
   --
 
-  use { "rcarriga/nvim-notify", config = function() vim.notify = require("notify") end } -- nice notifications
+  -- Nice notifications on nvim
+  use {
+    "rcarriga/nvim-notify",
+    config = function() vim.notify = require("notify") end
+  }
 
   -- Theme
   use {
@@ -102,9 +106,6 @@ return packer.startup(function(use)
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
-    opt = true,
-    module = "telescope",
-    cmd = "Telescope",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",

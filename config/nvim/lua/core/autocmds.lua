@@ -6,7 +6,7 @@ local autocmds = {
     { "VimResized", "*", ":wincmd =" }; -- responsive panel/window size
     { 'BufRead', '*', [[call setpos(".", getpos("'\""))]] }; -- restore cursor pos
     -- Check if file changed when its window is focus, more eager than 'autoread'
-    {"FocusGained", "* checktime"};
+    { "FocusGained", "* checktime" };
   };
   filetype_specific = {
     { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" }; -- format options
