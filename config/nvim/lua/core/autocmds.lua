@@ -19,7 +19,7 @@ local autocmds = {
   highlight_yank = {
     {
       "TextYankPost", "*",
-      [[silent! lua vim.highlight.on_yank() {higroup="IncSearch", timeout=500}]]
+      [[silent! lua vim.highlight.on_yank() { higroup="IncSearch", timeout=500 }]]
     };
   };
 }

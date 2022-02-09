@@ -55,7 +55,8 @@ opt.smartindent    = true
 opt.shortmess:append('I') -- no splash screen
 opt.shortmess:append('a') -- Abreviations eg. `[RO]` instead of `[readonly]`
 opt.shortmess:append('c') -- avoid show extra message in completion
-opt.completeopt:append{'menuone','noinsert','noselect', 'preview'} -- https://www.youtube.com/watch?v=-3S4xVDpLzI
+opt.shortmess:append('f') -- Use "(3 of 5)" instead of "(file 3 of 5)"
+opt.completeopt = {'menuone','noinsert','noselect', 'preview'} -- https://www.youtube.com/watch?v=-3S4xVDpLzI
 opt.diffopt:append('vertical')  -- Show diffs in vertical splits
 
 -- Folds
