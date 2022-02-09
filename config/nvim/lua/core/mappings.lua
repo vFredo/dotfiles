@@ -35,7 +35,6 @@ map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr)
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L", opt)
 map("n", "<Leader>H", "<C-w>H", opt)
-map("n", "<Leader>q", ":Sayonara<CR>", opt)
 map("n", "[b", ":BufferLineCyclePrev<CR>", opt)
 map("n", "]b", ":BufferLineCycleNext<CR>", opt)
 

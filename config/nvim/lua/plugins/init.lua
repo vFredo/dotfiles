@@ -15,9 +15,6 @@ return packer.startup(function(use)
   -- Miscellaneous
   --
 
-  -- :bdelete, :close and :quit in one smart command
-  use { "mhinz/vim-sayonara" }
-
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",
