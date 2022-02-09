@@ -49,7 +49,7 @@ return packer.startup(function(use)
   -- GUI Plugins
   --
 
-  use { "rcarriga/nvim-notify", config = function () vim.notify = require("notify") end } -- nice notifications
+  use { "rcarriga/nvim-notify", config = function() vim.notify = require("notify") end } -- nice notifications
 
   -- Theme
   use {

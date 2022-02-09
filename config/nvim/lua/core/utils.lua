@@ -47,7 +47,6 @@ end
 
 -- Toggle spelling on buffer
 M.toggleSpelling = function (option)
-
   local opts = { noremap = true, silent = true }
 
   -- using a vim buffer variable to store value of spell_toggle
