@@ -16,7 +16,7 @@ bufferline.setup {
       -- highlight = "Directory"
       highlight = "NvimTreeNormal"
     }},
-    indicator_icon = '▎',
+    indicator_icon = '┃',
     modified_icon = "●",
     show_close_icon = false,
     show_buffer_close_icons = false,
