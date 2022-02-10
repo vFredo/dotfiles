@@ -52,7 +52,7 @@ M.tree_config = function ()
           { key = 'i', action = 'preview' },
           { key = 'R', action = 'refresh' },
           { key = 'c', action = 'create' },
-          { key = 'D', action = 'trash' },
+          { key = 'D', action = 'remove' },
           { key = 'r', action = 'rename' },
           { key = 'd', action = 'cut' },
           { key = 'y', action = 'copy' },
