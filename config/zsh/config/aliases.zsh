@@ -20,7 +20,7 @@ alias ll='ls -la'
 # Quick config changes
 alias vb='vim ~/.bashrc'
 alias vba="vim ~/.bash_aliases"
-alias vz='vim ~/.config/.zshrc'
+alias vz='vim ~/.config/zsh/.zshrc'
 alias vi3='vim ~/.i3/config'
 alias vk='vim ~/.config/kitty/kitty.conf'
 alias vbsp='vim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'

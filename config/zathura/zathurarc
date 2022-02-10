@@ -1,12 +1,11 @@
 # Basic options
-
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 10
 set window-title-basename "true"
 set selection-clipboard clipboard
 
-# base16_defualt-darker theme
+# base16_default-darker theme
 set default-bg                  "#151515"
 set default-fg                  "#d0d0d0"
 
@@ -39,4 +38,3 @@ set recolor-darkcolor           "#d0d0d0"
 
 set recolor                     "false"
 set recolor-keephue             "false"
-
