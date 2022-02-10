@@ -1,0 +1,15 @@
+[submodule "config/zsh/plugins/pure"]
+	path = config/zsh/plugins/pure
+	url = https://github.com/sindresorhus/pure.git
+[submodule "config/zsh/plugins/fast-syntax-highlighting"]
+	path = config/zsh/plugins/fast-syntax-highlighting
+	url = https://github.com/kutsan/fast-syntax-highlighting.git
+[submodule "config/zsh/plugins/zsh-autopair"]
+	path = config/zsh/plugins/zsh-autopair
+	url = https://github.com/hlissner/zsh-autopair.git
+[submodule "config/zsh/plugins/zsh-autosuggestions"]
+	path = config/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "config/zsh/plugins/zsh-system-clipboard"]
+	path = config/zsh/plugins/zsh-system-clipboard
+	url = https://github.com/kutsan/zsh-system-clipboard.git

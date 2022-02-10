@@ -191,15 +191,11 @@ function install_bash(){
 function install_zsh(){
   install_term
 
-  progress "Installing Oh-My-Zsh"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  progress "Creating symbolic links for zsh config files"
+  create_link "$(pwd)/config/zsh" "$HOME/.config/zsh"
 
-  progress "Installing zsh-autosuggestions"
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-  progress "Creating symbolic links for zsh"
-  create_link "$(pwd)/zsh/fredo.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/fredo.zsh-theme"
-  create_link "$(pwd)/zsh/zshrc" "$HOME/.zshrc"
+  progress "Creating symbolic link for .zshenv"
+  create_link "$(pwd)/config/zsh/zshenv" "$HOME/.zshenv"
 
   success "Zsh config installed"
 }
