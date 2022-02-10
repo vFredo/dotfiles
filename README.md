@@ -41,15 +41,12 @@ you want, the script removes it. For the moment, most dependencies have to be in
   <img src="https://github.com/fredo0522/dotfiles/blob/media/zsh-prompt.png"/>
 </div>
 
-* Extended right-hand size prompt which auto-hides when necessary to make room for long commands and contains:
-  * If you set vi keys on normal mode `<<<` will appear and in insert mode `•••`.
-  * Duration of previous command in adaptive units (seconds, minutes, hours or days) depending on duration.
-  * Current version control branch name.
-    * Green dot indicates staged changes.
-    * Red dot indicates unstaged changes.
-    * Blue dot indicates untracked files.
-    * Magenta dot indicates push to the current remote repo.
-    * Yellow dot indicates pull to the current remote repo.
+The plugins is use are:
+- [`pure`](https://github.com/kutsan/pure) - Minimal and fast Zsh prompt with asynchronous git fetch
+- [`autopair`](https://github.com/hlissner/zsh-autopair) - Auto-close and delete matching delimiters
+- [`system-clipboard`](https://github.com/kutsan/zsh-system-clipboard) - Synchronize ZLE (Zsh Line Editor) clipboard buffer with system clipboard
+- [`fast-syntax-highlighting`](https://github.com/kutsan/fast-syntax-highlighting) - Fish-like syntax highlighting support for interactive terminal
+- [`autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like auto-suggestions for zsh based on command history
 
 ### ❖ Theme
 * Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
@@ -59,7 +56,6 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Neovim
   * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Zsh
-  * [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 * i3 gaps
   * [Rofi](https://github.com/davatorium/rofi).
   * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
@@ -94,4 +90,5 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
 * The theme colors and some neovim configurations comes from TheRealKizu [dotfiles](https://github.com/TheRealKizu/dotfiles) and his [neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
+* Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of his zsh configuration.
 
