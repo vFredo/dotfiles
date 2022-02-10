@@ -23,9 +23,8 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Tmux config.
 * Alacritty and Kitty configs.
 * Latexmk compiler config.
-* Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
+* Bash: Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
 * Rofi configurations.
-* Files to ignore for [The silver searcher](https://github.com/ggreer/the_silver_searcher) command (`ag`). If it's is install, vim will used for searching files with fzf-vim.
 
 ## ❖ Google Drive
 * For cloud storage I use [drive](https://github.com/odeke-em/drive) ([AUR repo](https://aur.archlinux.org/packages/drive-bin)).
@@ -79,16 +78,14 @@ This are the plugins that I'm using:
   * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux
   * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
-* Latex (if you want the vimtex workflow to work)
+* Latex
   * `apt-get install texlive-full` for Debian-based distros.
   * `pacman -S texlive-most texlive-lang` for Arch-based distros.
-  * Inkscape for making figures: `pacman -S inkscape`.
-  * [inkscape-figures](https://github.com/gillescastel/inkscape-figures), it works on Vim with <kbd>Ctrl + f</kbd> keys.
 
 # ❖ Inspired
 * Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
-* Gilles Castel's [blog](https://castel.dev/); Most of the latex configuration, from inkscape configuration to almost all of the snippets.
+* Gilles Castel's [blog](https://castel.dev/); I got his snippets in this repository.
 * The theme colors and some neovim configurations comes from TheRealKizu [dotfiles](https://github.com/TheRealKizu/dotfiles) and his [neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
-* Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of his zsh configuration.
+* Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of things of his Zsh configuration.
 

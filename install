@@ -140,9 +140,6 @@ function install_term(){
   progress "Installing fonts..."
   cp -r "$(pwd)"/fonts/* "$HOME"/.local/share/fonts
 
-  progress "Creating symbolic links for Bash aliases"
-  create_link "$(pwd)/bash/bash_aliases" "$HOME/.bash_aliases"
-
   if command -v tmux &> /dev/null
   then
     progress "Creating symbolic link for .tmux.conf"
@@ -163,14 +160,6 @@ function install_term(){
     ignoring "Ignore Terminal installation of config files"
   fi
 
-  if command -v ag &> /dev/null
-  then
-    progress "Creating symbolic links for ag (silver searcher)"
-    create_link "$(pwd)/bash/agignore" "$HOME/.agignore"
-  else
-    ignoring "Ignore silver searcher configuration since it's not install"
-  fi
-
   progress "Updating font cache"
   fc-cache -f -v
 
@@ -181,6 +170,7 @@ function install_bash(){
   install_term
 
   progress "Creating symbolic links for bash"
+  create_link "$(pwd)/bash/bash_aliases" "$HOME/.bash_aliases"
   create_link "$(pwd)/bash/Xresources" "$HOME/.Xresources"
   create_link "$(pwd)/bash/bashrc" "$HOME/.bashrc"
   create_link "$(pwd)/bash/profile" "$HOME/.profile"
