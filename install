@@ -199,7 +199,6 @@ function install_latex(){
 
   progress "Creating symbolic links for latex"
   create_link "$(pwd)/config/zathura/zathurarc" "$HOME/.config/zathura/zathurarc"
-  create_link "$(pwd)/config/latexmkrc" "$HOME/.latexmkrc"
 
   success "Latex config installed"
 }
