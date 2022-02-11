@@ -187,6 +187,10 @@ function install_zsh(){
   progress "Creating symbolic link for .zshenv"
   create_link "$(pwd)/config/zsh/zshenv" "$HOME/.zshenv"
 
+  progress "Updating submodules for zsh plugins"
+  git submodule init
+  git submodule update
+
   success "Zsh config installed"
 }
 
