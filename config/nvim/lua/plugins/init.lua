@@ -15,6 +15,9 @@ return packer.startup(function(use)
   -- Miscellaneous
   --
 
+  -- COQ IDE
+  use { "whonore/Coqtail" }
+
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",
