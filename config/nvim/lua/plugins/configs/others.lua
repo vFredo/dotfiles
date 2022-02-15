@@ -66,12 +66,7 @@ M.comment = function()
 
       if  filetype == "c" or filetype == "cpp"  then
         vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-      elseif filetype == 'typescriptreact'
-        or filetype == 'javascriptreact'
-        or filetype == 'javascript'
-        or filetype == 'css'
-        or filetype == 'html'
-      then
+      else
         local ts_comment = require("ts_context_commentstring.internal")
         ts_comment.update_commentstring()
       end
