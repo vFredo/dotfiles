@@ -47,6 +47,8 @@ This are the plugins that I'm using:
 - [`fast-syntax-highlighting`](https://github.com/kutsan/fast-syntax-highlighting) - Fish-like syntax highlighting support for interactive terminal
 - [`autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like auto-suggestions for zsh based on command history
 
+Updating each submodule use `git pull --recurse-submodules`
+
 ### ❖ Theme
 * Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
 * Terminal font: [Caskaydia Cove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
