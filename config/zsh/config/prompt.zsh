@@ -10,19 +10,18 @@ fpath=($fpath "$ZDOTDIR/plugins/pure")
 typeset -g PURE_PROMPT_VICMD_SYMBOL="❮"
 zstyle :prompt:pure:git:stash show yes
 
-# Initialize the prompt system.
-promptinit
-
-# Prompt theme.
-prompt pure
-
 # Prompt styles.
-zstyle :prompt:pure:prompt:error color yellow
+zstyle :prompt:pure:prompt:error color '#dc9656'
 zstyle :prompt:pure:prompt:success color red
+zstyle :prompt:pure:prompt:continuation color '#d3869b'
+zstyle :prompt:pure:execution_time color cyan
+zstyle :prompt:pure:suspended_jobs color yellow
 zstyle :prompt:pure:git:branch color yellow
 zstyle :prompt:pure:git:arrow color magenta
-zstyle :prompt:pure:git:dirty color green
-zstyle :prompt:pure:execution_time color cyan
+zstyle :prompt:pure:git:dirty color '#d3869b'
 
 # This prompt pops when zsh think that your last command is misspelled
-export SPROMPT="Correct %F{red}'%R'%f to %F{orange}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+export SPROMPT="Correct %F{red}'%R'%f to %F{green}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+
+# Initialize the prompt system and pure theme.
+promptinit; prompt pure
