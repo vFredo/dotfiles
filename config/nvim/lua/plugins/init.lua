@@ -16,7 +16,10 @@ return packer.startup(function(use)
   --
 
   -- COQ IDE
-  use { "whonore/Coqtail" }
+  use {
+    "whonore/Coqtail",
+    setup = function() vim.g.coqtail_noimap = 1 end
+  }
 
   -- Comment lines more easily
   use {
