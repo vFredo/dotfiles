@@ -8,20 +8,17 @@ local colors = theme.colors
 
 bufferline.setup {
   options = {
-    view = "multiwindow",
     offsets = {{
       filetype = "NvimTree",
       text = "Files",
-      -- padding = 1,
-      -- highlight = "Directory"
       highlight = "NvimTreeNormal"
     }},
-    indicator_icon = '┃',
-    modified_icon = "●",
+    indicator_icon = '▎',
+    modified_icon = '●',
     show_close_icon = false,
     show_buffer_close_icons = false,
     show_tab_indicators = true,
-    tab_size = 17,
+    separator_style = "thin"
   },
   highlights = {
     background = {
@@ -44,7 +41,7 @@ bufferline.setup {
       gui = "bold"
     },
 
-    -- Same name buffer
+    -- Same buffer name
     duplicate_selected = {
       guifg = colors.fgAlt2,
       guibg = colors.bgAlt2,
@@ -100,8 +97,8 @@ bufferline.setup {
 
     -- Indicator
     indicator_selected = {
-       guifg = colors.blue,
-       guibg = colors.bgAlt2,
+      guifg = colors.blue,
+      guibg = colors.bgAlt2,
     },
   }
 }
