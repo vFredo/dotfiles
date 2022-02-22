@@ -54,10 +54,6 @@ M.neoscroll = function()
   }
 end
 
-M.navigator = function()
-  require("Navigator").setup { auto_save = 'current' }
-end
-
 M.comment = function()
   require("nvim_comment").setup {
     comment_empty = false,

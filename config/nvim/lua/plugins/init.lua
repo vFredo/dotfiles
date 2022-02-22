@@ -29,13 +29,13 @@ return packer.startup(function(use)
   -- Operation between parenthesis, brackets, etc...
   use {
     "tpope/vim-surround",
-    config = function () vim.cmd([[ xmap gs <Plug>VSurround ]]) end
+    config = function() vim.cmd([[ xmap gs <Plug>VSurround ]]) end
   }
 
   -- Navigation between tmux and nvim
   use {
     "numToStr/Navigator.nvim",
-    config = function() require "plugins.configs.others".navigator() end
+    config = function() require("Navigator").setup { auto_save = 'current' } end
   }
 
   -- Color highlighter for hex, rgb, etc...
