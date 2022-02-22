@@ -35,7 +35,7 @@ return packer.startup(function(use)
   -- Navigation between tmux and nvim
   use {
     "numToStr/Navigator.nvim",
-    config = function() require "plugins.configs.others".navigator() end
+    config = function () require("Navigator").setup { auto_save = 'current' } end
   }
 
   -- Color highlighter for hex, rgb, etc...
