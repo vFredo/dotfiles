@@ -31,11 +31,11 @@ local on_attach = function(client, bufnr)
   -- Mappings
   local opts = { noremap = true, silent = true }
   buf_map(bufnr, 'n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', opts)
-  buf_map(bufnr, 'n', 'ga', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>', opts)
-  buf_map(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_map(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_map(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_map(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_map(bufnr, "n", "gr", "<cmd>Lspsaga rename<cr>", opts)
+  buf_map(bufnr, "n", "ga", "<cmd>Lspsaga code_action<cr>", opts)
+  buf_map(bufnr, "n", "K",  "<cmd>Lspsaga hover_doc<cr>", opts)
+  buf_map(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
+  buf_map(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
   -- if the server client can format files then format on save
   if client.resolved_capabilities.document_formatting then

@@ -150,6 +150,16 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.lspconfig" end,
   }
 
+  use {
+    "tami5/lspsaga.nvim",
+    config = function()
+      require('lspsaga').setup{
+        use_saga_diagnostic_sign = false,
+        code_action_prompt = { enable = false }
+      }
+    end
+  }
+
   -- Autocomplete/Snippets
   use {
     {
