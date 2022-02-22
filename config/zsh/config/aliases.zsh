@@ -59,6 +59,7 @@ alias gaa='git add --all'
 alias gcmsg='git commit -m'
 alias gp='git push'
 alias gl='git pull'
+alias glsub='git pull --recurse-submodules'
 alias gsu='git submodule update'
 alias gd='git diff'
 
