@@ -9,7 +9,6 @@ super + Return
 # password manager
 super + p
   bwmenu
-  # bwmenu --auto-lock 0 -- -theme ~/.config/rofi/bwmenu.rasi
 
 # program launcher
 super + d
@@ -135,15 +134,11 @@ super + {Left,Down,Up,Right}
 
 # Audio controlers
 XF86AudioMute
-  amixer -D pulse sset Master toggle; \
-  dunstify "Muted/Unmuted" -t 1000
+  amixer -D pulse sset Master toggle
 
 # pulseaudio controls speaker volume up & down
-# PORCENTAGE=$(amixer -D pulse -M get Master | grep -m 1 '[0-9]\%' | awk '{print $5}'); \
-# notify-send " Volume: $PORCENTAGE"
 XF86Audio{Raise,Lower}Volume
-  amixer -D pulse sset Master 5%{+,-}; \
-  dunstify "Volume +/-" -t 1000
+  amixer -D pulse sset Master 5%{+,-}
 
 # Manage brightness
 XF86MonBrightness{Up,Down}

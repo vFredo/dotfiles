@@ -10,11 +10,11 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # Notifications
 dunst --config $HOME/.config/dunst/dunstrc &
 
-# Wallpaper run the application from the first time to configure the wallpaper
-nitrogen --restore &
-
 # Autostart picom (cool fadding elements, and transparency)
 picom --config $HOME/.config/picom/picom.conf &
+
+# Wallpaper run the application from the first time to configure the wallpaper
+nitrogen --restore &
 
 # For pamac to work authentification GUI prompt
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -34,6 +34,7 @@ bspc rule -a Lxappearance desktop='^6' state=floating
 bspc rule -a Pamac-manager state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a zoom state=floating
+bspc rule -a zathura state=tiled
 
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #
@@ -52,8 +53,3 @@ bspc config gapless_monocle false
 bspc config single_monocle true
 bspc config borderless_monocle true
 bspc config paddingless_monocle false
-
-# ##############################################################################
-# #                            COLORS CONFIGURATION                            #
-# ##############################################################################
-

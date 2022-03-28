@@ -64,7 +64,7 @@ return packer.startup(function(use)
     requires = { "norcalli/nvim.lua" }
   }
 
-  -- Icons for telescope, bufferline, feline (statusline) and NvimTree
+  -- Icons for telescope, bufferline and NvimTree
   use {
     "kyazdani42/nvim-web-devicons",
     module = "nvim-web-devicons",
