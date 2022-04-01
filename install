@@ -101,7 +101,7 @@ function install_i3(){
   # ./packages/installer.sh i3
 
   progress "Creating necessary folders"
-  mkdir -p ~/.config/i3status ~/.i3 ~/.config/dunst
+  mkdir -p ~/.config/i3status ~/.i3 ~/.config/dunst ~/.config/picom
 
   progress "Creating symbolic links for i3 and polybar..."
   create_link "$(pwd)/config/i3/config" "$HOME/.i3/config"
@@ -112,6 +112,7 @@ function install_i3(){
   create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
   create_link "$(pwd)/config/i3/i3status.conf" "$HOME/.config/i3status/config"
   create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
+  create_link "$(pwd)/config/picom/picom.conf" "$HOME/.config/picom/picom.conf"
 
   success "i3 config installed"
 }

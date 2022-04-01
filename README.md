@@ -63,6 +63,7 @@ Updating each submodule use `git pull --recurse-submodules`
     * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
   * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * [polybar](https://github.com/polybar/polybar).
+  * Blueman (bluetooth manager with applet).
 * Bspwm
   * sxhkd
   * dunst
