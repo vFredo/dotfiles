@@ -64,6 +64,9 @@ Updating each submodule use `git pull --recurse-submodules`
   * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * [polybar](https://github.com/polybar/polybar).
   * Blueman (bluetooth manager with applet).
+  * Picom
+  * Nitrogen
+  * Dunst
 * Bspwm
   * sxhkd
   * dunst
