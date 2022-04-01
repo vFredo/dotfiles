@@ -18,6 +18,7 @@ return packer.startup(function(use)
   -- COQ IDE
   use {
     "whonore/Coqtail",
+    ft = "coq",
     setup = function() vim.g.coqtail_noimap = 1 end
   }
 
