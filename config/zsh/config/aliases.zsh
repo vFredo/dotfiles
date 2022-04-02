@@ -1,3 +1,6 @@
+# private stuff
+source ~/.local.bash_aliases
+
 # basics
 alias ..='cd ..'
 alias ...='cd ../..'
