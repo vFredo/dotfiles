@@ -2,7 +2,6 @@ local M = {  }
 
 M.tree_setup = function ()
   local g = vim.g
-  g.nvim_tree_indent_markers = 1
   g.nvim_tree_highlight_opened_files = 2
   g.nvim_tree_width_allow_resize = 1
   g.nvim_tree_icons = {
@@ -68,7 +67,9 @@ M.tree_config = function ()
     filters = {
       dotfiles = true,
       custom = {
-        "^node_modules/", "^.git/", "^.cache/", "%.o", "%.pdf", "%.class", "%.obj"
+        "^node_modules/", "^.git/",
+        "^.cache/", "%.o", "%.pdf",
+        "%.class", "%.obj"
       },
     },
   }

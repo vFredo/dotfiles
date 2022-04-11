@@ -4,7 +4,8 @@ if not ok then
 end
 
 ts_config.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
+  ignore_install = { "phpdoc" },
   highlight = { enable = true, additional_vim_regex_highlight = false },
   indent = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
