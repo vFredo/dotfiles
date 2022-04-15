@@ -79,7 +79,7 @@ cmp.setup {
       end,
     },
   },
-  documentation = { border = "rounded" },
+  window = { documentation = { border = "rounded" } },
   experimental = {
     native_menu = false, -- better highlight groups for menubar
     ghost_text = true,   -- nice comment color text of completion
@@ -93,9 +93,9 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  sources = {
-  { name = 'path' },
-  { name = 'cmdline', keyword_length = 2 }
-  }
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })
-
