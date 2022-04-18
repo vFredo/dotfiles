@@ -58,7 +58,7 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "250x200-15+50"
+    geometry = "275x5-10+12"
 
     # Frame
     frame_width = 3
@@ -129,10 +129,14 @@
     icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 40
+    max_icon_size = 64
 
-    # Paths to default icons.
-    # icon_path = /home/kizu/.icons/Horizon/16x16/status/:/home/kizu/.icons/Horizon/16x16/devices/:/home/kizu/.icons/Horizon/16x16/apps/
+    # Define the corner radius of the notification window
+    # in pixel size. If the radius is 0, you have no rounded
+    # corners.
+    # The radius will be automatically lowered if it exceeds half of the
+    # notification height to avoid clipping text and/or icons.
+    corner_radius = 0
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -151,9 +155,9 @@
 [urgency_normal]
     background = "#1d2021"
     foreground = "#fbf1c7"
-    timeout = 5
+    timeout = 7
 
 [urgency_critical]
     background = "#1d2021"
     foreground = "#fbf1c7"
-    timeout = 9
+    timeout = 10
