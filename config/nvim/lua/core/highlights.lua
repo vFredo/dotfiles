@@ -37,7 +37,6 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
-vim.cmd("hi clear CursorLine") -- disable cursorline
 fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
@@ -72,7 +71,17 @@ fg("CmpItemAbbr", colors.grey) -- text autocomplete
 fg("CmpItemKind", colors.blue) -- icon and kind info
 ui("CmpItemMenu", "bold") -- source
 fg("CmpItemAbbrMatchFuzzy", colors.blue, "italic") -- fuzzy match
-fg("CmpItemAbbrDeprecated", colors.red, "italic") -- ??
+fg("CmpItemAbbrDeprecated", colors.red, "strikethrough") -- ??
+-- Kind specific colors
+fg("CmpItemKindFunction", colors.purple)
+fg("CmpItemKindMethod", colors.purple)
+fg("CmpItemKindKeyword", colors.fgAlt2)
+fg("CmpItemKindProperty", colors.fgAlt2)
+fg("CmpItemKindUnit", colors.fgAlt2)
+fg("CmpItemKindInterface", colors.yellow)
+fg("CmpItemKindClass", colors.yellow)
+fg("CmpItemKindStruct", colors.yellow)
+fg("CmpItemKindEvent", colors.yellow)
 
 --
 -- BlankIndent Lines
@@ -124,7 +133,7 @@ fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.pink)
-fg("NvimTreeOpenedFile", colors.yellow)
+fg("NvimTreeOpenedFile", colors.orange, "underline")
 
 --
 -- COQ IDE

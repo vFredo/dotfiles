@@ -4,18 +4,19 @@ M.tree_setup = function ()
   local g = vim.g
   g.nvim_tree_highlight_opened_files = 2
   g.nvim_tree_width_allow_resize = 1
+  g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
   g.nvim_tree_icons = {
     default = "",
     symlink = "",
     git = {
-      unstaged = "",
-      staged = "",
-      unmerged = "",
-      renamed = "凜",
-      untracked = "",
       deleted = "",
-      ignored = ""
-    },
+      ignored = "◌",
+      renamed = "➜",
+      unmerged = "",
+      staged = "✓",
+      unstaged = "✗",
+      untracked = ""
+   },
   }
 end
 
@@ -72,6 +73,9 @@ M.tree_config = function ()
         "%.class", "%.obj"
       },
     },
+    renderer = {
+      indent_markers = { enable = true }
+    }
   }
 end
 

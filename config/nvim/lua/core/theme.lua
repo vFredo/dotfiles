@@ -9,6 +9,7 @@ theme.colors = {
   yellow = "#ffc745",
   blue = "#7daea3",
   magenta = "#93869b",
+  purple = "#C586C0",
   cyan = "#89b482",
   grey = "#665c54",
   orange = "#dc9656",
