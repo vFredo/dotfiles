@@ -73,14 +73,14 @@ ui("CmpItemMenu", "bold") -- source
 fg("CmpItemAbbrMatchFuzzy", colors.blue, "italic") -- fuzzy match
 fg("CmpItemAbbrDeprecated", colors.red, "strikethrough") -- ??
 -- Kind specific colors
-fg("CmpItemKindFunction", colors.purple)
-fg("CmpItemKindMethod", colors.purple)
+fg("CmpItemKindFunction", colors.pink)
+fg("CmpItemKindMethod", colors.pink)
 fg("CmpItemKindKeyword", colors.fgAlt2)
 fg("CmpItemKindProperty", colors.fgAlt2)
 fg("CmpItemKindUnit", colors.fgAlt2)
+fg("CmpItemKindClass", colors.orange)
+fg("CmpItemKindStruct", colors.orange)
 fg("CmpItemKindInterface", colors.yellow)
-fg("CmpItemKindClass", colors.yellow)
-fg("CmpItemKindStruct", colors.yellow)
 fg("CmpItemKindEvent", colors.yellow)
 
 --
