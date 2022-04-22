@@ -20,6 +20,7 @@ vim.cmd([[
 -- General options
 --
 g.mapleader        = " " -- Map leader is <Space>
+opt.cmdheight      = 1 -- More space for displaying messages
 opt.cursorline     = true -- Current line highlight
 opt.laststatus     = 0 -- Don't show statusline
 opt.virtualedit    = "block" -- edit lines in v-block with no characters
@@ -46,10 +47,12 @@ opt.splitbelow    = true -- open horizontal splits below current window
 opt.splitright    = true -- open vertical splits to the right current window
 
 -- Tabs (\t) and indentation
-opt.shiftwidth  = 2
-opt.tabstop     = 2
-opt.expandtab   = true
-opt.smartindent = true
+opt.smartindent = true -- Makes indenting smart
+opt.smarttab    = true -- Makes tabbing smarter will realize you have 2 vs 4
+opt.expandtab   = true -- Converts tabs to spaces
+opt.autoindent  = true -- Good auto indent
+opt.shiftwidth  = 2 -- Change the number of space characters inserted for indentation
+opt.tabstop     = 2 -- insert 2 spaces for a tab
 
 -- Abreviations
 opt.shortmess:append('I') -- no splash screen
