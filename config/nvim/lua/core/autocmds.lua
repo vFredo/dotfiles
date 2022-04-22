@@ -10,7 +10,7 @@ local autocmds = {
   };
   filetype_specific = {
     { "FileType", "*", "set fo-=c fo-=r fo-=o fo+=j fo+=n" }; -- format options
-    { "FileType", "NeogitCommitMessage", "lua require('core.utils').toggleSpelling('ft')" };
+    { "FileType", "gitcommit", "lua require('core.utils').toggleSpelling('ft')" };
   };
   terminal_job = {
     { "TermOpen", "*", "startinsert" };
