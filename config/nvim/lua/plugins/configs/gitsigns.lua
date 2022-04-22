@@ -7,7 +7,7 @@ gitsigns.setup {
   signs = {
     add = { text = '┃' },
     change = { text = '┃' },
-    delete = { text = '_' },
+    delete = { text = '契' },
     topdelte = { text = '‾' },
     changedelete = { text = '~' },
   },

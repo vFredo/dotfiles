@@ -13,9 +13,9 @@ M.tree_setup = function()
       ignored = "◌",
       renamed = "➜",
       unmerged = "",
-      staged = "✓",
-      unstaged = "✗",
-      untracked = ""
+      staged = "S",
+      unstaged = "",
+      untracked = "U"
     },
   }
 end

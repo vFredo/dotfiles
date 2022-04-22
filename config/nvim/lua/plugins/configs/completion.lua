@@ -12,10 +12,10 @@ end
 
 -- Luasnip configuration
 luasnip.config.set_config {
-  -- I have this on, but might not be necessary
+  -- This might not be necessary
   history = true,
   enable_autosnippets = true,
-  -- update as you type with dynamic snippets
+  -- Update as you type with dynamic snippets
   updateevents = "TextChanged,TextChangedI",
   region_check_events = nil,
 }
@@ -39,7 +39,7 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-e>'] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.get_selected_entry() then -- confirm completion
         cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
@@ -71,6 +71,7 @@ cmp.setup {
     end,
   },
   formatting = {
+    fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format {
       mode = "symbol",
       menu = {
@@ -98,14 +99,14 @@ cmp.setup {
   },
 }
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- Use buffer source for `/` (experiemental.native_menu = false)
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
   formatting = { format = lspkind.cmp_format { mode = "symbol" } },
   sources = { { name = 'buffer' } }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':' (experiemental.native_menu = false)
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   formatting = { format = lspkind.cmp_format { mode = "symbol" } },
