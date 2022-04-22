@@ -14,6 +14,7 @@ return packer.startup(function(use)
   --
   -- Miscellaneous
   --
+  use { 'lewis6991/impatient.nvim' }
 
   -- COQ IDE
   use {
@@ -65,7 +66,7 @@ return packer.startup(function(use)
     requires = { "norcalli/nvim.lua" }
   }
 
-  -- Icons for telescope, bufferline and NvimTree
+  -- Nice icons
   use {
     "kyazdani42/nvim-web-devicons",
     module = "nvim-web-devicons",
@@ -160,12 +161,10 @@ return packer.startup(function(use)
     {
       "L3MON4D3/LuaSnip", -- snippets
       requires = { "rafamadriz/friendly-snippets", event = "InsertEnter" },
-      config = function() require "plugins.configs.luasnip_config" end
     },
     {
       "hrsh7th/nvim-cmp",
       module = "cmp",
-      after = "LuaSnip",
       event = "InsertEnter",
       requires = {
         { "onsails/lspkind-nvim" }, -- icons in completion menu

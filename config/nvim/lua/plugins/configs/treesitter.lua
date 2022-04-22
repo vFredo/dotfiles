@@ -4,8 +4,13 @@ if not ok then
 end
 
 ts_config.setup {
-  ensure_installed = "all",
-  ignore_install = { "phpdoc", "swift" },
+  ensure_installed = {
+    "bash", "bibtex", "c", "cpp", "cmake", "make",
+    "comment", "css", "scss", "dockerfile", "go", "gomod",
+    "help", "html", "json", "json5", "jsdoc", "javascript",
+    "typescript", "latex", "php", "python", "rust", "vim",
+    "lua", "vue", "verilog", "yaml"
+  },
   highlight = { enable = true, additional_vim_regex_highlight = false },
   indent = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
