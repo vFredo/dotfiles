@@ -142,7 +142,7 @@ return packer.startup(function(use)
     "neovim/nvim-lspconfig",
     opt = true,
     event = "BufReadPre",
-    requires = "williamboman/nvim-lsp-installer",
+    requires = { "williamboman/nvim-lsp-installer" },
     config = function() require "plugins.configs.lspconfig" end,
   }
 
@@ -194,12 +194,7 @@ return packer.startup(function(use)
       after = "nvim-treesitter",
       config = function() require "plugins.configs.autopairs" end
     },
-    {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      branch = "master",
-      after = "nvim-treesitter"
-    },
-    { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
-    { "windwp/nvim-ts-autotag", after = "nvim-treesitter" }
+    { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
+    { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
   }
 end)
