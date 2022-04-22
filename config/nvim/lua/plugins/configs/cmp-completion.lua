@@ -10,6 +10,18 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
+-- Luasnip configuration
+luasnip.config.set_config {
+  -- I have this on, but might not be necessary
+  history = true,
+  enable_autosnippets = true,
+  -- update as you type with dynamic snippets
+  updateevents = "TextChanged,TextChangedI",
+  region_check_events = nil,
+}
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
 -- Tabnine configuration
 local tabnine = require('cmp_tabnine.config')
 
