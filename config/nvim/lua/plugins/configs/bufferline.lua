@@ -8,11 +8,11 @@ local colors = theme.colors
 
 bufferline.setup {
   options = {
-    offsets = {{
+    offsets = { {
       filetype = "NvimTree",
       text = "Files",
       highlight = "NvimTreeNormal"
-    }},
+    } },
     indicator_icon = '▎',
     modified_icon = '●',
     show_close_icon = false,

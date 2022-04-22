@@ -1,11 +1,11 @@
 --
 -- All helper functions are here
 --
-local M = {  }
+local M = {}
 
 -- Create global mapping
 M.map = function(mode, lhs, rhs, opts)
-  local options = opts or {  }
+  local options = opts or {}
 
   -- check if mode is a table or just a string
   if type(mode) == "table" then
@@ -18,19 +18,19 @@ M.map = function(mode, lhs, rhs, opts)
 end
 
 -- Key mapping to a specific buffer
-M.buf_map = function (bufnr, ...)
+M.buf_map = function(bufnr, ...)
   -- if bufnr == 0 this means make the map on the current buffer
   vim.api.nvim_buf_set_keymap(bufnr, ...)
 end
 
 -- Create Autocommand groups
 -- This function is taken from https://github.com/norcalli/nvim_utils
-M.create_autocommands = function (definitions)
+M.create_autocommands = function(definitions)
   for group_name, definition in pairs(definitions) do
-    vim.api.nvim_command('augroup '..group_name)
+    vim.api.nvim_command('augroup ' .. group_name)
     vim.api.nvim_command('autocmd!')
     for _, def in ipairs(definition) do
-      local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+      local command = table.concat(vim.tbl_flatten { 'autocmd', def }, ' ')
       vim.api.nvim_command(command)
     end
     vim.api.nvim_command('augroup END')
@@ -38,7 +38,7 @@ M.create_autocommands = function (definitions)
 end
 
 -- Save current cursor position after running a command(cmd)
-M.preserve = function (cmd)
+M.preserve = function(cmd)
   cmd = string.format('keepjumps keeppatterns execute %q', cmd)
   local original_cursor = vim.fn.winsaveview()
   vim.api.nvim_command(cmd)
@@ -46,7 +46,7 @@ M.preserve = function (cmd)
 end
 
 -- Toggle spelling on buffer
-M.toggleSpelling = function (option)
+M.toggleSpelling = function(option)
   local opts = { noremap = true, silent = true }
 
   -- using a vim buffer variable to store value of spell_toggle

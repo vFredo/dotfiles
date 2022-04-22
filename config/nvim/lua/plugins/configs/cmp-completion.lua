@@ -69,7 +69,7 @@ cmp.setup {
         cmp_tabnine = "[tb9]",
         cmdline = "[cmd]"
       },
-      before = function (entry, vim_item)
+      before = function(entry, vim_item)
         if entry.source.name == 'cmp_tabnine' then
           vim_item.kind = "Event"
         elseif entry.source.name == 'cmdline' then
@@ -82,20 +82,20 @@ cmp.setup {
   window = { documentation = { border = "rounded" } },
   experimental = {
     native_menu = false, -- better highlight groups for menubar
-    ghost_text = true,   -- nice comment color text of completion
+    ghost_text = true, -- nice comment color text of completion
   },
 }
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
-  formatting = { format = lspkind.cmp_format { mode = "symbol" }},
+  formatting = { format = lspkind.cmp_format { mode = "symbol" } },
   sources = { { name = 'buffer' } }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
-  formatting = { format = lspkind.cmp_format { mode = "symbol" }},
+  formatting = { format = lspkind.cmp_format { mode = "symbol" } },
   sources = { { name = 'path' }, { name = "cmdline" } }
 })

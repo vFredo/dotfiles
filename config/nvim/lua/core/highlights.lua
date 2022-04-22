@@ -138,5 +138,5 @@ fg("NvimTreeOpenedFile", colors.orange, "underline")
 --
 -- COQ IDE
 --
-fg_bg("CoqtailChecked",colors.bg, colors.green)
-fg_bg("CoqtailSent",colors.bg, colors.pink)
+fg_bg("CoqtailChecked", colors.bg, colors.green)
+fg_bg("CoqtailSent", colors.bg, colors.pink)

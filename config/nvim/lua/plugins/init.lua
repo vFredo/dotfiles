@@ -124,19 +124,13 @@ return packer.startup(function(use)
   -- Git
   --
   use {
+    { "tpope/vim-fugitive" },
     {
       "lewis6991/gitsigns.nvim",
       opt = true,
-      event = { "BufRead","BufNewFile" },
+      event = { "BufRead", "BufNewFile" },
       requires = { "nvim-lua/plenary.nvim" },
       config = function() require "plugins.configs.gitsigns" end
-    },
-    {
-      "TimUntersberger/neogit",
-      opt = true,
-      cmd = "Neogit",
-      requires = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim" },
-      config = function() require "plugins.configs.others".neogit() end
     }
   }
 
@@ -154,7 +148,7 @@ return packer.startup(function(use)
   use {
     "tami5/lspsaga.nvim",
     config = function()
-      require('lspsaga').setup{
+      require('lspsaga').setup {
         use_saga_diagnostic_sign = false,
         code_action_prompt = { enable = false }
       }
@@ -198,7 +192,7 @@ return packer.startup(function(use)
     },
     {
       "windwp/nvim-autopairs",
-      after =  "nvim-treesitter",
+      after = "nvim-treesitter",
       config = function() require "plugins.configs.autopairs" end
     },
     {

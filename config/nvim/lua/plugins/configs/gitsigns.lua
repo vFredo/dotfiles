@@ -3,7 +3,7 @@ if not ok then
   error("Couldn't load gitsigns " .. gitsigns .. "/n")
 end
 
-gitsigns.setup{
+gitsigns.setup {
   signs = {
     add = { text = '┃' },
     change = { text = '┃' },
@@ -13,8 +13,8 @@ gitsigns.setup{
   },
   keymaps = {
     noremap = true,
-    ['n ]h'] = { expr = true, "&diff ? ']h' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
-    ['n [h'] = { expr = true, "&diff ? '[h' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+    ['n ]h'] = { expr = true, "&diff ? ']h' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
+    ['n [h'] = { expr = true, "&diff ? '[h' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
     ['n <Leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
     ['v <Leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
     ['n <Leader>hS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',

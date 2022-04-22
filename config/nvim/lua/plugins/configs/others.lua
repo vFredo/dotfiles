@@ -1,4 +1,4 @@
-local M = {  }
+local M = {}
 
 M.blankline = function()
   require("indent_blankline").setup {
@@ -20,7 +20,7 @@ M.blankline = function()
   }
 end
 
-M.hexokinase = function ()
+M.hexokinase = function()
   vim.g.Hexokinase_highlighters = { "virtual" }
   vim.g.Hexokinase_optInPatterns = { "full_hex", "rgb", "rgba", "hsl", "hsla" }
   vim.g.Hexokinase_ftEnabled = {
@@ -35,7 +35,7 @@ M.hexokinase = function ()
   }
 end
 
-M.neogit = function ()
+M.neogit = function()
   require("neogit").setup {
     disable_signs = true,
     disable_commit_confirmation = true,
@@ -60,9 +60,9 @@ M.comment = function()
     hook = function()
       local filetype = vim.api.nvim_buf_get_option(0, "filetype")
 
-      if  filetype == "c" or filetype == "cpp"  then
+      if filetype == "c" or filetype == "cpp" then
         vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-      elseif  filetype == "coq" then
+      elseif filetype == "coq" then
         vim.api.nvim_buf_set_option(0, "commentstring", "(* %s *)")
       else
         local ts_comment = require("ts_context_commentstring.internal")

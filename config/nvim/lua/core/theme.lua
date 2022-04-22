@@ -1,5 +1,5 @@
 local base16 = require("base16")
-local theme = {  }
+local theme = {}
 
 theme.colors = {
   bg = "#1d2021",
@@ -23,7 +23,7 @@ theme.colors = {
   fgAlt2 = "#ebdbb2",
 }
 
-local function stripHash (hex)
+local function stripHash(hex)
   return hex:gsub("#", "")
 end
 

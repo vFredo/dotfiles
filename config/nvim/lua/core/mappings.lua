@@ -18,8 +18,8 @@ map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>", opt)
 -- nvim-tree
 map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
 
--- Neogit
-map("n", "<Leader>g", ":Neogit<CR>", opt)
+-- Git
+map("n", "<Leader>g", ":Git<CR>", opt)
 
 -- Consistent movement
 map({ "n", "v" }, "gh", "^", opt)

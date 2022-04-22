@@ -1,6 +1,6 @@
-local M = {  }
+local M = {}
 
-M.tree_setup = function ()
+M.tree_setup = function()
   local g = vim.g
   g.nvim_tree_highlight_opened_files = 2
   g.nvim_tree_width_allow_resize = 1
@@ -16,11 +16,11 @@ M.tree_setup = function ()
       staged = "✓",
       unstaged = "✗",
       untracked = ""
-   },
+    },
   }
 end
 
-M.tree_config = function ()
+M.tree_config = function()
   local ok, tree = pcall(require, "nvim-tree")
   if not ok then
     error("Couldn't load nvim-tree " .. tree .. "\n")

@@ -2,14 +2,14 @@
 -- Install servers
 --
 if not packer_plugins["nvim-lsp-installer"].loaded then
-  require"packer".loader("nvim-lsp-installer")
+  require "packer".loader("nvim-lsp-installer")
 end
 
 local lsp_installer = require("nvim-lsp-installer")
 local lsp_installer_servers = require('nvim-lsp-installer.servers')
 
 -- GUI of lsp-installer
-lsp_installer.settings{
+lsp_installer.settings {
   ui = {
     icons = {
       server_installed = "✓",
@@ -33,13 +33,16 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, 'n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<CR>', opts)
   buf_map(bufnr, "n", "gr", "<cmd>Lspsaga rename<cr>", opts)
   buf_map(bufnr, "n", "ga", "<cmd>Lspsaga code_action<cr>", opts)
-  buf_map(bufnr, "n", "K",  "<cmd>Lspsaga hover_doc<cr>", opts)
+  buf_map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
   buf_map(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
   buf_map(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
   -- if the server client can format files then format on save
   if client.resolved_capabilities.document_formatting then
-    vim.cmd([[ autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting(nil, 1000) ]])
+    -- vim.cmd([[ autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting() ]])
+    vim.cmd([[
+      command! Format lua vim.lsp.buf.formatting()
+    ]])
   end
 end
 
@@ -59,7 +62,7 @@ local servers = {
 for _, server_name in pairs(servers) do
   local server_available, server = lsp_installer_servers.get_server(server_name)
   if server_available then
-    server:on_ready(function ()
+    server:on_ready(function()
       local cmp_capabilities = require("cmp_nvim_lsp").update_capabilities
       -- When this particular server is ready (i.e. when installation is finished or the server is already installed),
       -- this function will be invoked. Make sure not to use the "catch-all" lsp_installer.on_server_ready()

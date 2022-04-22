@@ -1,11 +1,11 @@
-local M = {  }
+local M = {}
 
-M.setup = function ()
+M.setup = function()
   if not packer_plugins["plenary.nvim"].loaded then
-    require"packer".loader("plenary.nvim")
+    require "packer".loader("plenary.nvim")
   end
   if not packer_plugins["telescope-fzf-native.nvim"].loaded then
-    require"packer".loader("telescope-fzf-native.nvim")
+    require "packer".loader("telescope-fzf-native.nvim")
   end
 end
 
@@ -39,10 +39,10 @@ M.config = function()
     },
     extensions = {
       fzf = {
-        fuzzy = true,                   -- false will only do exact matching
+        fuzzy = true, -- false will only do exact matching
         override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true,    -- override the file sorter
-        case_mode = "smart_case"        -- or "ignore_case" or "respect_case"
+        override_file_sorter = true, -- override the file sorter
+        case_mode = "smart_case" -- or "ignore_case" or "respect_case"
       }
     }
   }
