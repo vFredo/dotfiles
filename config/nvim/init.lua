@@ -1,26 +1,30 @@
 --
--- Disable some default nvim plugins
+-- Disable some built-in plugins we don't want
 --
-local g = vim.g
-g.loaded_gzip = 1
-g.loaded_rrhelper = 1
-g.loaded_tarPlugin = 1
-g.loaded_zipPlugin = 1
-g.loaded_netrwPlugin = 1
-g.loaded_netrwSettings = 1
-g.loaded_2html_plugin = 1
-g.loaded_vimballPlugin = 1
-g.loaded_getscriptPlugin = 1
-g.loaded_logipat = 1
-g.loaded_tutor_mode_plugin = 1
-g.loaded_matchit = 1
--- g.loaded_netrwFileHandlers = 1
--- g.loaded_netrw = 1
--- g.loaded_tar = 1
--- g.loaded_zip = 1
--- g.loaded_getscript = 1
--- g.loaded_vimball = 1
--- g.loaded_matchparen = 1
+local disabled_built_ins = {
+  'tutor_mode_plugin',
+  'gzip',
+  'zipPlugin',
+  'zip',
+  'tarPlugin',
+  'tar',
+  'matchit',
+  'shada_plugin',
+  'netrwPlugin',
+  'netrwSettings',
+}
+
+for _, plug in ipairs(disabled_built_ins) do
+  vim.g['loaded_' .. plug] = 1
+end
+
+-- Impatient plugin
+local present, impatient = pcall(require, "impatient")
+if present then
+  impatient.enable_profile()
+else
+  vim.notify("Couldn't load impatient plugin\n Error: " .. impatient)
+end
 
 --
 -- Initialize configuration
@@ -28,7 +32,6 @@ g.loaded_matchit = 1
 local modules = {
   "core.options",
   "plugins",
-  "impatient",
   "core.autocmds",
   "core.theme",
   "core.highlights",
@@ -36,13 +39,8 @@ local modules = {
 }
 
 for _, module in ipairs(modules) do
-  local ok, err = pcall(require, module)
-
+  local ok, currMod = pcall(require, module)
   if not ok then
-    error("Error loading " .. module .. "\n\n" .. err)
-  end
-
-  if module == 'impatient' then
-    err.enable_profile()
+    error("Couldn't load module: " .. module .. "\n Error: " .. currMod)
   end
 end

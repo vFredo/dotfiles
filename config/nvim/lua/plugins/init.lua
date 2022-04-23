@@ -111,11 +111,18 @@ return packer.startup(function(use)
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    module = "telescope",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
       "nvim-web-devicons",
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- fzf integration
+    },
+    wants = {
+      'popup.nvim',
+      'plenary.nvim',
+      'telescope-fzf-native.nvim',
     },
     setup = function() require "plugins.configs.telescope".setup() end,
     config = function() require "plugins.configs.telescope".config() end
