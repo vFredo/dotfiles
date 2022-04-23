@@ -41,7 +41,7 @@ you want, the script removes it. For the moment, most dependencies have to be in
 </div>
 
 This are the plugins that I'm using:
-- [`pure`](https://github.com/kutsan/pure) - Minimal and fast Zsh prompt with asynchronous git fetch
+- [`pure`](https://github.com/sindresorhus/pure) - Minimal and fast Zsh prompt with asynchronous git fetch
 - [`autopair`](https://github.com/hlissner/zsh-autopair) - Auto-close and delete matching delimiters
 - [`system-clipboard`](https://github.com/kutsan/zsh-system-clipboard) - Synchronize ZLE (Zsh Line Editor) clipboard buffer with system clipboard
 - [`fast-syntax-highlighting`](https://github.com/kutsan/fast-syntax-highlighting) - Fish-like syntax highlighting support for interactive terminal
