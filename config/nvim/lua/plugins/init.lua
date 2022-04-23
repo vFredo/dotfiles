@@ -1,12 +1,38 @@
 --
--- Check if packer is installed
+-- Check if packer is installed, if not cloned from github
 --
-local ok, packer = pcall(require, "plugins.packerInit")
-
-if not ok then
-  error("Couldn't load packer " .. packer .. "\n")
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  PACKER_BOOSTRAP = vim.fn.system({
+    'git', 'clone',
+    '--depth', '20',
+    'https://github.com/wbthomason/packer.nvim',
+    install_path
+  })
 end
 
+-- Use a protected call so we don't error out on first use
+local ok, packer = pcall(require, "packer")
+if not ok then
+  return
+end
+
+-- Packer setup
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "single" }
+    end,
+  },
+  git = { clone_timeout = 6000 }, -- seconds
+  auto_clean = true,
+  compile_on_sync = true,
+  profile = { enable = true }
+}
+
+--
+-- Plugin Installation
+--
 return packer.startup(function(use)
   -- Update plugin manager
   use { "wbthomason/packer.nvim" }
@@ -53,12 +79,6 @@ return packer.startup(function(use)
   --
   -- GUI Plugins
   --
-
-  -- Nice notifications on nvim
-  use {
-    "rcarriga/nvim-notify",
-    config = function() vim.notify = require("notify") end
-  }
 
   -- Theme
   use {
@@ -204,4 +224,9 @@ return packer.startup(function(use)
     { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
   }
+
+  -- Automatically set up your configuration after cloning packer.nvim
+  if PACKER_BOOSTRAP then
+    require("packer").sync()
+  end
 end)
