@@ -53,15 +53,15 @@ M.toggleSpelling = function(option)
   if vim.b.spell_toggle and option ~= "ft" then
     vim.cmd([[ setlocal nospell ]])
     vim.b.spell_toggle = false
-    vim.notify("Spell OFF...", "info", { title = "Spelling" })
+    vim.notify("Spell OFF...")
     M.buf_map(0, "i", "<C-l>", "<Nop>", opts) -- delete instert mapping
   else
     if option == "es" then
       vim.cmd([[ setlocal spell spelllang=es ]])
-      vim.notify("Spell ON: Spanish...", "info", { title = "Spelling" })
+      vim.notify("Spell ON: Español")
     else
       vim.cmd([[ setlocal spell spelllang=en_us ]])
-      vim.notify("Spell ON: English...", "info", { title = "Spelling" })
+      vim.notify("Spell ON: English")
     end
     vim.b.spell_toggle = true
     -- mapping for fix last spell error on insert mode

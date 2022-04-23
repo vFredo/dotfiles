@@ -35,15 +35,6 @@ M.hexokinase = function()
   }
 end
 
-M.neogit = function()
-  require("neogit").setup {
-    disable_signs = true,
-    disable_commit_confirmation = true,
-    commit_popup = { kind = "vsplit" },
-    integrations = { diffview = true } -- diffview plugin integration
-  }
-end
-
 M.neoscroll = function()
   require("neoscroll").setup {
     respect_scroll_off = true,
