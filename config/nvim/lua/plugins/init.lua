@@ -1,5 +1,5 @@
 --
--- Check if packer is installed, if not cloned from github
+-- Check if packer is installed, if not cloned it from github
 --
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
