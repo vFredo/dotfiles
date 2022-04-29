@@ -91,4 +91,3 @@ For updating all submodules use `git pull --recurse-submodules`
 * The theme colors and some neovim configurations comes from TheRealKizu [dotfiles](https://github.com/TheRealKizu/dotfiles) and his [neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 * Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of things of his Zsh configuration.
-

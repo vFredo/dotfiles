@@ -23,38 +23,40 @@ theme.colors = {
   fgAlt2 = "#ebdbb2",
 }
 
-local function stripHash(hex)
+local function delHash(hex)
   return hex:gsub("#", "")
 end
 
 local c = theme.colors
 
-local b_theme = {
-  b00 = stripHash(c.bg), -- Default Background
-  b01 = stripHash(c.bgAlt), -- Lighter bg (Used for statusbar, line number and folding)
-  b02 = stripHash(c.bgAlt2), -- Selection Background
-  b03 = stripHash(c.grey), -- Comments, Invisibles, Line Highlighting
-  b04 = stripHash(c.fgAlt), -- Dark Foreground (Used for status bars)
-  b05 = stripHash(c.fg), -- Default Foreground, Caret, Delimiters, Operators
-  b06 = stripHash(c.fgAlt2), -- Light Foreground
-  b07 = stripHash(c.fg), -- Light Background
-  b08 = stripHash(c.red), -- Var, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-  b09 = stripHash(c.yellow), -- Ints, Bool, Constants, XML Attributes, Markup Link Url
-  b0A = stripHash(c.orange), -- Classes, Markup Bold, Search Text Background
-  b0B = stripHash(c.green), -- Strings, Inherited Class, Markup Code, Diff Inserted
-  b0C = stripHash(c.blue), --  Regular Expressions, Escape Characters, Markup Quotes
-  b0D = stripHash(c.pink), -- Functions, Methods, Attribute IDs, Headings
-  b0E = stripHash(c.cyan), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
-  b0F = stripHash(c.orangeAlt) -- Opening/Closing Embedded Language Tags
+local style = {
+  b00 = delHash(c.bg), -- Default Background
+  b01 = delHash(c.bgAlt), -- Lighter bg (Used for statusbar, line number and folding)
+  b02 = delHash(c.bgAlt2), -- Selection Background
+  b03 = delHash(c.grey), -- Comments, Invisibles, Line Highlighting
+  b04 = delHash(c.fgAlt), -- Dark Foreground (Used for status bars)
+  b05 = delHash(c.fg), -- Default Foreground, Caret, Delimiters, Operators
+  b06 = delHash(c.fgAlt2), -- Light Foreground
+  b07 = delHash(c.fg), -- Light Background
+  b08 = delHash(c.red), -- Var, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  b09 = delHash(c.yellow), -- Ints, Bool, Constants, XML Attributes, Markup Link Url
+  b0A = delHash(c.orange), -- Classes, Markup Bold, Search Text Background
+  b0B = delHash(c.green), -- Strings, Inherited Class, Markup Code, Diff Inserted
+  b0C = delHash(c.blue), --  Regular Expressions, Escape Characters, Markup Quotes
+  b0D = delHash(c.pink), -- Functions, Methods, Attribute IDs, Headings
+  b0E = delHash(c.cyan), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
+  b0F = delHash(c.orangeAlt) -- Opening/Closing Embedded Language Tags
 }
 
 -- Set base16 neovim theme
-base16.themes["neodots"] = {
-  base00 = b_theme.b00; base01 = b_theme.b01; base02 = b_theme.b02; base03 = b_theme.b03;
-  base04 = b_theme.b04; base05 = b_theme.b05; base06 = b_theme.b06; base07 = b_theme.b07;
-  base08 = b_theme.b08; base09 = b_theme.b09; base0A = b_theme.b0A; base0B = b_theme.b0B;
-  base0C = b_theme.b0C; base0D = b_theme.b0D; base0E = b_theme.b0E; base0F = b_theme.b0F;
+base16.themes["dark-palette"] = {
+  base00 = style.b00; base01 = style.b01; base02 = style.b02; base03 = style.b03;
+  base04 = style.b04; base05 = style.b05; base06 = style.b06; base07 = style.b07;
+  base08 = style.b08; base09 = style.b09; base0A = style.b0A; base0B = style.b0B;
+  base0C = style.b0C; base0D = style.b0D; base0E = style.b0E; base0F = style.b0F;
 }
 
-base16(base16.themes["neodots"], true)
+-- Load theme
+base16(base16.themes["dark-palette"], true)
+
 return theme
