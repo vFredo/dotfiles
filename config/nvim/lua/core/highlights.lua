@@ -43,8 +43,8 @@ bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
 
 -- Statusline active/inactive
-fg_bg("StatusLineNC", colors.bgAlt, colors.bg, "underline")
-fg_bg("StatusLine", colors.bgAlt, colors.bg, "underline")
+fg_bg("StatusLineNC", colors.grey, colors.bgAlt)
+fg_bg("StatusLine", colors.fgAlt2, colors.bgAlt2)
 
 -- Italic Comments
 ui("Comment", "italic")
@@ -87,6 +87,7 @@ fg("CmpItemKindEvent", colors.yellow)
 -- BlankIndent Lines
 --
 fg("IndentBlanklineChar", colors.bgAlt2)
+fg("IndentBlanklineContextChar", colors.fgAlt)
 
 --
 -- LSP

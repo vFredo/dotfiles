@@ -2,6 +2,7 @@ local M = {}
 
 M.blankline = function()
   require("indent_blankline").setup {
+    -- show_current_context = true,
     indentLine_enabled = 1,
     char = "▏",
     filetype_exclude = {
