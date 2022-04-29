@@ -33,6 +33,8 @@ tabnine:setup({
   snippet_placeholder = '..';
 })
 
+local compare = cmp.config.compare
+
 cmp.setup {
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -93,6 +95,15 @@ cmp.setup {
     },
   },
   window = { documentation = { border = "rounded" } },
+  sorting = {
+    comparators = {
+      compare.locality,
+      compare.recently_used,
+      compare.score,
+      compare.offset,
+      compare.order
+    }
+  },
   experimental = {
     native_menu = false, -- better highlight groups for menubar
     ghost_text = true, -- nice comment color text of completion
