@@ -29,16 +29,13 @@ M.tree_config = function()
     disable_netrw = true,
     hijack_netrw = true,
     open_on_setup = false,
-    open_on_tab = false,
     hijack_cursor = true,
     update_cwd = true,
     update_focused_file = { enable = true, update_cwd = false },
-    update_to_buf_dir = { enable = false, auto_open = true },
     git = { ignore = false },
     view = {
       width = 32,
       side = 'left',
-      auto_resize = true,
       mappings = {
         custom_only = true,
         list = {
