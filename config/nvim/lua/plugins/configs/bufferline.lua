@@ -84,7 +84,7 @@ bufferline.setup {
     warning_diagnostic_selected = { guifg = colors.yellow, guibg = colors.bgAlt2, gui = "bold,italic" },
 
     -- Error diagnostics
-    error = { guifg = colors.fg, guibg = colors.red },
+    error = { guifg = colors.fg, guibg = colors.bg },
     error_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
     error_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2, gui = "bold,italic" },
     error_diagnostic = { guifg = colors.red, guibg = colors.bg },

@@ -74,13 +74,7 @@ font:
     style: Medium Italic
 
   # Point size
-  size: 11
-
-  offset:
-    y: -1
-
-  glyph_offset:
-    y: -1
+  size: 10.9
 
 colors:
   # Default colors
