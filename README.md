@@ -51,7 +51,7 @@ Updating each submodule use `git pull --recurse-submodules`
 
 ### ❖ Theme
 * Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
-* Terminal font: [Caskaydia Cove Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/CascadiaCode).
+* Terminal font: [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts).
 
 ## ❖ Dependencies
 * Neovim
