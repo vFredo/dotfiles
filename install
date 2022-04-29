@@ -210,6 +210,7 @@ function install_latex(){
 function help_tag(){
   echo "Options for the installation:"
   echo "      --i3       Install config files for i3."
+  echo "      --bspwm    Install config files for bspwm including sxhkd."
   echo "      --nvim     Install config files for nvim."
   echo "      --latex    Install config files for latex."
   echo "      --zsh      Install config files for zsh."
@@ -259,4 +260,3 @@ then
 else
   error "Choose which config files you want to install, see the list with -h or --help flags."
 fi
-

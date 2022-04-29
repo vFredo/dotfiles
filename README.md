@@ -17,17 +17,15 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * i3 gaps config.
   * Bettterlockscreen config file (alternative for i3lock).
   * Polybar config.
+* Bspwm config files.
+* Rofi configurations.
 * Ranger configurations (terminal file manager).
 * Zathura (PDF reader) config.
-* Vim/Neovim config files.
+* Neovim config files.
 * Tmux config.
-* Alacritty and Kitty configs.
+* Alacritty and Kitty terminal configurations.
 * Latexmk compiler config.
 * Bash: Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
-* Rofi configurations.
-
-## ❖ Google Drive
-* For cloud storage I use [drive](https://github.com/odeke-em/drive) ([AUR repo](https://aur.archlinux.org/packages/drive-bin)).
 
 ### ❖ Bash
 * Current version control branch name.
@@ -47,7 +45,7 @@ This are the plugins that I'm using:
 - [`fast-syntax-highlighting`](https://github.com/kutsan/fast-syntax-highlighting) - Fish-like syntax highlighting support for interactive terminal
 - [`autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like auto-suggestions for zsh based on command history
 
-Updating each submodule use `git pull --recurse-submodules`
+For updating all submodules use `git pull --recurse-submodules`
 
 ### ❖ Theme
 * Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
@@ -89,7 +87,6 @@ Updating each submodule use `git pull --recurse-submodules`
   * `pacman -S texlive-most texlive-lang` for Arch-based distros.
 
 # ❖ Inspired
-* Wincent [dotfiles](https://github.com/wincent/wincent); Most of the technical things seen in this repository comes from his configuration.
 * Gilles Castel's [blog](https://castel.dev/); I got his snippets in this repository.
 * The theme colors and some neovim configurations comes from TheRealKizu [dotfiles](https://github.com/TheRealKizu/dotfiles) and his [neovim repo](https://github.com/TheRealKizu/neodots).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
