@@ -43,6 +43,18 @@ M.neoscroll = function()
     cursor_scrolls_alone = false,
     easing_function = "circular"
   }
+  local map    = {}
+  -- Syntax: map[keys] = {function, {function arguments}}
+  map['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '100' } }
+  map['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '100' } }
+  map['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '100' } }
+  map['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '100' } }
+  map['<C-y>'] = { 'scroll', { '-0.10', 'false', '100' } }
+  map['<C-e>'] = { 'scroll', { '0.10', 'false', '100' } }
+  map['zt']    = { 'zt', { '150' } }
+  map['zz']    = { 'zz', { '150' } }
+  map['zb']    = { 'zb', { '150' } }
+  require("neoscroll.config").set_mappings(map)
 end
 
 M.comment = function()
