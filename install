@@ -137,6 +137,10 @@ function install_term(){
   progress "Creating folders need it"
   mkdir -p "$HOME"/.local/share/fonts
 
+  progress "User profile configurations"
+  create_link "$(pwd)/etc/Xresources" "$HOME/.Xresources"
+  create_link "$(pwd)/etc/profile" "$HOME/.profile"
+
   progress "Installing fonts..."
   cp -r "$(pwd)"/fonts/* "$HOME"/.local/share/fonts
 
@@ -164,18 +168,6 @@ function install_term(){
   fc-cache -f -v
 
   success "Terminal config installed"
-}
-
-function install_bash(){
-  install_term
-
-  progress "Creating symbolic links for bash"
-  create_link "$(pwd)/bash/bash_aliases" "$HOME/.bash_aliases"
-  create_link "$(pwd)/bash/Xresources" "$HOME/.Xresources"
-  create_link "$(pwd)/bash/bashrc" "$HOME/.bashrc"
-  create_link "$(pwd)/bash/profile" "$HOME/.profile"
-
-  success "Bash config installed"
 }
 
 function install_zsh(){
@@ -214,7 +206,6 @@ function help_tag(){
   echo "      --nvim     Install config files for nvim."
   echo "      --latex    Install config files for latex."
   echo "      --zsh      Install config files for zsh."
-  echo "      --bash     Install config files for bash."
   echo "      --all      To install all the config files."
   echo "More information about the files on the README."
 }
@@ -243,13 +234,9 @@ then
       --zsh)
         install_zsh
         ;;
-      --bash)
-        install_bash
-        ;;
       --all)
         install_i3
         install_zsh
-        install_bash
         install_neovim
         install_latex
         ;;

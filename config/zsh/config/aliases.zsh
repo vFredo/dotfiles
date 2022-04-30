@@ -1,5 +1,5 @@
 # private stuff
-source ~/.local.bash_aliases
+source ~/.local_aliases
 
 # basics
 alias ..='cd ..'
@@ -22,7 +22,7 @@ alias ll='ls -la'
 
 # Quick config changes
 alias vb='vim ~/.bashrc'
-alias vba="vim ~/.bash_aliases"
+alias vba="vim ~/dotfiles/config/zsh/config/aliases.zsh"
 alias vz='cd ~/.config/zsh && vim ~/.config/zsh/.zshrc'
 alias vi3='vim ~/.i3/config'
 alias vk='vim ~/.config/kitty/kitty.conf'

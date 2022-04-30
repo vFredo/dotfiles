@@ -19,19 +19,11 @@ you want, the script removes it. For the moment, most dependencies have to be in
   * Polybar config.
 * Bspwm config files.
 * Rofi configurations.
-* Ranger configurations (terminal file manager).
 * Zathura (PDF reader) config.
 * Neovim config files.
 * Tmux config.
 * Alacritty and Kitty terminal configurations.
 * Latexmk compiler config.
-* Bash: Dots on prompt (`● \u25CF`) for information of current version control folder (use `git remote update` for pull option information to appear).
-
-### ❖ Bash
-* Current version control branch name.
-  * Red dot indicates unstaged changes.
-  * Magenta dot indicates push to the current remote repo.
-  * Yellow dot indicates pull to the current remote repo.
 
 ### ❖ Zsh
 <div align="center">
@@ -78,8 +70,6 @@ For updating all submodules use `git pull --recurse-submodules`
     * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
   * xorg-xsetroot
   * lxappearance-gtk3
-* Ranger
-  * Atool (extract files with <kbd>Shift + x</kbd> on ranger).
 * Tmux
   * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
 * Latex
