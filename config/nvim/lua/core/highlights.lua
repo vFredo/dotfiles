@@ -37,10 +37,13 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
-fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
+
+-- Cursorline
+fg_bg("CursorLine", "NONE", colors.bg)
+fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 
 -- Statusline active/inactive
 fg_bg("StatusLineNC", colors.grey, colors.bgAlt)

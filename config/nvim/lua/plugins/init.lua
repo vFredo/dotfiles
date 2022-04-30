@@ -31,15 +31,13 @@ packer.init {
 }
 
 --
--- Plugin Installation
+-- Plugin startup list
 --
 return packer.startup(function(use)
   -- Update plugin manager
   use { "wbthomason/packer.nvim" }
 
-  --
-  -- Miscellaneous
-  --
+  -- Speed up startup time
   use { 'lewis6991/impatient.nvim' }
 
   -- COQ IDE
@@ -48,6 +46,10 @@ return packer.startup(function(use)
     ft = "coq",
     setup = function() vim.g.coqtail_noimap = 1 end
   }
+
+  --
+  -- Navigation
+  --
 
   -- Comment lines more easily
   use {
@@ -69,13 +71,6 @@ return packer.startup(function(use)
     config = function() require("Navigator").setup { auto_save = 'current' } end
   }
 
-  -- Color highlighter for hex, rgb, etc...
-  use {
-    "rrethy/vim-hexokinase", -- NOTE: This needs golang to work
-    run = "make hexokinase",
-    config = function() require "plugins.configs.others".hexokinase() end
-  }
-
   --
   -- GUI Plugins
   --
@@ -86,14 +81,14 @@ return packer.startup(function(use)
     requires = { "norcalli/nvim.lua" }
   }
 
-  -- Nice icons
+  -- Add nice icons for patch fonts
   use {
     "kyazdani42/nvim-web-devicons",
     module = "nvim-web-devicons",
     config = function() require "plugins.configs.devicons" end
   }
 
-  -- Bufferline
+  -- Buffer list on top of the screen
   use {
     "akinsho/nvim-bufferline.lua",
     opt = true,
@@ -115,11 +110,18 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.others".neoscroll() end
   }
 
+  -- Color highlighter for hex, rgb, etc...
+  use {
+    "rrethy/vim-hexokinase", -- NOTE: This needs golang to work
+    run = "make hexokinase",
+    config = function() require "plugins.configs.others".hexokinase() end
+  }
+
   --
   -- Find files
   --
 
-  -- Tree view of the project
+  -- Tree view of the current directory
   use {
     "kyazdani42/nvim-tree.lua",
     event = "UIEnter",
