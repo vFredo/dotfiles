@@ -24,7 +24,7 @@ alias ll='ls -la'
 
 # Quick config changes
 alias vb='vim ~/.bashrc'
-alias vba="vim ~/dotfiles/config/zsh/config/aliases.zsh"
+alias vba='vim ~/.config/zsh/config/aliases.zsh'
 alias vz='cd ~/.config/zsh && vim ~/.config/zsh/.zshrc'
 alias vi3='vim ~/.i3/config'
 alias vk='vim ~/.config/kitty/kitty.conf'
