@@ -7,11 +7,11 @@ local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
 local yank_group = augroup("highlight_yank", { clear = true })
 
--- responsive panel/window size
+-- Responsive panel/window size
 autocmd({ "VimResized" },
   { group = gen_group, pattern = "*", command = "wincmd =" })
 
--- restore cursor position
+-- Restore cursor position
 autocmd({ "BufRead" },
   { group = gen_group, pattern = "*", command = [[call setpos(".", getpos("'\""))]] })
 
@@ -19,7 +19,7 @@ autocmd({ "BufRead" },
 -- autocmd({ "FocusGained" },
 --   { pattern = "*", command = "* checktime", group = gen_group })
 
--- format options
+-- Format options
 autocmd({ "FileType" },
   { group = ft_group, pattern = "*", command = "set fo-=c fo-=r fo-=o fo+=j fo+=n" })
 
@@ -30,7 +30,7 @@ autocmd({ "FileType" }, {
   command = "lua require('core.utils').toggleSpelling('ft')"
 })
 
--- highlight yank text
+-- Highlight yank text
 autocmd({ "TextYankPost" }, {
   group = yank_group,
   pattern = "*",

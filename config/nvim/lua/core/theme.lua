@@ -1,4 +1,3 @@
-local base16 = require("base16")
 local theme = {}
 
 theme.colors = {
@@ -47,6 +46,14 @@ local style = {
   b0E = delHash(c.cyan), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
   b0F = delHash(c.orangeAlt) -- Opening/Closing Embedded Language Tags
 }
+
+-- Just return the colors if base16 couldn't load
+local ok, base16 = pcall(require, "base16")
+
+if not ok then
+  vim.notify("Couldn't load theme: " .. base16)
+  return theme
+end
 
 -- Set base16 neovim theme
 base16.themes["dark-palette"] = {
