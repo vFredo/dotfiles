@@ -16,7 +16,7 @@ picom --config $HOME/.config/picom/picom.conf &
 # Wallpaper run the application from the first time to configure the wallpaper
 nitrogen --restore &
 
-# For pamac to work authentification GUI prompt
+# Authentication GUI prompt
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # auto start polybar
@@ -26,7 +26,7 @@ sh $HOME/.config/polybar/launch.sh --bspwm
 # #                                 WINDOW RULES                               #
 # ##############################################################################
 
-# You can view the CLASS_NAME that it is asign to the window by doing the command 'xprop'
+# You can view the CLASS_NAME that it is asign to the window by 'xprop' command
 # And clicking the window that you need the value from
 bspc rule -a Brave-browser desktop='^1'
 bspc rule -a discord desktop='^6'
