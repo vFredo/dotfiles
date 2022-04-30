@@ -23,20 +23,6 @@ M.buf_map = function(bufnr, ...)
   vim.api.nvim_buf_set_keymap(bufnr, ...)
 end
 
--- Create Autocommand groups
--- This function is taken from https://github.com/norcalli/nvim_utils
-M.create_autocommands = function(definitions)
-  for group_name, definition in pairs(definitions) do
-    vim.api.nvim_command('augroup ' .. group_name)
-    vim.api.nvim_command('autocmd!')
-    for _, def in ipairs(definition) do
-      local command = table.concat(vim.tbl_flatten { 'autocmd', def }, ' ')
-      vim.api.nvim_command(command)
-    end
-    vim.api.nvim_command('augroup END')
-  end
-end
-
 -- Save current cursor position after running a command(cmd)
 M.preserve = function(cmd)
   cmd = string.format('keepjumps keeppatterns execute %q', cmd)
