@@ -1,6 +1,8 @@
 -- Helpers
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup -- Autocommand groups
+local augroup = vim.api.nvim_create_augroup
+
+-- Autocommand groups
 local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
 local yank_group = augroup("highlight_yank", { clear = true })
