@@ -1,5 +1,7 @@
-# private stuff
-source ~/.local_aliases
+# local aliases
+if [[ -e ~/.local_aliases ]]; then
+  source ~/.local_aliases
+fi
 
 # basics
 alias ..='cd ..'
