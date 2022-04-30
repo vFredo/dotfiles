@@ -31,4 +31,3 @@ export MANPAGER='nvim +Man!'
 # npm cache and config
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
-export NPM_CONFIG_TMP="$TMPDIR/npm"
