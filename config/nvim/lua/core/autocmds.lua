@@ -16,8 +16,8 @@ autocmd({ "BufRead" },
   { group = gen_group, pattern = "*", command = [[call setpos(".", getpos("'\""))]] })
 
 -- Check if file changed when its window is focus, better than 'autoread'
--- autocmd({ "FocusGained" },
---   { pattern = "*", command = "* checktime", group = gen_group })
+autocmd({ "FocusGained" },
+  { group = gen_group, pattern = "*", command = "checktime" })
 
 -- Format options
 autocmd({ "FileType" },
