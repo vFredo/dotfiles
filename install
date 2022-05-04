@@ -91,7 +91,6 @@ function install_bspwm() {
   create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
   create_link "$(pwd)/config/picom/picom.conf" "$HOME/.config/picom/picom.conf"
   create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
-  create_link "$(pwd)/config/ranger" "$HOME/.config/ranger"
 
   success "Bspwm config installed"
 }
@@ -106,7 +105,6 @@ function install_i3(){
   progress "Creating symbolic links for i3 and polybar..."
   create_link "$(pwd)/config/i3/config" "$HOME/.i3/config"
   create_link "$(pwd)/config/betterlockscreenrc" "$HOME/.config/betterlockscreenrc"
-  create_link "$(pwd)/config/ranger" "$HOME/.config/ranger"
   create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
   create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
   create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
