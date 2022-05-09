@@ -35,7 +35,24 @@ tabnine:setup({
 
 local compare = cmp.config.compare
 
+local function border(hl_name)
+ return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+ }
+end
+
 cmp.setup {
+  window = {
+    completion = { border = border "CmpBorder" },
+    documentation = { border = border "CmpDocBorder" },
+  },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -94,7 +111,6 @@ cmp.setup {
       end,
     },
   },
-  window = { documentation = { border = "rounded" } },
   sorting = {
     comparators = {
       compare.locality,
