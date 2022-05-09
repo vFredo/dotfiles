@@ -36,7 +36,7 @@ tabnine:setup({
 local compare = cmp.config.compare
 
 local function border(hl_name)
- return {
+  return {
     { "╭", hl_name },
     { "─", hl_name },
     { "╮", hl_name },
@@ -45,7 +45,7 @@ local function border(hl_name)
     { "─", hl_name },
     { "╰", hl_name },
     { "│", hl_name },
- }
+  }
 end
 
 cmp.setup {
