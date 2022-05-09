@@ -36,6 +36,7 @@ bspc rule -a Pavucontrol state=floating
 bspc rule -a zoom state=floating
 bspc rule -a Zathura state=tiled
 bspc rule -a PacketTracer state=floating
+bspc rule -a java-lang-Thread state=floating
 
 # ##############################################################################
 # #                            GENERAL CONFIGURATION                           #

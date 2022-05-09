@@ -11,7 +11,7 @@ ts_config.setup {
     "typescript", "latex", "php", "python", "rust", "vim",
     "lua", "vue", "verilog", "yaml"
   },
-  highlight = { enable = true, additional_vim_regex_highlight = false },
+  highlight = { enable = true, use_languagetree = true },
   indent = { enable = true },
   context_commentstring = { enable = true, enable_autocmd = false },
   autotag = { enable = true },
