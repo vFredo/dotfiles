@@ -19,27 +19,27 @@ vim.cmd([[
 --
 -- General options
 --
-g.mapleader       = " " -- Map leader is <Space>
-opt.cmdheight     = 1 -- More space for displaying messages
-opt.cursorline    = true -- Current line highlight
-opt.laststatus    = 0 -- Don't show statusline
-opt.virtualedit   = "block" -- edit lines in v-block with no characters
-opt.guifont       = "Iosevka Nerd Font:h12" -- GUI font for eg: neovide
-opt.ignorecase    = true -- ignore case on '/', '?', '*', '#'
-opt.smartcase     = true -- override ignore case if there is an uppercase
-opt.termguicolors = true -- Use all the color pallette
-opt.signcolumn    = "yes:2" -- show signcolumn and the number is the max signs to show
-opt.mouse         = "a" -- Mouse support for neovim
-opt.number        = true -- Line number
--- opt.relativenumber = true -- Relatives number to the current line
-opt.hidden        = true -- Change between buffers even if I don't save the current one
-opt.updatetime    = 300 -- ms to wait for trigger an event
-opt.timeoutlen    = 500 -- By default timeoutlen is 1000 ms
-opt.joinspaces    = false -- don't auto insert two spaces after punctuation
-opt.wildmode      = "longest:full,full" -- shell-like completion to unambiguous portion
-opt.wildignore    = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
-opt.spelllang     = { 'en_us', 'es' } -- spell check on this languages
-opt.spellsuggest  = { "best", 9 } -- Nine spell checking candidates at most
+g.mapleader        = " " -- Map leader is <Space>
+opt.cmdheight      = 1 -- More space for displaying messages
+opt.cursorline     = true -- Current line highlight
+opt.laststatus     = 0 -- Don't show statusline
+opt.virtualedit    = "block" -- edit lines in v-block with no characters
+opt.guifont        = "Iosevka Nerd Font:h12" -- GUI font for eg: neovide
+opt.ignorecase     = true -- ignore case on '/', '?', '*', '#'
+opt.smartcase      = true -- override ignore case if there is an uppercase
+opt.termguicolors  = true -- Use all the color pallette
+opt.signcolumn     = "yes:2" -- show signcolumn and the number is the max signs to show
+opt.mouse          = "a" -- Mouse support for neovim
+opt.number         = true -- Line number
+opt.relativenumber = true -- Relatives number to the current line
+opt.hidden         = true -- Change between buffers even if I don't save the current one
+opt.updatetime     = 300 -- ms to wait for trigger an event
+opt.timeoutlen     = 500 -- By default timeoutlen is 1000 ms
+opt.joinspaces     = false -- don't auto insert two spaces after punctuation
+opt.wildmode       = "longest:full,full" -- shell-like completion to unambiguous portion
+opt.wildignore     = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
+opt.spelllang      = { 'en_us', 'es' } -- spell check on this languages
+opt.spellsuggest   = { "best", 9 } -- Nine spell checking candidates at most
 
 -- Viewport
 opt.scrolloff     = 3 -- start scrolling 3 lines before edge of the rows viewport
