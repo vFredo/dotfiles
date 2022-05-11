@@ -12,7 +12,3 @@ bindkey '^n' autosuggest-accept
 
 # zsh-system-clipboard: Synchronize system clipboard with ZLE registers.
 source "$ZDOTDIR/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
-
-# fast-syntax-highlighting: Syntax highlighting support.
-source "$ZDOTDIR/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
-  FAST_HIGHLIGHT_STYLES[${FAST_THEME_NAME}unknown-token]='fg=red'

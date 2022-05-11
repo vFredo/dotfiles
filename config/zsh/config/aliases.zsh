@@ -18,9 +18,6 @@ alias ln='ln --interactive --verbose' # Link nodes with interactive mode and ext
 alias ls='ls --almost-all --classify --color=always --group-directories-first --literal' # List name of nodes.
 alias la='ls --almost-all --si' # List nodes with their details.
 alias ll='ls -la'
-# alias ll='exa -la'
-# alias la='exa -Ga'
-# alias ls='exa'
 
 # Quick config changes
 alias vb='vim ~/.bashrc'

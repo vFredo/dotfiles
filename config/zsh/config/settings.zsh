@@ -4,7 +4,6 @@ setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
 setopt AUTO_PUSHD              # [default] cd automatically pushes old dir onto dir stack
 setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
 setopt CORRECT                 # [default] command auto-correction
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter non-contiguous duplicates from history
 setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
 
 # Make completion:
@@ -41,6 +40,7 @@ setopt BANG_HIST # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY # Save each command's epoch timestamps and the duration in seconds.
 setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
 setopt HIST_FIND_NO_DUPS # Don't display a line previously found.
+setopt NO_HIST_IGNORE_ALL_DUPS # don't filter non-contiguous duplicates from history
 setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
 setopt HIST_IGNORE_DUPS # Don't record an entry that was just recorded again.
 setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
