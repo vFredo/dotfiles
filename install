@@ -136,8 +136,8 @@ function install_term(){
   mkdir -p "$HOME"/.local/share/fonts
 
   progress "User profile configurations"
-  create_link "$(pwd)/etc/Xresources" "$HOME/.Xresources"
-  create_link "$(pwd)/etc/profile" "$HOME/.profile"
+  create_link "$(pwd)/misc/Xresources" "$HOME/.Xresources"
+  create_link "$(pwd)/misc/profile" "$HOME/.profile"
 
   progress "Installing fonts..."
   cp -r "$(pwd)"/fonts/* "$HOME"/.local/share/fonts
