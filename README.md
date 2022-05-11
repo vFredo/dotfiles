@@ -27,20 +27,19 @@ you want, the script removes it. For the moment, most dependencies have to be in
 
 ### ❖ Zsh
 <div align="center">
-  <img src="https://github.com/fredo0522/dotfiles/blob/media/zsh-prompt.png"/>
+  <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/zsh-prompt.png"/>
 </div>
 
 This are the plugins that I'm using:
 - [`pure`](https://github.com/sindresorhus/pure) - Minimal and fast Zsh prompt with asynchronous git fetch
 - [`autopair`](https://github.com/hlissner/zsh-autopair) - Auto-close and delete matching delimiters
 - [`system-clipboard`](https://github.com/kutsan/zsh-system-clipboard) - Synchronize ZLE (Zsh Line Editor) clipboard buffer with system clipboard
-- [`fast-syntax-highlighting`](https://github.com/kutsan/fast-syntax-highlighting) - Fish-like syntax highlighting support for interactive terminal
 - [`autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like auto-suggestions for zsh based on command history
 
 For updating all submodules use `git pull --recurse-submodules`
 
 ### ❖ Theme
-* Current terminal: [Alacritty](https://github.com/alacritty/alacritty).
+* Current terminal: [Kitty](https://sw.kovidgoyal.net/kitty/).
 * Terminal font: [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts).
 
 ## ❖ Dependencies
