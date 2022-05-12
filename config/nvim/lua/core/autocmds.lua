@@ -12,6 +12,7 @@ autocmd({ "VimResized" },
 
 -- Open a file from its last left off position
 autocmd("BufReadPost", {
+  group = gen_group,
   callback = function()
     if not vim.fn.expand("%:p"):match ".git" and vim.fn.line "'\"" > 1 and vim.fn.line "'\"" <= vim.fn.line "$" then
       vim.cmd "normal! g'\""

@@ -40,13 +40,6 @@ return packer.startup(function(use)
   -- Speed up startup time
   use { 'lewis6991/impatient.nvim' }
 
-  -- COQ IDE
-  use {
-    "whonore/Coqtail",
-    ft = "coq",
-    setup = function() vim.g.coqtail_noimap = 1 end
-  }
-
   --
   -- Navigation
   --

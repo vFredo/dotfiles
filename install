@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # TODO: Finish the  *.list  packages that has to be install. DO IT!
-# TODO: Add option to just copy the file not make a symlink
+# TODO: Add option to just copy the files, don't make the symbolic link
 
 #
 # Colors
@@ -85,7 +85,7 @@ function install_bspwm() {
   progress "Creating necessary folders"
   mkdir -p ~/.config/dunst ~/.config/bspwm ~/.config/sxhkd ~/.config/picom
 
-  progress "Creating symbolic links for bspwm config files"
+  progress "Creating symbolic links for bspwm and polybar config files"
   create_link "$(pwd)/config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
   create_link "$(pwd)/config/sxhkd/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
   create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
