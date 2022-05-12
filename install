@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 # TODO: Finish the  *.list  packages that has to be install. DO IT!
+# TODO: Add option to just copy the file not make a symlink
 
 #
 # Colors
