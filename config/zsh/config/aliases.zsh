@@ -16,8 +16,8 @@ alias mv='mv --interactive --verbose' # Move nodes with interactive mode and ext
 alias cp='cp --interactive --verbose' # Copy nodes with interactive mode and extra verbosity.
 alias ln='ln --interactive --verbose' # Link nodes with interactive mode and extra verbosity.
 alias ls='ls --almost-all --classify --color=always --group-directories-first --literal' # List name of nodes.
-alias la='ls --almost-all --si' # List nodes with their details.
-alias ll='ls -la'
+alias la='ls --almost-all --group-directories-first --literal' # List nodes with their details.
+alias ll='ls -alF'
 
 # Quick config changes
 alias vb='vim ~/.bashrc'
