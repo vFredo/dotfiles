@@ -197,12 +197,23 @@ return packer.startup(function(use)
 
   -- Latex integration
   use {
-    "lervag/vimtex",
-    setup = function()
-      vim.g.tex_flavor = 'latex'
-      vim.g.vimtex_view_method = 'zathura'
-      vim.g.vimtex_quickfix_mode = 0
-    end
+    {
+      "lervag/vimtex",
+      ft = "tex",
+      setup = function()
+        vim.g.tex_flavor = 'latex'
+        vim.g.vimtex_view_method = 'zathura'
+        vim.g.vimtex_quickfix_mode = 0
+      end
+    },
+    {
+      "iurimateus/luasnip-latex-snippets.nvim",
+      ft = "tex",
+      requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+      config = function ()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end
+    }
   }
 
   --
