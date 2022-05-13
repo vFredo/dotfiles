@@ -75,8 +75,6 @@ fg("CmpItemKind", colors.blue) -- icon and kind info
 ui("CmpItemMenu", "bold") -- source
 fg("CmpItemAbbrMatchFuzzy", colors.blue, "italic") -- fuzzy match
 fg("CmpItemAbbrDeprecated", colors.red, "strikethrough") -- ??
-bg("CmpBorder", colors.bgAlt)
-bg("CmpDocBorder", colors.bgAlt)
 -- Kind specific colors
 fg("CmpItemKindFunction", colors.pink)
 fg("CmpItemKindMethod", colors.pink)

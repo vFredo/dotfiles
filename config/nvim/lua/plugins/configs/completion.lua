@@ -10,39 +10,19 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = "menuone,noselect,preview"
 
 -- Luasnip configuration
 luasnip.config.set_config {
-  -- This might not be necessary
   history = true,
   enable_autosnippets = true,
-  -- Update as you type with dynamic snippets
   updateevents = "TextChanged,TextChangedI",
-  region_check_events = nil,
 }
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local function border(hl_name)
-  return {
-    { "╭", hl_name },
-    { "─", hl_name },
-    { "╮", hl_name },
-    { "│", hl_name },
-    { "╯", hl_name },
-    { "─", hl_name },
-    { "╰", hl_name },
-    { "│", hl_name },
-  }
-end
-
 cmp.setup {
-  window = {
-    completion = { border = border "CmpBorder" },
-    documentation = { border = border "CmpDocBorder" },
-  },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -56,18 +36,18 @@ cmp.setup {
       else
         fallback() -- else do a simple char <Tab>
       end
-    end, { "i", "s" }),
+    end, { 'i', 's', 'c' }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1) -- jump previous snippet placeholder
       else
         fallback() -- else do a simple char <S-Tab>
       end
-    end, { "i", "s" }),
-  },
+    end, { 'i', 's', 'c' }),
+  }),
   sources = {
-    -- the order of your sources matter (by default). That gives them priority
-    { name = 'luasnip' },
+    -- the order of your sources gives them priority on completion
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = 'buffer' },
     { name = "path" },
@@ -82,19 +62,16 @@ cmp.setup {
     format = lspkind.cmp_format {
       mode = "symbol",
       menu = {
-        nvim_lsp = "[LSP]",
-        path = "[path]",
         luasnip = "[snip]",
+        nvim_lsp = "[LSP]",
         buffer = "[buf]",
-        cmp_tabnine = "[tb9]",
-        cmdline = "[cmd]"
+        path = "[path]",
       },
       before = function(entry, vim_item)
-        if entry.source.name == 'cmp_tabnine' then
-          vim_item.kind = "Event"
-        elseif entry.source.name == 'cmdline' then
-          vim_item.kind = "TypeParameter"
-        end
+        -- Delete duplicates
+        vim_item.dup = ({
+          luasnip = 0
+        })[entry.source.name] or 0
         return vim_item
       end,
     },
@@ -108,13 +85,31 @@ cmp.setup {
 -- Use buffer source for `/` (experiemental.native_menu = false)
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
-  formatting = { format = lspkind.cmp_format { mode = "symbol" } },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = lspkind.cmp_format { mode = "symbol" }
+  },
   sources = { { name = 'buffer' } }
 })
 
 -- Use cmdline & path source for ':' (experiemental.native_menu = false)
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
-  formatting = { format = lspkind.cmp_format { mode = "symbol" } },
-  sources = { { name = 'path' }, { name = "cmdline" } }
+  sources = {
+    { name = "cmdline" },
+    { name = "path" }
+  },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = lspkind.cmp_format {
+      mode = "symbol",
+      before = function(entry, vim_item)
+        -- Delete duplicates
+        vim_item.dup = ({
+          cmdline = 0
+        })[entry.source.name] or 0
+        return vim_item
+      end,
+    },
+  },
 })

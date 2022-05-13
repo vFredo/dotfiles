@@ -198,9 +198,9 @@ return packer.startup(function(use)
   -- Latex integration
   use {
     "lervag/vimtex",
-    setup = function ()
+    setup = function()
       vim.g.tex_flavor = 'latex'
-      vim.g.vimtex_view_method= 'zathura'
+      vim.g.vimtex_view_method = 'zathura'
       vim.g.vimtex_quickfix_mode = 0
     end
   }
