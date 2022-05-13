@@ -1,40 +1,40 @@
 # Basic options
+set window-title-basename "true"
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 10
-set window-title-basename "true"
 set selection-clipboard clipboard
 
-# base16_default-darker theme
-set default-bg                  "#151515"
-set default-fg                  "#d0d0d0"
+# Same colors as neovim theme
+set default-bg                  "#1d2021"
+set default-fg                  "#d5c4a1"
+
+set recolor-lightcolor          "#1d2021"
+set recolor-darkcolor           "#d5c4a1"
 
 set statusbar-bg                "#181818"
 set statusbar-fg                "#d8d8d8"
 
 set inputbar-bg                 "#181818"
-set inputbar-fg                 "#d0d0d0"
+set inputbar-fg                 "#d5c4a1"
 
 set notification-bg             "#181818"
-set notification-fg             "#d0d0d0"
+set notification-fg             "#d5c4a1"
 
 set notification-error-bg       "#181818"
-set notification-error-fg       "#ab4642"
+set notification-error-fg       "#ea6962"
 
 set notification-warning-bg     "#181818"
-set notification-warning-fg     "#ab4642"
+set notification-warning-fg     "#ea6962"
 
-set highlight-color             "#f7ca88"
-set highlight-active-color      "#7cafc2"
+set highlight-color             "#d65d0e"
+set highlight-active-color      "#ffc745"
 
 set completion-bg               "#282828"
-set completion-fg               "#7cafc2"
+set completion-fg               "#7daea3"
 
-set completion-highlight-fg     "#f8f8f8"
-set completion-highlight-bg     "#7cafc2"
-
-set recolor-lightcolor          "#151515"
-set recolor-darkcolor           "#d0d0d0"
+set completion-highlight-fg     "#d5c4a1"
+set completion-highlight-bg     "#7daea3"
 
 set recolor                     "false"
 set recolor-keephue             "false"

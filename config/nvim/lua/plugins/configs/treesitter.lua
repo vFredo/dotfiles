@@ -5,11 +5,11 @@ end
 
 ts_config.setup {
   ensure_installed = {
-    "bash", "bibtex", "c", "cpp", "cmake", "make",
-    "comment", "css", "scss", "dockerfile", "go", "gomod",
-    "help", "html", "json", "json5", "jsdoc", "javascript",
-    "typescript", "latex", "php", "python", "rust", "vim",
-    "lua", "vue", "verilog", "yaml"
+    "bash", "c", "cpp", "cmake", "make", "comment",
+    "css", "scss", "dockerfile", "go", "gomod",
+    "help", "html", "json", "json5", "jsdoc",
+    "javascript", "typescript", "php", "python",
+    "rust", "vim", "lua", "vue", "verilog", "yaml"
   },
   highlight = { enable = true, use_languagetree = true },
   indent = { enable = true },

@@ -185,7 +185,6 @@ return packer.startup(function(use)
       event = "InsertEnter",
       requires = {
         { "onsails/lspkind-nvim" }, -- icons in completion menu
-        { "tzachar/cmp-tabnine", run = "./install.sh" }, -- tabnine source
         { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
         { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
@@ -198,19 +197,12 @@ return packer.startup(function(use)
 
   -- Latex integration
   use {
-    {
-      "lervag/vimtex",
-      setup = function ()
-        vim.g.tex_flavor = 'latex'
-        vim.g.vimtex_view_method= 'zathura'
-        vim.g.vimtex_quickfix_mode = 0
-      end
-    },
-    {
-      "iurimateus/luasnip-latex-snippets.nvim", -- latex snippets
-      ft = "tex",
-      requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" }
-    }
+    "lervag/vimtex",
+    setup = function ()
+      vim.g.tex_flavor = 'latex'
+      vim.g.vimtex_view_method= 'zathura'
+      vim.g.vimtex_quickfix_mode = 0
+    end
   }
 
   --

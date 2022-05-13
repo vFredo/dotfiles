@@ -10,6 +10,8 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
+vim.opt.completeopt = "menuone,noselect"
+
 -- Luasnip configuration
 luasnip.config.set_config {
   -- This might not be necessary
@@ -21,19 +23,6 @@ luasnip.config.set_config {
 }
 
 require("luasnip.loaders.from_vscode").lazy_load()
-
--- Tabnine configuration
-local tabnine = require('cmp_tabnine.config')
-
-tabnine:setup({
-  max_lines = 1000;
-  max_num_results = 6;
-  sort = true;
-  run_on_every_keystroke = true;
-  snippet_placeholder = '..';
-})
-
-local compare = cmp.config.compare
 
 local function border(hl_name)
   return {
@@ -78,11 +67,10 @@ cmp.setup {
   },
   sources = {
     -- the order of your sources matter (by default). That gives them priority
-    { name = "cmp_tabnine" },
-    { name = "nvim_lsp", max_item_count = 15 },
     { name = 'luasnip' },
+    { name = "nvim_lsp" },
     { name = 'buffer' },
-    { name = "path", max_item_count = 4 },
+    { name = "path" },
   },
   snippet = {
     expand = function(args)
@@ -110,15 +98,6 @@ cmp.setup {
         return vim_item
       end,
     },
-  },
-  sorting = {
-    comparators = {
-      compare.locality,
-      compare.recently_used,
-      compare.score,
-      compare.offset,
-      compare.order
-    }
   },
   experimental = {
     native_menu = false, -- better highlight groups for menubar
