@@ -64,14 +64,9 @@ M.comment = function()
   require("nvim_comment").setup {
     comment_empty = false,
     hook = function()
-      local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-
-      if filetype == "c" or filetype == "cpp" then
-        vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
-      else
-        local ts_comment = require("ts_context_commentstring.internal")
-        ts_comment.update_commentstring()
-      end
+      -- use treesitter to update the commentstring character
+      local ts_comment = require("ts_context_commentstring.internal")
+      ts_comment.update_commentstring()
     end
   }
 end

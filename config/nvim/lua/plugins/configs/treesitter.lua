@@ -11,9 +11,16 @@ ts_config.setup {
     "javascript", "typescript", "php", "python",
     "rust", "vim", "lua", "vue", "verilog", "yaml"
   },
-  highlight = { enable = true, use_languagetree = true },
+  highlight = { enable = true, use_languagetree = false },
   indent = { enable = true },
-  context_commentstring = { enable = true, enable_autocmd = false },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+    config = {
+      c = "// %s",
+      cpp = "// %s",
+    }
+  },
   autotag = { enable = true },
   autopairs = { enable = true },
   fold = { enable = true },
