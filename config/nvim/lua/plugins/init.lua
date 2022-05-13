@@ -196,13 +196,29 @@ return packer.startup(function(use)
     }
   }
 
+  -- Latex integration
+  use {
+    {
+      "lervag/vimtex",
+      setup = function ()
+        vim.g.tex_flavor = 'latex'
+        vim.g.vimtex_view_method= 'zathura'
+        vim.g.vimtex_quickfix_mode = 0
+      end
+    },
+    {
+      "iurimateus/luasnip-latex-snippets.nvim", -- latex snippets
+      ft = "tex",
+      requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" }
+    }
+  }
+
   --
   -- Treesitter (syntax highlight, autopairs and comment strings)
   --
   use {
     {
       "nvim-treesitter/nvim-treesitter",
-      branch = "master",
       run = ":TSUpdate",
       config = function() require "plugins.configs.treesitter" end
     },
