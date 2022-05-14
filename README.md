@@ -22,8 +22,7 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Zathura (PDF reader) config.
 * Neovim config files.
 * Tmux config.
-* Alacritty and Kitty terminal configurations.
-* Latexmk compiler config.
+* Alacritty/Kitty terminal configurations.
 
 ### ❖ Zsh
 <div align="center">
@@ -49,7 +48,6 @@ For updating all submodules use `git pull --recurse-submodules`
 * i3 gaps
   * [Rofi](https://github.com/davatorium/rofi).
   * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
-    * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
   * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * [polybar](https://github.com/polybar/polybar).
   * Blueman (bluetooth manager with applet).
@@ -66,7 +64,6 @@ For updating all submodules use `git pull --recurse-submodules`
   * pavucontrol
   * [Rofi](https://github.com/davatorium/rofi).
   * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
-    * [bitwarden-cli](https://github.com/bitwarden/cli) you'll have to log in.
   * xorg-xsetroot
   * lxappearance-gtk3
 * Tmux
