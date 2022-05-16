@@ -40,6 +40,11 @@ opt.wildmode       = "longest:full,full" -- shell-like completion to unambiguous
 opt.wildignore     = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
 opt.spelllang      = { 'en_us', 'es' } -- spell check on this languages
 opt.spellsuggest   = { "best", 9 } -- Nine spell checking candidates at most
+opt.completeopt    = { -- Options for insert mode completion.
+  'menu', -- Use the pop-up menu.
+  'menuone', -- Use the pop-up menu also when there is only one match.
+  'noselect', -- Do not select a match in the menu.
+}
 
 -- Viewport
 opt.scrolloff     = 3 -- start scrolling 3 lines before edge of the rows viewport
@@ -60,7 +65,9 @@ opt.shortmess:append('I') -- no splash screen
 opt.shortmess:append('a') -- Abreviations eg. `[RO]` instead of `[readonly]`
 opt.shortmess:append('c') -- avoid show extra message in completion
 opt.shortmess:append('f') -- Use "(3 of 5)" instead of "(file 3 of 5)"
-opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'preview' } -- https://www.youtube.com/watch?v=-3S4xVDpLzI
+opt.shortmess:append('m') -- Use "[+]" instead of "[Modified]".
+opt.shortmess:append('r') -- Use "[RO]" instead of "[readonly]".
+opt.shortmess:append('w') -- Use "[w]", "[a]" instead of "written", "appended".
 opt.diffopt:append('vertical') -- Show diffs in vertical splits
 
 -- Folds

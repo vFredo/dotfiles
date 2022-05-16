@@ -10,8 +10,6 @@ elseif not ok_lspkind then
   error("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
-vim.opt.completeopt = "menuone,noselect,preview"
-
 local types = require("luasnip.util.types")
 
 -- Luasnip configuration
@@ -33,6 +31,7 @@ luasnip.config.set_config {
   store_selection_keys = "<Tab>",
 }
 
+-- Lazy load Snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
