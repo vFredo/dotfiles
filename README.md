@@ -45,27 +45,23 @@ For updating all submodules use `git pull --recurse-submodules`
 * Neovim
   * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Zsh
-* i3 gaps
+* WM's
+  * [Capitaine Cursor](https://github.com/keeferrourke/capitaine-cursors)
   * [Rofi](https://github.com/davatorium/rofi).
-  * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
-  * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * [polybar](https://github.com/polybar/polybar).
-  * Blueman (bluetooth manager with applet).
+  * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
   * Picom
-  * Nitrogen
   * Dunst
+  * Nitrogen
+  * arandr
+  * xorg-xsetroot
+  * pavucontrol
+  * lxappearance-gtk3
+* i3 gaps
+  * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
+  * Blueman (bluetooth manager with applet).
 * Bspwm
   * sxhkd
-  * dunst
-  * arandr
-  * picom
-  * nitrogen
-  * [polybar](https://github.com/polybar/polybar).
-  * pavucontrol
-  * [Rofi](https://github.com/davatorium/rofi).
-  * [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
-  * xorg-xsetroot
-  * lxappearance-gtk3
 * Tmux
   * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
 * Latex
