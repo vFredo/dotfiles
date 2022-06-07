@@ -119,8 +119,7 @@ return packer.startup(function(use)
     "kyazdani42/nvim-tree.lua",
     event = "UIEnter",
     requires = "nvim-web-devicons",
-    setup = function() require "plugins.configs.nvim-tree".tree_setup() end,
-    config = function() require "plugins.configs.nvim-tree".tree_config() end
+    config = function() require "plugins.configs.nvim-tree" end
   }
 
   -- Fuzzy finder
