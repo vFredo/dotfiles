@@ -1,0 +1,94 @@
+{
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "security.workspace.trust.enabled": false,
+  "git.autofetch": true,
+  "breadcrumbs.enabled": false,
+  "editor.minimap.enabled": false,
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "Cascadia Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
+  "workbench.preferredLightColorTheme": "Gruvbox Material Light",
+  "gruvboxMaterial.darkContrast": "hard",
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#ea6962",
+    "editorBracketHighlight.foreground2": "#e1ad01",
+    "editorBracketHighlight.foreground3": "#30d5c8",
+    "editorBracketHighlight.foreground4": "#ffa9c3",
+  },
+  "tabnine.experimentalAutoImports": true,
+  "go.toolsManagement.autoUpdate": true,
+  "vim.leader": "<space>",
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.replace": "underline",
+  "vim.searchHighlightColor": "#ffc745",
+  "vim.searchMatchColor": "#ea6962",
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(255, 199, 69, 0.5)",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Esc>"],
+      "commands": [":nohl"],
+      "silent": true
+    },
+    {
+      "before": ["g", "l"],
+      "after": ["$"]
+    },
+    {
+      "before": ["g", "h"],
+      "after": ["^"]
+    },
+    {
+      "before": ["[", "b"],
+      "commands": [":bp"],
+      "silent": true
+    },
+    {
+      "before": ["]", "b"],
+      "commands": [":bn"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "after" : ["<C-^>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [ ">" ],
+      "commands": [ "editor.action.indentLines" ]
+    },
+    {
+      "before": [ "<" ],
+      "commands": [ "editor.action.outdentLines" ]
+    },
+    {
+      "before": ["g", "l"],
+      "after": ["$"]
+    },
+    {
+      "before": ["g", "h"],
+      "after": ["^"]
+    },
+    {
+      "before": ["[", "b"],
+      "commands": [":bp"],
+      "silent": true
+    },
+    {
+      "before": ["]", "b"],
+      "commands": [":bn"],
+      "silent": true
+    },
+  ],
+}
