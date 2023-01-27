@@ -13,7 +13,7 @@ autocmd('BufWritePost', {
   group = packer_group,
   callback = function()
     if string.find(vim.fn.expand("%:p"), "config/nvim") ~= nil then
-      vim.cmd [[source $MYVIMRC | silent! LspStop | silent! LspStart]]
+      vim.cmd [[source $MYVIMRC]]
       vim.cmd [[PackerCompile]]
     end
   end
