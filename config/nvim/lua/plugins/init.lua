@@ -129,7 +129,7 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
       "nvim-web-devicons",
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- fzf integration
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1  }
     },
     setup = function() require "plugins.configs.telescope".setup() end,
     config = function() require "plugins.configs.telescope".config() end
@@ -233,8 +233,17 @@ return packer.startup(function(use)
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
   }
 
-  -- Automatically set up your configuration after cloning packer.nvim
+  -- When we are bootstrapping a configuration, it doesn't
+  -- make sense to execute the rest of the init.lua.
+  --
+  -- You'll need to restart nvim, and then it will work.
   if PACKER_BOOSTRAP then
     require("packer").sync()
+    print '=================================='
+    print '    Plugins are being installed'
+    print '    Wait until Packer completes,'
+    print '       then restart nvim'
+    print '=================================='
   end
 end)
+
