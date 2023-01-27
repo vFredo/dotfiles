@@ -5,7 +5,7 @@ local augroup = vim.api.nvim_create_augroup
 -- Autocommand groups
 local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
-local packer_group = augroup('Packer', { clear = true })
+local packer_group = augroup('packer_auto_sync', { clear = true })
 
 -- Automatically source the vimrc and re-compile packer
 -- whenever you save a file of all nvim configuration

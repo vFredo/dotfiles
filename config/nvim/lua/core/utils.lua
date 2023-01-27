@@ -10,10 +10,10 @@ M.map = function(mode, lhs, rhs, opts)
   -- check if mode is a table or just a string
   if type(mode) == "table" then
     for _, m in ipairs(mode) do
-      vim.api.nvim_set_keymap(m, lhs, rhs, options)
+      vim.keymap.set(m, lhs, rhs, options)
     end
   else
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    vim.keymap.set(mode, lhs, rhs, options)
   end
 end
 
