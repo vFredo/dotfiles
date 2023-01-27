@@ -9,9 +9,9 @@ ts_config.setup {
     "css", "scss", "dockerfile", "go", "gomod",
     "help", "html", "json", "json5", "jsdoc",
     "javascript", "typescript", "php", "python",
-    "rust", "vim", "lua", "vue", "verilog", "yaml"
+    "rust", "vim", "lua", "vue","yaml"
   },
-  highlight = { enable = true, use_languagetree = false },
+  highlight = { enable = true },
   indent = { enable = true },
   context_commentstring = {
     enable = true,
@@ -22,6 +22,5 @@ ts_config.setup {
     }
   },
   autotag = { enable = true },
-  autopairs = { enable = true },
   fold = { enable = true },
 }

@@ -125,8 +125,6 @@ return packer.startup(function(use)
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    module = "telescope",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
@@ -221,8 +219,9 @@ return packer.startup(function(use)
   use {
     {
       "nvim-treesitter/nvim-treesitter",
-      event = "BufWinEnter",
-      run = ":TSUpdate",
+      run = function()
+        pcall(require('nvim-treesitter.install').update { with_sync = true })
+      end,
       config = function() require "plugins.configs.treesitter" end
     },
     {

@@ -13,7 +13,10 @@ bufferline.setup {
       text = "Files",
       highlight = "NvimTreeNormal"
     } },
-    indicator_icon = '▎',
+    indicator = {
+      icon = '▎',
+      style = 'icon'
+    },
     modified_icon = "",
     left_trunc_marker = "",
     right_trunc_marker = "",
@@ -30,65 +33,65 @@ bufferline.setup {
   },
   highlights = {
     -- Defaults
-    background = { guifg = colors.fgAlt, guibg = colors.bg, },
-    fill = { guifg = colors.fgAlt2, guibg = colors.bg },
+    background = { fg = colors.fgAlt, bg = colors.bg, },
+    fill = { fg = colors.fgAlt2, bg = colors.bg },
 
     -- Buffer
-    buffer_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
-    buffer_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2, gui = "bold" },
+    buffer_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
+    buffer_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true},
 
     -- Duplicate buffer name
-    duplicate = { guifg = colors.fgAlt, guibg = colors.bg },
-    duplicate_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
-    duplicate_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2, gui = "bold" },
+    duplicate = { fg = colors.fgAlt, bg = colors.bg },
+    duplicate_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
+    duplicate_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true },
 
     -- Indicator
-    indicator_selected = { guifg = colors.blue, guibg = colors.bgAlt2 },
+    indicator_selected = { fg = colors.blue, bg = colors.bgAlt2 },
 
     -- Modified
-    modified = { guifg = colors.red, guibg = colors.bg },
-    modified_visible = { guifg = colors.red, guibg = colors.bgAlt },
-    modified_selected = { guifg = colors.red, guibg = colors.bgAlt2 },
+    modified = { fg = colors.red, bg = colors.bg },
+    modified_visible = { fg = colors.red, bg = colors.bgAlt },
+    modified_selected = { fg = colors.red, bg = colors.bgAlt2 },
 
     -- Tabs
-    tab = { guifg = colors.fgAlt, guibg = colors.bg },
-    tab_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2, gui = "bold" },
+    tab = { fg = colors.fgAlt, bg = colors.bg },
+    tab_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true },
 
     -- Separator
-    separator = { guifg = colors.bg, guibg = colors.bg },
-    separator_selected = { guifg = colors.bg, guibg = colors.bg },
-    separator_visible = { guifg = colors.bg, guibg = colors.bg },
+    separator = { fg = colors.bg, bg = colors.bg },
+    separator_selected = { fg = colors.bg, bg = colors.bg },
+    separator_visible = { fg = colors.bg, bg = colors.bg },
 
     -- Info diagnostics
-    info = { guifg = colors.fg, guibg = colors.bg },
-    info_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
-    info_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2 },
-    info_diagnostic = { guifg = colors.green, guibg = colors.bg, gui = "bold,italic" },
-    info_diagnostic_visible = { guifg = colors.green, guibg = colors.bgAlt, gui = "bold,italic" },
-    info_diagnostic_selected = { guifg = colors.green, guibg = colors.bgAlt2, gui = "bold,italic" },
+    info = { fg = colors.fg, bg = colors.bg },
+    info_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
+    info_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2 },
+    info_diagnostic = { fg = colors.green, bg = colors.bg, bold = true, italic = true },
+    info_diagnostic_visible = { fg = colors.green, bg = colors.bgAlt, bold = true, italic = true },
+    info_diagnostic_selected = { fg = colors.green, bg = colors.bgAlt2, bold = true, italic = true },
 
     -- Hint diagnostic
-    hint = { guifg = colors.fg, guibg = colors.bg },
-    hint_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
-    hint_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2 },
-    hint_diagnostic = { guifg = colors.magenta, guibg = colors.bg, gui = "bold,italic" },
-    hint_diagnostic_visible = { guifg = colors.magenta, guibg = colors.bgAlt, gui = "bold,italic" },
-    hint_diagnostic_selected = { guifg = colors.magenta, guibg = colors.bgAlt2, gui = "bold,italic" },
+    hint = { fg = colors.fg, bg = colors.bg },
+    hint_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
+    hint_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2 },
+    hint_diagnostic = { fg = colors.magenta, bg = colors.bg, bold = true, italic = true },
+    hint_diagnostic_visible = { fg = colors.magenta, bg = colors.bgAlt, bold = true, italic = true },
+    hint_diagnostic_selected = { fg = colors.magenta, bg = colors.bgAlt2, bold = true, italic = true },
 
     -- Warning diagnostics
-    warning = { guifg = colors.fg, guibg = colors.bg },
-    warning_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
-    warning_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2 },
-    warning_diagnostic = { guifg = colors.yellow, guibg = colors.bg, gui = "bold,italic" },
-    warning_diagnostic_visible = { guifg = colors.yellow, guibg = colors.bgAlt, gui = "bold,italic" },
-    warning_diagnostic_selected = { guifg = colors.yellow, guibg = colors.bgAlt2, gui = "bold,italic" },
+    warning = { fg = colors.fg, bg = colors.bg },
+    warning_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
+    warning_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2 },
+    warning_diagnostic = { fg = colors.yellow, bg = colors.bg, bold = true, italic = true },
+    warning_diagnostic_visible = { fg = colors.yellow, bg = colors.bgAlt, bold = true, italic = true },
+    warning_diagnostic_selected = { fg = colors.yellow, bg = colors.bgAlt2, bold = true, italic = true },
 
     -- Error diagnostics
-    error = { guifg = colors.fg, guibg = colors.bg },
-    error_visible = { guifg = colors.fgAlt, guibg = colors.bgAlt },
-    error_selected = { guifg = colors.fgAlt2, guibg = colors.bgAlt2 },
-    error_diagnostic = { guifg = colors.red, guibg = colors.bg, gui = "bold,italic" },
-    error_diagnostic_visible = { guifg = colors.red, guibg = colors.bgAlt, gui = "bold,italic" },
-    error_diagnostic_selected = { guifg = colors.red, guibg = colors.bgAlt2, gui = "bold,italic" },
+    error = { fg = colors.fg, bg = colors.bg },
+    error_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
+    error_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2 },
+    error_diagnostic = { fg = colors.red, bg = colors.bg, bold = true, italic = true },
+    error_diagnostic_visible = { fg = colors.red, bg = colors.bgAlt, bold = true, italic = true },
+    error_diagnostic_selected = { fg = colors.red, bg = colors.bgAlt2, bold = true, italic = true },
   }
 }

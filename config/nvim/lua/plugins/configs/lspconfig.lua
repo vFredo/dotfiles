@@ -19,6 +19,7 @@ lsp_installer.settings {
   }
 }
 
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -62,13 +63,14 @@ for _, server_name in pairs(servers) do
   local server_available, server = lsp_installer_servers.get_server(server_name)
   if server_available then
     server:on_ready(function()
-      local cmp_capabilities = require("cmp_nvim_lsp").update_capabilities
       -- When this particular server is ready (i.e. when installation is finished or the server is already installed),
       -- this function will be invoked. Make sure not to use the "catch-all" lsp_installer.on_server_ready()
       -- function to set up servers, to avoid doing setting up a server twice.
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
       local opts = {
         on_attach = on_attach,
-        capabilities = cmp_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        capabilities = capabilities,
         flags = { debounce_text_changes = 150 },
       }
 
