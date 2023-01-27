@@ -12,10 +12,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 -- Use a protected call so we don't error out on first use
-local ok, packer = pcall(require, "packer")
-if not ok then
-  return
-end
+local _, packer = pcall(require, "packer")
 
 -- Packer setup
 packer.init {

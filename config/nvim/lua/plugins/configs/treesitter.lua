@@ -11,7 +11,7 @@ ts_config.setup {
     "javascript", "typescript", "php", "python",
     "rust", "vim", "lua", "vue","yaml"
   },
-  highlight = { enable = true },
+  highlight = { enable = true, additional_vim_regex_highlighting = false },
   indent = { enable = true },
   context_commentstring = {
     enable = true,

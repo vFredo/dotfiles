@@ -13,7 +13,6 @@ M.blankline = function()
       "lspinfo",
       "TelescopePrompt",
       "TelescopeResults",
-      "lsp-installer"
     },
     buftype_exclude = { "terminal" },
     show_trailing_blankline_indent = false,
