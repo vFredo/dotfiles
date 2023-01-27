@@ -125,6 +125,7 @@ return packer.startup(function(use)
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
+    branch = '0.1.x',
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
@@ -154,9 +155,10 @@ return packer.startup(function(use)
   --
   use {
     "neovim/nvim-lspconfig",
-    opt = true,
-    event = "BufReadPre",
-    requires = { "williamboman/nvim-lsp-installer" },
+    requires = {
+      { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+      "williamboman/mason-lspconfig.nvim" -- Automatically install LSPs to stdpath for neovim
+    },
     config = function() require "plugins.configs.lspconfig" end,
   }
 

@@ -1,24 +1,7 @@
 --
 -- Install servers
 --
-if not packer_plugins["nvim-lsp-installer"].loaded then
-  require "packer".loader("nvim-lsp-installer")
-end
-
-local lsp_installer = require("nvim-lsp-installer")
-local lsp_installer_servers = require('nvim-lsp-installer.servers')
-
--- GUI of lsp-installer
-lsp_installer.settings {
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
-    }
-  }
-}
-
+local mason_lspconfig = require("mason-lspconfig")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -45,69 +28,49 @@ local on_attach = function(client, bufnr)
   end
 end
 
--- Servers to install with nvim-lsp-installer
+-- Servers to install with mason-lspconfig
 local servers = {
-  'clangd',
-  'gopls',
-  'pyright',
-  'html',
-  'cssls',
-  'tsserver',
-  'tailwindcss',
-  'sumneko_lua'
+  clangd = {},
+  gopls = {},
+  pyright = {},
+  html = {},
+  cssls = {},
+  tsserver = {},
+  tailwindcss = {},
+  sumneko_lua = {
+    Lua = {
+      -- runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        }
+      },
+      diagnostics = { globals = { "vim", "packer_plugins" } },
+      telemetry = { enable = false }
+    }
+  }
 }
 
--- server's setup via lsp_installer intalled if it don't exist, else make the setup
-for _, server_name in pairs(servers) do
-  local server_available, server = lsp_installer_servers.get_server(server_name)
-  if server_available then
-    server:on_ready(function()
-      -- When this particular server is ready (i.e. when installation is finished or the server is already installed),
-      -- this function will be invoked. Make sure not to use the "catch-all" lsp_installer.on_server_ready()
-      -- function to set up servers, to avoid doing setting up a server twice.
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-      local opts = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        flags = { debounce_text_changes = 150 },
-      }
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
+  automatic_installation = true
+}
 
-      if server.name == "gopls" then
-        opts.cmd = { 'gopls' }
-        opts.settings = {
-          gopls = {
-            experimentalPostfixCompletions = true,
-            analyses = {
-              unusedparams = true,
-              shadow = true,
-            },
-            staticcheck = true,
-          },
-        }
-      elseif server.name == "sumneko_lua" then
-        opts.settings = {
-          Lua = {
-            runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = {
-                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-              }
-            },
-            diagnostics = { globals = { "vim", "packer_plugins" } },
-            telemetry = { enable = false }
-          },
-        }
-      end
-      server:setup(opts) -- Setup the server
-    end)
-    if not server:is_installed() then
-      server:install() -- Queue the server to be installed if is not already install.
-    end
-  end
-end
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+    }
+  end,
+}
 
 -- Change the default lsp diagnostic symbols
 local function lspSymbol(name, icon)
