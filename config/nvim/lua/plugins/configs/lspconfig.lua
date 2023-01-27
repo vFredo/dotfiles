@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
   -- if the server client can format files then format on save
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.documentFormattingProvider then
     -- vim.cmd([[ autocmd! BufWritePre <buffer> lua vim.lsp.buf.formatting() ]])
     vim.cmd([[ command! Format lua vim.lsp.buf.formatting() ]])
   end
