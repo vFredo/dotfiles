@@ -95,8 +95,8 @@ cmp.setup {
   },
 }
 
--- Use buffer source for `/` (experiemental.native_menu = false)
-cmp.setup.cmdline('/', {
+-- Use buffer source for /,? (experiemental.native_menu = false)
+cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   formatting = {
     fields = { "kind", "abbr", "menu" },
