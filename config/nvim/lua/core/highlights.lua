@@ -118,6 +118,12 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 fg("TelescopeBorder", colors.grey)
 fg("TelescopeTitle", colors.fgAlt2)
 
+-- Hop plugin
+fg("HopUnmatched", colors.grey)
+fg("HopNextKey", colors.red, "bold,underline")
+fg("HopNextKey1", colors.blue, "bold,underline")
+fg("HopNextKey2", colors.cyan, "bold,italic")
+
 --
 -- NvimTree
 --

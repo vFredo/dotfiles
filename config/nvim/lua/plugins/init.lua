@@ -41,6 +41,13 @@ return packer.startup(function(use)
   -- Navigation
   --
 
+  -- Easy navigation between lines
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2',
+    config = function() require'hop'.setup() end
+  }
+
   -- Comment lines more easily
   use {
     "terrortylor/nvim-comment",

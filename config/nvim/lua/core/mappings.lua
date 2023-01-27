@@ -12,7 +12,8 @@ map("n", "<Esc>", ":nohlsearch<CR>", opt)
 -- Telescope
 map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opt)
 map("n", "<Leader>fb", "<cmd>Telescope buffers ignore_current_buffer=true<CR>", opt)
-map("n", "<Leader>fg", "<cmd>Telescope live_grep additional_args='--hidden'<CR>", opt)
+map("n", "<Leader>fg",
+  "<cmd>Telescope live_grep additional_args='--hidden'<CR>", opt)
 map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>", opt)
 
 -- nvim-tree
@@ -39,10 +40,14 @@ map("n", "[b", ":BufferLineCyclePrev<CR>", opt)
 map("n", "]b", ":BufferLineCycleNext<CR>", opt)
 
 -- Navigate between vim buffers, vim splits and tmux panes
-map({ "n", "v" }, "<C-h>", "<cmd>lua require('Navigator').left()<CR>", opt)
-map({ "n", "v" }, "<C-j>", "<cmd>lua require('Navigator').down()<CR>", opt)
-map({ "n", "v" }, "<C-k>", "<cmd>lua require('Navigator').up()<CR>", opt)
-map({ "n", "v" }, "<C-l>", "<cmd>lua require('Navigator').right()<CR>", opt)
+map({ "n", "v" }, "<C-h>",
+  function() require('Navigator').left() end, opt)
+map({ "n", "v" }, "<C-l>",
+  function() require('Navigator').right() end, opt)
+map({ "n", "v" }, "<C-k>",
+  function() require('Navigator').up() end, opt)
+map({ "n", "v" }, "<C-j>",
+  function() require('Navigator').down() end, opt)
 
 -- Easy edits
 map("v", "<", "<gv", opt)
@@ -53,9 +58,48 @@ map({ "n", "x" }, "Y", "yg$", opt)
 map("n", "[l", ":cprevious<CR>", opt)
 map("n", "]l", ":cnext<CR>", opt)
 
+-- Hop nvim bindings change f,F,t,T,s behave with hop
+local directions = require('hop.hint').HintDirection
+
+map('', 'f', function()
+  require('hop').hint_char1({
+    direction = directions.AFTER_CURSOR,
+    current_line_only = true
+  })
+end, {remap=true})
+
+map('', 'F', function()
+  require('hop').hint_char1({
+    direction = directions.BEFORE_CURSOR,
+    current_line_only = true
+  })
+end, {remap=true})
+
+map('', 't', function()
+  require('hop').hint_char1({
+    direction = directions.AFTER_CURSOR,
+    current_line_only = true,
+    hint_offset = -1
+  })
+end, {remap=true})
+
+map('', 'T', function()
+  require('hop').hint_char1({
+    direction = directions.BEFORE_CURSOR,
+    current_line_only = true,
+    hint_offset = 1
+  })
+end, {remap=true})
+
+map('', 's', function () require('hop').hint_char2() end, {remap=true})
+
+--
 -- Toggle spelling (spanish and english)
-map("n", "<Leader>ss", "<cmd>lua require('core.utils').toggleSpelling('es')<CR>", opt)
-map("n", "<Leader>se", "<cmd>lua require('core.utils').toggleSpelling('en_us')<CR>", opt)
+--
+map("n", "<Leader>ss",
+  function() require('core.utils').toggleSpelling('es') end, opt)
+map("n", "<Leader>se",
+  function() require('core.utils').toggleSpelling('en_us') end, opt)
 
 --
 -- Commands
