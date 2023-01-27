@@ -219,6 +219,7 @@ return packer.startup(function(use)
   use {
     {
       "nvim-treesitter/nvim-treesitter",
+      event = "UIEnter",
       run = function()
         pcall(require('nvim-treesitter.install').update { with_sync = true })
       end,
