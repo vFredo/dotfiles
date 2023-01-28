@@ -119,6 +119,10 @@ fg("GitSignsDelete", colors.red)
 bg("NormalFloat", colors.bgAlt)
 fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 
+-- Treesitter highlight colors
+fg("@property", colors.cyan)
+fg("@namespace", colors.fg)
+
 -- Telescope
 fg("TelescopeBorder", colors.grey)
 fg("TelescopeTitle", colors.fgAlt2)
