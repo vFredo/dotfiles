@@ -131,7 +131,7 @@ fg("TelescopeTitle", colors.fgAlt2)
 fg("HopUnmatched", colors.grey)
 fg("HopNextKey", colors.red, "bold,underline")
 fg("HopNextKey1", colors.blue, "bold,underline")
-fg("HopNextKey2", colors.cyan, "bold,italic")
+fg("HopNextKey2", colors.cyan, "bold")
 
 --
 -- NvimTree

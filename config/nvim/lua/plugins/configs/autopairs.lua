@@ -8,16 +8,8 @@ end
 npairs.setup {
   check_ts = true,
   disable_filetype = { "TelescopePrompt" },
-  autopairs = { enable = true },
   ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
   enable_check_bracket_line = false,
-  html_break_line_filetype = {
-    'html',
-    'vue',
-    'typescriptreact',
-    'svelte',
-    'javascriptreact'
-  },
 }
 
 --
@@ -45,4 +37,4 @@ npairs.add_rules {
 -- cmp integration
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done())
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())

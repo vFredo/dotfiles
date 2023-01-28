@@ -253,7 +253,6 @@ return packer.startup(function(use)
       after = "nvim-treesitter",
       config = function() require "plugins.configs.autopairs" end
     },
-    { 'nvim-treesitter/playground', after = "nvim-treesitter" },
     { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
   }
