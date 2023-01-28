@@ -41,6 +41,6 @@ local modules = {
 for _, module in ipairs(modules) do
   local ok, currMod = pcall(require, module)
   if not ok then
-    error("Couldn't load module: " .. module .. "\n Error: " .. currMod)
+    vim.notify("Couldn't load module: " .. module .. "\n Error: " .. currMod)
   end
 end

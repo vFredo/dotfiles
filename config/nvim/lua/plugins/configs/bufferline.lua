@@ -1,6 +1,6 @@
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then
-  error("Couldn't load bufferline " .. bufferline .. "\n")
+  vim.notify("Couldn't load bufferline " .. bufferline .. "\n")
 end
 
 local theme = require("core.theme")

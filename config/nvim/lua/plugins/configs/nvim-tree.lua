@@ -1,6 +1,6 @@
 local ok, tree = pcall(require, "nvim-tree")
 if not ok then
-  error("Couldn't load nvim-tree " .. tree .. "\n")
+  vim.notify("Couldn't load nvim-tree " .. tree .. "\n")
 end
 
 tree.setup {

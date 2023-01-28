@@ -1,6 +1,6 @@
 local ok, ts_config = pcall(require, "nvim-treesitter.configs")
 if not ok then
-  error("Couldn't load Treesitter " .. ts_config .. "\n")
+  vim.notify("Couldn't load Treesitter " .. ts_config .. "\n")
 end
 
 ts_config.setup {

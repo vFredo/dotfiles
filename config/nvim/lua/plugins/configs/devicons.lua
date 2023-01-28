@@ -1,6 +1,6 @@
 local ok, devicons = pcall(require, "nvim-web-devicons")
 if not ok then
-  error("Couldn't find devicons " .. devicons .. "\n")
+  vim.notify("Couldn't find devicons " .. devicons .. "\n")
 end
 
 devicons.setup {

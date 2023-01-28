@@ -3,11 +3,11 @@ local ok_luasnip, luasnip = pcall(require, "luasnip")
 local ok_lspkind, lspkind = pcall(require, "lspkind")
 
 if not ok_cmp then
-  error("Couldn't load cmp " .. cmp .. "\n")
+  vim.notify("Couldn't load cmp " .. cmp .. "\n")
 elseif not ok_luasnip then
-  error("Couldn't load luasnip " .. luasnip .. "\n")
+  vim.notify("Couldn't load luasnip " .. luasnip .. "\n")
 elseif not ok_lspkind then
-  error("Couldn't load lspkind " .. lspkind .. "\n")
+  vim.notify("Couldn't load lspkind " .. lspkind .. "\n")
 end
 
 local types = require("luasnip.util.types")
