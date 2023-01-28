@@ -31,15 +31,21 @@ end
 -- Servers to install with mason-lspconfig
 local servers = {
   clangd = {},
-  gopls = {},
   pyright = {},
   html = {},
   cssls = {},
   tsserver = {},
   tailwindcss = {},
+  gopls = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      staticcheck = true,
+      analyses = { unusedparams = true, shadow = true, }
+    },
+  },
   sumneko_lua = {
     Lua = {
-      -- runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
+      runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = {
@@ -73,31 +79,24 @@ mason_lspconfig.setup_handlers {
 }
 
 -- Change the default lsp diagnostic symbols
-local function lspSymbol(name, icon)
-  local hl = "DiagnosticSign" .. name
-  vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+local signs = {
+  Error = ' ',
+  Info = ' ',
+  Warn = ' ',
+  Hint = '',
+}
+
+for type, icon in pairs(signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-lspSymbol("Error", " ")
-lspSymbol("Info", " ")
-lspSymbol("Hint", "")
-lspSymbol("Warn", " ")
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config({
   -- virtual_text = { prefix = "", spacing = 2 },
   virtual_text = false,
   signs = true,
   underline = true,
   update_in_insert = false,
+  severity_sort = true,
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  { border = "single", }
-)
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help,
-  { border = "single", }
-)

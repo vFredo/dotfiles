@@ -1,7 +1,9 @@
 local theme = require("core.theme")
 local colors = theme.colors
 
+--
 -- Helper functions for changing highlight groups
+--
 local function fg(group, color, opts)
   local gui = opts or ''
   if gui ~= '' then

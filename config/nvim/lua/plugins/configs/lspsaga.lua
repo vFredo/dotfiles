@@ -5,14 +5,11 @@ lspsaga.setup {
   symbol_in_winbar = { enable = false, },
   lightbulb = { enable = false },
   ui = {
-    code_action = "",
+    code_action = " ",
     diagnostic =  " ",
-    -- Border type can be single, double, rounded, solid, shadow.
     border = "rounded",
     colors = {
-      -- Normal background color for floating window
       normal_bg = colors.bgAlt2,
-      -- Title background color
       title_bg = colors.bgAlt,
       red = colors.red,
       magenta = colors.magenta,
