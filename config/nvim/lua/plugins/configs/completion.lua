@@ -35,6 +35,14 @@ luasnip.config.set_config {
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -58,18 +66,13 @@ cmp.setup {
       end
     end, { 'i', 's', 'c' }),
   }),
-  sources = {
-    -- the order of your sources gives them priority on completion
+  sources = cmp.config.sources({
     { name = "luasnip" },
-    { name = "nvim_lsp" },
+    { name = 'nvim_lsp' },
+  }, {
     { name = 'buffer' },
     { name = "path" },
-  },
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
+  }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format {
@@ -108,10 +111,11 @@ cmp.setup.cmdline({ '/', '?' }, {
 -- Use cmdline & path source for ':' (experiemental.native_menu = false)
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "cmdline" },
-    { name = "path" }
-  },
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format {
