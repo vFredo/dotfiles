@@ -66,9 +66,9 @@ bufferline.setup {
     info = { fg = colors.fg, bg = colors.bg },
     info_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
     info_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2 },
-    info_diagnostic = { fg = colors.green, bg = colors.bg, bold = true, italic = true },
-    info_diagnostic_visible = { fg = colors.green, bg = colors.bgAlt, bold = true, italic = true },
-    info_diagnostic_selected = { fg = colors.green, bg = colors.bgAlt2, bold = true, italic = true },
+    info_diagnostic = { fg = colors.blue, bg = colors.bg, bold = true, italic = true },
+    info_diagnostic_visible = { fg = colors.blue, bg = colors.bgAlt, bold = true, italic = true },
+    info_diagnostic_selected = { fg = colors.blue, bg = colors.bgAlt2, bold = true, italic = true },
 
     -- Hint diagnostic
     hint = { fg = colors.fg, bg = colors.bg },

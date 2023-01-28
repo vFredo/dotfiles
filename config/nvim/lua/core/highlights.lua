@@ -99,7 +99,7 @@ fg("IndentBlanklineContextChar", colors.fgAlt)
 --
 fg("DiagnosticError", colors.red)
 fg("DiagnosticWarn", colors.yellow)
-fg("DiagnosticInformation", colors.green)
+fg("DiagnosticInfo", colors.blue)
 fg("DiagnosticHint", colors.magenta)
 
 -- LspSaga

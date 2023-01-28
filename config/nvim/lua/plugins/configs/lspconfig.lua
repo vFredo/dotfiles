@@ -46,15 +46,14 @@ local servers = {
   sumneko_lua = {
     Lua = {
       runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
+      diagnostics = { globals = { "vim", "packer_plugins" } },
+      telemetry = { enable = false },
       workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
+        library = { -- Make the server aware of Neovim runtime files
           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
         }
       },
-      diagnostics = { globals = { "vim", "packer_plugins" } },
-      telemetry = { enable = false }
     }
   }
 }
