@@ -5,7 +5,7 @@ theme.colors = {
   fg = "#d5c4a1",
   red = "#ea6962",
   green = "#a9b665",
-  yellow = "#ffc745",
+  yellow = "#d8a657",
   blue = "#7daea3",
   magenta = "#93869b",
   purple = "#C586C0",
@@ -38,12 +38,12 @@ local style = {
   b06 = delHash(c.fgAlt2), -- Light Foreground
   b07 = delHash(c.fg), -- Light Background
   b08 = delHash(c.red), -- Var, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-  b09 = delHash(c.yellow), -- Ints, Bool, Constants, XML Attributes, Markup Link Url
-  b0A = delHash(c.orange), -- Classes, Markup Bold, Search Text Background
+  b09 = delHash(c.orange), -- Ints, Bool, Constants, XML Attributes, Markup Link Url
+  b0A = delHash(c.yellow), -- Classes, Markup Bold, Search Text Background
   b0B = delHash(c.green), -- Strings, Inherited Class, Markup Code, Diff Inserted
-  b0C = delHash(c.blue), --  Regular Expressions, Escape Characters, Markup Quotes
+  b0C = delHash(c.cyan), --  Regular Expressions, Escape Characters, Markup Quotes
   b0D = delHash(c.pink), -- Functions, Methods, Attribute IDs, Headings
-  b0E = delHash(c.cyan), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
+  b0E = delHash(c.blue), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
   b0F = delHash(c.orangeAlt) -- Opening/Closing Embedded Language Tags
 }
 
