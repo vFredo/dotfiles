@@ -1,7 +1,7 @@
 <div align="center">
   <h1>━━━━  ❖  ━━━━</h1>
-  <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/bspwm-rice.png" />
-  <img src="https://raw.githubusercontent.com/fredo0522/dotfiles/media/nvim-screenshot.png" />
+  <img src="https://raw.githubusercontent.com/vFredo/dotfiles/media/bspwm-rice.png" />
+  <img src="https://raw.githubusercontent.com/vFredo/dotfiles/media/nvim-screenshot.png" />
   <h1>━━━━  ❖  ━━━━</h1>
   <br />
   <h1>System configuration</h1>

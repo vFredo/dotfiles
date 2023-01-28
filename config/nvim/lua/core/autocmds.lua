@@ -5,19 +5,6 @@ local augroup = vim.api.nvim_create_augroup
 -- Autocommand groups
 local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
-local packer_group = augroup('packer_auto_sync', { clear = true })
-
--- Automatically source the vimrc and re-compile packer
--- whenever you save a file of all nvim configuration
-autocmd('BufWritePost', {
-  group = packer_group,
-  callback = function()
-    if string.find(vim.fn.expand("%:p"), "config/nvim") ~= nil then
-      vim.cmd [[source $MYVIMRC]]
-      vim.cmd [[PackerCompile]]
-    end
-  end
-})
 
 -- Responsive panel/window size
 autocmd({ "VimResized" },
