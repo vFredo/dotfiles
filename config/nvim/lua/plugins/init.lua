@@ -28,14 +28,14 @@ packer.init {
 }
 
 --
--- Plugin startup list
+-- Plugin list
 --
 return packer.startup(function(use)
   -- Update plugin manager
   use { "wbthomason/packer.nvim" }
 
   -- Speed up startup time
-  use { 'lewis6991/impatient.nvim' }
+  use { "lewis6991/impatient.nvim" }
 
   --
   -- Navigation
@@ -43,9 +43,9 @@ return packer.startup(function(use)
 
   -- Easy navigation between lines
   use {
-    'phaazon/hop.nvim',
+    "phaazon/hop.nvim",
     branch = 'v2',
-    config = function() require'hop'.setup() end
+    config = function() require("hop").setup() end
   }
 
   -- Comment lines more easily
@@ -98,13 +98,13 @@ return packer.startup(function(use)
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = function() require "plugins.configs.others".blankline() end
+    config = function() require("plugins.configs.others").blankline() end
   }
 
   -- Smooth scrolling
   use {
     "karb94/neoscroll.nvim",
-    config = function() require "plugins.configs.others".neoscroll() end
+    config = function() require("plugins.configs.others").neoscroll() end
   }
 
   -- Color highlighter for hex, rgb, etc...
@@ -136,7 +136,7 @@ return packer.startup(function(use)
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
-    branch = '0.1.x',
+    branch = "0.1.x",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
@@ -166,9 +166,11 @@ return packer.startup(function(use)
   --
   use {
     "neovim/nvim-lspconfig",
+    event = "BufReadPre",
     requires = {
+      -- Automatically install LSPs to stdpath for neovim
       { "williamboman/mason.nvim", config = function() require("mason").setup() end },
-      "williamboman/mason-lspconfig.nvim" -- Automatically install LSPs to stdpath for neovim
+      { "williamboman/mason-lspconfig.nvim" }
     },
     config = function() require "plugins.configs.lspconfig" end,
   }
@@ -176,7 +178,7 @@ return packer.startup(function(use)
   use {
     "glepnir/lspsaga.nvim",
     requires = "nvim-web-devicons",
-    config = function() require("plugins.configs.lspsaga") end
+    config = function() require "plugins.configs.saga-lsp" end
   }
 
   -- Autocomplete/Snippets
