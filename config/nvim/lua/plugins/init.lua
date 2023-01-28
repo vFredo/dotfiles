@@ -1,17 +1,24 @@
 --
 -- Check if packer is installed, if not cloned it from github
 --
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  PACKER_BOOSTRAP = vim.fn.system({
-    'git', 'clone',
-    '--depth', '20',
-    'https://github.com/wbthomason/packer.nvim',
-    install_path
-  })
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({
+      'git', 'clone',
+      '--depth', '1',
+      'https://github.com/wbthomason/packer.nvim',
+      install_path
+    })
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
 -- Use a protected call so we don't error out on first use
+local packer_boostrap = ensure_packer()
 local _, packer = pcall(require, "packer")
 
 -- Packer setup
@@ -246,6 +253,7 @@ return packer.startup(function(use)
       after = "nvim-treesitter",
       config = function() require "plugins.configs.autopairs" end
     },
+    { 'nvim-treesitter/playground', after = "nvim-treesitter" },
     { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
     { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
   }
@@ -254,13 +262,13 @@ return packer.startup(function(use)
   -- make sense to execute the rest of the init.lua.
   --
   -- You'll need to restart nvim, and then it will work.
-  if PACKER_BOOSTRAP then
-    require("packer").sync()
+  if packer_boostrap then
     print '=================================='
     print '    Plugins are being installed'
     print '    Wait until Packer completes,'
     print '       then restart nvim'
     print '=================================='
+    require("packer").sync()
   end
 end)
 
