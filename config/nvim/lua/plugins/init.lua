@@ -17,6 +17,11 @@ local _, packer = pcall(require, "packer")
 -- Packer setup
 packer.init {
   display = {
+    working_sym = "ﲊ",
+    error_sym = "✗ ",
+    done_sym = " ",
+    removed_sym = " ",
+    moved_sym = "",
     open_fn = function()
       return require("packer.util").float { border = "single" }
     end,
