@@ -128,7 +128,7 @@ return packer.startup(function(use)
   -- Tree view of the current directory
   use {
     "kyazdani42/nvim-tree.lua",
-    event = "UIEnter",
+    cmd = "NvimTreeToggle",
     requires = "nvim-web-devicons",
     config = function() require "plugins.configs.nvim-tree" end
   }
@@ -177,7 +177,7 @@ return packer.startup(function(use)
 
   use {
     "glepnir/lspsaga.nvim",
-    requires = "nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
     config = function() require "plugins.configs.saga-lsp" end
   }
 
@@ -190,14 +190,14 @@ return packer.startup(function(use)
     {
       "hrsh7th/nvim-cmp",
       module = "cmp",
-      event = "InsertEnter",
+      event = { "InsertEnter", "CmdLineEnter" },
       requires = {
         { "onsails/lspkind-nvim" }, -- icons in completion menu
-        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", opt = true },
-        { "hrsh7th/cmp-path", after = "nvim-cmp", opt = true },
-        { "hrsh7th/cmp-buffer", after = "nvim-cmp", opt = true },
-        { "hrsh7th/cmp-cmdline", after = "nvim-cmp", opt = true },
-        { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip", "nvim-cmp" }, opt = true },
+        { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+        { "hrsh7th/cmp-path", after = "nvim-cmp" },
+        { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" },
+        { "saadparwaiz1/cmp_luasnip", after = { "LuaSnip", "nvim-cmp" } },
       },
       config = function() require "plugins.configs.completion" end
     }
