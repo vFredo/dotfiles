@@ -62,7 +62,7 @@ alias gcmsg='git commit -m'
 alias gp='git push'
 alias gl='git pull'
 alias glsub='git pull --recurse-submodules'
-alias gsu='git submodule update'
+alias gsu='git submodule update --remote --merge'
 alias gd='git diff'
 
 # Extract files more easily
