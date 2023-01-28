@@ -193,7 +193,7 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.saga-lsp" end
   }
 
-  -- Autocomplete/Snippets
+  -- Autocompletion/Snippets
   use {
     {
       "L3MON4D3/LuaSnip", -- snippets

@@ -47,6 +47,7 @@ bufferline.setup {
 
     -- Indicator
     indicator_selected = { fg = colors.blue, bg = colors.bgAlt2 },
+    indicator_visible = { bg = colors.bgAlt },
 
     -- Modified
     modified = { fg = colors.red, bg = colors.bg },
