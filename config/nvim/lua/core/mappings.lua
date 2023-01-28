@@ -91,7 +91,7 @@ map('', 'T', function()
   })
 end, {remap=true})
 
-map('', 's', function () require('hop').hint_char2() end, {remap=true})
+map('', 's', function() require('hop').hint_char2() end, {remap=true})
 
 --
 -- Toggle spelling (spanish and english)
