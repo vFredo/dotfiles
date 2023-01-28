@@ -59,25 +59,25 @@ map("n", "[l", ":cprevious<CR>", opt)
 map("n", "]l", ":cnext<CR>", opt)
 
 -- Hop nvim bindings change f,F,t,T,s behave with hop
-local directions = require('hop.hint').HintDirection
+local pos = require('hop.hint').HintDirection
 
 map('', 'f', function()
   require('hop').hint_char1({
-    direction = directions.AFTER_CURSOR,
+    direction = pos.AFTER_CURSOR,
     current_line_only = true
   })
 end, {remap=true})
 
 map('', 'F', function()
   require('hop').hint_char1({
-    direction = directions.BEFORE_CURSOR,
+    direction = pos.BEFORE_CURSOR,
     current_line_only = true
   })
 end, {remap=true})
 
 map('', 't', function()
   require('hop').hint_char1({
-    direction = directions.AFTER_CURSOR,
+    direction = pos.AFTER_CURSOR,
     current_line_only = true,
     hint_offset = -1
   })
@@ -85,13 +85,13 @@ end, {remap=true})
 
 map('', 'T', function()
   require('hop').hint_char1({
-    direction = directions.BEFORE_CURSOR,
+    direction = pos.BEFORE_CURSOR,
     current_line_only = true,
     hint_offset = 1
   })
 end, {remap=true})
 
-map('', 's', function() require('hop').hint_char2() end, {remap=true})
+map('', 's', function() require('hop').hint_words() end, {remap=true})
 
 --
 -- Toggle spelling (spanish and english)

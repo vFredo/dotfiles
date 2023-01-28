@@ -103,9 +103,7 @@ fg("DiagnosticInformation", colors.green)
 fg("DiagnosticHint", colors.magenta)
 
 -- LspSaga
-fg_bg("SagaBorder", colors.fg, colors.bgAlt2)
-fg_bg("TitleString", colors.bg, colors.blue)
-fg_bg("TitleSymbol", colors.bg, colors.blue)
+fg("SagaBorder", colors.fg)
 
 --
 -- GitSigns
