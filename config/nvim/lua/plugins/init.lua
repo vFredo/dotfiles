@@ -109,9 +109,16 @@ return packer.startup(function(use)
 
   -- Color highlighter for hex, rgb, etc...
   use {
-    "rrethy/vim-hexokinase", -- NOTE: This needs golang to work
-    run = "make hexokinase",
-    config = function() require "plugins.configs.others".hexokinase() end
+    "NvChad/nvim-colorizer.lua",
+    config = function ()
+      require("colorizer").setup {
+        user_default_options = {
+          names = false,
+          mode = "virtualtext",
+          virtualtext = "■"
+        }
+      }
+    end
   }
 
   --
@@ -167,13 +174,8 @@ return packer.startup(function(use)
   }
 
   use {
-    "tami5/lspsaga.nvim",
-    config = function()
-      require('lspsaga').setup {
-        use_saga_diagnostic_sign = false,
-        code_action_prompt = { enable = false }
-      }
-    end
+    "glepnir/lspsaga.nvim",
+    config = function() require("plugins.configs.lspsaga") end
   }
 
   -- Autocomplete/Snippets

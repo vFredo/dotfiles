@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
 
   -- if the server client can format files then create command 'Format'
   if client.server_capabilities.documentFormattingProvider then
-    vim.cmd([[ command! Format lua vim.lsp.buf.formatting() ]])
+    vim.cmd([[ command! Format lua vim.lsp.buf.format { async = true } ]])
   end
 end
 

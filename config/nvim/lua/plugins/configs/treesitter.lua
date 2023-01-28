@@ -9,7 +9,7 @@ ts_config.setup {
     "css", "scss", "dockerfile", "go", "gomod",
     "help", "html", "json", "json5", "jsdoc",
     "javascript", "typescript", "php", "python",
-    "rust", "vim", "lua", "vue","yaml"
+    "rust", "vim", "lua", "vue","yaml", "markdown"
   },
   highlight = { enable = true, additional_vim_regex_highlighting = false },
   indent = { enable = true },

@@ -20,21 +20,6 @@ M.blankline = function()
   }
 end
 
-M.hexokinase = function()
-  vim.g.Hexokinase_highlighters = { "virtual" }
-  vim.g.Hexokinase_optInPatterns = { "full_hex", "rgb", "rgba", "hsl", "hsla" }
-  vim.g.Hexokinase_ftEnabled = {
-    'css',
-    'sass',
-    'html',
-    'javascript',
-    'javascriptreact',
-    'typescriptreact',
-    'typescript',
-    'lua'
-  }
-end
-
 M.neoscroll = function()
   require("neoscroll").setup {
     respect_scroll_off = true,
