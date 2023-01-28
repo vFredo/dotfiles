@@ -175,6 +175,7 @@ return packer.startup(function(use)
 
   use {
     "glepnir/lspsaga.nvim",
+    requires = "nvim-web-devicons",
     config = function() require("plugins.configs.lspsaga") end
   }
 

@@ -14,6 +14,7 @@ tree.setup {
   view = {
     width = 32,
     side = 'left',
+    preserve_window_proportions = true,
     mappings = {
       custom_only = true,
       list = {

@@ -2,9 +2,11 @@ local M = {}
 
 M.blankline = function()
   require("indent_blankline").setup {
-    -- show_current_context = true,
     indentLine_enabled = 1,
+    show_trailing_blankline_indent = false,
+    show_first_indent_level = false,
     char = "▏",
+    buftype_exclude = { "terminal" },
     filetype_exclude = {
       "help",
       "terminal",
@@ -14,9 +16,6 @@ M.blankline = function()
       "TelescopePrompt",
       "TelescopeResults",
     },
-    buftype_exclude = { "terminal" },
-    show_trailing_blankline_indent = false,
-    show_first_indent_level = false,
   }
 end
 
