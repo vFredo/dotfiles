@@ -92,9 +92,10 @@ window,
 	display: none !important;
 }
 
-.tab-icon-image:not([pinned]) {
-	display: none !important;
-}
+/* Hide the icon of the current tab */
+/* .tab-icon-image:not([pinned]) { */
+/* 	display: none !important; */
+/* } */
 
 .tab-label {
 	-moz-box-flex: 1 !important;
