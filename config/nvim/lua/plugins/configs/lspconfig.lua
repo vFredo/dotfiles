@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
   buf_map(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
   buf_map(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
-  -- if the server client can format files then create command 'Format'
+  -- if the server client can format files then create the command 'Format'
   if client.server_capabilities.documentFormattingProvider then
     vim.cmd([[ command! Format lua vim.lsp.buf.format { async = true } ]])
   end
@@ -63,7 +63,7 @@ mason_lspconfig.setup {
   automatic_installation = true
 }
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+-- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 

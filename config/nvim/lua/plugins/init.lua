@@ -64,7 +64,7 @@ return packer.startup(function(use)
     "terrortylor/nvim-comment",
     after = "nvim-treesitter",
     event = "BufRead",
-    config = function() require "plugins.configs.others".comment() end
+    config = function() require "plugins.configs.comment" end
   }
 
   -- Motions between parenthesis, brackets, etc...
@@ -114,13 +114,13 @@ return packer.startup(function(use)
   use {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
-    config = function() require("plugins.configs.others").blankline() end
+    config = function() require "plugins.configs.blankline" end
   }
 
   -- Smooth scrolling
   use {
     "karb94/neoscroll.nvim",
-    config = function() require("plugins.configs.others").neoscroll() end
+    config = function() require "plugins.configs.neoscroll" end
   }
 
   -- Color highlighter for hex, rgb, etc...

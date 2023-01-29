@@ -33,9 +33,9 @@ local modules = {
   "core.options",
   "plugins",
   "core.autocmds",
+  "core.mappings",
   "core.theme",
   "core.highlights",
-  "core.mappings",
 }
 
 for _, module in ipairs(modules) do
