@@ -1,7 +1,7 @@
 <div align="center">
   <h1>━━━━  ❖  ━━━━</h1>
-  <img src=".github/assets/bspwm-rice.png" />
-  <img src=".github/assets/nvim-screenshot.png" />
+  <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/bspwm-rice.png" />
+  <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/nvim-screenshot.png" />
   <h1>━━━━  ❖  ━━━━</h1>
   <br />
   <h1>System configuration</h1>
@@ -26,7 +26,7 @@ you want, the script removes it. For the moment, most dependencies have to be in
 
 ### ❖ Zsh
 <div align="center">
-  <img src=".github/assets/zsh-prompt.png"/>
+  <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/zsh-prompt.png"/>
 </div>
 
 This are the plugins that I'm using:
