@@ -53,14 +53,13 @@ return packer.startup(function(use)
   -- Navigation
   --
 
-  -- Easy navigation between lines
+  -- Easy navigation between lines with 's' and motions
   use {
-    "phaazon/hop.nvim",
-    branch = 'v2',
-    config = function() require("hop").setup() end
+    "ggandor/leap.nvim",
+    config = function () require("leap").add_default_mappings() end
   }
 
-  -- Comment lines more easily
+  -- Comment lines more easily and motions
   use {
     "terrortylor/nvim-comment",
     after = "nvim-treesitter",
@@ -68,16 +67,21 @@ return packer.startup(function(use)
     config = function() require "plugins.configs.others".comment() end
   }
 
-  -- Operation between parenthesis, brackets, etc...
+  -- Motions between parenthesis, brackets, etc...
   use {
     "tpope/vim-surround",
     config = function() vim.cmd([[ xmap gs <Plug>VSurround ]]) end
   }
 
+  -- '.' command for repeating macros with plugins
+  use { "tpope/vim-repeat" }
+
   -- Navigation between tmux and nvim
   use {
     "numToStr/Navigator.nvim",
-    config = function() require("Navigator").setup { auto_save = 'current' } end
+    config = function()
+      require("Navigator").setup { auto_save = 'current' }
+    end
   }
 
   --
@@ -153,7 +157,11 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
       "nvim-web-devicons",
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1  }
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        cond = vim.fn.executable 'make' == 1,
+        run = 'make'
+      }
     },
     setup = function() require "plugins.configs.telescope".setup() end,
     config = function() require "plugins.configs.telescope".config() end
@@ -168,7 +176,7 @@ return packer.startup(function(use)
       "lewis6991/gitsigns.nvim",
       opt = true,
       event = { "BufRead", "BufNewFile" },
-      requires = { "nvim-lua/plenary.nvim" },
+      requires = "nvim-lua/plenary.nvim",
       config = function() require "plugins.configs.gitsigns" end
     }
   }
@@ -197,7 +205,10 @@ return packer.startup(function(use)
   use {
     {
       "L3MON4D3/LuaSnip", -- snippets
-      requires = { "rafamadriz/friendly-snippets", event = "InsertEnter" },
+      requires = {
+        "rafamadriz/friendly-snippets",
+        event = "InsertEnter"
+      },
     },
     {
       "hrsh7th/nvim-cmp",
@@ -254,7 +265,10 @@ return packer.startup(function(use)
       config = function() require "plugins.configs.autopairs" end
     },
     { "windwp/nvim-ts-autotag", after = "nvim-treesitter" },
-    { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
+    {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      after = "nvim-treesitter"
+    }
   }
 
   -- When we are bootstrapping a configuration, it doesn't

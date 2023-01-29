@@ -9,6 +9,25 @@ map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 -- use ESC in normal mode to turn off search highlighting
 map("n", "<Esc>", ":nohlsearch<CR>", opt)
 
+-- Allow moving the cursor through wrapped visual lines with 'j' and 'k',
+-- also don't use g[j|k] when in operator pending mode, so it doesn't
+-- alter 'd', 'y' or 'c' empty mode, is the same as using :map
+map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opt_expr)
+map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr)
+
+-- Consistent movement
+map({ "n", "v" }, "gh", "^", opt)
+map({ "n", "v" }, "gl", "$", opt)
+
+-- Easy edits
+map("v", "<", "<gv", opt)
+map("v", ">", ">gv", opt)
+map({ "n", "x" }, "Y", "yg$", opt)
+
+-- Jump quickfix list
+map("n", "[l", ":cprevious<CR>", opt)
+map("n", "]l", ":cnext<CR>", opt)
+
 -- Telescope
 map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opt)
 map("n", "<Leader>fb", "<cmd>Telescope buffers ignore_current_buffer=true<CR>", opt)
@@ -21,16 +40,6 @@ map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
 
 -- Git
 map("n", "<Leader>g", ":vert Git<CR>", opt)
-
--- Consistent movement
-map({ "n", "v" }, "gh", "^", opt)
-map({ "n", "v" }, "gl", "$", opt)
-
--- Allow moving the cursor through wrapped visual lines with 'j' and 'k', also
--- don't use g[j|k] when in operator pending mode, so it doesn't alter 'd', 'y' or 'c'
--- empty mode is same as using :map
-map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opt_expr)
-map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr)
 
 -- Buffers
 map("n", "<Leader><Leader>", "<C-^>", opt)
@@ -48,50 +57,6 @@ map({ "n", "v" }, "<C-k>",
   function() require('Navigator').up() end, opt)
 map({ "n", "v" }, "<C-j>",
   function() require('Navigator').down() end, opt)
-
--- Easy edits
-map("v", "<", "<gv", opt)
-map("v", ">", ">gv", opt)
-map({ "n", "x" }, "Y", "yg$", opt)
-
--- Jump quickfix list
-map("n", "[l", ":cprevious<CR>", opt)
-map("n", "]l", ":cnext<CR>", opt)
-
--- Hop nvim bindings change f,F,t,T,s behave with hop
-local pos = require('hop.hint').HintDirection
-
-map('', 'f', function()
-  require('hop').hint_char1({
-    direction = pos.AFTER_CURSOR,
-    current_line_only = true
-  })
-end, {remap=true})
-
-map('', 'F', function()
-  require('hop').hint_char1({
-    direction = pos.BEFORE_CURSOR,
-    current_line_only = true
-  })
-end, {remap=true})
-
-map('', 't', function()
-  require('hop').hint_char1({
-    direction = pos.AFTER_CURSOR,
-    current_line_only = true,
-    hint_offset = -1
-  })
-end, {remap=true})
-
-map('', 'T', function()
-  require('hop').hint_char1({
-    direction = pos.BEFORE_CURSOR,
-    current_line_only = true,
-    hint_offset = 1
-  })
-end, {remap=true})
-
-map('', 's', function() require('hop').hint_words() end, {remap=true})
 
 --
 -- Toggle spelling (spanish and english)

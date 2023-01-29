@@ -69,15 +69,17 @@ fg_bg("PmenuSel", colors.bgAlt, colors.blue, "bold") -- item selected
 bg("PmenuSbar", colors.bgAlt) -- scrollbar
 bg("PmenuThumb", colors.fgAlt) -- thumb scrollbar
 
---
+
+-- Plugins Highlights
+
 -- nvim-cmp completion menu
---
 fg("CmpItemAbbr", colors.grey) -- text autocomplete
 fg("CmpItemKind", colors.blue) -- icon and kind info
 ui("CmpItemMenu", "bold") -- source
 fg("CmpItemAbbrMatchFuzzy", colors.blue, "italic") -- fuzzy match
 fg("CmpItemAbbrDeprecated", colors.red, "strikethrough") -- ??
--- Kind specific colors
+
+-- cmp Kind specific colors
 fg("CmpItemKindFunction", colors.pink)
 fg("CmpItemKindMethod", colors.pink)
 fg("CmpItemKindKeyword", colors.fgAlt2)
@@ -88,38 +90,30 @@ fg("CmpItemKindStruct", colors.orange)
 fg("CmpItemKindInterface", colors.yellow)
 fg("CmpItemKindEvent", colors.yellow)
 
---
 -- BlankIndent Lines
---
 fg("IndentBlanklineChar", colors.bgAlt2)
 fg("IndentBlanklineContextChar", colors.fgAlt)
 
---
--- LSP
---
+-- LSP config
 fg("DiagnosticError", colors.red)
 fg("DiagnosticWarn", colors.yellow)
 fg("DiagnosticInfo", colors.blue)
 fg("DiagnosticHint", colors.magenta)
 
+-- LSP neovim float window colors
+bg("NormalFloat", colors.bgAlt)
+fg_bg("FloatBorder", colors.fg, colors.bgAlt)
+
 -- LspSaga
 fg("SagaBorder", colors.fg)
 
---
 -- GitSigns
---
 fg("GitSignsAdd", colors.green)
 fg("GitSignsChange", colors.blue)
 fg("GitSignsChangeDelete", colors.red)
 fg("GitSignsDelete", colors.red)
 
---
--- Lsp neovim float window colors
---
-bg("NormalFloat", colors.bgAlt)
-fg_bg("FloatBorder", colors.fg, colors.bgAlt)
-
--- Treesitter highlight colors
+-- Treesitter nodes highlight colors
 fg("@property", colors.cyan)
 fg("@namespace", colors.fg)
 
@@ -127,15 +121,12 @@ fg("@namespace", colors.fg)
 fg("TelescopeBorder", colors.grey)
 fg("TelescopeTitle", colors.fgAlt2)
 
--- Hop plugin
-fg("HopUnmatched", colors.grey)
-fg("HopNextKey", colors.red, "bold,underline")
-fg("HopNextKey1", colors.blue, "bold,underline")
-fg("HopNextKey2", colors.cyan, "bold")
+-- Leap
+fg("LeapMatch", colors.yellow, "bold,underline,nocombine")
+fg_bg("LeapLabelPrimary",colors.bg, colors.yellow, "bold")
+fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
 
---
 -- NvimTree
---
 fg("NvimTreeRootFolder", colors.blue, "italic")
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
