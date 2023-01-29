@@ -41,7 +41,7 @@ For updating all submodules use `git pull --recurse-submodules`
 ### ❖ Firefox
 You can install the custom Firefox CSS by first enabling toolkit.
 `legacyUserProfileCustomizations.stylesheets` in `about:config` and move
-the contents of `misc/firefox` to ``$HOME/.mozilla/firefox/xxxxxxxx.default-release/chrome`.
+the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-release/chrome`.
 
 ## ❖ Dependencies
 * Neovim
