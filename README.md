@@ -22,7 +22,8 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Zathura (PDF reader) config.
 * Neovim config files.
 * Tmux config.
-* Alacritty/Kitty terminal configurations.
+* Alacritty and Kitty terminal configurations.
+* Firefox theme
 
 ### ❖ Zsh
 <div align="center">
@@ -37,9 +38,10 @@ This are the plugins that I'm using:
 
 For updating all submodules use `git pull --recurse-submodules`
 
-### ❖ Theme
-* Current terminal: [Kitty](https://sw.kovidgoyal.net/kitty/).
-* Terminal font: [JetBrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts).
+### ❖ Firefox
+You can install the custom Firefox CSS by first enabling toolkit.
+`legacyUserProfileCustomizations.stylesheets` in `about:config` and move
+the contents of `misc/firefox` to ``$HOME/.mozilla/firefox/xxxxxxxx.default-release/chrome`.
 
 ## ❖ Dependencies
 * Neovim
@@ -70,6 +72,6 @@ For updating all submodules use `git pull --recurse-submodules`
 
 # ❖ Inspired
 * Gilles Castel's [blog](https://castel.dev/); I got his snippets in this repository.
-* The theme colors and some neovim configurations comes from TheRealKizu [dotfiles](https://github.com/TheRealKizu/dotfiles) and his [neovim repo](https://github.com/TheRealKizu/neodots).
+* The firefox theme and some other configurations comes from Janleight's [dotfiles](https://github.com/janleigh/dotfiles)
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 * Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of things of his Zsh configuration.
