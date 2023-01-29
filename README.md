@@ -71,7 +71,6 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
   * `pacman -S texlive-most texlive-lang` for Arch-based distros.
 
 # ❖ Inspired
-* Gilles Castel's [blog](https://castel.dev/); I got his snippets in this repository.
-* The firefox theme and some other configurations comes from Janleight's [dotfiles](https://github.com/janleigh/dotfiles)
+* The firefox theme and some other configurations comes from Janleight's [dotfiles](https://github.com/janleigh/dotfiles).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 * Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of things of his Zsh configuration.
