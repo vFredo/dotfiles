@@ -242,7 +242,7 @@ return packer.startup(function(use)
       ft = "tex",
       requires = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
       config = function ()
-        require("luasnip.loaders.from_vscode").lazy_load()
+        require'luasnip-latex-snippets'.setup()
       end
     }
   }
