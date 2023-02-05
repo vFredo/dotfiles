@@ -29,6 +29,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export MANWIDTH='100'
 export MANPAGER='nvim +Man!'
 
-# npm cache and config
+# node/npm cache and config
+source /usr/share/nvm/init-nvm.sh
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
