@@ -8,12 +8,12 @@ theme.colors = {
   yellow = "#d8a657",
   blue = "#7daea3",
   magenta = "#93869b",
-  purple = "#C586C0",
+  purple = "#d3869b",
   cyan = "#89b482",
   grey = "#665c54",
-  orange = "#dc9656",
-  orangeAlt = "#d65d0e",
-  pink = "#d3869b",
+  orange = "#e78a4e",
+  orangeAlt = "#dd8044",
+  pink = "#ce8196",
 
   -- Alternative colors
   bgAlt = "#282828",
@@ -37,14 +37,14 @@ local style = {
   b05 = delHash(c.fg), -- Default Foreground, Caret, Delimiters, Operators
   b06 = delHash(c.fgAlt2), -- Light Foreground
   b07 = delHash(c.fg), -- Light Background
-  b08 = delHash(c.red), -- Var, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+  b08 = delHash(c.fg), -- Var, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
   b09 = delHash(c.yellow), -- Ints, Bool, Constants, XML Attributes, Markup Link Url
   b0A = delHash(c.yellow), -- Classes, Markup Bold, Search Text Background
   b0B = delHash(c.green), -- Strings, Inherited Class, Markup Code, Diff Inserted
   b0C = delHash(c.cyan), --  Regular Expressions, Escape Characters, Markup Quotes
-  b0D = delHash(c.pink), -- Functions, Methods, Attribute IDs, Headings
-  b0E = delHash(c.blue), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
-  b0F = delHash(c.orangeAlt) -- Opening/Closing Embedded Language Tags
+  b0D = delHash(c.blue), -- Functions, Methods, Attribute IDs, Headings
+  b0E = delHash(c.purple), -- Keywords, Storage, Selector, Markup Italic, Diff Changed
+  b0F = delHash(c.red) -- Opening/Closing Embedded Language Tags
 }
 
 -- Just return the colors if base16 couldn't load
@@ -56,7 +56,7 @@ if not ok then
 end
 
 -- Set base16 neovim theme
-base16.themes["dark-palette"] = {
+base16.themes["gruvbox-material-custom"] = {
   base00 = style.b00; base01 = style.b01; base02 = style.b02; base03 = style.b03;
   base04 = style.b04; base05 = style.b05; base06 = style.b06; base07 = style.b07;
   base08 = style.b08; base09 = style.b09; base0A = style.b0A; base0B = style.b0B;
@@ -64,6 +64,6 @@ base16.themes["dark-palette"] = {
 }
 
 -- Load theme
-base16(base16.themes["dark-palette"], true)
+base16(base16.themes["gruvbox-material-custom"], true)
 
 return theme

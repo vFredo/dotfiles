@@ -1,7 +1,7 @@
 # basics
 export LANG=en_US.UTF-8
-# export XDG_CONFIG_HOME="$HOME/.config"
-# export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export LS_COLORS="$LS_COLORS:ow=1;036"
 

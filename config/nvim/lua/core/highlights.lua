@@ -107,15 +107,20 @@ fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 -- LspSaga
 fg("SagaBorder", colors.fg)
 
--- GitSigns
+-- GitSigns and fugitive
 fg("GitSignsAdd", colors.green)
 fg("GitSignsChange", colors.blue)
 fg("GitSignsChangeDelete", colors.red)
 fg("GitSignsDelete", colors.red)
+fg("DiffRemoved", colors.red)
+fg("fugitiveHash", colors.red)
+fg("fugitiveUnstagedHeading", colors.red)
+fg("fugitiveStagedHeading", colors.green)
 
 -- Treesitter nodes highlight colors
-fg("@property", colors.cyan)
-fg("@namespace", colors.fg)
+fg("@repeat", colors.purple)
+fg("@field", colors.red)
+fg("@variable.builtin", colors.yellow)
 
 -- Telescope
 fg("TelescopeBorder", colors.grey)

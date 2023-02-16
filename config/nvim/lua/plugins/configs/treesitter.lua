@@ -5,12 +5,11 @@ end
 
 ts_config.setup {
   ensure_installed = {
-    "bash", "c", "cpp", "cmake", "make", "comment",
+    "bash", "c", "cpp", "make", "comment",
     "css", "scss", "dockerfile", "go", "gomod",
-    "help", "html", "json", "json5", "jsdoc",
-    "javascript", "typescript", "php", "python",
-    "rust", "vim", "lua", "vue","yaml", "markdown",
-    "markdown_inline"
+    "help", "html", "json", "javascript", "php",
+    "typescript" , "python", "rust", "vim", "lua",
+    "vue","yaml", "markdown", "markdown_inline"
   },
   highlight = {
     enable = true,
