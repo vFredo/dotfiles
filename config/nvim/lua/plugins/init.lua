@@ -192,13 +192,7 @@ return packer.startup(function(use)
       { "williamboman/mason.nvim", config = function() require("mason").setup() end },
       { "williamboman/mason-lspconfig.nvim" }
     },
-    config = function() require "plugins.configs.lspconfig" end,
-  }
-
-  use {
-    "glepnir/lspsaga.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
-    config = function() require "plugins.configs.saga-lsp" end
+    config = function() require "plugins.configs.lspconfig" end
   }
 
   -- Autocompletion/Snippets

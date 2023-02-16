@@ -127,7 +127,6 @@ fg("@text.reference", colors.yellow)
 fg("@text.uri", colors.cyan)
 fg("@text.title", colors.purple)
 
-
 -- Telescope
 fg("TelescopeBorder", colors.grey)
 fg("TelescopeTitle", colors.fgAlt2)

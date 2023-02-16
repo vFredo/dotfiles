@@ -3,32 +3,7 @@
 --
 local mason_lspconfig = require("mason-lspconfig")
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local buf_map = require("core.utils").buf_map
-  local function buf_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings
-  local opts = { noremap = true, silent = true }
-  buf_map(bufnr, 'n', 'gd', '<cmd>lua require("telescope.builtin").lsp_definitions()<cr>', opts)
-  buf_map(bufnr, 'n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', opts)
-  buf_map(bufnr, "n", "ga", "<cmd>Lspsaga code_action<cr>", opts)
-  buf_map(bufnr, "n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)
-  buf_map(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-  buf_map(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-  buf_map(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-
-  -- if the server client can format files then create the command 'Format'
-  if client.server_capabilities.documentFormattingProvider then
-    vim.cmd([[ command! Format lua vim.lsp.buf.format { async = true } ]])
-  end
-end
-
--- Servers to install with mason-lspconfig
+-- Servers configurations and ensured they are installed
 local servers = {
   clangd = {},
   pyright = {},
@@ -62,6 +37,31 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
   automatic_installation = true
 }
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local buf_map = require("core.utils").map
+  local function buf_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings
+  local opts = { noremap = true, buffer = bufnr, silent = true }
+  buf_map('n', 'gd', require("telescope.builtin").lsp_definitions, opts)
+  buf_map('n', 'gr', require("telescope.builtin").lsp_references, opts)
+  buf_map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+  buf_map("n", "K", vim.lsp.buf.hover, opts)
+  buf_map("n", "ga", vim.lsp.buf.code_action, opts)
+  buf_map("n", "[d", vim.diagnostic.goto_prev, opts)
+  buf_map("n", "]d", vim.diagnostic.goto_next, opts)
+
+  -- if the server client can format files then create the command 'Format'
+  if client.server_capabilities.documentFormattingProvider then
+    vim.cmd([[ command! Format lua vim.lsp.buf.format { async = true } ]])
+  end
+end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -98,4 +98,11 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
 })
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "rounded",
+    title = "hover"
+  }
+)
 
