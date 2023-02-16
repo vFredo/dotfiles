@@ -43,7 +43,7 @@ local servers = {
       analyses = { unusedparams = true, shadow = true, }
     },
   },
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
       diagnostics = { globals = { "vim", "packer_plugins" } },

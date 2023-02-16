@@ -9,6 +9,7 @@
       "dashboard",
       "packer",
       "lspinfo",
+      "mason",
       "TelescopePrompt",
       "TelescopeResults",
     },

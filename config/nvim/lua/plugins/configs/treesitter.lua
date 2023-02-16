@@ -9,7 +9,8 @@ ts_config.setup {
     "css", "scss", "dockerfile", "go", "gomod",
     "help", "html", "json", "json5", "jsdoc",
     "javascript", "typescript", "php", "python",
-    "rust", "vim", "lua", "vue","yaml", "markdown"
+    "rust", "vim", "lua", "vue","yaml", "markdown",
+    "markdown_inline"
   },
   highlight = {
     enable = true,
