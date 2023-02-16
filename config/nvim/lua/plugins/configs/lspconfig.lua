@@ -20,14 +20,12 @@ local servers = {
   },
   lua_ls = {
     Lua = {
-      runtime = { version = "LuaJIT", path = vim.split(package.path, ';') },
+      runtime = { version = "LuaJIT" },
       diagnostics = { globals = { "vim", "packer_plugins" } },
       telemetry = { enable = false },
       workspace = {
-        library = { -- Make the server aware of Neovim runtime files
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        }
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true)
       },
     }
   }
@@ -51,9 +49,10 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, buffer = bufnr, silent = true }
   buf_map('n', 'gd', require("telescope.builtin").lsp_definitions, opts)
   buf_map('n', 'gr', require("telescope.builtin").lsp_references, opts)
+  buf_map('n', 'gi', require("telescope.builtin").lsp_implementations, opts)
+  buf_map("n", "ga", vim.lsp.buf.code_action, opts)
   buf_map('n', '<leader>rn', vim.lsp.buf.rename, opts)
   buf_map("n", "K", vim.lsp.buf.hover, opts)
-  buf_map("n", "ga", vim.lsp.buf.code_action, opts)
   buf_map("n", "[d", vim.diagnostic.goto_prev, opts)
   buf_map("n", "]d", vim.diagnostic.goto_next, opts)
 
@@ -64,8 +63,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 mason_lspconfig.setup_handlers {
   function(server_name)

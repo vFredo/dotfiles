@@ -29,11 +29,16 @@ map("n", "[l", ":cprevious<CR>", opt)
 map("n", "]l", ":cnext<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>ff", "<cmd>Telescope find_files hidden=true<CR>", opt)
-map("n", "<Leader>fb", "<cmd>Telescope buffers ignore_current_buffer=true<CR>", opt)
-map("n", "<Leader>fg",
-  "<cmd>Telescope live_grep additional_args='--hidden'<CR>", opt)
-map("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>", opt)
+map("n", "<Leader>ff", function()
+  require('telescope.builtin').find_files({hidden = true})
+end, opt)
+map("n", "<Leader>fb", function()
+  require('telescope.builtin').buffers({ignore_current_buffer = true})
+end,opt)
+map("n", "<Leader>fg", function()
+  require('telescope.builtin').live_grep({additional_args = '--hidden'})
+end, opt)
+map("n", "<Leader>fh", require('telescope.builtin').help_tags, opt)
 
 -- nvim-tree
 map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
@@ -49,14 +54,10 @@ map("n", "[b", ":BufferLineCyclePrev<CR>", opt)
 map("n", "]b", ":BufferLineCycleNext<CR>", opt)
 
 -- Navigate between vim buffers, vim splits and tmux panes
-map({ "n", "v" }, "<C-h>",
-  function() require('Navigator').left() end, opt)
-map({ "n", "v" }, "<C-l>",
-  function() require('Navigator').right() end, opt)
-map({ "n", "v" }, "<C-k>",
-  function() require('Navigator').up() end, opt)
-map({ "n", "v" }, "<C-j>",
-  function() require('Navigator').down() end, opt)
+map({ "n", "v" }, "<C-h>", require('Navigator').left, opt)
+map({ "n", "v" }, "<C-l>", require('Navigator').right, opt)
+map({ "n", "v" }, "<C-k>", require('Navigator').up, opt)
+map({ "n", "v" }, "<C-j>", require('Navigator').down, opt)
 
 --
 -- Toggle spelling (spanish and english)
