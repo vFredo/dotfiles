@@ -116,11 +116,17 @@ fg("DiffRemoved", colors.red)
 fg("fugitiveHash", colors.red)
 fg("fugitiveUnstagedHeading", colors.red)
 fg("fugitiveStagedHeading", colors.green)
+fg("gitcommitOverflow", colors.red)
 
 -- Treesitter nodes highlight colors
 fg("@repeat", colors.purple)
 fg("@field", colors.red)
 fg("@variable.builtin", colors.yellow)
+fg("@text.literal", colors.orange)
+fg("@text.reference", colors.yellow)
+fg("@text.uri", colors.cyan)
+fg("@text.title", colors.purple)
+
 
 -- Telescope
 fg("TelescopeBorder", colors.grey)
