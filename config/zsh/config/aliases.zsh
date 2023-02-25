@@ -30,7 +30,7 @@ alias vbsp='vim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
 # Vim/neovim aliases
 if command -v nvim &> /dev/null
 then
-  alias vim='nvim'
+  alias v='nvim'
   alias vc='cd ~/.config/nvim && nvim init.lua'
 elif command -v vim &> /dev/null
 then

@@ -121,6 +121,8 @@ fg("gitcommitOverflow", colors.red)
 -- Treesitter nodes highlight colors
 fg("@repeat", colors.purple)
 fg("@field", colors.red)
+fg("@variable", colors.fg)
+fg("@property", colors.fg)
 fg("@variable.builtin", colors.yellow)
 fg("@text.literal", colors.orange)
 fg("@text.reference", colors.yellow)
