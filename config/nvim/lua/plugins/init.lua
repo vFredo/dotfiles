@@ -41,7 +41,7 @@ return require('lazy').setup({
   -- Navigation between tmux and nvim
   {
     "numToStr/Navigator.nvim",
-    config = { auto_save = 'current' }
+    opts = { auto_save = 'current' }
   },
 
   --
@@ -82,7 +82,7 @@ return require('lazy').setup({
   -- Color highlighter for hex, rgb, etc...
   {
     "NvChad/nvim-colorizer.lua",
-    config = {
+    opts = {
       user_default_options = {
         names = false,
         mode = "virtualtext",
