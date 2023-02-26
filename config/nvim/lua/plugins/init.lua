@@ -112,15 +112,13 @@ return require('lazy').setup({
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-lua/popup.nvim",
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         cond = vim.fn.executable 'make' == 1,
         build = 'make'
       }
     },
-    setup = function() require "plugins.configs.telescope".setup() end,
-    config = function() require "plugins.configs.telescope".config() end
+    config = function() require "plugins.configs.telescope" end
   },
 
   --
