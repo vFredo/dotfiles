@@ -10,6 +10,7 @@
       "packer",
       "lspinfo",
       "mason",
+      "lazy",
       "TelescopePrompt",
       "TelescopeResults",
     },

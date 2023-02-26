@@ -1,7 +1,6 @@
 --
 -- Install servers
 --
-require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 
 -- Servers configurations and ensured they are installed

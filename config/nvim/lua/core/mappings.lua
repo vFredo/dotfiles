@@ -30,18 +30,15 @@ map("n", "]l", ":cnext<CR>", opt)
 
 -- Telescope
 map("n", "<Leader>ff", function()
-  require('telescope.builtin').find_files({hidden = true})
+  require('telescope.builtin').find_files({ hidden = true })
 end, opt)
 map("n", "<Leader>fb", function()
-  require('telescope.builtin').buffers({ignore_current_buffer = true})
-end,opt)
+  require('telescope.builtin').buffers({ ignore_current_buffer = true })
+end, opt)
 map("n", "<Leader>fg", function()
-  require('telescope.builtin').live_grep({additional_args = '--hidden'})
+  require('telescope.builtin').live_grep({ additional_args = '--hidden' })
 end, opt)
 map("n", "<Leader>fh", require('telescope.builtin').help_tags, opt)
-
--- Git
-map("n", "<Leader>g", ":vert Git<CR>", opt)
 
 -- Buffers
 map("n", "<Leader><Leader>", "<C-^>", opt)

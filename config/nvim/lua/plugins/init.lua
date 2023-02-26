@@ -57,21 +57,19 @@ return require('lazy').setup({
   -- Add nice icons for patch fonts
   {
     "kyazdani42/nvim-web-devicons",
-    module = "nvim-web-devicons",
+    module = true,
     config = function() require "plugins.configs.devicons" end
   },
 
   -- Buffer list on top of the screen
   {
     "akinsho/nvim-bufferline.lua",
-    dependencies = "nvim-web-devicons",
     config = function() require "plugins.configs.bufferline" end
   },
 
   -- Indentation guides/tracking
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
     config = function() require "plugins.configs.blankline" end
   },
 
@@ -100,11 +98,10 @@ return require('lazy').setup({
   -- Tree view of the current directory
   {
     "kyazdani42/nvim-tree.lua",
-    cmd = "NvimTreeToggle",
+    lazy = true,
     keys = {
-      {"<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "[t]ree view"}
+      { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "[t]ree view" }
     },
-    dependencies = "nvim-web-devicons",
     config = function() require "plugins.configs.nvim-tree" end
   },
 
@@ -115,7 +112,6 @@ return require('lazy').setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
-      "nvim-web-devicons",
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         cond = vim.fn.executable 'make' == 1,
@@ -129,7 +125,13 @@ return require('lazy').setup({
   --
   -- Git
   --
-  { "tpope/vim-fugitive" },
+  {
+    "tpope/vim-fugitive",
+    lazy = true,
+    keys = {
+      { "<leader>g", "<cmd>vert Git<cr>", desc = "[g]it view" }
+    },
+  },
   {
     "lewis6991/gitsigns.nvim",
     dependencies = "nvim-lua/plenary.nvim",
@@ -143,7 +145,7 @@ return require('lazy').setup({
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     dependencies = {
-      "williamboman/mason.nvim",
+      { "williamboman/mason.nvim", config = true },
       "williamboman/mason-lspconfig.nvim"
     },
     config = function() require "plugins.configs.lspconfig" end
@@ -192,7 +194,7 @@ return require('lazy').setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = function()
-      pcall(require('nvim-treesitter.install').update{ with_sync = true })
+      pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
     config = function() require "plugins.configs.treesitter" end,
     dependencies = {
