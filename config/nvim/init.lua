@@ -1,33 +1,37 @@
 --
 -- Disable some built-in plugins we don't want
 --
-local disabled_built_ins = {
-  'tutor_mode_plugin',
-  'gzip',
-  'zipPlugin',
-  'zip',
-  'tarPlugin',
-  'tar',
+local disabled_builtins = {
+  'tutor',
+  '2html_plugin',
   'matchit',
-  'shada_plugin',
-  'netrwPlugin',
-  'netrwSettings',
+  'gzip',
+  'tar',
+  'tarPlugin',
+  'zip',
+  'zipPlugin',
+  'loaded_vimball',
+  'loaded_vimballPlugin',
+  'loaded_netrw',
+  'loaded_netrwPlugin',
+  'loaded_netrwSettings',
+  'loaded_netrwFileHandlers',
 }
 
-for _, plug in ipairs(disabled_built_ins) do
-  vim.g['loaded_' .. plug] = 1
+for _, plug in ipairs(disabled_builtins) do
+  vim.g['loaded_' .. plug] = true
 end
 
 --
 -- Initialize configuration
 --
 local modules = {
-  "core.options",
-  "plugins",
-  "core.autocmds",
-  "core.mappings",
-  "core.theme",
-  "core.highlights",
+  'core.options',
+  'plugins',
+  'core.autocmds',
+  'core.mappings',
+  'core.theme',
+  'core.highlights',
 }
 
 for _, module in ipairs(modules) do

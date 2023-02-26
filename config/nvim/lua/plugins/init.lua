@@ -57,7 +57,7 @@ return require('lazy').setup({
   -- Add nice icons for patch fonts
   {
     "kyazdani42/nvim-web-devicons",
-    module = true,
+    lazy = true,
     config = function() require "plugins.configs.devicons" end
   },
 
@@ -109,6 +109,7 @@ return require('lazy').setup({
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
+    lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
@@ -154,10 +155,12 @@ return require('lazy').setup({
   -- Autocompletion/Snippets
   {
     "L3MON4D3/LuaSnip", -- snippets
+    event = 'InsertEnter',
     dependencies = { "rafamadriz/friendly-snippets" },
   },
   {
     "hrsh7th/nvim-cmp",
+    event = 'InsertEnter',
     dependencies = {
       "onsails/lspkind-nvim", -- icons in completion menu
       "hrsh7th/cmp-nvim-lsp",
@@ -203,6 +206,7 @@ return require('lazy').setup({
       "JoosepAlviste/nvim-ts-context-commentstring",
       {
         "windwp/nvim-autopairs",
+        event = "InsertEnter",
         config = function() require "plugins.configs.autopairs" end
       },
       {
