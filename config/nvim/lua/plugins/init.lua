@@ -22,6 +22,13 @@ return require('lazy').setup({
   -- Navigation
   --
 
+  -- Comment lines more easily and motions
+  {
+    "terrortylor/nvim-comment",
+    after = "nvim-treesitter/nvim-treesitter",
+    config = function() require "plugins.configs.comment" end
+  },
+
   -- Easy navigation between lines with 's' and motions
   {
     "ggandor/leap.nvim",
@@ -70,6 +77,7 @@ return require('lazy').setup({
   -- Indentation guides/tracking
   {
     "lukas-reineke/indent-blankline.nvim",
+    after = "nvim-treesitter/nvim-treesitter",
     config = function() require "plugins.configs.blankline" end
   },
 
@@ -158,7 +166,7 @@ return require('lazy').setup({
   },
   {
     "hrsh7th/nvim-cmp",
-    event = 'InsertEnter',
+    event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
       "onsails/lspkind-nvim", -- icons in completion menu
       "hrsh7th/cmp-nvim-lsp",
@@ -170,23 +178,11 @@ return require('lazy').setup({
     config = function() require "plugins.configs.completion" end
   },
 
-  -- Latex integration
   {
-    "lervag/vimtex",
-    ft = "tex",
-    setup = function()
-      vim.g.tex_flavor = 'latex'
-      vim.g.vimtex_view_method = 'zathura'
-      vim.g.vimtex_quickfix_mode = 0
-    end
-  },
-  {
-    "iurimateus/luasnip-latex-snippets.nvim",
-    ft = "tex",
-    dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
-    config = function()
-      require 'luasnip-latex-snippets'.setup()
-    end
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
+    config = function() require "plugins.configs.autopairs" end
   },
 
   --
@@ -202,16 +198,27 @@ return require('lazy').setup({
       "windwp/nvim-ts-autotag",
       "nvim-treesitter/playground",
       "JoosepAlviste/nvim-ts-context-commentstring",
-      {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function() require "plugins.configs.autopairs" end
-      },
-      {
-        "terrortylor/nvim-comment", -- Comment lines more easily and motions
-        config = function() require "plugins.configs.comment" end
-      },
     }
   },
 
+  --
+  -- Latex integration
+  --
+  {
+    "lervag/vimtex",
+    ft = "tex",
+    setup = function()
+      vim.g.tex_flavor = 'latex'
+      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_quickfix_mode = 0
+    end
+  },
+  {
+    "iurimateus/luasnip-latex-snippets.nvim",
+    ft = "tex",
+    after = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    config = function()
+      require 'luasnip-latex-snippets'.setup()
+    end
+  },
 })

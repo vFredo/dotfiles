@@ -25,6 +25,11 @@ telescope.setup({
       i = { ["<esc>"] = require('telescope.actions').close },
     },
   },
+  pickers = {
+    find_files = { hidden = true },
+    buffers = { ignore_current_buffer = true },
+    live_grep = { addittional_args = '--hidden' }
+  },
   extensions = {
     fzf = {
       fuzzy = true, -- false will only do exact matching
