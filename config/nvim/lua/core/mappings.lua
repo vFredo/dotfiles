@@ -40,9 +40,6 @@ map("n", "<Leader>fg", function()
 end, opt)
 map("n", "<Leader>fh", require('telescope.builtin').help_tags, opt)
 
--- nvim-tree
-map("n", "<Leader>t", ":NvimTreeToggle<CR>", opt)
-
 -- Git
 map("n", "<Leader>g", ":vert Git<CR>", opt)
 

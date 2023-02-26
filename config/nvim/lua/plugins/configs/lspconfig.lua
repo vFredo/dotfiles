@@ -1,6 +1,7 @@
 --
 -- Install servers
 --
+require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig")
 
 -- Servers configurations and ensured they are installed
@@ -24,6 +25,7 @@ local servers = {
       diagnostics = { globals = { "vim", "packer_plugins" } },
       telemetry = { enable = false },
       workspace = {
+        checkThirdParty = false,
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true)
       },

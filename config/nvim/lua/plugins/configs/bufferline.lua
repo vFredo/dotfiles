@@ -23,8 +23,8 @@ bufferline.setup {
     show_close_icon = false,
     show_buffer_close_icons = false,
     show_tab_indicators = true,
-    max_name_length = 14,
-    max_prefix_length = 13,
+    max_name_length = 16,
+    max_prefix_length = 8,
     separator_style = "thin",
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, _, _, _)

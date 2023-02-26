@@ -18,14 +18,6 @@ for _, plug in ipairs(disabled_built_ins) do
   vim.g['loaded_' .. plug] = 1
 end
 
--- Impatient plugin
-local present, impatient = pcall(require, "impatient")
-if present then
-  impatient.enable_profile()
-else
-  vim.notify("Couldn't load impatient plugin\n Error: " .. impatient)
-end
-
 --
 -- Initialize configuration
 --

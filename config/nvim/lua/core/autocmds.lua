@@ -35,7 +35,7 @@ autocmd("FileType",
 -- Check spell on git commits
 autocmd("FileType", {
   group = ft_group,
-  pattern = { "gitcommit", "markdown" },
+  pattern = { "gitcommit" },
   callback = function ()
     require("core.utils").toggleSpelling('ft')
   end,
