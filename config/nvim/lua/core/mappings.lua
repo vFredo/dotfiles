@@ -15,7 +15,7 @@ map({ "n", "v" }, "<Leader>y", [["+y]], opt)
 map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 
 -- use ESC in normal mode to turn off search highlighting
-map("n", "<Esc>", ":nohlsearch<CR>", opt)
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", opt)
 
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k',
 -- also don't use g[j|k] when in operator pending mode, so it doesn't
@@ -33,8 +33,8 @@ map("v", ">", ">gv", opt)
 map({ "n", "x" }, "Y", "yg$", opt)
 
 -- Jump quickfix list
-map("n", "[l", ":cprevious<CR>", opt)
-map("n", "]l", ":cnext<CR>", opt)
+map("n", "[l", "<cmd>cprevious<CR>", opt)
+map("n", "]l", "<cmd>cnext<CR>", opt)
 
 -- Telescope
 map("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opt)
@@ -46,8 +46,8 @@ map("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opt)
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L", opt)
 map("n", "<Leader>H", "<C-w>H", opt)
-map("n", "[b", ":BufferLineCyclePrev<CR>", opt)
-map("n", "]b", ":BufferLineCycleNext<CR>", opt)
+map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", opt)
+map("n", "]b", "<cmd>BufferLineCycleNext<cr>", opt)
 
 -- Navigate between vim buffers, vim splits and tmux panes
 map({ "n", "v" }, "<C-h>", require('Navigator').left, opt)
