@@ -68,6 +68,9 @@ return require('lazy').setup({
     config = function() require "plugins.configs.devicons" end
   },
 
+  -- Improve the default vim.ui interfaces
+  { "stevearc/dressing.nvim", event = "VeryLazy" },
+
   -- Buffer list on top of the screen
   {
     "akinsho/nvim-bufferline.lua",
@@ -222,4 +225,11 @@ return require('lazy').setup({
       require 'luasnip-latex-snippets'.setup()
     end
   },
+}, {
+  ui = { border = "rounded" },
+  performance = {
+    rtp = {
+      paths = { vim.fn.stdpath("data") .. "/site" }
+    }
+  }
 })
