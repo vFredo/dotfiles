@@ -4,22 +4,18 @@
 local disabled_builtins = {
   'tutor',
   '2html_plugin',
-  'matchit',
   'gzip',
-  'tar',
-  'tarPlugin',
-  'zip',
+  'matchit',
+  'tohtml',
   'zipPlugin',
-  'loaded_vimball',
-  'loaded_vimballPlugin',
-  'loaded_netrw',
-  'loaded_netrwPlugin',
-  'loaded_netrwSettings',
-  'loaded_netrwFileHandlers',
+  'tarPlugin',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
 }
 
 for _, plug in ipairs(disabled_builtins) do
-  vim.g['loaded_' .. plug] = true
+  vim.g['loaded_' .. plug] = 1
 end
 
 --

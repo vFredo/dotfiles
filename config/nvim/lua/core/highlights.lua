@@ -108,9 +108,6 @@ fg("DiagnosticHint", colors.magenta)
 bg("NormalFloat", colors.bgAlt)
 fg_bg("FloatBorder", colors.fg, colors.bgAlt)
 
--- LspSaga
-fg("SagaBorder", colors.fg)
-
 -- GitSigns and fugitive
 fg("GitSignsAdd", colors.green)
 fg("GitSignsChange", colors.blue)

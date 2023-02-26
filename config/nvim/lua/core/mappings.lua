@@ -2,6 +2,14 @@ local map = require("core.utils").map
 local opt = { noremap = true, silent = true }
 local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
+
 -- Yank and paste text from clipboard
 map({ "n", "v" }, "<Leader>y", [["+y]], opt)
 map({ "n", "v" }, "<Leader>p", [["+p]], opt)
