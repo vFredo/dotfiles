@@ -164,11 +164,6 @@ return require('lazy').setup({
 
   -- Autocompletion/Snippets
   {
-    "L3MON4D3/LuaSnip", -- snippets
-    event = 'InsertEnter',
-    dependencies = { "rafamadriz/friendly-snippets" },
-  },
-  {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
@@ -177,15 +172,18 @@ return require('lazy').setup({
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
-      "saadparwaiz1/cmp_luasnip"
+      "L3MON4D3/LuaSnip", -- snippets engine
+      "saadparwaiz1/cmp_luasnip", -- integrations
+      "rafamadriz/friendly-snippets", -- snippet collection
     },
     config = function() require "plugins.configs.completion" end
   },
 
+  -- Autocomplete parenthesis, brackets, etc...
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
+    after = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
     config = function() require "plugins.configs.autopairs" end
   },
 
@@ -221,15 +219,11 @@ return require('lazy').setup({
     "iurimateus/luasnip-latex-snippets.nvim",
     ft = "tex",
     after = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
-    config = function()
-      require 'luasnip-latex-snippets'.setup()
-    end
+    config = true
   },
-}, {
+}, { -- lazy configuration options
   ui = { border = "rounded" },
-  performance = {
-    rtp = {
-      paths = { vim.fn.stdpath("data") .. "/site" }
-    }
+  performance = { -- fix spelling path warninig/error
+    rtp = { paths = { vim.fn.stdpath("data") .. "/site" } }
   }
 })
