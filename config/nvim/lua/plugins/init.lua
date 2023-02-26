@@ -35,7 +35,6 @@ return require('lazy').setup({
     config = function() require("leap").add_default_mappings() end
   },
 
-
   -- Motions between parenthesis, brackets, etc...
   {
     "tpope/vim-surround",
@@ -209,9 +208,9 @@ return require('lazy').setup({
   {
     "lervag/vimtex",
     ft = "tex",
-    setup = function()
+    config = function()
       vim.g.tex_flavor = 'latex'
-      vim.g.vimtex_view_method = 'zathura'
+      vim.g.tex_conceal='abdmg'
       vim.g.vimtex_quickfix_mode = 0
     end
   },

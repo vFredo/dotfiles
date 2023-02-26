@@ -29,16 +29,22 @@ autocmd("FocusGained",
   { group = gen_group, pattern = "*", command = "checktime" })
 
 -- Format options
-autocmd("FileType",
-  { group = ft_group, pattern = "*", command = "set fo-=c fo-=r fo-=o fo+=j fo+=n" })
+autocmd("FileType", {
+  group = ft_group, pattern = "*",
+  command = "set fo-=c fo-=r fo-=o fo+=j fo+=n"
+})
 
 -- Check spell on git commits
 autocmd("FileType", {
   group = ft_group,
   pattern = { "gitcommit" },
-  callback = function()
-    require("core.utils").toggleSpelling('ft')
-  end,
+  callback = function() require("core.utils").toggleSpelling('ft') end,
+})
+
+-- conceal level for latex and markdown files
+autocmd("FileType", {
+  group = ft_group, pattern = { "tex", "markdown" },
+  callback = function() vim.opt.conceallevel = 2 end
 })
 
 -- Highlight yank text
