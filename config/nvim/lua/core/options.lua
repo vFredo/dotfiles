@@ -19,27 +19,27 @@ vim.cmd([[
 --
 -- General options
 --
-g.mapleader        = " " -- Map leader is <Space>
-opt.cmdheight      = 1 -- More space for displaying messages
-opt.cursorline     = true -- Current line highlight
-opt.laststatus     = 0 -- Don't show statusline
-opt.virtualedit    = "block" -- edit lines in v-block with no characters
-opt.guifont        = "Jetbrains Mono Nerd Font:h12" -- GUI font
-opt.ignorecase     = true -- ignore case on '/', '?', '*', '#'
-opt.smartcase      = true -- override ignore case if there is an uppercase
-opt.termguicolors  = true -- Use all the color pallette
-opt.signcolumn     = "yes:2" -- show signcolumn and the number is the max signs to show
-opt.mouse          = "a" -- Mouse support for neovim
-opt.number         = true -- Line number
-opt.hidden         = true -- Change between buffers even if I don't save the current one
-opt.updatetime     = 300 -- ms to wait for trigger an event
-opt.timeoutlen     = 500 -- By default timeoutlen is 1000 ms
-opt.joinspaces     = false -- don't auto insert two spaces after punctuation
-opt.wildmode       = "longest:full,full" -- shell-like completion to unambiguous portion
-opt.wildignore     = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
-opt.spelllang      = { 'en_us', 'es' } -- spell check on this languages
-opt.spellsuggest   = { "best", 9 } -- Nine spell checking candidates at most
-opt.completeopt    = { -- Options for insert mode completion.
+g.mapleader       = " " -- Map leader is <Space>
+opt.cmdheight     = 1 -- More space for displaying messages
+opt.cursorline    = true -- Current line highlight
+opt.laststatus    = 0 -- Don't show statusline
+opt.virtualedit   = "block" -- edit lines in v-block with no characters
+opt.guifont       = "Jetbrains Mono Nerd Font:h12" -- GUI font
+opt.ignorecase    = true -- ignore case on '/', '?', '*', '#'
+opt.smartcase     = true -- override ignore case if there is an uppercase
+opt.termguicolors = true -- Use all the color pallette
+opt.signcolumn    = "yes:2" -- show signcolumn and the number is the max signs to show
+opt.mouse         = "a" -- Mouse support for neovim
+opt.number        = true -- Line number
+opt.hidden        = true -- Change between buffers even if I don't save the current one
+opt.updatetime    = 300 -- ms to wait for trigger an event
+opt.timeoutlen    = 500 -- By default timeoutlen is 1000 ms
+opt.joinspaces    = false -- don't auto insert two spaces after punctuation
+opt.wildmode      = "longest:full,full" -- shell-like completion to unambiguous portion
+opt.wildignore    = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
+opt.spelllang     = { 'en_us', 'es' } -- spell check on this languages
+opt.spellsuggest  = { "best", 9 } -- Nine spell checking candidates at most
+opt.completeopt   = { -- Options for insert mode completion.
   'menu', -- Use the pop-up menu.
   'menuone', -- Use the pop-up menu also when there is only one match.
   'noselect', -- Do not select a match in the menu.
@@ -52,12 +52,12 @@ opt.splitbelow    = true -- open horizontal splits below current window
 opt.splitright    = true -- open vertical splits to the right current window
 
 -- Tabs (\t) and indentation
-opt.smartindent = true -- Makes indenting smart
-opt.smarttab    = true -- Makes tabbing smarter, it will realize if you have 2 vs 4
-opt.expandtab   = true -- Converts tabs to spaces
-opt.autoindent  = true -- Good auto indent
-opt.shiftwidth  = 2 -- Change the number of space characters inserted for indentation
-opt.tabstop     = 2 -- insert 2 spaces for a tab
+opt.smartindent   = true -- Makes indenting smart
+opt.smarttab      = true -- Makes tabbing smarter, it will realize if you have 2 vs 4
+opt.expandtab     = true -- Converts tabs to spaces
+opt.autoindent    = true -- Good auto indent
+opt.shiftwidth    = 2 -- Change the number of space characters inserted for indentation
+opt.tabstop       = 2 -- insert 2 spaces for a tab
 
 -- Abreviations
 opt.shortmess:append('I') -- no splash screen
@@ -71,9 +71,9 @@ opt.diffopt:append('vertical') -- Show diffs in vertical splits
 
 -- Folds
 opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
-opt.foldmethod = "expr"
-opt.foldexpr   = "nvim_treesitter#foldexpr()" -- Treesitter folds
-opt.foldlevel  = 999 -- Disable autofolding
+opt.foldmethod  = "expr"
+opt.foldexpr    = "nvim_treesitter#foldexpr()" -- Treesitter folds
+opt.foldlevel   = 999 -- Disable autofolding
 
 --
 -- Characters

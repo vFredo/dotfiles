@@ -42,6 +42,7 @@ bg("LineNr", colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
+fg_bg("MatchParen", colors.bg, colors.orangeAlt, "bold")
 
 -- Cursorline
 fg_bg("CursorLine", "NONE", colors.bg)
@@ -70,7 +71,9 @@ bg("PmenuSbar", colors.bgAlt) -- scrollbar
 bg("PmenuThumb", colors.fgAlt) -- thumb scrollbar
 
 
+--
 -- Plugins Highlights
+--
 
 -- nvim-cmp completion menu
 fg("CmpItemAbbr", colors.grey) -- text autocomplete
@@ -92,7 +95,8 @@ fg("CmpItemKindEvent", colors.yellow)
 
 -- BlankIndent Lines
 fg("IndentBlanklineChar", colors.bgAlt2)
-fg("IndentBlanklineContextChar", colors.fgAlt)
+fg("IndentBlanklineContextChar", colors.grey)
+fg("IndentBlanklineSpaceChar", colors.grey)
 
 -- LSP config
 fg("DiagnosticError", colors.red)
@@ -135,7 +139,7 @@ fg("TelescopeTitle", colors.fgAlt2)
 
 -- Leap
 fg("LeapMatch", colors.yellow, "bold,underline,nocombine")
-fg_bg("LeapLabelPrimary",colors.bg, colors.yellow, "bold")
+fg_bg("LeapLabelPrimary", colors.bg, colors.yellow, "bold")
 fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
 
 -- NvimTree

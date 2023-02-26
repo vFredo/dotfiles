@@ -14,7 +14,6 @@ theme.colors = {
   orange = "#e78a4e",
   orangeAlt = "#dd8044",
   pink = "#ce8196",
-
   -- Alternative colors
   bgAlt = "#282828",
   bgAlt2 = "#32302f",

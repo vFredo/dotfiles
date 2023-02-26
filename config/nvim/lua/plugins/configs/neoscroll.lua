@@ -1,4 +1,9 @@
-require("neoscroll").setup {
+local ok, neoscroll = pcall(require, "neoscroll")
+if not ok then
+  vim.notify("Couldn't load neoscroll " .. neoscroll .. "/n")
+end
+
+neoscroll.setup {
   respect_scroll_off = true,
   hide_curor = true,
   stop_eof = true,

@@ -38,7 +38,7 @@ bufferline.setup {
 
     -- Buffer
     buffer_visible = { fg = colors.fgAlt, bg = colors.bgAlt },
-    buffer_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true},
+    buffer_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true },
 
     -- Duplicate buffer name
     duplicate = { fg = colors.fgAlt, bg = colors.bg },

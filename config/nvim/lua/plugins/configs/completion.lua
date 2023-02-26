@@ -123,9 +123,7 @@ cmp.setup.cmdline(':', {
       mode = "symbol",
       before = function(entry, vim_item)
         -- Delete duplicates
-        vim_item.dup = ({
-          cmdline = 0
-        })[entry.source.name] or 0
+        vim_item.dup = ({ cmdline = 0 })[entry.source.name] or 0
         return vim_item
       end,
     },

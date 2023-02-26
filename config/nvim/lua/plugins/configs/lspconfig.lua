@@ -1,7 +1,10 @@
 --
 -- Install servers
 --
-local mason_lspconfig = require("mason-lspconfig")
+local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not ok then
+  vim.notify("Couldn't load mason " .. mason_lspconfig .. "\n")
+end
 
 -- Servers configurations and ensured they are installed
 local servers = {
@@ -26,7 +29,10 @@ local servers = {
       workspace = {
         checkThirdParty = false,
         -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true)
+        library = {
+          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+        }
       },
     }
   }
@@ -106,4 +112,3 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
   vim.lsp.handlers.hover, { border = "rounded", title = "hover" }
 )
-

@@ -8,8 +8,8 @@ ts_config.setup {
     "bash", "c", "cpp", "make", "comment",
     "css", "scss", "dockerfile", "go", "gomod",
     "help", "html", "json", "javascript", "php",
-    "typescript" , "python", "rust", "vim", "lua",
-    "vue","yaml", "markdown", "markdown_inline"
+    "typescript", "python", "rust", "vim", "lua",
+    "vue", "yaml", "markdown", "markdown_inline"
   },
   highlight = {
     enable = true,

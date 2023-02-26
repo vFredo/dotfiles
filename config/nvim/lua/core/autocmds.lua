@@ -36,7 +36,7 @@ autocmd("FileType",
 autocmd("FileType", {
   group = ft_group,
   pattern = { "gitcommit" },
-  callback = function ()
+  callback = function()
     require("core.utils").toggleSpelling('ft')
   end,
 })
