@@ -9,6 +9,7 @@ local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--   all_modes = ""
 
 -- Yank and paste text from clipboard
 map({ "n", "v" }, "<Leader>y", [["+y]], opt)
@@ -18,8 +19,7 @@ map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opt)
 
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k',
--- also don't use g[j|k] when in operator pending mode, so it doesn't
--- alter 'd', 'y' or 'c' empty mode, is the same as using :map
+-- also don't use g[j|k] when in operator pending mode
 map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opt_expr)
 map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr)
 
@@ -50,10 +50,10 @@ map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", opt)
 map("n", "]b", "<cmd>BufferLineCycleNext<cr>", opt)
 
 -- Navigate between vim buffers, vim splits and tmux panes
-map({ "n", "v" }, "<C-h>", require('Navigator').left, opt)
-map({ "n", "v" }, "<C-l>", require('Navigator').right, opt)
-map({ "n", "v" }, "<C-k>", require('Navigator').up, opt)
-map({ "n", "v" }, "<C-j>", require('Navigator').down, opt)
+map({ "n", "v" }, "<C-h>", "<cmd>NavigatorLeft<cr>", opt)
+map({ "n", "v" }, "<C-l>", "<cmd>NavigatorRight<cr>", opt)
+map({ "n", "v" }, "<C-k>", "<cmd>NavigatorUp<cr>", opt)
+map({ "n", "v" }, "<C-j>", "<cmd>NavigatorDown<cr>", opt)
 
 --
 -- Toggle spelling (spanish and english)

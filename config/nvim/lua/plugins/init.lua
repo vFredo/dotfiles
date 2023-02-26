@@ -47,6 +47,11 @@ return require('lazy').setup({
   -- Navigation between tmux and nvim
   {
     "numToStr/Navigator.nvim",
+    lazy = true,
+    cmd = {
+      "NavigatorLeft", "NavigatorRight",
+      "NavigatorUp", "NavigatorDown"
+    },
     opts = { auto_save = 'current' }
   },
 
@@ -86,6 +91,11 @@ return require('lazy').setup({
   -- Smooth scrolling
   {
     "karb94/neoscroll.nvim",
+    lazy = true,
+    keys = {
+      '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+      '<C-y>', '<C-e>', 'zt', 'zz', 'zb'
+    },
     config = function() require "plugins.configs.neoscroll" end
   },
 
@@ -210,7 +220,7 @@ return require('lazy').setup({
     ft = "tex",
     config = function()
       vim.g.tex_flavor = 'latex'
-      vim.g.tex_conceal='abdmg'
+      vim.g.tex_conceal = 'abdmg'
       vim.g.vimtex_quickfix_mode = 0
     end
   },
