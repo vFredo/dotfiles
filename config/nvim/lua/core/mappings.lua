@@ -37,10 +37,10 @@ map("n", "[l", ":cprevious<CR>", opt)
 map("n", "]l", ":cnext<CR>", opt)
 
 -- Telescope
-map("n", "<Leader>ff", require('telescope.builtin').find_files, opt)
-map("n", "<Leader>fb", require('telescope.builtin').buffers, opt)
-map("n", "<Leader>fg", require('telescope.builtin').live_grep, opt)
-map("n", "<Leader>fh", require('telescope.builtin').help_tags, opt)
+map("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opt)
+map("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opt)
+map("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opt)
+map("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opt)
 
 -- Buffers
 map("n", "<Leader><Leader>", "<C-^>", opt)

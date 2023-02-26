@@ -54,9 +54,9 @@ local on_attach = function(client, bufnr)
 
   -- Mappings
   local opts = { noremap = true, buffer = bufnr, silent = true }
-  buf_map('n', 'gd', require("telescope.builtin").lsp_definitions, opts)
-  buf_map('n', 'gr', require("telescope.builtin").lsp_references, opts)
-  buf_map('n', 'gi', require("telescope.builtin").lsp_implementations, opts)
+  buf_map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
+  buf_map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
+  buf_map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
   buf_map("n", "ga", vim.lsp.buf.code_action, opts)
   buf_map('n', '<leader>rn', vim.lsp.buf.rename, opts)
   buf_map("n", "K", vim.lsp.buf.hover, opts)
