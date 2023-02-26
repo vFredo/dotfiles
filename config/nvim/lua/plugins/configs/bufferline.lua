@@ -57,6 +57,8 @@ bufferline.setup {
     -- Tabs
     tab = { fg = colors.fgAlt, bg = colors.bg },
     tab_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true },
+    tab_separator = { fg = colors.bg, bg = colors.bg  },
+    tab_separator_selected = { fg = colors.blue, bg = colors.bgAlt2 },
 
     -- Separator
     separator = { fg = colors.bg, bg = colors.bg },
