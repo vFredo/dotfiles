@@ -119,14 +119,9 @@ function install_i3(){
 function install_neovim(){
   # echo "Installing i3 dependencies..."
   # ./packages/installer.sh nvim
-
   progress "Creating symbolic links for Neovim"
   create_link "$(pwd)/config/nvim" "$HOME/.config/nvim"
-
-  progress "Installing and updating neovim packages/plugins"
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-  success "NeoVim config installed"
+  success "NeoVim config installed ==OPEN NVIM TO UPDATE PLUGINS=="
 }
 
 function install_term(){

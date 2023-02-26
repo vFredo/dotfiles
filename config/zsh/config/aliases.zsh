@@ -19,14 +19,6 @@ alias ls='ls --almost-all --classify --color=always --group-directories-first --
 alias la='ls --almost-all --group-directories-first --literal' # List nodes with their details.
 alias ll='ls -alF'
 
-# Quick config changes
-alias vb='vim ~/.bashrc'
-alias vba='vim ~/.config/zsh/config/aliases.zsh'
-alias vz='cd ~/.config/zsh && vim ~/.config/zsh/.zshrc'
-alias vi3='vim ~/.i3/config'
-alias vk='vim ~/.config/kitty/kitty.conf'
-alias vbsp='vim ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
-
 # Vim/neovim aliases
 if command -v nvim &> /dev/null
 then
@@ -34,19 +26,23 @@ then
   alias vc='cd ~/.config/nvim && nvim init.lua'
 elif command -v vim &> /dev/null
 then
+  alias v='vim'
   alias vc='cd ~/.vim && vim ~/.vimrc'
 fi
 
-# Alacritty config alias
-if command -v alacritty &> /dev/null
-then
-  alias va='vim ~/.config/alacritty/alacritty.yml'
-fi
+# Quick config changes
+alias vb='v ~/.bashrc'
+alias vba='v ~/.config/zsh/config/aliases.zsh'
+alias vz='cd ~/.config/zsh && v ~/.config/zsh/.zshrc'
+alias vi3='v ~/.i3/config'
+alias vk='v ~/.config/kitty/kitty.conf'
+alias va='v ~/.config/alacritty/alacritty.yml'
+alias vbsp='v ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
 
 # Tmux config alias
 if command -v tmux &> /dev/null
 then
-  alias vt='vim ~/.tmux.conf'
+  alias vt='v ~/.tmux.conf'
   # mnemonic (t)mux (n)ew-(s)ession and put the name of the session ($1)
   function tns(){
     tmux new-session -d -s "$1" && tmux switch-client -t "$1"
