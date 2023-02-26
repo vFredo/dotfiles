@@ -22,7 +22,7 @@ you want, the script removes it. For the moment, most dependencies have to be in
 * Zathura (PDF reader) config.
 * Neovim config files.
 * Tmux config.
-* Alacritty and Kitty terminal configurations.
+* Kitty terminal configuration.
 * Firefox theme
 
 ### ❖ Zsh
@@ -74,3 +74,4 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
 * The firefox theme and some other configurations comes from Janleight's [dotfiles](https://github.com/janleigh/dotfiles).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 * Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of things of his Zsh configuration.
+* Some nvim lazy loading configs comes from Ray-x's [dotfiles](https://github.com/ray-x/nvim).

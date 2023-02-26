@@ -146,16 +146,13 @@ function install_term(){
     ignoring "Ignoring tmux configuration, not installed on the system"
   fi
 
-  read -r -p "Which terminal config do you want to install? [(a)lacritty/(k)itty/(n)either]" opt_terminal
+  read -r -p "Which terminal config do you want to install? [(k)itty/(n)othing]" opt_terminal
 
-  if [[ "$opt_terminal" == "a" ]]; then
-    progress "Creating symbolic links for alacritty configuration"
-    create_link "$(pwd)/config/alacritty" "$HOME/.config/alacritty"
-  elif [[ "$opt_terminal" == "k" ]]; then
+  if [[ "$opt_terminal" == "k" ]]; then
     progress "Creating symbolic links for kitty configuration"
     create_link "$(pwd)/config/kitty/" "$HOME/.config/kitty"
   else
-    ignoring "Ignore Terminal installation of config files"
+    ignoring "Ignore kitty installation of config files"
   fi
 
   progress "Updating font cache"
