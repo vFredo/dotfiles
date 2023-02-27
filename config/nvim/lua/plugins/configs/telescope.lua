@@ -8,19 +8,27 @@ telescope.setup({
     prompt_prefix = "   ",
     selection_caret = " ",
     sorting_strategy = "ascending",
-    layout_strategy = "horizontal",
     scroll_strategy = 'cycle',
+    selection_strategy = "reset",
+    layout_strategy = "horizontal",
     layout_config = {
-      horizontal = {
-        prompt_position = "top",
-        preview_width = 0.55,
-        results_width = 0.8,
-      },
-      width = 0.87,
+      prompt_position = "top",
+      width = 0.90,
       height = 0.80,
-      preview_cutoff = 120,
+      horizontal = {
+        preview_width = function(_, cols, _)
+          if cols > 200 then
+            return math.floor(cols * 0.5)
+          else
+            return math.floor(cols * 0.6)
+          end
+        end,
+      },
     },
-    file_ignore_patterns = { "^node_modules/", "^.git/", "%.o", "%.pdf", "%.class", "%.obj" },
+    file_ignore_patterns = {
+      "^node_modules/", "^.git/", "%.o",
+      "%.pdf", "%.class", "%.obj"
+    },
     mappings = {
       i = { ["<esc>"] = require('telescope.actions').close },
     },
