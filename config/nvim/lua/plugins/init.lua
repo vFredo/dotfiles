@@ -104,6 +104,7 @@ return require('lazy').setup({
   -- Buffer list on top of the screen
   {
     "akinsho/nvim-bufferline.lua",
+    version = "3.*",
     dependencies = { "tiagovla/scope.nvim", config = true },
     config = function() require "plugins.configs.bufferline" end
   },

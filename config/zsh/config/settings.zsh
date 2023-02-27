@@ -56,7 +56,7 @@ setopt PROMPT_SUBST # Expansions are performed in prompts.
 # auto start tmux when creating a new shell
 if [ -z "$TMUX" ]
 then
-    tmux attach -t 0 || tmux new -s 0
+    tmux new-session -A -s main
 fi
 
 function -auto-ls-after-cd() {
