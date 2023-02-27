@@ -12,8 +12,6 @@ blankline.setup {
   filetype_exclude = {
     "help",
     "terminal",
-    "dashboard",
-    "packer",
     "lspinfo",
     "mason",
     "lazy",
