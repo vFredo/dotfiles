@@ -85,7 +85,10 @@ return require('lazy').setup({
   -- Theme
   {
     "norcalli/nvim-base16.lua",
-    dependencies = "norcalli/nvim.lua"
+    lazy = false,
+    priority = 1000,
+    dependencies = "norcalli/nvim.lua",
+    config = function() require "plugins.configs.base16_theme" end
   },
 
   -- Icons for patch fonts
