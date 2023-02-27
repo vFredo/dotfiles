@@ -17,7 +17,7 @@ bufferline.setup {
       icon = '▎',
       style = 'icon'
     },
-    modified_icon = "",
+    modified_icon = "+",
     left_trunc_marker = "",
     right_trunc_marker = "",
     show_close_icon = false,
