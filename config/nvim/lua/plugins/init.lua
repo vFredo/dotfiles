@@ -14,6 +14,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local lazy_opts = {
+  ui = { border = "rounded" },
+  performance = { -- fix spelling path warninig/error
+    rtp = { paths = { vim.fn.stdpath("data") .. "/site" } }
+  }
+}
+
 --
 -- Plugin list
 --
@@ -24,15 +31,31 @@ return require('lazy').setup({
 
   -- Comment lines more easily and motions
   {
-    "terrortylor/nvim-comment",
-    after = "nvim-treesitter/nvim-treesitter",
-    config = function() require "plugins.configs.comment" end
+    'numToStr/Comment.nvim',
+    lazy = true,
+    keys = {
+      { "gcc" }, { "gbc" }, { "gc", mode = "v" }, { "gb", mode = "v" }
+    },
+    config = function()
+      local integration = require('ts_context_commentstring.integrations.comment_nvim')
+      require('Comment').setup({
+        ignore = '^$', -- ignore empty lines
+        pre_hook = integration.create_pre_hook()
+      })
+    end
   },
 
   -- Easy navigation between lines with 's' and motions
   {
     "ggandor/leap.nvim",
-    config = function() require("leap").add_default_mappings() end
+    lazy = true,
+    keys = {
+      { "gs", "<Plug>(leap-from-window)" },
+      { "s", "<Plug>(leap-forward-to)" },
+      { "S", "<Plug>(leap-backward-to)" },
+      { mode = "x", "x", "<Plug>(leap-forward-to)" },
+      { mode = "x", "X", "<Plug>(leap-backward-to)" },
+    },
   },
 
   -- Motions between parenthesis, brackets, etc...
@@ -56,7 +79,7 @@ return require('lazy').setup({
   },
 
   --
-  -- GUI Plugins
+  -- UI Plugins
   --
 
   -- Theme
@@ -65,7 +88,7 @@ return require('lazy').setup({
     dependencies = "norcalli/nvim.lua"
   },
 
-  -- Add nice icons for patch fonts
+  -- Icons for patch fonts
   {
     "kyazdani42/nvim-web-devicons",
     lazy = true,
@@ -182,7 +205,7 @@ return require('lazy').setup({
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
-      "L3MON4D3/LuaSnip", -- snippets engine
+      { "L3MON4D3/LuaSnip", version = "1.*" }, -- snippets engine
       "saadparwaiz1/cmp_luasnip", -- integrations
       "rafamadriz/friendly-snippets", -- snippet collection
     },
@@ -202,15 +225,13 @@ return require('lazy').setup({
   --
   {
     "nvim-treesitter/nvim-treesitter",
-    build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-    config = function() require "plugins.configs.treesitter" end,
+    build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
       "nvim-treesitter/playground",
       "JoosepAlviste/nvim-ts-context-commentstring",
-    }
+    },
+    config = function() require "plugins.configs.treesitter" end,
   },
 
   --
@@ -231,9 +252,4 @@ return require('lazy').setup({
     after = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     config = true
   },
-}, { -- lazy configuration options
-  ui = { border = "rounded" },
-  performance = { -- fix spelling path warninig/error
-    rtp = { paths = { vim.fn.stdpath("data") .. "/site" } }
-  }
-})
+}, lazy_opts)
