@@ -55,6 +55,7 @@ local on_attach = function(client, bufnr)
 
   -- Mappings
   local opts = { noremap = true, buffer = bufnr, silent = true }
+  buf_map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
   buf_map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
   buf_map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
   buf_map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
@@ -85,10 +86,10 @@ mason_lspconfig.setup_handlers {
 
 -- Change the default lsp diagnostic symbols
 local signs = {
-  Error = ' ',
-  Info = ' ',
-  Warn = ' ',
-  Hint = '',
+  Error = "",
+  Info = "",
+  Warn = "",
+  Hint = "",
 }
 
 for type, icon in pairs(signs) do
