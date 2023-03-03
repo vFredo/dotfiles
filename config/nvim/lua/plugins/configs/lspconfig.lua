@@ -14,6 +14,7 @@ local servers = {
   cssls = {},
   tsserver = {},
   tailwindcss = {},
+  rust_analyzer = {},
   gopls = {
     gopls = {
       experimentalPostfixCompletions = true,

@@ -1,21 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 
--- Change cursor in normal, insert and replace modes on tmux and terminal
-vim.cmd([[
-  filetype plugin indent on
-
-  if exists('$TMUX')
-    let &t_SI = "\ePtmux;\e\e[6 q\e\\"
-    let &t_SR = "\ePtmux;\e\e[4 q\e\\"
-    let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-  else
-    let &t_SI = "\<Esc>[6 q"
-    let &t_SR = "\<Esc>[4 q"
-    let &t_EI = "\<Esc>[2 q"
-  endif
-]])
-
 --
 -- General options
 --

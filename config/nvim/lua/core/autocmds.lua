@@ -6,12 +6,6 @@ local augroup = vim.api.nvim_create_augroup
 local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
 
--- Responsive panel/window size
-autocmd({ "VimResized" }, {
-  group = gen_group,
-  callback = function() vim.cmd('tabdo wincmd =') end
-})
-
 -- Go to the last known location when openning a file
 autocmd("BufReadPost", {
   group = gen_group,

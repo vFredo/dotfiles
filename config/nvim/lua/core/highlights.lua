@@ -42,7 +42,7 @@ bg("LineNr", colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("EndOfBuffer", colors.bg)
-fg_bg("MatchParen", colors.bg, colors.orangeAlt, "bold")
+fg_bg("MatchParen", colors.bg, colors.yellow, "bold")
 
 -- Cursorline
 fg_bg("CursorLine", "NONE", colors.bg)
@@ -60,7 +60,7 @@ fg_bg("Search", colors.yellow, colors.bg, "bold,underline")
 fg_bg("IncSearch", colors.bg, colors.yellow, "bold")
 
 -- Spell colors
-fg("SpellBad", colors.orangeAlt)
+fg("SpellBad", colors.red)
 fg("SpellRare", colors.yellow)
 fg("SpellCap", colors.blue)
 
