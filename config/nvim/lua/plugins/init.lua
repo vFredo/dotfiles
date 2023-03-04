@@ -17,7 +17,18 @@ vim.opt.rtp:prepend(lazypath)
 local lazy_opts = {
   ui = { border = "rounded" },
   performance = { -- fix spelling path warninig/error
-    rtp = { paths = { vim.fn.stdpath("data") .. "/site" } }
+    rtp = {
+      paths = { vim.fn.stdpath("data") .. "/site" },
+      disabled_plugins = {
+        'tutor',
+        'matchit',
+        'gzip',
+        'tohtml',
+        'zipPlugin',
+        'tarPlugin',
+        'netrwPlugin',
+			},
+    }
   }
 }
 
@@ -32,7 +43,6 @@ return require('lazy').setup({
   -- Comment lines more easily and motions
   {
     'numToStr/Comment.nvim',
-    lazy = true,
     keys = {
       { "gcc" }, { "gbc" }, { "gc", mode = "v" }, { "gb", mode = "v" }
     },
@@ -48,7 +58,6 @@ return require('lazy').setup({
   -- Easy navigation between lines with 's' and motions
   {
     "ggandor/leap.nvim",
-    lazy = true,
     keys = {
       { "gs", "<Plug>(leap-from-window)" },
       { "s", "<Plug>(leap-forward-to)" },
@@ -60,23 +69,25 @@ return require('lazy').setup({
 
   -- Motions between parenthesis, brackets, etc...
   {
-    "tpope/vim-surround",
-    config = function() vim.cmd([[ xmap gs <Plug>VSurround ]]) end
+    "kylechui/nvim-surround",
+    keys = {
+      { "ys" }, { "cs" }, { "ds" }, { "gs", mode = "v" }
+    },
+    opts = { keymaps = { visual = "gs" } }
   },
-
-  -- '.' command for repeating macros with plugins
-  { "tpope/vim-repeat" },
 
   -- Navigation between tmux and nvim
   {
     "numToStr/Navigator.nvim",
-    lazy = true,
     cmd = {
       "NavigatorLeft", "NavigatorRight",
       "NavigatorUp", "NavigatorDown"
     },
     opts = { auto_save = 'current' }
   },
+
+  -- '.' command for repeating macros with plugins
+  { "tpope/vim-repeat", keys = { "." } },
 
   --
   -- UI Plugins
@@ -104,6 +115,7 @@ return require('lazy').setup({
   -- Buffer list on top of the screen
   {
     "akinsho/nvim-bufferline.lua",
+    event = { "BufReadPost", "BufNewFile" },
     version = "3.*",
     dependencies = { "tiagovla/scope.nvim", config = true },
     config = function() require "plugins.configs.bufferline" end
@@ -112,6 +124,7 @@ return require('lazy').setup({
   -- Indentation guides/tracking
   {
     "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "BufNewFile" },
     after = "nvim-treesitter/nvim-treesitter",
     config = function() require "plugins.configs.blankline" end
   },
@@ -119,7 +132,6 @@ return require('lazy').setup({
   -- Smooth scrolling
   {
     "karb94/neoscroll.nvim",
-    lazy = true,
     keys = {
       '<C-u>', '<C-d>', '<C-b>', '<C-f>',
       '<C-y>', '<C-e>', 'zt', 'zz', 'zb'
@@ -133,6 +145,7 @@ return require('lazy').setup({
     opts = {
       user_default_options = {
         names = false,
+        tailwind = true,
         mode = "virtualtext",
         virtualtext = "■"
       }
@@ -146,7 +159,6 @@ return require('lazy').setup({
   -- Tree view of the current directory
   {
     "kyazdani42/nvim-tree.lua",
-    lazy = true,
     keys = {
       { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "[t]ree view" }
     },
@@ -157,7 +169,6 @@ return require('lazy').setup({
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    lazy = true,
     cmd = "Telescope",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -175,13 +186,13 @@ return require('lazy').setup({
   --
   {
     "tpope/vim-fugitive",
-    lazy = true,
     keys = {
       { "<leader>g", "<cmd>vert Git<cr>", desc = "[g]it view" }
     },
   },
   {
     "lewis6991/gitsigns.nvim",
+    event = "BufReadPre",
     dependencies = "nvim-lua/plenary.nvim",
     config = function() require "plugins.configs.gitsigns" end
   },
@@ -191,7 +202,7 @@ return require('lazy').setup({
   --
   {
     "neovim/nvim-lspconfig",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "williamboman/mason.nvim", config = true },
       "williamboman/mason-lspconfig.nvim"
@@ -210,8 +221,8 @@ return require('lazy').setup({
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
       { "L3MON4D3/LuaSnip", version = "1.*" }, -- snippets engine
-      "saadparwaiz1/cmp_luasnip", -- integrations
-      "rafamadriz/friendly-snippets", -- snippet collection
+      "saadparwaiz1/cmp_luasnip",              -- integrations
+      "rafamadriz/friendly-snippets",          -- snippet collection
     },
     config = function() require "plugins.configs.completion" end
   },
@@ -229,6 +240,7 @@ return require('lazy').setup({
   --
   {
     "nvim-treesitter/nvim-treesitter",
+    event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
       "windwp/nvim-ts-autotag",
