@@ -67,12 +67,12 @@ tree.setup {
         default = "",
         symlink = "",
         git = {
-          deleted = "契",
+          unmerged = "",
           ignored = "◌",
           renamed = "➜",
-          unmerged = "",
           staged = "+",
           unstaged = "",
+          deleted = "D",
           untracked = "U"
         },
       }

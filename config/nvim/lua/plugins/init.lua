@@ -99,7 +99,7 @@ return require('lazy').setup({
     lazy = false,
     priority = 1000,
     dependencies = "norcalli/nvim.lua",
-    config = function() require "plugins.configs.base16_theme" end
+    config = function() require "plugins.configs.theme" end
   },
 
   -- Icons for patch fonts
