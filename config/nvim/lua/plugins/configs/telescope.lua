@@ -6,7 +6,7 @@ end
 telescope.setup({
   defaults = {
     prompt_prefix = "   ",
-    selection_caret = " ",
+    selection_caret = " ",
     sorting_strategy = "ascending",
     scroll_strategy = 'cycle',
     selection_strategy = "reset",

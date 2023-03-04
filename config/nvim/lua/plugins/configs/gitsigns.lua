@@ -5,12 +5,12 @@ end
 
 gitsigns.setup {
   signs = {
-    add = { text = '┃' },
-    change = { text = '┃' },
-    untracked = { text = '┃' },
-    delete = { text = '契' },
-    topdelte = { text = '‾' },
-    changedelete = { text = '~' },
+    add = { text = "▎" },
+    change = { text = "▎" },
+    untracked = { text = "▎" },
+    delete = { text = "契" },
+    topdelete = { text = "契" },
+    changedelete = { text = "~" },
   },
   keymaps = {
     noremap = true,
