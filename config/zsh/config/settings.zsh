@@ -53,10 +53,13 @@ setopt SHARE_HISTORY # Share history between all sessions.
 # Prompting
 setopt PROMPT_SUBST # Expansions are performed in prompts.
 
-# auto start tmux when creating a new shell
-if [ -z "$TMUX" ]
-then
-    tmux new-session -A -s main
+# autostart a new tmux session if it is not already running
+if [[ ! $TERM_PROGRAM =~ tmux ]]; then
+  if command -v tmux >/dev/null; then
+    if ! tmux has-session -t 0 2>/dev/null; then
+      tmux new-session -s 0
+    fi
+  fi
 fi
 
 function -auto-ls-after-cd() {
