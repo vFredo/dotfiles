@@ -7,7 +7,7 @@ local function delHash(hex)
   return hex:gsub("#", "")
 end
 
-local c = require("core.theme").colors
+local c = require("core.theme")
 
 local style = {
   b00 = delHash(c.bg), -- Default Background

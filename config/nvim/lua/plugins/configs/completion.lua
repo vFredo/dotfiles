@@ -40,6 +40,10 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  completion = {
+    autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
+    completeopt = 'menu,menuone,noselect',
+  },
   window = {
     documentation = cmp.config.window.bordered(),
     completion = cmp.config.window.bordered(),
@@ -86,27 +90,25 @@ cmp.setup {
       },
       before = function(entry, vim_item)
         -- Delete duplicates
-        vim_item.dup = ({
-          luasnip = 0
-        })[entry.source.name] or 0
+        vim_item.dup = ({ luasnip = 0 })[entry.source.name] or 0
         return vim_item
       end,
     },
   },
   experimental = {
     native_menu = false, -- better highlight groups for menubar
-    ghost_text = true, -- nice comment color text of completion
+    ghost_text = true,   -- nice comment color text of completion
   },
 }
 
 -- Use buffer source for /,? (experiemental.native_menu = false)
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({ { name = 'buffer' } }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = lspkind.cmp_format { mode = "symbol" }
   },
-  sources = { { name = 'buffer' } }
 })
 
 -- Use cmdline & path source for ':' (experiemental.native_menu = false)

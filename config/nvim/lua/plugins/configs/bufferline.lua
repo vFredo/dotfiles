@@ -3,8 +3,7 @@ if not ok then
   vim.notify("Couldn't load bufferline " .. bufferline .. "\n")
 end
 
-local theme = require("core.theme")
-local colors = theme.colors
+local colors = require("core.theme")
 
 bufferline.setup {
   options = {

@@ -1,6 +1,4 @@
-local theme = {}
-
-theme.colors = {
+local colors =  {
   bg = "#1d2021",
   fg = "#d5c4a1",
   red = "#ea6962",
@@ -13,7 +11,6 @@ theme.colors = {
   grey = "#665c54",
   orange = "#e78a4e",
   orangeAlt = "#dd8044",
-  pink = "#ce8196",
   -- Alternative colors
   bgAlt = "#282828",
   bgAlt2 = "#32302f",
@@ -21,4 +18,4 @@ theme.colors = {
   fgAlt2 = "#ebdbb2",
 }
 
-return theme
+return colors

@@ -1,5 +1,4 @@
-local theme = require("core.theme")
-local colors = theme.colors
+local colors = require("core.theme")
 
 --
 -- Helper functions for changing highlight groups
@@ -70,7 +69,6 @@ fg_bg("PmenuSel", colors.bgAlt, colors.blue, "bold") -- item selected
 bg("PmenuSbar", colors.bgAlt) -- scrollbar
 bg("PmenuThumb", colors.fgAlt) -- thumb scrollbar
 
-
 --
 -- Plugins Highlights
 --
@@ -83,8 +81,8 @@ fg("CmpItemAbbrMatchFuzzy", colors.blue, "italic") -- fuzzy match
 fg("CmpItemAbbrDeprecated", colors.red, "strikethrough") -- ??
 
 -- cmp Kind specific colors
-fg("CmpItemKindFunction", colors.pink)
-fg("CmpItemKindMethod", colors.pink)
+fg("CmpItemKindFunction", colors.purple)
+fg("CmpItemKindMethod", colors.purple)
 fg("CmpItemKindKeyword", colors.fgAlt2)
 fg("CmpItemKindProperty", colors.fgAlt2)
 fg("CmpItemKindUnit", colors.fgAlt2)
@@ -131,6 +129,12 @@ fg("@text.reference", colors.yellow)
 fg("@text.uri", colors.cyan)
 fg("@text.title", colors.purple)
 
+-- TODO, FIXME, HACK, WARNING and NOTE in Treesitter
+fg_bg("@text.todo", colors.blue, colors.bgAlt, "bold")
+fg_bg("@text.danger", colors.red, colors.bgAlt, "bold")
+fg_bg("@text.warning", colors.yellow, colors.bgAlt, "bold")
+fg_bg("@text.note", colors.cyan, colors.bgAlt, "bold")
+
 -- Telescope
 fg("TelescopeBorder", colors.grey)
 fg("TelescopeTitle", colors.fgAlt2)
@@ -156,5 +160,5 @@ fg("NvimTreeGitDirty", colors.red)
 fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
-fg("NvimTreeSpecialFile", colors.pink)
+fg("NvimTreeSpecialFile", colors.purple)
 fg("NvimTreeOpenedFile", colors.orange, "underline")
