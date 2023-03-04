@@ -26,8 +26,7 @@ luasnip.config.set_config {
       },
     },
   },
-  -- mapping for cutting selected text so it's usable as SELECT_DEDENT,
-  -- SELECT_RAW or TM_SELECTED_TEXT (mapped via xmap).
+  -- mapping for cutting selected text (mapped via xmap).
   store_selection_keys = "<Tab>",
 }
 
@@ -48,7 +47,7 @@ cmp.setup {
     documentation = cmp.config.window.bordered(),
     completion = cmp.config.window.bordered(),
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -62,15 +61,15 @@ cmp.setup {
       else
         fallback() -- else do a simple char <Tab>
       end
-    end, { 'i', 's', 'c' }),
+    end, { 'i', 's' }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1) -- jump previous snippet placeholder
       else
         fallback() -- else do a simple char <S-Tab>
       end
-    end, { 'i', 's', 'c' }),
-  }),
+    end, { 'i', 's' }),
+  },
   sources = cmp.config.sources({
     { name = "luasnip" },
     { name = 'nvim_lsp' },
@@ -103,7 +102,19 @@ cmp.setup {
 
 -- Use buffer source for /,? (experiemental.native_menu = false)
 cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping.preset.cmdline({
+    ["<Tab>"] = cmp.mapping({
+      c = function(fallback)
+        if cmp.get_selected_entry() then -- confirm completion
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+        elseif cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback() -- else do a simple char <Tab>
+        end
+      end
+    }),
+  }),
   sources = cmp.config.sources({ { name = 'buffer' } }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -113,7 +124,19 @@ cmp.setup.cmdline({ '/', '?' }, {
 
 -- Use cmdline & path source for ':' (experiemental.native_menu = false)
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping.preset.cmdline({
+    ["<Tab>"] = cmp.mapping({
+      c = function(fallback)
+        if cmp.get_selected_entry() then -- confirm completion
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+        elseif cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback() -- else do a simple char <Tab>
+        end
+      end
+    }),
+  }),
   sources = cmp.config.sources({
     { name = 'path' }
   }, {

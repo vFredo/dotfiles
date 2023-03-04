@@ -142,6 +142,7 @@ return require('lazy').setup({
   -- Color highlighter for hex, rgb, etc...
   {
     "NvChad/nvim-colorizer.lua",
+    event = "VeryLazy",
     opts = {
       user_default_options = {
         names = false,

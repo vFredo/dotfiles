@@ -10,7 +10,7 @@ gitsigns.setup {
     untracked = { text = "▎" },
     delete = { text = "契" },
     topdelete = { text = "契" },
-    changedelete = { text = "~" },
+    changedelete = { text = "▎" },
   },
   keymaps = {
     noremap = true,
