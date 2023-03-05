@@ -73,7 +73,6 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = "luasnip" },
     { name = 'nvim_lsp' },
-  }, {
     { name = 'buffer' },
     { name = "path" },
   }),
@@ -138,8 +137,7 @@ cmp.setup.cmdline(':', {
     }),
   }),
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
+    { name = 'path' },
     { name = 'cmdline' }
   }),
   formatting = {
