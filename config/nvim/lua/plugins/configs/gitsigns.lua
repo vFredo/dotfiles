@@ -12,23 +12,8 @@ gitsigns.setup {
     topdelete = { text = "契" },
     changedelete = { text = "▎" },
   },
-  keymaps = {
-    noremap = true,
-    ['n ]h'] = { expr = true, "&diff ? ']h' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'" },
-    ['n [h'] = { expr = true, "&diff ? '[h' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'" },
-    ['n <Leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-    ['v <Leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-    ['n <Leader>hS'] = '<cmd>lua require"gitsigns".stage_buffer()<CR>',
-    ['n <Leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-    ['n <Leader>hU'] = '<cmd>lua require"gitsigns".reset_buffer_index()<CR>',
-    ['n <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-    ['v <Leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-    ['n <Leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-    ['n <Leader>hb'] = '<cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-  },
   signcolumn = true,
   word_diff = false,
-  sign_priority = 100,
   status_formatter = nil, -- Use default
   preview_config = { border = 'rounded' },
   current_line_blame_opts = {
@@ -36,4 +21,34 @@ gitsigns.setup {
     virt_text_pos = "eol",
   },
   current_line_blame_formatter_opts = { relative_time = false },
+  on_attach = function(bufnr)
+    local map = require("core.utils").map
+    local opts = { buffer = bufnr }
+    local opts_expr = { buffer = bufnr, expr = true }
+    local gs = package.loaded.gitsigns
+
+    -- Navigation between hunks with ]h and [h
+    map('n', ']h', function()
+      if vim.wo.diff then return ']h' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, opts_expr)
+
+    map('n', '[h', function()
+      if vim.wo.diff then return '[h' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, opts_expr)
+
+    -- Actions
+    map({'n', 'v'}, '<leader>hs', '<cmd>Gitsigns stage_hunk<cr>', opts)
+    map({'n', 'v'}, '<leader>hr', '<cmd>Gitsigns reset_hunk<cr>', opts)
+    map('n', '<leader>hS', gs.stage_buffer, opts)
+    map('n', '<leader>hu', gs.undo_stage_hunk, opts)
+    map('n', '<leader>hR', gs.reset_buffer, opts)
+    map('n', '<leader>hb', gs.toggle_current_line_blame, opts)
+
+    -- Text object
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<cr>', opts)
+  end,
 }

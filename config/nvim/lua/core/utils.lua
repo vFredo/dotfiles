@@ -6,15 +6,7 @@ local M = {}
 -- Create global mapping
 M.map = function(mode, key, func, opts)
   local options = opts or {}
-
-  -- check if mode is a table or just a string
-  if type(mode) == "table" then
-    for _, m in ipairs(mode) do
-      vim.keymap.set(m, key, func, options)
-    end
-  else
-    vim.keymap.set(mode, key, func, options)
-  end
+  vim.keymap.set(mode, key, func, options)
 end
 
 -- Save current cursor position after running a command(cmd)
