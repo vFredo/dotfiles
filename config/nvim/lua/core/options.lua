@@ -1,6 +1,8 @@
 local g = vim.g
 local opt = vim.opt
 
+vim.cmd([[filetype plugin indent on]])
+
 --
 -- General options
 --
