@@ -112,10 +112,7 @@ fg("GitSignsChange", colors.blue)
 fg("GitSignsChangeDelete", colors.red)
 fg("GitSignsDelete", colors.red)
 fg("DiffRemoved", colors.red)
-fg("fugitiveHash", colors.red)
-fg("fugitiveUnstagedHeading", colors.red)
 fg("fugitiveStagedHeading", colors.green)
-fg("gitcommitOverflow", colors.red)
 
 -- Treesitter nodes highlight colors
 fg("@repeat", colors.purple)
