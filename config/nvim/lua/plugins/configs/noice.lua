@@ -26,6 +26,10 @@ noice.setup({
       },
       view = "mini",
     },
+    { -- show macros and curr mode
+      view = "mini",
+      filter = { event = "msg_showmode" },
+    },
   },
   presets = {
     lsp_doc_border = true,

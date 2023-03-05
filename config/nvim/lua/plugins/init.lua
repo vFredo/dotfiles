@@ -110,12 +110,30 @@ return require('lazy').setup({
     config = function() require "plugins.configs.devicons" end
   },
 
-  -- Improve the default vim.ui, cmdline, notifications and search interfaces
+  -- Improve the default vim.ui, cmdline and search interfaces
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
     config = function() require "plugins.configs.noice" end
+  },
+
+  -- Improve default notifications
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    opts = {
+      render = "compact",
+      stages = "slide",
+      timeout = 3500,
+      icons = {
+        DEBUG = "",
+        ERROR = "",
+        INFO = "",
+        TRACE = "✎",
+        WARN = "",
+      }
+    }
   },
 
   -- Buffer list on top of the screen
