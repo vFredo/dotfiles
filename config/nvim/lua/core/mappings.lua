@@ -33,8 +33,8 @@ map("v", ">", ">gv", opt)
 map({ "n", "x" }, "Y", "yg$", opt)
 
 -- Jump quickfix list
-map("n", "[l", "<cmd>cprevious<CR>", opt)
-map("n", "]l", "<cmd>cnext<CR>", opt)
+map("n", "[c", "<cmd>cprevious<CR>", opt)
+map("n", "]c", "<cmd>cnext<CR>", opt)
 
 -- Telescope
 map("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opt)
