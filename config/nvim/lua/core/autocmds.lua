@@ -5,6 +5,11 @@ local augroup = vim.api.nvim_create_augroup
 -- Autocommand groups
 local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
+local yanking = augroup("yank_text", { clear = true })
+
+--
+-- Autocommands
+--
 
 -- Go to the last known location when openning a file
 autocmd("BufReadPost", {
@@ -19,13 +24,18 @@ autocmd("BufReadPost", {
 })
 
 -- Check if file changed when its window is focus, better than 'autoread'
-autocmd("FocusGained",
-  { group = gen_group, pattern = "*", command = "checktime" })
+autocmd("FocusGained", { group = gen_group, command = "checktime" })
 
--- Format options
-autocmd("FileType", {
-  group = ft_group, pattern = "*",
-  command = "set fo-=c fo-=r fo-=o fo+=j fo+=n"
+-- Resize splits when window is resized
+autocmd("VimResized", {
+  group = gen_group,
+	callback = function() vim.cmd("tabdo wincmd =") end
+})
+
+-- Format options see in help 'fo-table'
+autocmd("BufEnter", {
+  group = gen_group,
+  command = "setlocal fo-=c fo-=r fo-=o fo+=j fo+=n"
 })
 
 -- Check spell on git commits
@@ -43,7 +53,22 @@ autocmd("FileType", {
 
 -- Highlight yank text
 autocmd("TextYankPost", {
+  group = yanking,
   callback = function()
     vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 }
   end,
+})
+
+-- Close some filetypes with <q>
+autocmd("FileType", {
+  group = ft_group,
+	pattern = {
+		"alpha", "fugitive", "help",
+		"lspinfo", "man", "mason",
+		"notify", "qf", "tsplayground",
+	},
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+	end,
 })

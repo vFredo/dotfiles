@@ -16,17 +16,18 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazy_opts = {
   ui = { border = "rounded" },
-  performance = { -- fix spelling path warninig/error
+  performance = {
     rtp = {
       paths = { vim.fn.stdpath("data") .. "/site" },
       disabled_plugins = {
-        'tutor',
-        'matchit',
         'gzip',
         'tohtml',
-        'zipPlugin',
+        'matchit',
+        'rplugin',
         'tarPlugin',
+        'zipPlugin',
         'netrwPlugin',
+        'tutor',
 			},
     }
   }
