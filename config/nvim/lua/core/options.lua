@@ -64,7 +64,6 @@ opt.foldlevel   = 999 -- Disable autofolding
 -- Characters
 --
 opt.joinspaces  = false -- don't autoinsert two spaces after '.', '?', '!' for join command
-opt.lazyredraw  = true -- don't bother updating screen during macro playback
 opt.linebreak   = true -- wrap long lines at characters in 'breakat'
 opt.breakindent = true -- Indent wrap text
 opt.showbreak   = '↳ ' -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3)

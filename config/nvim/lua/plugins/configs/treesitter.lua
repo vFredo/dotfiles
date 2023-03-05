@@ -5,7 +5,7 @@ end
 
 ts_config.setup {
   ensure_installed = {
-    "bash", "c", "cpp", "make", "comment",
+    "bash", "c", "cpp", "make", "comment", "regex",
     "css", "scss", "dockerfile", "go", "gomod",
     "help", "html", "json", "javascript", "php",
     "typescript", "python", "rust", "vim", "lua",

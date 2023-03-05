@@ -105,17 +105,22 @@ return require('lazy').setup({
   -- Icons for patch fonts
   {
     "kyazdani42/nvim-web-devicons",
-    lazy = true,
+    event = "VeryLazy",
     config = function() require "plugins.configs.devicons" end
   },
 
-  -- Improve the default vim.ui interfaces
-  { "stevearc/dressing.nvim", event = "VeryLazy" },
+  -- Improve the default vim.ui, cmdline, notifications and search interfaces
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+    config = function() require "plugins.configs.noice" end
+  },
 
   -- Buffer list on top of the screen
   {
     "akinsho/nvim-bufferline.lua",
-    event = { "BufReadPost", "BufNewFile" },
+    event = "VeryLazy",
     version = "3.*",
     dependencies = { "tiagovla/scope.nvim", config = true },
     config = function() require "plugins.configs.bufferline" end
