@@ -7,6 +7,7 @@ vim.cmd([[filetype plugin indent on]])
 -- General options
 --
 g.mapleader       = " " -- Map leader is <Space>
+opt.background    = "dark"
 opt.cmdheight     = 1 -- More space for displaying messages
 opt.cursorline    = true -- Current line highlight
 opt.laststatus    = 0 -- Don't show statusline

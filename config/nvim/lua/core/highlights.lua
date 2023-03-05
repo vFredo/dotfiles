@@ -144,6 +144,27 @@ fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
 -- Noice
 fg("NoiceCmdlinePopupBorder", colors.grey)
 
+-- Notify
+fg("NotifyERRORTitle", colors.red)
+fg("NotifyERRORIcon", colors.red)
+fg("NotifyERRORBorder", colors.red)
+
+fg("NotifyWARNTitle", colors.yellow)
+fg("NotifyWARNIcon", colors.yellow)
+fg("NotifyWARNBorder", colors.yellow)
+
+fg("NotifyINFOTitle", colors.green)
+fg("NotifyINFOIcon", colors.green)
+fg("NotifyINFOBorder", colors.green)
+
+fg("NotifyDEBUGTitle", colors.purple)
+fg("NotifyDEBUGIcon", colors.purple)
+fg("NotifyDEBUGBorder", colors.purple)
+
+fg("NotifyTRACETitle", colors.cyan)
+fg("NotifyTRACEIcon", colors.cyan)
+fg("NotifyTRACEBorder", colors.cyan)
+
 -- NvimTree
 fg("NvimTreeRootFolder", colors.blue, "italic")
 fg("NvimTreeFolderIcon", colors.blue)
