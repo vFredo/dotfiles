@@ -17,5 +17,6 @@ blankline.setup {
     "lazy",
     "TelescopePrompt",
     "TelescopeResults",
+    "noice"
   },
 }

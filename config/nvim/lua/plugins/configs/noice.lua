@@ -12,15 +12,21 @@ noice.setup({
     },
   },
   routes = {
-    { -- delete search virtual text
+    { -- serarch virtual text on "mini" view
       filter = {
         event = "msg_show",
         kind = "search_count",
       },
-      opts = { skip = true },
+      view = "mini"
+    },
+    { -- messages text like "written" on "mini" view
+      filter = {
+        event = "msg_show",
+        find = "%d+L, %d+B",
+      },
+      view = "mini",
     },
   },
-  -- cmdline = { view = "cmdline", },
   presets = {
     lsp_doc_border = true,
     bottom_search = true,

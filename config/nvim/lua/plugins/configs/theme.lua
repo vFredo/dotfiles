@@ -28,8 +28,7 @@ local style = {
   b0F = delHash(c.red) -- Opening/Closing Embedded Language Tags
 }
 
-
--- Set base16 neovim theme
+-- Create base16 neovim theme
 base16.themes["gruvbox-material-custom"] = {
   base00 = style.b00,
   base01 = style.b01,

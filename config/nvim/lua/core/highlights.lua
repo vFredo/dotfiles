@@ -144,6 +144,9 @@ fg("LeapMatch", colors.yellow, "bold,underline,nocombine")
 fg_bg("LeapLabelPrimary", colors.bg, colors.yellow, "bold")
 fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
 
+-- Noice
+fg("NoiceCmdlinePopupBorder", colors.grey)
+
 -- NvimTree
 fg("NvimTreeRootFolder", colors.blue, "italic")
 fg("NvimTreeFolderIcon", colors.blue)
