@@ -28,7 +28,7 @@ local lazy_opts = {
         'zipPlugin',
         'netrwPlugin',
         'tutor',
-			},
+      },
     }
   }
 }
@@ -121,18 +121,25 @@ return require('lazy').setup({
   -- Improve default notifications
   {
     "rcarriga/nvim-notify",
-    event = "VeryLazy",
+    event = "BufEnter",
     opts = {
+      fps = 60,
       render = "compact",
       stages = "slide",
-      timeout = 3500,
+      timeout = 1500,
       icons = {
         DEBUG = "",
         ERROR = "",
         INFO = "",
         TRACE = "✎",
         WARN = "",
-      }
+      },
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.75)
+      end,
     }
   },
 

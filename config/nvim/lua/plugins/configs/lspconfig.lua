@@ -8,6 +8,7 @@ end
 
 -- Servers configurations and ensured they are installed
 local servers = {
+  bashls = {},
   clangd = {},
   pyright = {},
   html = {},
