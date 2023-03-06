@@ -269,7 +269,6 @@ return require('lazy').setup({
     event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
-      "windwp/nvim-ts-autotag",
       "nvim-treesitter/playground",
       "JoosepAlviste/nvim-ts-context-commentstring",
     },

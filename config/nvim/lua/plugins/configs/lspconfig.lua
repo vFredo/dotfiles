@@ -47,7 +47,7 @@ mason_lspconfig.setup {
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  local buf_map = require("core.utils").map
+  local map = require("core.utils").map
   local function buf_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
@@ -55,15 +55,15 @@ local on_attach = function(client, bufnr)
 
   -- Mappings
   local opts = { noremap = true, buffer = bufnr, silent = true }
-  buf_map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
-  buf_map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
-  buf_map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
-  buf_map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
-  buf_map("n", "ga", vim.lsp.buf.code_action, opts)
-  buf_map('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  buf_map("n", "K", vim.lsp.buf.hover, opts)
-  buf_map("n", "[d", vim.diagnostic.goto_prev, opts)
-  buf_map("n", "]d", vim.diagnostic.goto_next, opts)
+  map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
+  map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
+  map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
+  map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
+  map("n", "ga", vim.lsp.buf.code_action, opts)
+  map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+  map("n", "K", vim.lsp.buf.hover, opts)
+  map("n", "[d", vim.diagnostic.goto_prev, opts)
+  map("n", "]d", vim.diagnostic.goto_next, opts)
 
   -- if the server client can format files then create the command 'Format'
   if client.server_capabilities.documentFormattingProvider then

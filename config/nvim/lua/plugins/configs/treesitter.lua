@@ -25,6 +25,5 @@ ts_config.setup {
       cpp = "// %s",
     }
   },
-  autotag = { enable = true },
   fold = { enable = true },
 }
