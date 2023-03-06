@@ -4,6 +4,7 @@ if not ok then
 end
 
 ts_config.setup {
+  auto_install = false,
   ensure_installed = {
     "bash", "c", "cpp", "make", "comment", "regex",
     "css", "scss", "dockerfile", "go", "gomod",
@@ -13,7 +14,6 @@ ts_config.setup {
   },
   highlight = {
     enable = true,
-    use_languagetree = true,
     additional_vim_regex_highlighting = false
   },
   indent = { enable = true },
@@ -25,5 +25,4 @@ ts_config.setup {
       cpp = "// %s",
     }
   },
-  fold = { enable = true },
 }

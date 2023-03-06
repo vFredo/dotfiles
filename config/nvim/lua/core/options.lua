@@ -59,9 +59,8 @@ opt.diffopt:append('vertical') -- Show diffs in vertical splits
 
 -- Folds
 opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
-opt.foldmethod  = "expr"
-opt.foldexpr    = "nvim_treesitter#foldexpr()" -- Treesitter folds
-opt.foldlevel   = 999 -- Disable autofolding
+opt.foldmethod  = "indent"
+opt.foldenable = false
 
 --
 -- Characters
@@ -72,11 +71,11 @@ opt.breakindent = true -- Indent wrap text
 opt.showbreak   = '↳ ' -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3)
 opt.list        = true -- show whitespace and everything on the listchars
 opt.listchars   = {
-  nbsp     = '⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8)
-  extends  = '»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB)
-  precedes = '«', -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB)
-  tab      = '  ', -- I have plugin that takes cares of this character
-  trail    = '•' -- MIDDLE BULLET (U+2022)
+  nbsp     = '⦸',
+  extends  = '»',
+  precedes = '«',
+  tab      = "▸ ",
+  trail    = '•'
 }
 opt.fillchars   = {
   diff = '∙', -- BULLET OPERATOR (U+2219)
