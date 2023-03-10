@@ -29,7 +29,7 @@ autocmd("FocusGained", { group = gen_group, command = "checktime" })
 -- Resize splits when window is resized
 autocmd("VimResized", {
   group = gen_group,
-	callback = function() vim.cmd("tabdo wincmd =") end
+  callback = function() vim.cmd("tabdo wincmd =") end
 })
 
 -- Format options see in help 'fo-table'
@@ -62,13 +62,13 @@ autocmd("TextYankPost", {
 -- Close some filetypes with <q>
 autocmd("FileType", {
   group = ft_group,
-	pattern = {
-		"alpha", "fugitive", "help",
-		"lspinfo", "man", "mason",
-		"notify", "qf", "tsplayground",
-	},
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-	end,
+  pattern = {
+    "alpha", "fugitive", "help",
+    "lspinfo", "man", "mason",
+    "notify", "qf", "tsplayground",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
 })
