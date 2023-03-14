@@ -64,8 +64,8 @@ autocmd("FileType", {
   group = ft_group,
   pattern = {
     "alpha", "fugitive", "help",
-    "lspinfo", "man", "mason",
-    "notify", "qf", "tsplayground",
+    "lspinfo", "mason", "notify",
+    "qf", "tsplayground",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -77,8 +77,6 @@ autocmd("FileType", {
 autocmd("VimEnter", {
   group = gen_group,
   callback = function (event)
-    -- local is_a_directory = vim.fn.isdirectory(event.file) == 1
-    -- if is_a_directory then
     if vim.fn.isdirectory(event.file) == 1 then
       vim.cmd.cd(event.file)
       require("nvim-tree.api").tree.open()
