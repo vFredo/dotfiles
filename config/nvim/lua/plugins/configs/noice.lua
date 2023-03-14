@@ -18,19 +18,19 @@ noice.setup({
       filter = { event = "msg_show", find = "%d+L, %d+B" },
       view = "mini",
     },
-    { -- indentation change message
-      filter = { event = "msg_show", find = "%d+%s+lines%s+[><]ed%s+%d+%s+time" },
+    { -- delete visual indentation message
+      filter = { event = "msg_show", find = "%s+[><]ed%s" },
+      opts = { skip = true }
+    },
+    { -- LSP annoying message
+      filter = { event = "notify", find = "No information available" },
       opts = { skip = true }
     },
     {
-      -- show macros 'recording @'
+      -- show recording macros 'recording @'
       filter = { event = "msg_showmode", find = "recording" },
       view = "mini",
     },
-    { -- re-route long notifications to splits
-      filter = { event = "notify", min_height = 15 },
-      view = 'split'
-    }
   },
   presets = {
     lsp_doc_border = true,

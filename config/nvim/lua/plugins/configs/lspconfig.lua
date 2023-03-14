@@ -26,7 +26,7 @@ local servers = {
   lua_ls = {
     Lua = {
       runtime = { version = "LuaJIT" },
-      diagnostics = { globals = { "vim", "packer_plugins" } },
+      diagnostics = { globals = { "vim" } },
       telemetry = { enable = false },
       workspace = {
         checkThirdParty = false,
@@ -57,6 +57,7 @@ local on_attach = function(client, bufnr)
   -- Mappings
   local opts = { noremap = true, buffer = bufnr, silent = true }
   map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
+  map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
   map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
   map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
   map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
@@ -107,11 +108,3 @@ vim.diagnostic.config({
   severity_sort = true,
   float = { border = "rounded" }
 })
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, { border = "rounded", title = "hover" }
-)
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.hover, { border = "rounded", title = "hover" }
-)

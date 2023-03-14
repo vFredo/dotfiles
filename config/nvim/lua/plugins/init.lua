@@ -126,7 +126,7 @@ return require('lazy').setup({
       fps = 60,
       render = "compact",
       stages = "slide",
-      timeout = 2000,
+      timeout = 2500,
       icons = {
         DEBUG = "",
         ERROR = "",
