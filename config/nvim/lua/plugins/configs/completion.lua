@@ -71,11 +71,10 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = cmp.config.sources({
-    { name = "luasnip" },
-    { name = "nvim_lua" },
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = "path" },
+    { name = 'nvim_lsp', group_index = 1},
+    { name = "luasnip", group_index = 1 },
+    { name = 'buffer', group_index = 2 },
+    { name = "path", group_index = 2 },
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -139,8 +138,8 @@ cmp.setup.cmdline(':', {
     }),
   }),
   sources = cmp.config.sources({
-    { name = 'path' },
-    { name = 'cmdline' }
+    { name = 'path', group_index = 1 },
+    { name = 'cmdline', group_index = 2 }
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
