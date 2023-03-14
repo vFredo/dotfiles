@@ -45,9 +45,9 @@ autocmd("FileType", {
   callback = function() require("core.utils").toggleSpelling('ft') end,
 })
 
--- conceal level for latex and markdown files
+-- conceal level for latex
 autocmd("FileType", {
-  group = ft_group, pattern = { "tex", "markdown" },
+  group = ft_group, pattern = { "tex" },
   callback = function() vim.opt.conceallevel = 2 end
 })
 
