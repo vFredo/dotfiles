@@ -14,10 +14,8 @@ configurations that you have, but if the file that is trying to change is a symb
 you want, the script removes it. For the moment, most dependencies have to be install by hand.
 
 ## ❖ Features
-* i3 gaps config.
-  * Bettterlockscreen config file (alternative for i3lock).
-  * Polybar config.
 * Bspwm config files.
+  * Polybar config.
 * Rofi configurations.
 * Zathura (PDF reader) config.
 * Neovim config files.
@@ -47,7 +45,7 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
 * Neovim
   * [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Zsh
-* WM's
+* Bspwm
   * [Capitaine Cursor](https://github.com/keeferrourke/capitaine-cursors)
   * [Rofi](https://github.com/davatorium/rofi).
   * [polybar](https://github.com/polybar/polybar).
@@ -59,10 +57,7 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
   * xorg-xsetroot
   * pavucontrol
   * lxappearance-gtk3
-* i3 gaps
-  * [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen).
   * Blueman (bluetooth manager with applet).
-* Bspwm
   * sxhkd
 * Tmux
   * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).

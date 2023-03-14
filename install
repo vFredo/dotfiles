@@ -79,7 +79,7 @@ function make_backup() {
 # Installers
 #
 function install_bspwm() {
-  # echo "Installing i3 dependencies..."
+  # echo "Installing bspwm dependencies..."
   # ./packages/installer.sh bspwm
 
   progress "Creating necessary folders"
@@ -96,28 +96,8 @@ function install_bspwm() {
   success "Bspwm config installed"
 }
 
-function install_i3(){
-  # echo "Installing i3 dependencies..."
-  # ./packages/installer.sh i3
-
-  progress "Creating necessary folders"
-  mkdir -p ~/.config/i3status ~/.i3 ~/.config/dunst ~/.config/picom
-
-  progress "Creating symbolic links for i3 and polybar..."
-  create_link "$(pwd)/config/i3/config" "$HOME/.i3/config"
-  create_link "$(pwd)/config/betterlockscreenrc" "$HOME/.config/betterlockscreenrc"
-  create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
-  create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
-  create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
-  create_link "$(pwd)/config/i3/i3status.conf" "$HOME/.config/i3status/config"
-  create_link "$(pwd)/config/polybar" "$HOME/.config/polybar"
-  create_link "$(pwd)/config/picom/picom.conf" "$HOME/.config/picom/picom.conf"
-
-  success "i3 config installed"
-}
-
 function install_neovim(){
-  # echo "Installing i3 dependencies..."
+  # echo "Installing neovim dependencies..."
   # ./packages/installer.sh nvim
   progress "Creating symbolic links for Neovim"
   create_link "$(pwd)/config/nvim" "$HOME/.config/nvim"
@@ -192,7 +172,6 @@ function install_latex(){
 
 function help_tag(){
   echo "Options for the installation:"
-  echo "      --i3       Install config files for i3."
   echo "      --bspwm    Install config files for bspwm including sxhkd."
   echo "      --nvim     Install config files for nvim."
   echo "      --latex    Install config files for latex."
@@ -210,8 +189,6 @@ then
       --help | -h)
         help_tag
         ;;
-      --i3)
-        install_i3
         ;;
       --bspwm)
         install_bspwm
@@ -226,7 +203,6 @@ then
         install_zsh
         ;;
       --all)
-        install_i3
         install_zsh
         install_neovim
         install_latex
