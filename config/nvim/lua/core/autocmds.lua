@@ -72,3 +72,17 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- Open nvim-tree automatically when open a folder as first file
+autocmd("VimEnter", {
+  group = gen_group,
+  callback = function (event)
+    -- local is_a_directory = vim.fn.isdirectory(event.file) == 1
+    -- if is_a_directory then
+    if vim.fn.isdirectory(event.file) == 1 then
+      vim.cmd.cd(event.file)
+      require("nvim-tree.api").tree.open()
+      return
+    end
+  end
+})

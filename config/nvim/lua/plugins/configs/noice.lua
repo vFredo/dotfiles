@@ -12,24 +12,26 @@ noice.setup({
     },
   },
   routes = {
-    { -- serarch virtual text on "mini" view
-      filter = {
-        event = "msg_show",
-        kind = "search_count",
-      },
+    {
+      -- serarch virtual text on "mini" view
+      filter = { event = "msg_show", kind = "search_count" },
       view = "mini"
     },
-    { -- messages text like "written" on "mini" view
-      filter = {
-        event = "msg_show",
-        find = "%d+L, %d+B",
-      },
+    {
+      -- messages text like "written" on "mini" view
+      filter = { event = "msg_show", find = "%d+L, %d+B" },
       view = "mini",
     },
-    { -- show macros and curr mode
-      view = "mini",
+    {
+      -- show macros 'recording @' and current mode
       filter = { event = "msg_showmode" },
+      view = "mini",
     },
+    {
+      -- reroute long notifications to splits
+      filter = { event = "notify", min_height = 15 },
+      view = 'split'
+    }
   },
   presets = {
     lsp_doc_border = true,
