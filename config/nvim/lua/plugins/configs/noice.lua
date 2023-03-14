@@ -5,31 +5,29 @@ end
 
 noice.setup({
   lsp = {
-    signature = { auto_open = { enabled= false } },
+    signature = { auto_open = { enabled = false } },
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
       ["cmp.entry.get_documentation"] = true,
     },
   },
+  messages = { view_search = "mini" },
   routes = {
-    {
-      -- serarch virtual text on "mini" view
-      filter = { event = "msg_show", kind = "search_count" },
-      view = "mini"
-    },
-    {
-      -- messages text like "written" on "mini" view
+    { -- messages text like "written" on "mini" view
       filter = { event = "msg_show", find = "%d+L, %d+B" },
       view = "mini",
     },
-    {
-      -- show macros 'recording @' and current mode
-      filter = { event = "msg_showmode" },
-      view = "mini",
+    { -- indentation change message
+      filter = { event = "msg_show", find = "%d+%s+lines%s+[><]ed%s+%d+%s+time" },
+      opts = { skip = true }
     },
     {
-      -- reroute long notifications to splits
+      -- show macros 'recording @'
+      filter = { event = "msg_showmode", find = "recording" },
+      view = "mini",
+    },
+    { -- re-route long notifications to splits
       filter = { event = "notify", min_height = 15 },
       view = 'split'
     }

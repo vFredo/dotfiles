@@ -76,7 +76,7 @@ autocmd("FileType", {
 -- Open nvim-tree automatically when open a folder as first file
 autocmd("VimEnter", {
   group = gen_group,
-  callback = function (event)
+  callback = function(event)
     if vim.fn.isdirectory(event.file) == 1 then
       vim.cmd.cd(event.file)
       require("nvim-tree.api").tree.open()

@@ -143,6 +143,8 @@ fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
 
 -- Noice
 fg("NoiceCmdlinePopupBorder", colors.grey)
+fg_bg("NoiceFormatProgressTodo", colors.red, colors.bgAlt2)
+fg_bg("NoiceFormatProgressDone", colors.green, colors.bgAlt2)
 
 -- Notify
 fg("NotifyERRORTitle", colors.red)
