@@ -74,7 +74,7 @@ opt.listchars   = {
   nbsp     = '⦸',
   extends  = '»',
   precedes = '«',
-  tab      = "▸ ",
+  tab      = "  ",
   trail    = '•'
 }
 opt.fillchars   = {

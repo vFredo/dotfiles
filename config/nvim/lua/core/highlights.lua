@@ -51,9 +51,6 @@ fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 fg_bg("StatusLineNC", colors.grey, colors.bgAlt)
 fg_bg("StatusLine", colors.fgAlt2, colors.bgAlt2)
 
--- Italic Comments
-ui("Comment", "italic")
-
 -- Search
 fg_bg("Search", colors.yellow, colors.bg, "bold,underline")
 fg_bg("IncSearch", colors.bg, colors.yellow, "bold")

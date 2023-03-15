@@ -34,9 +34,7 @@ fi
 alias vb='v ~/.bashrc'
 alias vba='v ~/.config/zsh/config/aliases.zsh'
 alias vz='cd ~/.config/zsh && v ~/.config/zsh/.zshrc'
-alias vi3='v ~/.i3/config'
 alias vk='v ~/.config/kitty/kitty.conf'
-alias va='v ~/.config/alacritty/alacritty.yml'
 alias vbsp='v ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
 
 # Tmux config alias

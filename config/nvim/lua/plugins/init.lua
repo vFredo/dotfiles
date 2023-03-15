@@ -124,7 +124,6 @@ return require('lazy').setup({
     event = "BufEnter",
     opts = {
       fps = 60,
-      render = "compact",
       stages = "slide",
       timeout = 2500,
       icons = {
