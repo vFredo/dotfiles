@@ -156,7 +156,7 @@ return require('lazy').setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
-    after = "nvim-treesitter/nvim-treesitter",
+    dependencies = "nvim-treesitter/nvim-treesitter",
     config = function() require "plugins.configs.blankline" end
   },
 
@@ -263,7 +263,10 @@ return require('lazy').setup({
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    after = { "nvim-treesitter/nvim-treesitter", "hrsh7th/nvim-cmp" },
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+      "nvim-treesitter/nvim-treesitter"
+    },
     config = function() require "plugins.configs.autopairs" end
   },
 
@@ -296,7 +299,7 @@ return require('lazy').setup({
   {
     "iurimateus/luasnip-latex-snippets.nvim",
     ft = "tex",
-    after = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
+    dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
     config = true
   },
 }, lazy_opts)

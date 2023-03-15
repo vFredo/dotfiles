@@ -11,11 +11,13 @@ local servers = {
   bashls = {},
   clangd = {},
   pyright = {},
-  html = {},
   cssls = {},
   tsserver = {},
   tailwindcss = {},
   rust_analyzer = {},
+  emmet_ls = {
+    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' }
+  },
   gopls = {
     gopls = {
       experimentalPostfixCompletions = true,
