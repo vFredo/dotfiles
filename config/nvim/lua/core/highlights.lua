@@ -125,6 +125,8 @@ fg("@text.literal", colors.orange)
 fg("@text.reference", colors.yellow)
 fg("@text.uri", colors.cyan)
 fg("@text.title", colors.purple)
+fg("@text.environment", colors.red)
+fg("@text.environment.name", colors.purple)
 
 -- TODO, FIXME, HACK, WARNING and NOTE in Treesitter
 fg_bg("@text.todo", colors.blue, colors.bgAlt, "bold")

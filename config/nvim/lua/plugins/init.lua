@@ -297,8 +297,8 @@ return require('lazy').setup({
   },
   {
     "iurimateus/luasnip-latex-snippets.nvim",
-    ft = "tex",
-    dependencies = { "L3MON4D3/LuaSnip", "lervag/vimtex" },
-    config = true
+    ft = { "tex", "markdown" },
+    dependencies = { "L3MON4D3/LuaSnip", "nvim-treesitter/nvim-treesitter"},
+    opts = { use_treesitter = true }
   },
 }, lazy_opts)

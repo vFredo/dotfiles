@@ -41,11 +41,16 @@ cmp.setup {
   },
   completion = {
     autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
-    completeopt = 'menu,menuone,noselect',
+    completeopt = 'menu,menuone',
   },
+  view = { entries = "custom" },
   window = {
     documentation = cmp.config.window.bordered(),
-    completion = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered({
+      border = "none",
+      col_offset = -2,
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None"
+    }),
   },
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -71,18 +76,17 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp', group_index = 1},
-    { name = "luasnip", group_index = 1 },
+    { name = 'nvim_lsp', group_index = 1, max_item_count = 6 },
+    { name = "luasnip", group_index = 1, max_item_count = 3 },
     { name = 'buffer', group_index = 2 },
     { name = "path", group_index = 2 },
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format {
+    format = lspkind.cmp_format({
       mode = "symbol",
       menu = {
         luasnip = "[snip]",
-        nvim_lua = "[lua]",
         nvim_lsp = "[LSP]",
         buffer = "[buf]",
         path = "[path]",
@@ -92,10 +96,9 @@ cmp.setup {
         vim_item.dup = ({ luasnip = 0 })[entry.source.name] or 0
         return vim_item
       end,
-    },
+    }),
   },
   experimental = {
-    native_menu = false, -- better highlight groups for menubar
     ghost_text = true,   -- nice comment color text of completion
   },
 }

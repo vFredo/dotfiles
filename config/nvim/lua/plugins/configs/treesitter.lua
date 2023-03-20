@@ -7,10 +7,10 @@ ts_config.setup {
   auto_install = false,
   ensure_installed = {
     "bash", "c", "cpp", "make", "comment", "regex",
-    "css", "scss", "dockerfile", "go", "gomod",
-    "help", "html", "json", "javascript", "php",
-    "typescript", "python", "rust", "vim", "lua",
-    "vue", "yaml", "markdown", "markdown_inline"
+    "css", "scss", "dockerfile", "go", "gomod", "latex",
+    "help", "html", "json", "javascript", "php", "bibtex",
+    "typescript", "python", "rust", "vim", "lua", "vue",
+    "yaml", "markdown", "markdown_inline"
   },
   highlight = {
     enable = true,
