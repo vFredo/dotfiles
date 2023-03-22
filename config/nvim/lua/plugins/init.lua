@@ -71,6 +71,7 @@ return require('lazy').setup({
   -- Motions between parenthesis, brackets, etc...
   {
     "kylechui/nvim-surround",
+    version = "*",
     keys = {
       { "ys" }, { "cs" }, { "ds" }, { "gs", mode = "v" }
     },
