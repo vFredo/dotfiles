@@ -115,6 +115,7 @@ fg("DiffRemoved", colors.red)
 fg("fugitiveStagedHeading", colors.green)
 
 -- Treesitter nodes highlight colors
+fg("@character", colors.orangeAlt)
 fg("@repeat", colors.purple)
 fg("@field", colors.red)
 fg("@variable", colors.fg)
