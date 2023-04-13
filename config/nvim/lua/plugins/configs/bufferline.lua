@@ -7,11 +7,18 @@ local colors = require("core.colors")
 
 bufferline.setup {
   options = {
-    offsets = { {
-      filetype = "NvimTree",
-      text = "Files",
-      highlight = "NvimTreeNormal"
-    } },
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "Files",
+        highlight = "NvimTreeNormal"
+      },
+      {
+        filetype = "fugitive",
+        text = "Git",
+        highlight = "NvimTreeNormal"
+      }
+    },
     indicator = {
       icon = '▎',
       style = 'icon'
@@ -48,7 +55,7 @@ bufferline.setup {
     duplicate_selected = { fg = colors.fgAlt2, bg = colors.bgAlt2, bold = true },
 
     -- Indicator
-    indicator_selected = { fg = colors.blue, bg = colors.bgAlt2 },
+    indicator_selected = { fg = colors.cyan, bg = colors.bgAlt2 },
     indicator_visible = { bg = colors.bgAlt },
 
     -- Modified
