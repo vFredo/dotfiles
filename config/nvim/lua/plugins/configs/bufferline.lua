@@ -16,18 +16,21 @@ bufferline.setup {
       icon = '▎',
       style = 'icon'
     },
-    modified_icon = '●',
-    left_trunc_marker = "",
-    right_trunc_marker = "",
+    show_tab_indicators = true,
     show_close_icon = false,
     show_buffer_close_icons = false,
-    show_tab_indicators = true,
+    color_icons = true,
+    modified_icon = '●',
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+    tab_size = 18,
     max_name_length = 18,
-    max_prefix_length = 8,
+    max_prefix_length = 15,
+    truncate_names = true,
     separator_style = "thin",
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, _, _, _)
-      return "[" .. count .. "]"
+      return '[' .. count .. ']'
     end
   },
   highlights = {

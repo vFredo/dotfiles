@@ -48,10 +48,14 @@ return require('lazy').setup({
       { "gcc" }, { "gbc" }, { "gc", mode = "v" }, { "gb", mode = "v" }
     },
     config = function()
-      local integration = require('ts_context_commentstring.integrations.comment_nvim')
       require('Comment').setup({
         ignore = '^$', -- ignore empty lines
-        pre_hook = integration.create_pre_hook()
+        pre_hook = function(...)
+          local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+          if loaded and ts_comment then
+            return ts_comment.create_pre_hook()(...)
+          end
+        end
       })
     end
   },
@@ -278,8 +282,8 @@ return require('lazy').setup({
     event = { "BufReadPost", "BufNewFile" },
     build = ":TSUpdate",
     dependencies = {
+      { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
       "nvim-treesitter/playground",
-      "JoosepAlviste/nvim-ts-context-commentstring",
     },
     config = function() require "plugins.configs.treesitter" end,
   },
@@ -299,7 +303,7 @@ return require('lazy').setup({
   {
     "iurimateus/luasnip-latex-snippets.nvim",
     ft = { "tex", "markdown" },
-    dependencies = { "L3MON4D3/LuaSnip", "nvim-treesitter/nvim-treesitter"},
+    dependencies = { "L3MON4D3/LuaSnip", "nvim-treesitter/nvim-treesitter" },
     opts = { use_treesitter = true }
   },
 }, lazy_opts)
