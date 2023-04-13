@@ -114,13 +114,18 @@ fg("GitSignsDelete", colors.red)
 fg("DiffRemoved", colors.red)
 fg("fugitiveStagedHeading", colors.green)
 
+-- Treesitter comments: TODO, FIXME, HACK, WARNING and NOTE
+-- fg_bg("@text.todo", colors.blue, colors.bgAlt, "bold")
+-- fg_bg("@text.danger", colors.red, colors.bgAlt, "bold")
+-- fg_bg("@text.warning", colors.yellow, colors.bgAlt, "bold")
+-- fg_bg("@text.note", colors.cyan, colors.bgAlt, "bold")
+
 -- Treesitter nodes highlight colors
 fg("@character", colors.orangeAlt)
 fg("@repeat", colors.purple)
 fg("@field", colors.red)
 fg("@variable", colors.fg)
 fg("@parameter", colors.fg)
-fg("@property", colors.fg)
 fg("@variable.builtin", colors.yellow)
 fg("@text.literal", colors.orange)
 fg("@text.reference", colors.yellow)
@@ -129,11 +134,27 @@ fg("@text.title", colors.purple)
 fg("@text.environment", colors.red)
 fg("@text.environment.name", colors.purple)
 
--- TODO, FIXME, HACK, WARNING and NOTE in Treesitter
-fg_bg("@text.todo", colors.blue, colors.bgAlt, "bold")
-fg_bg("@text.danger", colors.red, colors.bgAlt, "bold")
-fg_bg("@text.warning", colors.yellow, colors.bgAlt, "bold")
-fg_bg("@text.note", colors.cyan, colors.bgAlt, "bold")
+-- Fix LSP highlight to be compatible with the Treesitter highlight
+local links = {
+  ['@lsp.type.namespace'] = '@namespace',
+  ['@lsp.type.type'] = '@type',
+  ['@lsp.type.class'] = '@type',
+  ['@lsp.type.enum'] = '@type',
+  ['@lsp.type.interface'] = '@type',
+  ['@lsp.type.struct'] = '@structure',
+  ['@lsp.type.parameter'] = '@parameter',
+  ['@lsp.type.variable'] = '@variable',
+  ['@lsp.typemod.variable.global'] = '@variable.builtin',
+  ['@lsp.type.property'] = '@property',
+  ['@lsp.type.enumMember'] = '@constant',
+  ['@lsp.type.function'] = '@function',
+  ['@lsp.type.method'] = '@method',
+  ['@lsp.type.macro'] = '@macro',
+  ['@lsp.type.decorator'] = '@function',
+}
+for newgroup, oldgroup in pairs(links) do
+  vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
+end
 
 -- Telescope
 fg("TelescopeBorder", colors.grey)
