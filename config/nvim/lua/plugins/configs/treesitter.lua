@@ -8,7 +8,7 @@ ts_config.setup {
   ensure_installed = {
     "bash", "c", "cpp", "make", "comment", "regex",
     "css", "scss", "dockerfile", "go", "gomod", "latex",
-    "help", "html", "json", "javascript", "php", "bibtex",
+    "vimdoc", "html", "json", "javascript", "php", "bibtex",
     "typescript", "python", "rust", "vim", "lua", "vue",
     "yaml", "markdown", "markdown_inline"
   },
