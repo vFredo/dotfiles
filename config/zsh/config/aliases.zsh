@@ -12,12 +12,15 @@ alias fun='cd ~/Documents/fun'
 alias dow='cd ~/Downloads'
 alias usb='cd /run/media/$(whoami)/'
 alias :q='exit'
-alias mv='mv --interactive --verbose' # Move nodes with interactive mode and extra verbosity.
-alias cp='cp --interactive --verbose' # Copy nodes with interactive mode and extra verbosity.
-alias ln='ln --interactive --verbose' # Link nodes with interactive mode and extra verbosity.
-alias ls='ls --almost-all --classify --color=always --group-directories-first --literal' # List name of nodes.
-alias la='ls --almost-all --group-directories-first --literal' # List nodes with their details.
-alias ll='ls -alF'
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias mv='mv --interactive --verbose'
+alias cp='cp --interactive --verbose'
+alias ln='ln --interactive --verbose'
+alias ls="ls --classify --color=auto  --group-directories-first --literal --time-style='+%d-%b-%y'"
+alias la='ls --almost-all'
+alias ll='ls -l --almost-all --human-readable --no-group'
 
 # Vim/neovim aliases
 if command -v nvim &> /dev/null
@@ -31,16 +34,16 @@ then
 fi
 
 # Quick config changes
-alias vb='v ~/.bashrc'
-alias vba='v ~/.config/zsh/config/aliases.zsh'
-alias vz='cd ~/.config/zsh && v ~/.config/zsh/.zshrc'
-alias vk='v ~/.config/kitty/kitty.conf'
-alias vbsp='v ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
+alias vb='$EDITOR ~/.bashrc'
+alias vba='$EDITOR ~/.config/zsh/config/aliases.zsh'
+alias vz='$EDITOR ~/.config/zsh && v ~/.config/zsh/.zshrc'
+alias vk='$EDITOR ~/.config/kitty/kitty.conf'
+alias vbsp='$EDITOR ~/.config/bspwm/bspwmrc ~/.config/sxhkd/sxhkdrc'
 
 # Tmux config alias
 if command -v tmux &> /dev/null
 then
-  alias vt='v ~/.tmux.conf'
+  alias vt='$EDITOR ~/.tmux.conf'
   # mnemonic (t)mux (n)ew-(s)ession and put the name of the session ($1)
   function tns(){
     tmux new-session -d -s "$1" && tmux switch-client -t "$1"
@@ -59,23 +62,30 @@ alias glsub='git pull --recurse-submodules'
 alias gsu='git submodule update --remote --merge'
 alias gd='git diff'
 
-# Extract files more easily
+# paru and pacman helper
+alias pacman='sudo pacman --color auto'
+alias pacmanall='sudo pacman -Syyu'
+alias paruall="paru -Syu --noconfirm"
+
+# Helper for extracting files
 function extract() {
-  if [ -f $1 ] ; then
+  if [ -f $1 ]; then
     case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.tar.xz)    tar xf $1    ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via extract()" ;;
+      *.tar.zst) unzstd $1;;
+      *.tar.bz2) tar xjf $1;;
+      *.tar.gz) tar xzf $1;;
+      *.tar.xz) tar xf $1;;
+      *.bz2) bunzip2 $1;;
+      *.rar) unrar x $1;;
+      *.gz) gunzip $1;;
+      *.tar) tar xf $1;;
+      *.tbz2) tar xjf $1;;
+      *.tgz) tar xzf $1;;
+      *.zip) unzip $1;;
+      *.Z) uncompress $1;;
+      *.7z) 7z x $1;;
+      *.deb) ar x $1;;
+      *) echo "'$1' cannot be extracted via extract()";;
     esac
   else
     echo "'$1' is not a valid file"

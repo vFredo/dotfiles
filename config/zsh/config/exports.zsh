@@ -8,11 +8,11 @@ export LS_COLORS="$LS_COLORS:ow=1;036"
 # default apps
 if command -v nvim &> /dev/null
 then
-  export EDITOR='nvim'
-  export VISUAL='nvim'
+  export EDITOR=$(which nvim)
+  export VISUAL=$(which nvim)
 else
-  export EDITOR='vim'
-  export VISUAL='vim'
+  export EDITOR=$(which vim)
+  export VISUAL=$(which vim)
 fi
 
 # go files and paths
