@@ -1,11 +1,11 @@
 foreach file (
   load.zsh
   exports.zsh
-  prompt.zsh
+  plugins.zsh
+  prompt_style.zsh
   settings.zsh
   aliases.zsh
   mappings.zsh
-  plugins.zsh
 ) {
   source $ZDOTDIR/config/$file
 }
