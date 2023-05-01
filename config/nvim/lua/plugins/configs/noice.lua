@@ -14,8 +14,12 @@ noice.setup({
   },
   messages = { view_search = "mini" },
   routes = {
-    { -- messages text like "written" on "mini" view
+    { -- messages text like "written" on mini view
       filter = { event = "msg_show", find = "%d+L, %d+B" },
+      view = "mini",
+    },
+    { -- show recording macros 'recording @' on mini view
+      filter = { event = "msg_showmode", find = "recording" },
       view = "mini",
     },
     { -- delete visual indentation message
@@ -25,11 +29,6 @@ noice.setup({
     { -- LSP annoying message
       filter = { event = "notify", find = "No information available" },
       opts = { skip = true }
-    },
-    {
-      -- show recording macros 'recording @'
-      filter = { event = "msg_showmode", find = "recording" },
-      view = "mini",
     },
   },
   presets = {

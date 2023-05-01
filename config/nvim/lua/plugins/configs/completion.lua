@@ -21,9 +21,7 @@ luasnip.config.set_config {
   delete_check_events = "TextChanged",
   ext_opts = {
     [types.choiceNode] = {
-      active = {
-        virt_text = { { "choiceNode", "Comment" } },
-      },
+      active = { virt_text = { { "choiceNode", "Comment" } } },
     },
   },
   -- mapping for cutting selected text (mapped via xmap).
@@ -41,7 +39,7 @@ cmp.setup {
   },
   completion = {
     autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
-    completeopt = 'menu,menuone',
+    completeopt = 'menu,menuone,noselect',
   },
   view = { entries = "custom" },
   window = {
@@ -52,34 +50,48 @@ cmp.setup {
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None"
     }),
   },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
+  mapping = {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-p>'] = cmp.mapping({
+      i = cmp.mapping.select_prev_item(),
+      c = cmp.mapping.select_prev_item()
+    }),
+    ['<C-n>'] = cmp.mapping({
+      i = cmp.mapping.select_next_item(),
+      c = cmp.mapping.select_next_item()
+    }),
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.close(),
+      c = cmp.mapping.close()
+    }),
     ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.get_selected_entry() then -- confirm completion
-        cmp.confirm({ select = true })
+      if cmp.visible() then
+        local entry = cmp.get_selected_entry()
+        if not entry then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        else
+          cmp.confirm({ select = true })
+        end
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump() -- jump next snippet placeholder
       else
-        fallback()               -- else do a simple char <Tab>
+        fallback()
       end
-    end),
+    end, { "i", "s", "c" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1) -- jump previous snippet placeholder
       else
         fallback()       -- else do a simple char <S-Tab>
       end
-    end),
-  }),
+    end, { "i", "s", "c" })
+  },
   sources = cmp.config.sources({
-    { name = 'nvim_lsp', group_index = 1, max_item_count = 8 },
-    { name = "luasnip",  group_index = 1, max_item_count = 3 },
-    { name = 'buffer',   group_index = 1 },
-    { name = "path",     group_index = 2 },
+    { name = "nvim_lsp", max_item_count = 8 },
+    { name = "luasnip",  max_item_count = 3 },
+    { name = "buffer", max_item_count = 5 },
+    { name = "path" },
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -90,6 +102,7 @@ cmp.setup {
         nvim_lsp = "[LSP]",
         buffer = "[buf]",
         path = "[path]",
+        cmdline = "[cmd]"
       },
       before = function(entry, vim_item)
         -- Delete duplicates
@@ -103,56 +116,17 @@ cmp.setup {
   },
 }
 
--- Use buffer source for /,? (experiemental.native_menu = false)
+-- Use buffer source for /,?
 cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline({
-    ['<C-e>'] = cmp.mapping({ c = cmp.mapping.close() }),
-    ["<Tab>"] = cmp.mapping({ c = function(fallback)
-      if cmp.get_selected_entry() then -- confirm completion
-        cmp.confirm({ select = true })
-      elseif cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback() -- else do a simple char <Tab>
-      end
-    end
-    }),
+  sources = cmp.config.sources({
+    { name = 'buffer', max_item_count = 5 }
   }),
-  sources = cmp.config.sources({ { name = 'buffer' } }),
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format { mode = "symbol" }
-  },
 })
 
--- Use cmdline & path source for ':' (experiemental.native_menu = false)
+-- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline({
-    ['<C-e>'] = cmp.mapping({ c = cmp.mapping.close() }),
-    ["<Tab>"] = cmp.mapping({ c = function(fallback)
-      if cmp.get_selected_entry() then   -- confirm completion
-        cmp.confirm({ select = true })
-      elseif cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()   -- else do a simple char <Tab>
-      end
-    end
-    }),
-  }),
   sources = cmp.config.sources({
     { name = 'path',    group_index = 1 },
     { name = 'cmdline', group_index = 2 }
   }),
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format {
-      mode = "symbol",
-      before = function(entry, vim_item)
-        -- Delete duplicates
-        vim_item.dup = ({ cmdline = 0 })[entry.source.name] or 0
-        return vim_item
-      end,
-    },
-  },
 })

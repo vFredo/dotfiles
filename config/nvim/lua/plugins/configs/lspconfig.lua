@@ -16,7 +16,10 @@ local servers = {
   tailwindcss = {},
   rust_analyzer = {},
   emmet_ls = {
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' }
+    filetypes = {
+      'html', 'typescriptreact', 'javascriptreact',
+      'css', 'sass', 'scss', 'less'
+    }
   },
   gopls = {
     gopls = {
@@ -61,26 +64,25 @@ mason_lspconfig.setup_handlers {
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
+  callback = function(event)
     -- Enable completion default trigger by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    vim.bo[event.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     -- Mappings
     local map = require("core.utils").map
-    local opts = { noremap = true, buffer = ev.buf, silent = true }
-    map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
+    local opts = { noremap = true, buffer = event.buf, silent = true }
+
     map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
     map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
     map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
     map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
-    map("n", "ga", vim.lsp.buf.code_action, opts)
-    map('n', '<leader>rn', vim.lsp.buf.rename, opts)
     map("n", "K", vim.lsp.buf.hover, opts)
+    map("n", "ga", vim.lsp.buf.code_action, opts)
     map("n", "[d", vim.diagnostic.goto_prev, opts)
     map("n", "]d", vim.diagnostic.goto_next, opts)
-    map('n', '<space>F', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
+    map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
+    map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    map('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, opts)
   end
 })
 

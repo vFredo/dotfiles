@@ -59,7 +59,7 @@ opt.diffopt:append('vertical') -- Show diffs in vertical splits
 
 -- Folds
 opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
-opt.foldmethod  = "indent"
+opt.foldmethod = "indent"
 opt.foldenable = false
 
 --

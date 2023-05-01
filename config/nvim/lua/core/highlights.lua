@@ -179,9 +179,9 @@ fg("NotifyWARNTitle", colors.yellow)
 fg("NotifyWARNIcon", colors.yellow)
 fg("NotifyWARNBorder", colors.yellow)
 
-fg("NotifyINFOTitle", colors.blue)
-fg("NotifyINFOIcon", colors.blue)
-fg("NotifyINFOBorder", colors.blue)
+fg("NotifyINFOTitle", colors.green)
+fg("NotifyINFOIcon", colors.green)
+fg("NotifyINFOBorder", colors.green)
 
 fg("NotifyDEBUGTitle", colors.magenta)
 fg("NotifyDEBUGIcon", colors.magenta)
