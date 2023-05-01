@@ -52,34 +52,34 @@ cmp.setup {
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None"
     }),
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ['<C-e>'] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
+    ['<C-e>'] = cmp.mapping.abort(),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.get_selected_entry() then -- confirm completion
-        cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
+        cmp.confirm({ select = true })
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump() -- jump next snippet placeholder
       else
-        fallback() -- else do a simple char <Tab>
+        fallback()               -- else do a simple char <Tab>
       end
-    end, { 'i', 's' }),
+    end),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1) -- jump previous snippet placeholder
       else
-        fallback() -- else do a simple char <S-Tab>
+        fallback()       -- else do a simple char <S-Tab>
       end
-    end, { 'i', 's' }),
-  },
+    end),
+  }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp', group_index = 1, max_item_count = 8 },
-    { name = "luasnip", group_index = 1, max_item_count = 3 },
-    { name = 'buffer', group_index = 2 },
-    { name = "path", group_index = 2 },
+    { name = "luasnip",  group_index = 1, max_item_count = 3 },
+    { name = 'buffer',   group_index = 1 },
+    { name = "path",     group_index = 2 },
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -99,23 +99,23 @@ cmp.setup {
     }),
   },
   experimental = {
-    ghost_text = true,   -- nice comment color text of completion
+    ghost_text = true, -- nice comment color text of completion
   },
 }
 
 -- Use buffer source for /,? (experiemental.native_menu = false)
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline({
-    ["<Tab>"] = cmp.mapping({
-      c = function(fallback)
-        if cmp.get_selected_entry() then -- confirm completion
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-        elseif cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback() -- else do a simple char <Tab>
-        end
+    ['<C-e>'] = cmp.mapping({ c = cmp.mapping.close() }),
+    ["<Tab>"] = cmp.mapping({ c = function(fallback)
+      if cmp.get_selected_entry() then -- confirm completion
+        cmp.confirm({ select = true })
+      elseif cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback() -- else do a simple char <Tab>
       end
+    end
     }),
   }),
   sources = cmp.config.sources({ { name = 'buffer' } }),
@@ -128,20 +128,20 @@ cmp.setup.cmdline({ '/', '?' }, {
 -- Use cmdline & path source for ':' (experiemental.native_menu = false)
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline({
-    ["<Tab>"] = cmp.mapping({
-      c = function(fallback)
-        if cmp.get_selected_entry() then -- confirm completion
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-        elseif cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback() -- else do a simple char <Tab>
-        end
+    ['<C-e>'] = cmp.mapping({ c = cmp.mapping.close() }),
+    ["<Tab>"] = cmp.mapping({ c = function(fallback)
+      if cmp.get_selected_entry() then   -- confirm completion
+        cmp.confirm({ select = true })
+      elseif cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()   -- else do a simple char <Tab>
       end
+    end
     }),
   }),
   sources = cmp.config.sources({
-    { name = 'path', group_index = 1 },
+    { name = 'path',    group_index = 1 },
     { name = 'cmdline', group_index = 2 }
   }),
   formatting = {

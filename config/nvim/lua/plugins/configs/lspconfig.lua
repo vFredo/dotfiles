@@ -47,34 +47,6 @@ mason_lspconfig.setup {
   automatic_installation = true
 }
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local map = require("core.utils").map
-  local function buf_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  -- Enable completion triggered by <c-x><c-o>
-  buf_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings
-  local opts = { noremap = true, buffer = bufnr, silent = true }
-  map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
-  map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
-  map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
-  map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
-  map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
-  map("n", "ga", vim.lsp.buf.code_action, opts)
-  map('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  map("n", "K", vim.lsp.buf.hover, opts)
-  map("n", "[d", vim.diagnostic.goto_prev, opts)
-  map("n", "]d", vim.diagnostic.goto_next, opts)
-
-  -- if the server client can format files then create the command 'Format'
-  if client.server_capabilities.documentFormattingProvider then
-    vim.cmd([[ command! Format lua vim.lsp.buf.format { async = true } ]])
-  end
-end
-
 -- nvim-cmp supports additional completion capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -82,11 +54,35 @@ mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
-      on_attach = on_attach,
       settings = servers[server_name],
     }
   end,
 }
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion default trigger by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Mappings
+    local map = require("core.utils").map
+    local opts = { noremap = true, buffer = ev.buf, silent = true }
+    map('n', '<leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
+    map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
+    map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
+    map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
+    map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
+    map("n", "ga", vim.lsp.buf.code_action, opts)
+    map('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    map("n", "K", vim.lsp.buf.hover, opts)
+    map("n", "[d", vim.diagnostic.goto_prev, opts)
+    map("n", "]d", vim.diagnostic.goto_next, opts)
+    map('n', '<space>F', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end
+})
 
 -- Change the default lsp diagnostic symbols
 local signs = {

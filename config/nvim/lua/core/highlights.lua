@@ -115,10 +115,10 @@ fg("DiffRemoved", colors.red)
 fg("fugitiveStagedHeading", colors.green)
 
 -- Treesitter comments: TODO, FIXME, HACK, WARNING and NOTE
--- fg_bg("@text.todo", colors.blue, colors.bgAlt, "bold")
--- fg_bg("@text.danger", colors.red, colors.bgAlt, "bold")
--- fg_bg("@text.warning", colors.yellow, colors.bgAlt, "bold")
--- fg_bg("@text.note", colors.cyan, colors.bgAlt, "bold")
+bg("@text.todo", colors.bgAlt, "bold")
+bg("@text.danger", colors.bgAlt, "bold")
+bg("@text.warning", colors.bgAlt, "bold")
+bg("@text.note", colors.bgAlt, "bold")
 
 -- Treesitter nodes highlight colors
 fg("@character", colors.orangeAlt)
@@ -179,13 +179,13 @@ fg("NotifyWARNTitle", colors.yellow)
 fg("NotifyWARNIcon", colors.yellow)
 fg("NotifyWARNBorder", colors.yellow)
 
-fg("NotifyINFOTitle", colors.green)
-fg("NotifyINFOIcon", colors.green)
-fg("NotifyINFOBorder", colors.green)
+fg("NotifyINFOTitle", colors.blue)
+fg("NotifyINFOIcon", colors.blue)
+fg("NotifyINFOBorder", colors.blue)
 
-fg("NotifyDEBUGTitle", colors.purple)
-fg("NotifyDEBUGIcon", colors.purple)
-fg("NotifyDEBUGBorder", colors.purple)
+fg("NotifyDEBUGTitle", colors.magenta)
+fg("NotifyDEBUGIcon", colors.magenta)
+fg("NotifyDEBUGBorder", colors.magenta)
 
 fg("NotifyTRACETitle", colors.cyan)
 fg("NotifyTRACEIcon", colors.cyan)

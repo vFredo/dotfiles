@@ -240,7 +240,7 @@ return require('lazy').setup({
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "williamboman/mason.nvim", config = true },
+      { "williamboman/mason.nvim", build = ":MasonUpdate", config = true },
       "williamboman/mason-lspconfig.nvim"
     },
     config = function() require "plugins.configs.lspconfig" end
@@ -301,7 +301,7 @@ return require('lazy').setup({
     end
   },
   {
-    "iurimateus/luasnip-latex-snippets.nvim",
+    "iurimateus/luasnip-latex-snippets.nvim", -- latex snippets
     ft = { "tex", "markdown" },
     dependencies = { "L3MON4D3/LuaSnip", "nvim-treesitter/nvim-treesitter" },
     opts = { use_treesitter = true }
