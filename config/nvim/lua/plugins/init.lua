@@ -196,7 +196,7 @@ return require('lazy').setup({
   {
     "kyazdani42/nvim-tree.lua",
     keys = {
-      { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "[t]ree view" }
+      { "<Leader>t", "<cmd>NvimTreeToggle<cr>", desc = "[t]ree view" }
     },
     config = function() require "plugins.configs.nvim-tree" end
   },
@@ -223,7 +223,7 @@ return require('lazy').setup({
   {
     "tpope/vim-fugitive",
     keys = {
-      { "<leader>g", "<cmd>vert Git<cr>", desc = "[g]it view" }
+      { "<Leader>g", "<cmd>vert Git<cr>", desc = "[g]it view" }
     },
   },
   {

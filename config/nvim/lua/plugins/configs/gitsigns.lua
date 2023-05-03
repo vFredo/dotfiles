@@ -41,12 +41,12 @@ gitsigns.setup {
     end, opts_expr)
 
     -- Actions
-    map({'n', 'v'}, '<leader>hs', '<cmd>Gitsigns stage_hunk<cr>', opts)
-    map({'n', 'v'}, '<leader>hr', '<cmd>Gitsigns reset_hunk<cr>', opts)
-    map('n', '<leader>hS', gs.stage_buffer, opts)
-    map('n', '<leader>hu', gs.undo_stage_hunk, opts)
-    map('n', '<leader>hR', gs.reset_buffer, opts)
-    map('n', '<leader>hb', gs.toggle_current_line_blame, opts)
+    map({'n', 'v'}, '<Leader>hs', '<cmd>Gitsigns stage_hunk<cr>', opts)
+    map({'n', 'v'}, '<Leader>hr', '<cmd>Gitsigns reset_hunk<cr>', opts)
+    map('n', '<Leader>hS', gs.stage_buffer, opts)
+    map('n', '<Leader>hu', gs.undo_stage_hunk, opts)
+    map('n', '<Leader>hR', gs.reset_buffer, opts)
+    map('n', '<Leader>hb', gs.toggle_current_line_blame, opts)
 
     -- Text object
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<cr>', opts)

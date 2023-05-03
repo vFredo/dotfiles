@@ -126,7 +126,7 @@ cmp.setup.cmdline({ '/', '?' }, {
 -- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-    { name = 'path',    group_index = 1 },
-    { name = 'cmdline', group_index = 2 }
+    { name = 'cmdline' },
+    { name = 'path' }
   }),
 })
