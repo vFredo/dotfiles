@@ -32,15 +32,6 @@ luasnip.config.set_config {
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  completion = {
-    autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
-    completeopt = 'menu,menuone,noselect',
-  },
   view = { entries = "custom" },
   window = {
     documentation = cmp.config.window.bordered(),
@@ -49,6 +40,15 @@ cmp.setup {
       col_offset = -2,
       winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None"
     }),
+  },
+  completion = {
+    autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
+    completeopt = 'menu,menuone,noselect',
+  },
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
   },
   mapping = {
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
@@ -112,7 +112,7 @@ cmp.setup {
     }),
   },
   experimental = {
-    ghost_text = true, -- nice comment color text of completion
+    ghost_text = { hl_group = "Comment" } -- nice comment color text of completion
   },
 }
 

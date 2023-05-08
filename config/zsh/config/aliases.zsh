@@ -63,7 +63,6 @@ alias gsub='git submodule update --remote --merge'
 alias gd='git diff'
 
 # paru and pacman helper
-alias pacman='sudo pacman --color auto'
 alias pacmanall='sudo pacman -Syyu'
 alias paruall="paru -Syu --noconfirm"
 
