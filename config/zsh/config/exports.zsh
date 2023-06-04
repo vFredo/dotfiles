@@ -33,3 +33,5 @@ export MANPAGER='nvim +Man!'
 source /usr/share/nvm/init-nvm.sh
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
 export NPM_CONFIG_CACHE="$HOME/.cache/npm"
+
+source "$HOME/.cargo/env"

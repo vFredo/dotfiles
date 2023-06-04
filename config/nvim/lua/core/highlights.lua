@@ -65,7 +65,7 @@ fg("SpellCap", colors.blue)
 
 -- Popup menu (default completion menu)
 bg("Pmenu", colors.bgAlt) -- completition box
-fg_bg("PmenuSel", colors.bgAlt, colors.blue, "bold") -- item selected
+fg_bg("PmenuSel", colors.bg, colors.blue, "bold") -- item selected
 bg("PmenuSbar", colors.bgAlt) -- scrollbar
 bg("PmenuThumb", colors.fgAlt) -- thumb scrollbar
 
@@ -159,10 +159,11 @@ end
 -- Telescope
 fg("TelescopeBorder", colors.grey)
 fg("TelescopeTitle", colors.fgAlt2)
+bg("TelescopeSelection", colors.bgAlt2)
 
 -- Leap
-fg("LeapMatch", colors.yellow, "bold,underline,nocombine")
-fg_bg("LeapLabelPrimary", colors.bg, colors.yellow, "bold")
+fg("LeapMatch", colors.orangeAlt, "bold,underline,nocombine")
+fg_bg("LeapLabelPrimary", colors.bg, colors.orangeAlt, "bold")
 fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
 
 -- Noice
