@@ -111,8 +111,7 @@ function install_term(){
   progress "Creating folders need it"
   mkdir -p "$HOME"/.local/share/fonts
 
-  progress "User profile configurations"
-  create_link "$(pwd)/misc/Xresources" "$HOME/.Xresources"
+  # progress "User profile configurations"
   create_link "$(pwd)/misc/profile" "$HOME/.profile"
 
   progress "Installing fonts..."
@@ -188,7 +187,6 @@ then
     case "$1" in
       --help | -h)
         help_tag
-        ;;
         ;;
       --bspwm)
         install_bspwm

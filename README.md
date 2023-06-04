@@ -44,6 +44,8 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
 ## ❖ Dependencies
 * Neovim
   * [ripgrep](https://github.com/BurntSushi/ripgrep)
+  * nodejs
+  * xclip
 * Zsh
 * Bspwm
   * [Capitaine Cursor](https://github.com/keeferrourke/capitaine-cursors)
