@@ -38,11 +38,11 @@ local on_attach = function(bufnr)
 end
 
 tree.setup {
+  on_attach = on_attach,
   disable_netrw = true,
   hijack_netrw = true,
   hijack_cursor = true,
   update_cwd = true,
-  on_attach = on_attach,
   update_focused_file = { enable = true, update_cwd = false },
   git = { ignore = false },
   diagnostics = { enable = true },

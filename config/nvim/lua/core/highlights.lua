@@ -44,7 +44,6 @@ fg("EndOfBuffer", colors.bg)
 fg_bg("MatchParen", colors.bg, colors.yellow, "bold")
 
 -- Cursorline
-fg_bg("CursorLine", "NONE", colors.bg)
 fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")
 
 -- Statusline active/inactive
@@ -209,4 +208,4 @@ fg("NvimTreeGitDeleted", colors.red)
 fg("NvimTreeExecFile", colors.fg)
 bg("NvimTreeSignColumn", colors.bgAlt)
 fg("NvimTreeSpecialFile", colors.purple)
-fg("NvimTreeOpenedFile", colors.orange, "underline")
+fg("NvimTreeOpenedFile", colors.orangeAlt, "underline")
