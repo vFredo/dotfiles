@@ -1,9 +1,4 @@
-local ok, tree = pcall(require, "nvim-tree")
-if not ok then
-  vim.notify("Couldn't load nvim-tree " .. tree .. "\n")
-end
-
--- Mappings
+-- Attach buffer mappings
 local on_attach = function(bufnr)
   local api = require('nvim-tree.api')
   local map = vim.keymap.set
@@ -37,44 +32,51 @@ local on_attach = function(bufnr)
   map('n', 'l', api.node.open.edit, opts('Open'))
 end
 
-tree.setup {
-  on_attach = on_attach,
-  disable_netrw = true,
-  hijack_netrw = true,
-  hijack_cursor = true,
-  update_cwd = true,
-  update_focused_file = { enable = true, update_cwd = false },
-  git = { ignore = false },
-  diagnostics = { enable = true },
-  view = {
-    width = 32,
-    side = 'left',
+return {
+  -- Tree view of the current directory
+  "kyazdani42/nvim-tree.lua",
+  keys = {
+    { "<Leader>t", "<cmd>NvimTreeToggle<cr>", desc = "[t]ree view" }
   },
-  filters = {
-    dotfiles = false,
-    custom = {
-      "^node_modules/", "^.git/",
-      "^.cache/", "%.o", "%.pdf",
-      "%.class", "%.obj"
+  opts = {
+    on_attach = on_attach,
+    disable_netrw = true,
+    hijack_netrw = true,
+    hijack_cursor = true,
+    update_cwd = true,
+    update_focused_file = { enable = true, update_cwd = false },
+    git = { ignore = false },
+    diagnostics = { enable = true },
+    view = {
+      width = 30,
+      side = 'left',
     },
-  },
-  renderer = {
-    indent_markers = { enable = true },
-    root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
-    highlight_opened_files = "name",
-    icons = {
-      glyphs = {
-        default = "",
-        symlink = "",
-        git = {
-          unmerged = "",
-          ignored = "◌",
-          renamed = "➜",
-          staged = "+",
-          unstaged = "",
-          deleted = "D",
-          untracked = "U"
-        },
+    filters = {
+      dotfiles = false,
+      custom = {
+        "^node_modules/", "^.git/",
+        "^.cache/", "%.o", "%.pdf",
+        "%.class", "%.obj"
+      },
+    },
+    renderer = {
+      indent_markers = { enable = true },
+      root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
+      highlight_opened_files = "name",
+      icons = {
+        glyphs = {
+          default = "",
+          symlink = "",
+          git = {
+            unmerged = "",
+            ignored = "◌",
+            renamed = "➜",
+            staged = "+",
+            unstaged = "U",
+            deleted = "D",
+            untracked = "?"
+          },
+        }
       }
     }
   }

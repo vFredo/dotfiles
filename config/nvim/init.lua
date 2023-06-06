@@ -3,9 +3,9 @@
 --
 local modules = {
   'core.options',
-  'plugins',
-  'core.autocmds',
+  'core.lazy',
   'core.highlights',
+  'core.autocmds',
   'core.mappings',
 }
 

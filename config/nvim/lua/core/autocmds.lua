@@ -47,7 +47,8 @@ autocmd("FileType", {
 
 -- conceal level for latex
 autocmd("FileType", {
-  group = ft_group, pattern = { "tex" },
+  group = ft_group,
+  pattern = { "tex" },
   callback = function() vim.opt.conceallevel = 2 end
 })
 

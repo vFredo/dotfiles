@@ -7,6 +7,7 @@ vim.cmd([[filetype plugin indent on]])
 -- General options
 --
 g.mapleader       = " " -- Map leader is <Space>
+g.maplocalleader = "," -- Local leader map to ','
 opt.background    = "dark"
 opt.cmdheight     = 1 -- More space for displaying messages
 opt.cursorline    = true -- Current line highlight
@@ -34,8 +35,8 @@ opt.completeopt   = { -- Options for insert mode completion.
 }
 
 -- Viewport
-opt.scrolloff     = 3 -- start scrolling 3 lines before edge of the rows viewport
-opt.sidescrolloff = 3 -- start scrolling 3 lines before edge of the columns viewport
+opt.scrolloff     = 3    -- start scrolling 3 lines before edge of the rows viewport
+opt.sidescrolloff = 3    -- start scrolling 3 lines before edge of the columns viewport
 opt.splitbelow    = true -- open horizontal splits below current window
 opt.splitright    = true -- open vertical splits to the right current window
 
@@ -44,32 +45,32 @@ opt.smartindent   = true -- Makes indenting smart
 opt.smarttab      = true -- Makes tabbing smarter, it will realize if you have 2 vs 4
 opt.expandtab     = true -- Converts tabs to spaces
 opt.autoindent    = true -- Good auto indent
-opt.shiftwidth    = 2 -- Change the number of space characters inserted for indentation
-opt.tabstop       = 2 -- insert 2 spaces for a tab
+opt.shiftwidth    = 2    -- Change the number of space characters inserted for indentation
+opt.tabstop       = 2    -- insert 2 spaces for a tab
 
 -- Abreviations
-opt.shortmess:append('I') -- no splash screen
-opt.shortmess:append('a') -- Abreviations eg. `[RO]` instead of `[readonly]`
-opt.shortmess:append('c') -- avoid show extra message in completion
-opt.shortmess:append('f') -- Use "(3 of 5)" instead of "(file 3 of 5)"
-opt.shortmess:append('m') -- Use "[+]" instead of "[Modified]".
-opt.shortmess:append('r') -- Use "[RO]" instead of "[readonly]".
-opt.shortmess:append('w') -- Use "[w]", "[a]" instead of "written", "appended".
+opt.shortmess:append('I')      -- no splash screen
+opt.shortmess:append('a')      -- Abreviations eg. `[RO]` instead of `[readonly]`
+opt.shortmess:append('c')      -- avoid show extra message in completion
+opt.shortmess:append('f')      -- Use "(3 of 5)" instead of "(file 3 of 5)"
+opt.shortmess:append('m')      -- Use "[+]" instead of "[Modified]".
+opt.shortmess:append('r')      -- Use "[RO]" instead of "[readonly]".
+opt.shortmess:append('w')      -- Use "[w]", "[a]" instead of "written", "appended".
 opt.diffopt:append('vertical') -- Show diffs in vertical splits
 
 -- Folds
 opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
-opt.foldmethod = "indent"
-opt.foldenable = false
+opt.foldmethod  = "indent"
+opt.foldenable  = false
 
 --
 -- Characters
 --
 opt.joinspaces  = false -- don't autoinsert two spaces after '.', '?', '!' for join command
-opt.linebreak   = true -- wrap long lines at characters in 'breakat'
-opt.breakindent = true -- Indent wrap text
+opt.linebreak   = true  -- wrap long lines at characters in 'breakat'
+opt.breakindent = true  -- Indent wrap text
 opt.showbreak   = '↳ ' -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3)
-opt.list        = true -- show whitespace and everything on the listchars
+opt.list        = true  -- show whitespace and everything on the listchars
 opt.listchars   = {
   nbsp     = '⦸',
   extends  = '»',

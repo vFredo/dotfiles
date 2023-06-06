@@ -1,4 +1,4 @@
-local colors =  {
+local colors = {
   bg = "#1d2021",
   fg = "#d5c4a1",
   red = "#ea6962",
