@@ -31,7 +31,6 @@ return require('lazy').setup(
           'rplugin',
           'tarPlugin',
           'zipPlugin',
-          'netrwPlugin',
           'tutor',
         },
       }

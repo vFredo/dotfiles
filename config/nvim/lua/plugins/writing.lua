@@ -16,4 +16,18 @@ return {
     dependencies = { "L3MON4D3/LuaSnip", "nvim-treesitter/nvim-treesitter" },
     opts = { use_treesitter = true }
   },
+  {
+    'nvim-orgmode/orgmode',
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      { 'akinsho/org-bullets.nvim', config = true }
+    },
+    config = function()
+      require('orgmode').setup_ts_grammar()
+      require('orgmode').setup({
+        org_agenda_files = {'~/Documents/notes/*'},
+        org_default_notes_file = '~/Documents/notes/refile.org',
+      })
+    end
+  }
 }

@@ -13,11 +13,11 @@ return {
       "css", "scss", "dockerfile", "go", "gomod", "latex",
       "vimdoc", "html", "json", "javascript", "php", "bibtex",
       "typescript", "python", "rust", "vim", "lua", "vue",
-      "yaml", "markdown", "markdown_inline"
+      "yaml", "markdown", "markdown_inline", "org"
     },
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = false
+      additional_vim_regex_highlighting = {'org'},
     },
     indent = { enable = true },
     context_commentstring = {

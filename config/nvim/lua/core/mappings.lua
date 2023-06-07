@@ -19,7 +19,7 @@ map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", opt)
 
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k',
--- also don't use g[j|k] when in operator pending mode
+-- also don't use g[j|k] when in operator pending mode (using 10j or 10k)
 map("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opt_expr)
 map("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr)
 

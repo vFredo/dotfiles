@@ -35,29 +35,32 @@ return {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
+        documentation = {
+          opts = {
+            win_options = {
+              conceallevel = 2,
+              concealcursor = "n",
+              winhighlight = {
+                Normal = "Normal",
+                FloatBorder = "helpVim",
+              },
+            },
+          },
+        },
       },
       messages = { view_search = "mini" },
       routes = {
-        {
-          -- messages text like "written" on mini view
-          filter = { event = "msg_show", find = "%d+L, %d+B" },
-          view = "mini",
-        },
-        {
-          -- show recording macros 'recording @' on mini view
-          filter = { event = "msg_showmode", find = "recording" },
-          view = "mini",
-        },
-        {
-          -- delete visual indentation message
-          filter = { event = "msg_show", find = "%s+[><]ed%s" },
-          opts = { skip = true }
-        },
-        {
-          -- LSP annoying message
-          filter = { event = "notify", find = "No information available" },
-          opts = { skip = true }
-        },
+        -- messages text like "written" on mini view
+        { filter = { event = "msg_show", find = "%d+L, %d+B" }, view = "mini" },
+        -- show recording macros 'recording @' on mini view
+        { filter = { event = "msg_showmode", find = "recording" }, view = "mini" },
+        -- delete visual indentation message
+        { filter = { event = "msg_show", find = "%s+[><]ed%s" }, skip = true },
+        { filter = { event = "msg_show", find = "search hit BOTTOM" },skip = true },
+        { filter = { event = "msg_show", find = "search hit TOP" }, skip = true },
+        -- LSP annoying messages
+        { filter = { event = "notify", find = "No information available" }, skip = true },
+        { filter = { find = "No signature help" }, skip = true },
       },
       presets = {
         lsp_doc_border = true,

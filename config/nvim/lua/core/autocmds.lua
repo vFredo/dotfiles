@@ -85,3 +85,14 @@ autocmd("VimEnter", {
     end
   end
 })
+
+-- org mode conceal level
+autocmd("FileType", {
+  group = ft_group,
+  pattern = { "org" },
+  callback = function ()
+    vim.opt_local.conceallevel = 2
+    vim.opt_local.concealcursor = 'c'
+  end
+})
+

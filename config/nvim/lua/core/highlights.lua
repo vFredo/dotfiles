@@ -125,41 +125,11 @@ fg("@lsp.type.enum", colors.yellow)
 fg("@lsp.type.interface", colors.yellow)
 fg("@lsp.typemod.variable.global", colors.yellow)
 
--- Treesitter nodes highlight colors
-fg("@character", colors.orangeAlt)
-fg("@repeat", colors.purple)
-fg("@field", colors.red)
-fg("@variable", colors.fg)
-fg("@parameter", colors.fg)
-fg("@variable.builtin", colors.yellow)
-fg("@text.literal", colors.orange)
-fg("@text.reference", colors.yellow)
-fg("@text.uri", colors.cyan)
-fg("@text.title", colors.purple)
-fg("@text.environment", colors.red)
-fg("@text.environment.name", colors.purple)
-
--- Fix LSP highlight to be compatible with the Treesitter highlight
-local links = {
-  ['@lsp.type.namespace'] = '@namespace',
-  ['@lsp.type.type'] = '@type',
-  ['@lsp.type.class'] = '@type',
-  ['@lsp.type.enum'] = '@type',
-  ['@lsp.type.interface'] = '@type',
-  ['@lsp.type.struct'] = '@structure',
-  ['@lsp.type.parameter'] = '@parameter',
-  ['@lsp.type.variable'] = '@variable',
-  ['@lsp.typemod.variable.global'] = '@variable.builtin',
-  ['@lsp.type.property'] = '@property',
-  ['@lsp.type.enumMember'] = '@constant',
-  ['@lsp.type.function'] = '@function',
-  ['@lsp.type.method'] = '@method',
-  ['@lsp.type.macro'] = '@macro',
-  ['@lsp.type.decorator'] = '@function',
-}
-for newgroup, oldgroup in pairs(links) do
-  vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
-end
+-- Treesitter/LSP highlight colors
+fg("Funcion", colors.blue)
+fg("Structure", colors.orange)
+fg("@lsp.type.function", colors.blue)
+fg("@lsp.type.method", colors.blue)
 
 -- Telescope
 fg("TelescopePromptBorder", colors.bgAlt2)
