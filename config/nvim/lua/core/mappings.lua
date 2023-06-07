@@ -16,7 +16,14 @@ map({ "n", "v" }, "<Leader>y", [["+y]], opt)
 map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 
 -- use ESC in normal mode to turn off search highlighting
-map("n", "<Esc>", "<cmd>nohlsearch<CR>", opt)
+-- map("n", "<Esc>", "<cmd>nohlsearch<CR>", opt)
+map("n", "<Esc>", function ()
+  local ok, notify = pcall(require, "notify")
+  if ok then
+    notify.dismiss()
+  end
+  vim.cmd.nohlsearch()
+end, opt)
 
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k',
 -- also don't use g[j|k] when in operator pending mode (using 10j or 10k)

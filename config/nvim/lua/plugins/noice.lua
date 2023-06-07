@@ -5,8 +5,9 @@ return {
     event = "BufEnter",
     opts = {
       fps = 60,
-      stages = "slide",
-      timeout = 2500,
+      timeout = 4000,
+      stages = "fade_in_slide_out",
+      render = "simple",
       icons = {
         DEBUG = "",
         ERROR = "",
