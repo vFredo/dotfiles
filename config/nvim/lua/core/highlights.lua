@@ -40,7 +40,6 @@ end
 bg("LineNr", colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
-bg("Visual", colors.bgAlt2)
 fg("EndOfBuffer", colors.bg)
 fg_bg("MatchParen", colors.bg, colors.yellow, "bold")
 
@@ -114,21 +113,11 @@ fg("GitSignsDelete", colors.red)
 fg("DiffRemoved", colors.red)
 fg("fugitiveStagedHeading", colors.green)
 
--- Treesitter nodes highlight colors
-fg("@character", colors.orangeAlt)
-fg("@field", colors.red)
-fg("@text.literal", colors.orange)
-fg("@text.reference", colors.yellow)
-fg("@text.uri", colors.cyan)
-fg("@text.title", colors.purple)
-fg("@text.environment", colors.red)
-fg("@text.environment.name", colors.purple)
-
 -- Lsp Highlight colors
 fg("Function", colors.blue)
 fg("Repeat", colors.purple)
 fg("Statement", colors.purple)
-fg("Structure", colors.red)
+fg("Operator", colors. orange)
 fg("@lsp.type.property", colors.red)
 fg("@lsp.type.variable", colors.fg)
 fg("@lsp.type.class", colors.yellow)
@@ -136,10 +125,46 @@ fg("@lsp.type.enum", colors.yellow)
 fg("@lsp.type.interface", colors.yellow)
 fg("@lsp.typemod.variable.global", colors.yellow)
 
+-- Treesitter nodes highlight colors
+fg("@character", colors.orangeAlt)
+fg("@repeat", colors.purple)
+fg("@field", colors.red)
+fg("@variable", colors.fg)
+fg("@parameter", colors.fg)
+fg("@variable.builtin", colors.yellow)
+fg("@text.literal", colors.orange)
+fg("@text.reference", colors.yellow)
+fg("@text.uri", colors.cyan)
+fg("@text.title", colors.purple)
+fg("@text.environment", colors.red)
+fg("@text.environment.name", colors.purple)
+
+-- Fix LSP highlight to be compatible with the Treesitter highlight
+local links = {
+  ['@lsp.type.namespace'] = '@namespace',
+  ['@lsp.type.type'] = '@type',
+  ['@lsp.type.class'] = '@type',
+  ['@lsp.type.enum'] = '@type',
+  ['@lsp.type.interface'] = '@type',
+  ['@lsp.type.struct'] = '@structure',
+  ['@lsp.type.parameter'] = '@parameter',
+  ['@lsp.type.variable'] = '@variable',
+  ['@lsp.typemod.variable.global'] = '@variable.builtin',
+  ['@lsp.type.property'] = '@property',
+  ['@lsp.type.enumMember'] = '@constant',
+  ['@lsp.type.function'] = '@function',
+  ['@lsp.type.method'] = '@method',
+  ['@lsp.type.macro'] = '@macro',
+  ['@lsp.type.decorator'] = '@function',
+}
+for newgroup, oldgroup in pairs(links) do
+  vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
+end
+
 -- Telescope
-fg("TelescopePromptBorder", colors.grey)
-fg("TelescopePreviewBorder", colors.grey)
-fg("TelescopeResultsBorder", colors.grey)
+fg("TelescopePromptBorder", colors.bgAlt2)
+fg("TelescopePreviewBorder", colors.bgAlt2)
+fg("TelescopeResultsBorder", colors.bgAlt2)
 fg("TelescopeTitle", colors.fgAlt2)
 bg("TelescopeSelection", colors.bgAlt2)
 

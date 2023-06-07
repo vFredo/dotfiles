@@ -4,9 +4,9 @@
 local modules = {
   'core.options',
   'core.lazy',
-  'core.highlights',
   'core.autocmds',
   'core.mappings',
+  'core.highlights',
 }
 
 for _, module in ipairs(modules) do
