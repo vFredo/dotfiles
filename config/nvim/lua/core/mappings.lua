@@ -1,4 +1,5 @@
 local map = require("core.utils").map
+local command = require("core.utils").command
 local opt = { noremap = true, silent = true }
 local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 
@@ -16,12 +17,8 @@ map({ "n", "v" }, "<Leader>y", [["+y]], opt)
 map({ "n", "v" }, "<Leader>p", [["+p]], opt)
 
 -- use ESC in normal mode to turn off search highlighting
--- map("n", "<Esc>", "<cmd>nohlsearch<CR>", opt)
-map("n", "<Esc>", function ()
-  local ok, notify = pcall(require, "notify")
-  if ok then
-    notify.dismiss()
-  end
+map("n", "<Esc>", function()
+  require("notify").dismiss()
   vim.cmd.nohlsearch()
 end, opt)
 
@@ -43,18 +40,16 @@ map({ "n", "x" }, "Y", "yg$", opt)
 map("n", "[c", "<cmd>cprevious<CR>", opt)
 map("n", "]c", "<cmd>cnext<CR>", opt)
 
--- Telescope
-map("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opt)
-map("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opt)
-map("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opt)
-map("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opt)
-
 -- Buffers
 map("n", "<Leader><Leader>", "<C-^>", opt)
 map("n", "<Leader>L", "<C-w>L", opt)
 map("n", "<Leader>H", "<C-w>H", opt)
-map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", opt)
-map("n", "]b", "<cmd>BufferLineCycleNext<cr>", opt)
+
+-- Toggle spelling (spanish and english)
+map("n", "<Leader>ss",
+  function() require('core.utils').toggleSpelling('es') end, opt)
+map("n", "<Leader>se",
+  function() require('core.utils').toggleSpelling('en_us') end, opt)
 
 -- Navigate between vim buffers, vim splits and tmux panes
 map({ "n", "v" }, "<C-h>", "<cmd>NavigatorLeft<cr>", opt)
@@ -62,24 +57,24 @@ map({ "n", "v" }, "<C-l>", "<cmd>NavigatorRight<cr>", opt)
 map({ "n", "v" }, "<C-k>", "<cmd>NavigatorUp<cr>", opt)
 map({ "n", "v" }, "<C-j>", "<cmd>NavigatorDown<cr>", opt)
 
---
--- Toggle spelling (spanish and english)
---
-map("n", "<Leader>ss",
-  function() require('core.utils').toggleSpelling('es') end, opt)
-map("n", "<Leader>se",
-  function() require('core.utils').toggleSpelling('en_us') end, opt)
+-- Telescope
+map("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", opt)
+map("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", opt)
+map("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", opt)
+map("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", opt)
+
+-- Bufferline
+map("n", "[b", "<cmd>BufferLineCyclePrev<cr>", opt)
+map("n", "]b", "<cmd>BufferLineCycleNext<cr>", opt)
 
 --
--- Commands
+-- User commands
 --
 
 -- Command 'TrimSpaces' well... it's self-explanatory what this does
-vim.cmd([[
-  command! TrimSpaces lua require("core.utils").preserve('%s/\\s\\+$//ge')
-]])
+command("TrimSpaces",
+  function() require("core.utils").preserve('%s/\\s\\+$//ge') end)
 
--- Reindent the current buffer
-vim.cmd([[
-  command! Reindent lua require("core.utils").preserve("sil keepj normal! gg=G")
-]])
+-- Correct indentation of the current buffer
+command("Reindent",
+  function() require("core.utils").preserve("sil keepj normal! gg=G") end)

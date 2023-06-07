@@ -9,6 +9,11 @@ M.map = function(mode, key, func, opts)
   vim.keymap.set(mode, key, func, options)
 end
 
+M.command = function (name, func, opts)
+  local options = opts or {}
+  vim.api.nvim_create_user_command(name, func, options)
+end
+
 -- Save current cursor position after running a command(cmd)
 M.preserve = function(cmd)
   cmd = string.format('keepjumps keeppatterns execute %q', cmd)
