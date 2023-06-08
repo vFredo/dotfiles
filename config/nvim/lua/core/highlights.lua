@@ -40,6 +40,7 @@ end
 bg("LineNr", colors.bg)
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
+fg("Underlined", colors.cyan)
 fg("EndOfBuffer", colors.bg)
 fg_bg("MatchParen", colors.bg, colors.yellow, "bold")
 

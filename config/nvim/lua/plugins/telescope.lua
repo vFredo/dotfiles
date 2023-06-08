@@ -36,10 +36,7 @@ return {
           end,
         },
       },
-      file_ignore_patterns = {
-        "^node_modules/", "^.git/", "%.o",
-        "%.pdf", "%.class", "%.obj"
-      },
+      file_ignore_patterns = { "^.git/" }
     },
     pickers = {
       find_files = { hidden = true },
