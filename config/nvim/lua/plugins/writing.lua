@@ -24,9 +24,21 @@ return {
     },
     config = function()
       require('orgmode').setup_ts_grammar()
+
       require('orgmode').setup({
-        org_agenda_files = {'~/Documents/notes/*'},
+        org_agenda_files = {'~/Documents/notes/*.org'},
         org_default_notes_file = '~/Documents/notes/refile.org',
+        org_capture_templates = {
+          t = {
+            description = 'Refile',
+            template = '* TODO %?\n  %u',
+          },
+          T = {
+            description = 'Todo',
+            template = '* TODO %?\n  %u\n  DEADLINE: %t',
+            target = '~/Documents/notes/todos.org'
+          },
+        },
         mappings = {
           org = { org_toggle_checkbox = '<LocalLeader><Space>' }
         }
