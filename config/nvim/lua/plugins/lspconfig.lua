@@ -62,30 +62,6 @@ return {
         end,
       })
 
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-        callback = function(event)
-          -- Enable completion default trigger by <c-x><c-o>
-          vim.bo[event.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-          -- Mappings
-          local map = require("core.utils").map
-          local opts = { noremap = true, buffer = event.buf, silent = true }
-
-          map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
-          map("n", "K", vim.lsp.buf.hover, opts)
-          map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
-          map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
-          map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
-          map("n", "ga", vim.lsp.buf.code_action, opts)
-          map("n", "[d", vim.diagnostic.goto_prev, opts)
-          map("n", "]d", vim.diagnostic.goto_next, opts)
-          map('n', '<Leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
-          map('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-          map('n', '<Leader>F', function() vim.lsp.buf.format { async = true } end, opts)
-        end
-      })
-
       -- Change the default lsp diagnostic symbols
       local signs = {
         Error = "",

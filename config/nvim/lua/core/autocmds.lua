@@ -6,6 +6,7 @@ local augroup = vim.api.nvim_create_augroup
 local gen_group = augroup("general_options", { clear = true })
 local ft_group = augroup("filetype_specific", { clear = true })
 local yanking = augroup("yank_text", { clear = true })
+local lsp_group = augroup('UserLspConfig', {})
 
 --
 -- Autocommands
@@ -90,9 +91,33 @@ autocmd("VimEnter", {
 autocmd("FileType", {
   group = ft_group,
   pattern = { "org" },
-  callback = function ()
+  callback = function()
     vim.opt_local.conceallevel = 2
     vim.opt_local.concealcursor = 'nc'
   end
 })
 
+-- Lsp buffer bindigns
+autocmd("LspAttach", {
+  group = lsp_group,
+  callback = function(event)
+    -- Enable completion default trigger by <c-x><c-o>
+    vim.bo[event.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Mappings
+    local map = require("core.utils").map
+    local opts = { noremap = true, buffer = event.buf, silent = true }
+
+    map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
+    map("n", "K", vim.lsp.buf.hover, opts)
+    map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
+    map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
+    map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
+    map("n", "ga", vim.lsp.buf.code_action, opts)
+    map("n", "[d", vim.diagnostic.goto_prev, opts)
+    map("n", "]d", vim.diagnostic.goto_next, opts)
+    map('n', '<Leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
+    map('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+    map('n', '<Leader>F', function() vim.lsp.buf.format { async = true } end, opts)
+  end
+})
