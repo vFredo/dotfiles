@@ -92,9 +92,7 @@ fg("CmpItemKindInterface", colors.yellow)
 fg("CmpItemKindEvent", colors.yellow)
 
 -- BlankIndent Lines
-fg("IndentBlanklineChar", colors.bgAlt2)
-fg("IndentBlanklineContextChar", colors.grey)
-fg("IndentBlanklineSpaceChar", colors.grey)
+fg("IblIndent", colors.bgAlt2)
 
 -- LSP config
 fg_bg("DiagnosticError", colors.red, colors.bg)

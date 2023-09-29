@@ -2,18 +2,20 @@ return {
   {
     -- Indentation guides/tracking
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = "nvim-treesitter/nvim-treesitter",
     opts = {
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = false,
-      char = "▏",
-      use_treesitter = true,
-      buftype_exclude = { "terminal" },
-      filetype_exclude = {
-        "help", "terminal", "lspinfo",
-        "mason", "lazy", "TelescopePrompt",
-        "TelescopeResults", "noice"
+      indent = { char = "▏" },
+      scope = {
+        exclude = {
+          filetypes = {
+            "help", "terminal", "lspinfo",
+            "mason", "lazy", "TelescopePrompt",
+            "TelescopeResults", "noice"
+          },
+          buftypes = { "terminal " }
+        }
       },
     }
   },
