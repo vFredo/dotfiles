@@ -7,16 +7,14 @@ return {
     dependencies = "nvim-treesitter/nvim-treesitter",
     opts = {
       indent = { char = "▏" },
-      scope = {
-        exclude = {
-          filetypes = {
-            "help", "terminal", "lspinfo",
-            "mason", "lazy", "TelescopePrompt",
-            "TelescopeResults", "noice"
-          },
-          buftypes = { "terminal " }
-        }
-      },
+      exclude = {
+        filetypes = {
+          "help", "terminal", "lspinfo",
+          "mason", "lazy", "TelescopePrompt",
+          "TelescopeResults", "noice"
+        },
+        buftypes = { "terminal " }
+      }
     }
   },
   {
