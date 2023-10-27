@@ -17,43 +17,24 @@ return {
     opts = { use_treesitter = true }
   },
   {
-    'nvim-orgmode/orgmode',
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      'akinsho/org-bullets.nvim',
+    "nvim-neorg/neorg",
+    build = ":Neorg sync-parsers",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      load = {
+        ["core.defaults"] = {},  -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.keybinds"] = {},
+        ["core.completion"] = { config = { engine = "nvim-cmp" } },
+        ["core.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/Documents/notes",
+              univ = "~/Documents/university/"
+            },
+          },
+        },
+      },
     },
-    config = function()
-      require('orgmode').setup_ts_grammar()
-
-      require('orgmode').setup({
-        org_agenda_files = {'~/Documents/notes/*.org'},
-        org_default_notes_file = '~/Documents/notes/refile.org',
-        org_capture_templates = {
-          t = {
-            description = 'Refile',
-            template = '* TODO %?\n  %u',
-          },
-          T = {
-            description = 'Todo',
-            template = '* TODO %?\n  %u\n  DEADLINE: %t',
-            target = '~/Documents/notes/todos.org'
-          },
-        },
-        mappings = {
-          org = { org_toggle_checkbox = '<LocalLeader><Space>' }
-        }
-      })
-
-      require('org-bullets').setup({
-        concealcursor = true,
-        symbols = {
-          checkboxes = {
-            half = { '-', 'OrgTSCheckboxHalfChecked' },
-            done = { '✓', 'OrgDone' },
-            todo = { 'x', 'OrgTODO' },
-          },
-        },
-      })
-    end
-  }
+  },
 }

@@ -13,12 +13,9 @@ return {
       "css", "scss", "dockerfile", "go", "gomod", "latex",
       "vimdoc", "html", "json", "javascript", "php", "bibtex",
       "typescript", "python", "rust", "vim", "lua", "vue",
-      "yaml", "markdown", "markdown_inline", "org"
+      "yaml", "markdown", "markdown_inline", "norg"
     },
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = {'org'},
-    },
+    highlight = { enable = true },
     indent = { enable = true },
     context_commentstring = {
       enable = true,

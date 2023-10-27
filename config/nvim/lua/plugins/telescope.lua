@@ -22,6 +22,7 @@ return {
       scroll_strategy = 'cycle',
       selection_strategy = "reset",
       layout_strategy = "horizontal",
+      file_ignore_patterns = { "^.git/" },
       layout_config = {
         prompt_position = "top",
         width = 0.90,
@@ -35,8 +36,7 @@ return {
             end
           end,
         },
-      },
-      file_ignore_patterns = { "^.git/" }
+      }
     },
     pickers = {
       find_files = { hidden = true },

@@ -38,6 +38,7 @@ end
 -- General
 --
 bg("LineNr", colors.bg)
+fg_bg("CursorLine", "NONE", "NONE")
 bg("SignColumn", colors.bg)
 bg("VertSplit", colors.bg)
 fg("Underlined", colors.cyan)
@@ -123,6 +124,10 @@ fg("@lsp.type.class", colors.yellow)
 fg("@lsp.type.enum", colors.yellow)
 fg("@lsp.type.interface", colors.yellow)
 fg("@lsp.typemod.variable.global", colors.yellow)
+
+-- Neorg highlights
+fg("@neorg.headings.1.title.norg", colors.red)
+fg("@neorg.headings.1.prefix.norg", colors.red)
 
 -- Treesitter/LSP highlight colors
 fg("Funcion", colors.blue)

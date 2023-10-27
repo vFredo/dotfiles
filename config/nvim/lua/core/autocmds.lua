@@ -87,13 +87,12 @@ autocmd("VimEnter", {
   end
 })
 
--- org mode conceal level
+-- Neorg mode conceal level
 autocmd("FileType", {
   group = ft_group,
-  pattern = { "org" },
+  pattern = { "norg", "markdown" },
   callback = function()
     vim.opt_local.conceallevel = 2
-    vim.opt_local.concealcursor = 'nc'
   end
 })
 
