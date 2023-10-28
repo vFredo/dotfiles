@@ -24,7 +24,4 @@ setxkbmap -layout us,latam -option 'grp:alt_space_toggle,caps:escape'
 # Default terminal
 export TERMINAL=/usr/bin/kitty
 
-# Cursor shape
-xsetroot -cursor_name left_ptr
-
 # vim:ft=sh

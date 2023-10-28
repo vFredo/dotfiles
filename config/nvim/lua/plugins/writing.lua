@@ -18,6 +18,7 @@ return {
   },
   {
     "nvim-neorg/neorg",
+    event = "VeryLazy",
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
@@ -30,7 +31,7 @@ return {
           config = {
             workspaces = {
               notes = "~/Documents/notes",
-              univ = "~/Documents/university/"
+              univ = "~/Documents/notes/university/"
             },
           },
         },
