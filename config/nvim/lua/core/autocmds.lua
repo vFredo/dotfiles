@@ -39,18 +39,18 @@ autocmd("BufEnter", {
   command = "setlocal fo-=c fo-=r fo-=o fo+=j fo+=n"
 })
 
+-- Conceal level for filetypes
+autocmd("FileType", {
+  group = ft_group,
+  pattern = { "norg", "tex" },
+  callback = function() vim.opt_local.conceallevel = 2 end
+})
+
 -- Check spell on git commits
 autocmd("FileType", {
   group = ft_group,
   pattern = { "gitcommit" },
   callback = function() require("core.utils").toggleSpelling('ft') end,
-})
-
--- conceal level for latex
-autocmd("FileType", {
-  group = ft_group,
-  pattern = { "tex" },
-  callback = function() vim.opt.conceallevel = 2 end
 })
 
 -- Highlight yank text
@@ -84,15 +84,6 @@ autocmd("VimEnter", {
       require("nvim-tree.api").tree.open()
       return
     end
-  end
-})
-
--- Neorg mode conceal level
-autocmd("FileType", {
-  group = ft_group,
-  pattern = { "norg" },
-  callback = function()
-    vim.opt_local.conceallevel = 2
   end
 })
 

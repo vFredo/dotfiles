@@ -124,10 +124,13 @@ fg("@lsp.type.class", colors.yellow)
 fg("@lsp.type.enum", colors.yellow)
 fg("@lsp.type.interface", colors.yellow)
 fg("@lsp.typemod.variable.global", colors.yellow)
+fg("pythonAttribute", colors.cyan)
 
 -- Neorg highlights
-fg("@neorg.headings.1.title.norg", colors.red)
-fg("@neorg.headings.1.prefix.norg", colors.red)
+fg("@neorg.headings.1.title.norg", colors.blue)
+fg("@neorg.headings.1.prefix.norg", colors.blue)
+ui("@neorg.markup.bold.norg", "bold")
+ui("@neorg.markup.italic.norg", "italic")
 
 -- Treesitter/LSP highlight colors
 fg("Funcion", colors.blue)
