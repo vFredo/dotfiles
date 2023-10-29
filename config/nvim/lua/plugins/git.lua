@@ -28,34 +28,34 @@ return {
       },
       current_line_blame_formatter_opts = { relative_time = false },
       on_attach = function(bufnr)
-        local map = require("core.utils").map
         local opts = { buffer = bufnr }
         local opts_expr = { buffer = bufnr, expr = true }
         local gs = package.loaded.gitsigns
+        local desc = require("core.utils").desc
 
         -- Navigation between hunks with ]h and [h
-        map('n', ']h', function()
+        vim.keymap.set('n', ']h', function()
           if vim.wo.diff then return ']h' end
           vim.schedule(function() gs.next_hunk() end)
           return '<Ignore>'
-        end, opts_expr)
+        end, desc(opts_expr, "Next [h]unk"))
 
-        map('n', '[h', function()
+        vim.keymap.set('n', '[h', function()
           if vim.wo.diff then return '[h' end
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignore>'
-        end, opts_expr)
+        end, desc(opts_expr, "Previous [h]unk"))
 
         -- Actions
-        map({ 'n', 'v' }, '<Leader>hs', '<cmd>Gitsigns stage_hunk<cr>', opts)
-        map({ 'n', 'v' }, '<Leader>hr', '<cmd>Gitsigns reset_hunk<cr>', opts)
-        map('n', '<Leader>hS', gs.stage_buffer, opts)
-        map('n', '<Leader>hu', gs.undo_stage_hunk, opts)
-        map('n', '<Leader>hR', gs.reset_buffer, opts)
-        map('n', '<Leader>hb', gs.toggle_current_line_blame, opts)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>hs', '<cmd>Gitsigns stage_hunk<cr>', desc(opts, "[h]unk [s]tage"))
+        vim.keymap.set({ 'n', 'v' }, '<Leader>hr', '<cmd>Gitsigns reset_hunk<cr>', desc(opts, "[h]unk [r]eset"))
+        vim.keymap.set('n', '<Leader>hS', gs.stage_buffer, desc(opts, "[h]unk buffer [S]tage"))
+        vim.keymap.set('n', '<Leader>hu', gs.undo_stage_hunk, desc(opts, "[h]unk [u]ndo stage"))
+        vim.keymap.set('n', '<Leader>hR', gs.reset_buffer, desc(opts, "[h]unk buffer [R]eset"))
+        vim.keymap.set('n', '<Leader>hb', gs.toggle_current_line_blame, desc(opts, "[h]unk git [b]lame"))
 
         -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<cr>', opts)
+        vim.keymap.set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<cr>', desc(opts, '[i]nside [h]unk'))
       end,
     }
   },

@@ -20,11 +20,12 @@ return {
     opts = { use_treesitter = true }
   },
   {
+    -- Note taking and TODO's
     'nvim-orgmode/orgmode',
     ft = { 'org', 'orgagenda' },
     keys = {
-      { '<leader>oa', '<cmd>lua require("orgmode").action("agenda.prompt")<cr>' },
-      { '<leader>oc', '<cmd>lua require("orgmode").action("capture.prompt")<cr>' },
+      { '<leader>oa', '<cmd>lua require("orgmode").action("agenda.prompt")<cr>', desc = "[o]rg [a]genda"},
+      { '<leader>oc', '<cmd>lua require("orgmode").action("capture.prompt")<cr>', desc = "[o]rg [c]apture" },
     },
     dependencies = {
       'akinsho/org-bullets.nvim',
@@ -45,7 +46,8 @@ return {
       require('orgmode').setup({
         org_agenda_files = org_path .. '**/*',
         org_default_notes_file = org_path .. 'refile.org',
-        org_todo_keywords = { 'TODO(t)', 'PROGRESS(p)', '|', 'DONE(d)', 'REJECTED(r)' },
+        org_todo_keywords = { 'TODO(t)', 'PROGRESS(p)', '|', 'DONE(d)' },
+        org_deadline_warning_days = 7,
         mappings = {
           org = { org_toggle_checkbox = "<Leader>tc" }
         },

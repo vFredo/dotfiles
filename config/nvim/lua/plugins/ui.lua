@@ -1,5 +1,25 @@
 return {
   {
+    -- Icons for patch fonts
+    "kyazdani42/nvim-web-devicons",
+    event = "VeryLazy",
+    opts = {
+      override = {
+        [""] = { icon = "", color = "#d5c4a1", name = "", },
+        ["robots.txt"] = { icon = "ﮧ", color = "#ea6962", name = "robots", },
+        ["out"] = { icon = "", color = "#ea6962", name = "out", },
+        ["in"] = { icon = "", color = "#a9b665", name = "in", },
+        Dockerfile = { icon = " ", color = "#7daea3", name = "Dockerfile" },
+        ttf = { icon = "", name = "TrueTypeFont", },
+        woff = { icon = "", name = "WebOpenFontFormat", },
+        woff2 = { icon = "", name = "WebOpenFontFormat2", },
+        mp3 = { icon = "", name = "mp3", },
+        mp4 = { icon = "", name = "mp4", },
+        norg = { icon = "◉", color = "#4878be", name = "neorg" }
+      }
+    }
+  },
+  {
     -- Indentation guides/tracking
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -24,27 +44,13 @@ return {
       '<C-u>', '<C-d>', '<C-b>', '<C-f>',
       '<C-y>', '<C-e>', 'zt', 'zz', 'zb'
     },
-    config = function()
-      require("neoscroll").setup {
-        respect_scroll_off = true,
-        hide_curor = true,
-        stop_eof = true,
-        cursor_scrolls_alone = false,
-        easing_function = "circular"
-      }
-      -- Syntax: map[keys] = {function, {function arguments}}
-      local map    = {}
-      map['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '100' } }
-      map['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '100' } }
-      map['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '100' } }
-      map['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '100' } }
-      map['<C-y>'] = { 'scroll', { '-0.10', 'false', '100' } }
-      map['<C-e>'] = { 'scroll', { '0.10', 'false', '100' } }
-      map['zt']    = { 'zt', { '150' } }
-      map['zz']    = { 'zz', { '150' } }
-      map['zb']    = { 'zb', { '150' } }
-      require("neoscroll.config").set_mappings(map)
-    end
+    opts = {
+      respect_scroll_off = true,
+      hide_curor = true,
+      stop_eof = true,
+      cursor_scrolls_alone = false,
+      easing_function = "quintic"
+    }
   },
   {
     -- Color highlighter for hex, rgb, etc...
@@ -58,5 +64,15 @@ return {
         virtualtext = "■"
       }
     }
+  },
+  {
+    -- show key combination menu if to slow with the description
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = true
   },
 }

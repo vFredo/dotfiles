@@ -124,7 +124,7 @@ fg("@lsp.type.class", colors.yellow)
 fg("@lsp.type.enum", colors.yellow)
 fg("@lsp.type.interface", colors.yellow)
 fg("@lsp.typemod.variable.global", colors.yellow)
-fg("pythonAttribute", colors.cyan)
+fg("@attribute", colors.orange)
 
 -- Treesitter/LSP highlight colors
 fg("Funcion", colors.blue)

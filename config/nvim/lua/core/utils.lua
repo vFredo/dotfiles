@@ -3,15 +3,9 @@
 --
 local M = {}
 
--- Create global mapping
-M.map = function(mode, key, func, opts)
-  local options = opts or {}
-  vim.keymap.set(mode, key, func, options)
-end
-
-M.command = function (name, func, opts)
-  local options = opts or {}
-  vim.api.nvim_create_user_command(name, func, options)
+-- Add a description attribute to a table
+M.desc = function(opts, description)
+  return vim.tbl_extend("force", opts, { desc = description })
 end
 
 -- Save current cursor position after running a command(cmd)
@@ -31,7 +25,7 @@ M.toggleSpelling = function(option)
     vim.cmd([[ setlocal nospell ]])
     vim.b.spell_toggle = false
     vim.notify("Spell OFF...")
-    M.map("i", "<C-l>", "<Nop>", opts) -- delete instert mapping
+    vim.keymap.set("i", "<C-l>", "<Nop>", opts) -- delete instert mapping
   else
     if option == "es" then
       vim.cmd([[ setlocal spell spelllang=es ]])
@@ -42,7 +36,7 @@ M.toggleSpelling = function(option)
     end
     vim.b.spell_toggle = true
     -- mapping for fix last spell error on insert mode
-    M.map("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
+    vim.keymap.set("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
   end
 end
 

@@ -83,19 +83,19 @@ autocmd("LspAttach", {
     vim.bo[event.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
     -- Mappings
-    local map = require("core.utils").map
     local opts = { noremap = true, buffer = event.buf, silent = true }
+    local desc = require("core.utils").desc
 
-    map('i', '<M-k>', vim.lsp.buf.signature_help, opts)
-    map("n", "K", vim.lsp.buf.hover, opts)
-    map('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", opts)
-    map('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
-    map('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", opts)
-    map("n", "ga", vim.lsp.buf.code_action, opts)
-    map("n", "[d", vim.diagnostic.goto_prev, opts)
-    map("n", "]d", vim.diagnostic.goto_next, opts)
-    map('n', '<Leader>fd', "<cmd>Telescope diagnostics<cr>", opts)
-    map('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-    map('n', '<Leader>F', function() vim.lsp.buf.format { async = true } end, opts)
+    vim.keymap.set('i', '<M-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gd', "<cmd>Telescope lsp_definitions<cr>", desc(opts, "[g]o [d]efinitions"))
+    vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", desc(opts, "[g]o [r]eferences"))
+    vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", desc(opts, "[g]o [i]mplementations"))
+    vim.keymap.set("n", "ga", vim.lsp.buf.code_action, desc(opts, "[g]o [a]ction in code"))
+    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, desc(opts, "Previous [d]iagnostic"))
+    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, desc(opts, "Next [d]iagnostic"))
+    vim.keymap.set('n', '<Leader>fd', "<cmd>Telescope diagnostics<cr>", desc(opts, "[f]ind [d]iagnostic"))
+    vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, desc(opts, "[r]e[n]ame in current position"))
+    vim.keymap.set('n', '<Leader>F', function() vim.lsp.buf.format { async = true } end, desc(opts, "[F]ormat document"))
   end
 })

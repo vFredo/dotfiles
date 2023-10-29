@@ -29,6 +29,14 @@ return {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
     opts = {
+      popupmenu = { backend = 'nui' },
+      cmdline = {
+        format = {
+          IncRename = { title = ' Rename ' },
+          substitute = { pattern = '^:[%%]*s/', icon = ' ', ft = 'regex', title = '' },
+          input = { icon = ' ', lang = 'text', view = 'cmdline_popup', title = '' },
+        },
+      },
       lsp = {
         signature = { auto_open = { enabled = false } },
         override = {
@@ -57,11 +65,13 @@ return {
         { filter = { event = "msg_showmode", find = "recording" }, view = "mini" },
         -- delete visual indentation message
         { filter = { event = "msg_show", find = "%s+[><]ed%s" }, skip = true },
-        { filter = { event = "msg_show", find = "search hit BOTTOM" },skip = true },
+        { filter = { event = "msg_show", find = "search hit BOTTOM" }, skip = true },
         { filter = { event = "msg_show", find = "search hit TOP" }, skip = true },
         -- LSP annoying messages
         { filter = { event = "notify", find = "No information available" }, skip = true },
         { filter = { find = "No signature help" }, skip = true },
+        -- Gitsign hunk message
+        { filter = { event = 'msg_show', find = '^Hunk %d+ of %d' }, skip = true },
       },
       presets = {
         lsp_doc_border = true,
