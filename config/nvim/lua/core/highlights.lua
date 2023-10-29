@@ -39,11 +39,11 @@ end
 --
 bg("LineNr", colors.bg)
 fg_bg("CursorLine", "NONE", "NONE")
-bg("SignColumn", colors.bg)
-bg("VertSplit", colors.bg)
+fg_bg("VertSplit", colors.fgAlt, "NONE")
+bg("SignColumn", "NONE")
 fg("Underlined", colors.cyan)
 fg("EndOfBuffer", colors.bg)
-fg_bg("MatchParen", colors.bg, colors.yellow, "bold")
+bg("MatchParen", colors.bgAlt2, "bold,underline")
 
 -- Cursorline
 fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")

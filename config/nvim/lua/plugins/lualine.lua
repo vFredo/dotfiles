@@ -26,9 +26,9 @@ local gruvbox_custom = {
     c = { bg = colors.bg, fg = colors.fgAlt },
   },
   inactive = {
-    a = { bg = colors.bg, fg = colors.fgAlt, gui = 'bold' },
-    b = { bg = colors.bg, fg = colors.fgAlt },
-    c = { bg = colors.bg, fg = colors.fgAlt },
+    a = { bg = colors.bgAlt, fg = colors.grey, gui = 'italic' },
+    b = { bg = colors.bg, fg = colors.grey },
+    c = { bg = colors.bg, fg = colors.grey },
   },
 }
 
