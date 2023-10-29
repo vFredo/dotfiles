@@ -10,13 +10,16 @@ return {
     auto_install = false,
     ensure_installed = {
       "bash", "c", "cpp", "make", "comment", "regex",
-      "css", "scss", "dockerfile", "go", "gomod", "latex",
+      "css", "dockerfile", "go", "gomod", "latex",
       "vimdoc", "html", "json", "javascript", "php", "bibtex",
       "typescript", "python", "rust", "vim", "lua", "vue",
-      "yaml", "markdown", "markdown_inline", "norg"
+      "yaml", "markdown", "markdown_inline", "org"
     },
-    highlight = { enable = true },
-    indent = { enable = true },
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = { 'org' },
+    },
+    indent = { enable = false },
     context_commentstring = {
       enable = true,
       enable_autocmd = false,

@@ -103,7 +103,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp", max_item_count = 8 },
           { name = "luasnip",  max_item_count = 3 },
-          { name = "neorg" },
+          { name = "orgmode" },
           { name = "buffer",   max_item_count = 5 },
           { name = "path" },
         }),
@@ -117,7 +117,7 @@ return {
               buffer = "[buf]",
               path = "[path]",
               cmdline = "[cmd]",
-              neorg = "[norg]"
+              orgmode = "[org]"
             },
             before = function(entry, vim_item)
               -- Delete duplicates

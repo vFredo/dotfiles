@@ -42,7 +42,7 @@ autocmd("BufEnter", {
 -- Conceal level for filetypes
 autocmd("FileType", {
   group = ft_group,
-  pattern = { "norg", "tex" },
+  pattern = { "org", "tex" },
   callback = function() vim.opt_local.conceallevel = 2 end
 })
 
@@ -73,18 +73,6 @@ autocmd("FileType", {
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
-})
-
--- Open nvim-tree automatically when open a folder as first file
-autocmd("VimEnter", {
-  group = gen_group,
-  callback = function(event)
-    if vim.fn.isdirectory(event.file) == 1 then
-      vim.cmd.cd(event.file)
-      require("nvim-tree.api").tree.open()
-      return
-    end
-  end
 })
 
 -- Lsp buffer bindigns
