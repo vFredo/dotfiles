@@ -11,13 +11,12 @@ This configuration are set for my GNU/Linux operating systems, this is really in
 but you can steal it and modified if you want to. There is a `install` script to configure
 the files, to see the options run `./install --help`. This script creates backup copies of the current
 configurations that you have, but if the file that is trying to change is a symbolic link, then, if
-you want, the script removes it. For the moment, most dependencies have to be install by hand.
+you want, the script removes it. For the moment, most dependencies of the OS have to be install by hand.
 
 ## ❖ Features
 * Bspwm config files.
   * Polybar config.
 * Rofi configurations.
-* Zathura (PDF reader) config.
 * Neovim config files.
 * Tmux config.
 * Kitty terminal configuration.
@@ -63,9 +62,6 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
   * sxhkd
 * Tmux
   * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
-* Latex
-  * `apt-get install texlive-full` for Debian-based distros.
-  * `pacman -S texlive-most texlive-lang` for Arch-based distros.
 
 # ❖ Inspired
 * The firefox theme and some other configurations comes from Janleight's [dotfiles](https://github.com/janleigh/dotfiles).

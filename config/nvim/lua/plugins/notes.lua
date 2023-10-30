@@ -22,17 +22,12 @@ return {
   {
     -- Note taking and TODO's
     'nvim-orgmode/orgmode',
-    ft = { 'org', 'orgagenda' },
-    keys = {
-      { '<leader>oa', '<cmd>lua require("orgmode").action("agenda.prompt")<cr>',  desc = "[o]rg [a]genda" },
-      { '<leader>oc', '<cmd>lua require("orgmode").action("capture.prompt")<cr>', desc = "[o]rg [c]apture" },
-    },
     dependencies = {
       'akinsho/org-bullets.nvim',
       opts = {
         concealcursor = true,
         symbols = {
-          headlines = { "◈", "◇", "◆", "⋄", "❖", "⟡" },
+          headlines = { "◈", "◇", "❖", "⋄", "◆", "⟡" },
           checkboxes = {
             half = { "", "OrgTSCheckboxHalfChecked" },
             done = { "", "OrgDone" },
@@ -55,19 +50,19 @@ return {
           ['WAITING'] = ':foreground '.. colors.orange ..' :weight bold',
           ['CANCELLED'] = ':foreground ' .. colors.fgAlt .. ' :weight bold',
         },
-        org_deadline_warning_days = 7,
+        org_deadline_warning_days = 5,
         mappings = {
           org = { org_toggle_checkbox = "<Leader>tc" }
         },
         org_capture_templates = {
-          n = { description = '[n]ote', template = '* %?\n %a' },
+          n = { description = '[n]ote', template = '* %?\n  %a' },
           t = {
             description = '[t]odo',
-            template = '* TODO %?\n DEADLINE: %u\n %a',
+            template = '* TODO %?\n  DEADLINE: %u\n  %a',
           },
           w = {
             description = '[w]ork',
-            template = '* TODO %?\n SCHEDULED: %u',
+            template = '* TODO %?\n  SCHEDULED: %u',
           },
         },
         notifications = {

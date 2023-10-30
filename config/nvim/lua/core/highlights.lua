@@ -96,10 +96,10 @@ fg("CmpItemKindEvent", colors.yellow)
 fg("IblIndent", colors.bgAlt2)
 
 -- LSP config
-fg_bg("DiagnosticError", colors.red, colors.bg)
-fg_bg("DiagnosticWarn", colors.yellow, colors.bg)
-fg_bg("DiagnosticInfo", colors.blue, colors.bg)
-fg_bg("DiagnosticHint", colors.magenta, colors.bg)
+fg_bg("DiagnosticError", colors.red, "NONE")
+fg_bg("DiagnosticWarn", colors.yellow, "NONE")
+fg_bg("DiagnosticInfo", colors.blue, "NONE")
+fg_bg("DiagnosticHint", colors.magenta, "NONE")
 
 -- LSP neovim float window colors
 bg("NormalFloat", colors.bgAlt)

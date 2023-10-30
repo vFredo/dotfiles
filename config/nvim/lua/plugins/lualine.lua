@@ -3,33 +3,17 @@ local gruvbox_custom = {
   normal = {
     a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
     b = { bg = colors.bgAlt2, fg = colors.fgAlt },
-    c = { bg = colors.bg, fg = colors.fgAlt },
-  },
-  insert = {
-    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
-    b = { bg = colors.bgAlt2, fg = colors.fgAlt },
-    c = { bg = colors.bg, fg = colors.fgAlt },
-  },
-  visual = {
-    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
-    b = { bg = colors.bgAlt2, fg = colors.fgAlt },
-    c = { bg = colors.bg, fg = colors.fgAlt },
-  },
-  replace = {
-    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
-    b = { bg = colors.bgAlt2, fg = colors.fgAlt },
-    c = { bg = colors.bg, fg = colors.fgAlt },
-  },
-  command = {
-    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
-    b = { bg = colors.bgAlt2, fg = colors.fgAlt },
-    c = { bg = colors.bg, fg = colors.fgAlt },
+    c = { bg = colors.bgAlt, fg = colors.fgAlt },
   },
   inactive = {
     a = { bg = colors.bg, fg = colors.fgAlt, gui = 'italic' },
     b = { bg = colors.bg, fg = colors.grey },
     c = { bg = colors.bg, fg = colors.grey },
   },
+  insert = { a = { bg = colors.blue, fg = colors.bg, gui = 'bold' }, },
+  visual = { a = { bg = colors.blue, fg = colors.bg, gui = 'bold' }, },
+  replace = { a = { bg = colors.blue, fg = colors.bg, gui = 'bold' }, },
+  command = { a = { bg = colors.blue, fg = colors.bg, gui = 'bold' }, },
 }
 
 return {
@@ -41,11 +25,14 @@ return {
       globalstatus = true,
       icons_enabled = true,
       component_separators = '|',
-      section_separators = '',
+      section_separators = { left = '', right = '' },
     },
     sections = {
       lualine_a = { {
         'buffers',
+        separator = { right = '', left = '' },
+        right_padding = 2,
+        left_padding = 2,
         icons_enabled = false,
         use_mode_colors = true,
         max_length = vim.o.columns * 4 / 9,
@@ -53,7 +40,7 @@ return {
           fugitive = "Git", oil = "Files"
         },
       } },
-      lualine_b = { 'branch', 'diff' },
+      lualine_b = {{ 'branch', icon = '', color = { fg = colors.yellow }, }, 'diff' },
       lualine_c = { { 'filename', path = 1 } },
       lualine_x = { {
         'diagnostics',
@@ -66,7 +53,9 @@ return {
         },
       } },
       lualine_y = { 'filetype', 'progress' },
-      lualine_z = { 'location' }
+      lualine_z = {
+        { 'location', separator = { right = '' }, left_padding = 2 },
+      },
     }
   }
 }

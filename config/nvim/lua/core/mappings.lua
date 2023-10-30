@@ -42,8 +42,6 @@ vim.keymap.set("n", "]c", "<cmd>cnext<CR>", desc(opt, "Next qui[c]kfix list"))
 -- Buffers
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", desc(opt, "Previous in [b]uffer list"))
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", desc(opt, "Next in [b]uffer list"))
-
--- Buffers
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", desc(opt, "Previous file"))
 vim.keymap.set("n", "<Leader>L", "<C-w>L", desc(opt, "Move buffer to the RIGHT"))
 vim.keymap.set("n", "<Leader>H", "<C-w>H", desc(opt, "Move buffer to the LEFT"))
@@ -72,7 +70,7 @@ vim.keymap.set("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", desc(opt, "[f]
 vim.keymap.set("n", "<Leader>fk", "<cmd>Telescope keymaps<cr>", desc(opt, "[f]ind [k]eymap"))
 
 -- Oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", desc(opt, "Open parent directory"))
+vim.keymap.set("n", "-", "<cmd>Oil<cr>", desc(opt, "Open tree directory"))
 
 --
 -- User commands
@@ -85,7 +83,7 @@ vim.api.nvim_create_user_command(
   { desc = "Trim extra whitespaces" }
 )
 
--- Correct indentation of the current buffer
+-- Fix indentation of the current buffer
 vim.api.nvim_create_user_command(
   "Reindent",
   function() require("core.utils").preserve("sil keepj normal! gg=G") end,

@@ -41,7 +41,6 @@ function ignoring() {
   sleep 1
 }
 
-# TODO: Adding a flag; checking if the symbolic link is important then stop the installation
 function create_link() {
   if [[ -L $2 ]]; then
     error "The content of $2 is going to be change"
@@ -49,11 +48,8 @@ function create_link() {
     if [[ "$remove_it" == "y" ]]; then
       progress "Unlinking file: $2"
       unlink $2
-      progress "Symbolic link $2 deleted"
     else
-      ignoring "Ignoring link file $2"
-      error "The installation can't continue without the symbolic link for $1"
-      exit 1
+      ignoring "Ignoring link file: $2"
     fi
   else
     make_backup $2
@@ -125,9 +121,9 @@ function install_term(){
     ignoring "Ignoring tmux configuration, not installed on the system"
   fi
 
-  read -r -p "Which terminal config do you want to install? [(k)itty/(n)othing]" opt_terminal
+  read -r -p "Do you want to change kitty terminal config file? y/n" opt_terminal
 
-  if [[ "$opt_terminal" == "k" ]]; then
+  if [[ "$opt_terminal" == "y" ]]; then
     progress "Creating symbolic links for kitty configuration"
     create_link "$(pwd)/config/kitty/" "$HOME/.config/kitty"
   else
@@ -156,24 +152,10 @@ function install_zsh(){
   success "Zsh config installed"
 }
 
-function install_latex(){
-  # echo "Installing Latex dependencies..."
-  # ./packages/installer.sh latex
-
-  progress "Creating folders need it"
-  mkdir -p ~/.config/zathura
-
-  progress "Creating symbolic links for latex"
-  create_link "$(pwd)/config/zathura/zathurarc" "$HOME/.config/zathura/zathurarc"
-
-  success "Latex config installed"
-}
-
 function help_tag(){
   echo "Options for the installation:"
   echo "      --bspwm    Install config files for bspwm including sxhkd."
   echo "      --nvim     Install config files for nvim."
-  echo "      --latex    Install config files for latex."
   echo "      --zsh      Install config files for zsh."
   echo "      --all      To install all the config files."
   echo "More information about the files on the README."
@@ -194,16 +176,12 @@ then
       --nvim)
         install_neovim
         ;;
-      --latex)
-        install_latex
-        ;;
       --zsh)
         install_zsh
         ;;
       --all)
         install_zsh
         install_neovim
-        install_latex
         ;;
       *) error "Choose a valid option, see options with --help or -h flags.";;
     esac
