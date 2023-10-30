@@ -24,7 +24,7 @@ return {
     'nvim-orgmode/orgmode',
     ft = { 'org', 'orgagenda' },
     keys = {
-      { '<leader>oa', '<cmd>lua require("orgmode").action("agenda.prompt")<cr>', desc = "[o]rg [a]genda"},
+      { '<leader>oa', '<cmd>lua require("orgmode").action("agenda.prompt")<cr>',  desc = "[o]rg [a]genda" },
       { '<leader>oc', '<cmd>lua require("orgmode").action("capture.prompt")<cr>', desc = "[o]rg [c]apture" },
     },
     dependencies = {
@@ -33,8 +33,8 @@ return {
         concealcursor = true,
         symbols = {
           checkboxes = {
-            half = { "-", "OrgTSCheckboxHalfChecked" },
-            done = { "✓", "OrgDone" },
+            half = { "", "OrgTSCheckboxHalfChecked" },
+            done = { "", "OrgDone" },
             todo = { " ", "OrgTODO" },
           },
         }
@@ -42,28 +42,31 @@ return {
     },
     config = function()
       local org_path = '~/Documents/notes/'
+      local colors = require("core.colors")
+
       require('orgmode').setup_ts_grammar() -- Load treesitter grammar for org
       require('orgmode').setup({
         org_agenda_files = org_path .. '**/*',
         org_default_notes_file = org_path .. 'refile.org',
-        org_todo_keywords = { 'TODO(t)', 'PROGRESS(p)', '|', 'DONE(d)' },
+        org_todo_keywords = { 'TODO(t)', 'WAITING', 'PROGRESS', '|', 'DONE(d)', 'CANCELLED' },
+        org_todo_keyword_faces = {
+          ['PROGRESS'] = ':foreground ' .. colors.yellow .. ' :weight bold',
+          ['WAITING'] = ':foreground '.. colors.orange ..' :weight bold',
+          ['CANCELLED'] = ':foreground ' .. colors.fgAlt .. ' :weight bold',
+        },
         org_deadline_warning_days = 7,
         mappings = {
           org = { org_toggle_checkbox = "<Leader>tc" }
         },
         org_capture_templates = {
-          r = {
-            description = '[r]efile',
-            template = '* TODO %?\n  DEADLINE: %T',
-          },
+          n = { description = '[n]ote', template = '* %?\n %a' },
           t = {
             description = '[t]odo',
-            template = '* TODO %?\n  DEADLINE: %T',
-            target = org_path .. 'todos.org',
+            template = '* TODO %?\n DEADLINE: %u\n %a',
           },
           w = {
             description = '[w]ork todo',
-            template = '* TODO %?\n  DEADLINE: %T',
+            template = '* TODO %?\n DEADLINE: %T',
             target = org_path .. 'work.org',
           },
           d = {
@@ -72,6 +75,14 @@ return {
             template = '* Daily %U \n  %?',
             target = org_path .. 'work.org',
           },
+        },
+        notifications = {
+          enabled = true,
+          repeater_reminder_time = false,
+          deadline_warning_reminder_time = true,
+          reminder_time = 10,
+          deadline_reminder = true,
+          scheduled_reminder = true,
         },
       })
     end,

@@ -17,6 +17,7 @@ return {
     },
     highlight = {
       enable = true,
+      language_tree = true,
       additional_vim_regex_highlighting = { 'org' },
     },
     indent = { enable = false },

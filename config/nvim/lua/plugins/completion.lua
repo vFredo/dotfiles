@@ -5,26 +5,25 @@ return {
     version = "1.*",
     dependencies = { "rafamadriz/friendly-snippets" },
     config = function()
-      local luasnip = require("luasnip")
-      local types = require("luasnip.util.types")
-
       -- Luasnip configuration
-      luasnip.config.set_config {
+      require("luasnip").config.set_config {
         history = true,
         enable_autosnippets = true,
         updateevents = "TextChanged,TextChangedI",
         -- Snippets aren't automatically removed if their text is deleted.
         delete_check_events = "TextChanged",
-        ext_opts = {
-          [types.choiceNode] = {
-            active = { virt_text = { { "choiceNode", "Comment" } } },
-          },
-        },
         -- mapping for cutting selected text (mapped via xmap).
         store_selection_keys = "<Tab>",
+        ext_opts = {
+          [require("luasnip.util.types").choiceNode] = {
+            active = { virt_text = { { "↺", "Comment" } } },
+          },
+        },
       }
       -- Lazy load Snippets
       require("luasnip.loaders.from_vscode").lazy_load()
+      -- Load custom snippets
+      require("luasnip.loaders.from_lua").load { paths = "~/dotfiles/config/nvim/snippets" }
     end
   },
   {
@@ -56,7 +55,6 @@ return {
         },
         completion = {
           autocomplete = { require('cmp.types').cmp.TriggerEvent.TextChanged },
-          completeopt = 'menu,menuone,noselect',
         },
         snippet = {
           expand = function(args)
@@ -101,11 +99,11 @@ return {
           end, { "i", "s", "c" })
         },
         sources = cmp.config.sources({
-          { name = "nvim_lsp", max_item_count = 8 },
-          { name = "luasnip",  max_item_count = 3 },
-          { name = "orgmode" },
-          { name = "buffer",   max_item_count = 5 },
-          { name = "path" },
+          { name = "path",     priority_weight = 110 },
+          { name = "orgmode",  priority_weight = 110 },
+          { name = "nvim_lsp", max_item_count = 20,  priority_weight = 100 },
+          { name = "luasnip",  priority_weight = 80 },
+          { name = "buffer",   priority_weight = 50 },
         }),
         formatting = {
           fields = { "kind", "abbr", "menu" },
@@ -134,7 +132,7 @@ return {
       -- Use buffer source for /,?
       cmp.setup.cmdline({ '/', '?' }, {
         sources = cmp.config.sources({
-          { name = 'buffer', max_item_count = 5 }
+          { name = 'buffer', max_item_count = 8 }
         }),
       })
 
