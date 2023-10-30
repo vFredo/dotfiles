@@ -32,6 +32,7 @@ return {
       opts = {
         concealcursor = true,
         symbols = {
+          headlines = { "◈", "◇", "◆", "⋄", "❖", "⟡" },
           checkboxes = {
             half = { "", "OrgTSCheckboxHalfChecked" },
             done = { "", "OrgDone" },
@@ -65,15 +66,8 @@ return {
             template = '* TODO %?\n DEADLINE: %u\n %a',
           },
           w = {
-            description = '[w]ork todo',
-            template = '* TODO %?\n DEADLINE: %T',
-            target = org_path .. 'work.org',
-          },
-          d = {
-            headline = 'Meetings',
-            description = '[d]aily',
-            template = '* Daily %U \n  %?',
-            target = org_path .. 'work.org',
+            description = '[w]ork',
+            template = '* TODO %?\n SCHEDULED: %u',
           },
         },
         notifications = {

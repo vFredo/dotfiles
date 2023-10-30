@@ -6,27 +6,27 @@ local gruvbox_custom = {
     c = { bg = colors.bg, fg = colors.fgAlt },
   },
   insert = {
-    a = { bg = colors.green, fg = colors.bg, gui = 'bold' },
+    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
     b = { bg = colors.bgAlt2, fg = colors.fgAlt },
     c = { bg = colors.bg, fg = colors.fgAlt },
   },
   visual = {
-    a = { bg = colors.purple, fg = colors.bg, gui = 'bold' },
+    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
     b = { bg = colors.bgAlt2, fg = colors.fgAlt },
     c = { bg = colors.bg, fg = colors.fgAlt },
   },
   replace = {
-    a = { bg = colors.red, fg = colors.bg, gui = 'bold' },
+    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
     b = { bg = colors.bgAlt2, fg = colors.fgAlt },
     c = { bg = colors.bg, fg = colors.fgAlt },
   },
   command = {
-    a = { bg = colors.orange, fg = colors.bg, gui = 'bold' },
+    a = { bg = colors.blue, fg = colors.bg, gui = 'bold' },
     b = { bg = colors.bgAlt2, fg = colors.fgAlt },
     c = { bg = colors.bg, fg = colors.fgAlt },
   },
   inactive = {
-    a = { bg = colors.bgAlt, fg = colors.grey, gui = 'italic' },
+    a = { bg = colors.bg, fg = colors.fgAlt, gui = 'italic' },
     b = { bg = colors.bg, fg = colors.grey },
     c = { bg = colors.bg, fg = colors.grey },
   },
@@ -49,6 +49,9 @@ return {
         icons_enabled = false,
         use_mode_colors = true,
         max_length = vim.o.columns * 4 / 9,
+        filetype_names = {
+          fugitive = "Git", oil = "Files"
+        },
       } },
       lualine_b = { 'branch', 'diff' },
       lualine_c = { { 'filename', path = 1 } },
