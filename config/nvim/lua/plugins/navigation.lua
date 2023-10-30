@@ -49,6 +49,4 @@ return {
 
   -- '.' command for repeating macros with plugins
   { "tpope/vim-repeat", keys = { "." } },
-  -- Linux commands on vim
-  { "tpope/vim-eunuch" }
 }

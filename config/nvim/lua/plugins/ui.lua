@@ -66,7 +66,7 @@ return {
     }
   },
   {
-    -- show key combination menu if to slow with the description
+    -- show key combinations menu if to slow with their description
     "folke/which-key.nvim",
     event = "VeryLazy",
     init = function()
@@ -75,4 +75,10 @@ return {
     end,
     config = true
   },
+  {
+    -- working with directories in buffers
+    'stevearc/oil.nvim',
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = true
+  }
 }
