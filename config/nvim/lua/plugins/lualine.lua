@@ -28,7 +28,15 @@ return {
       section_separators = { left = '', right = '' },
     },
     sections = {
-      lualine_a = {},
+      lualine_a = { {
+        'buffers',
+        icons_enabled = false,
+        right_padding = 2,
+        left_padding = 2,
+        separator = { right = '', left = '' },
+        max_length = vim.o.columns * 4 / 9,
+        filetype_names = { fugitive = "Git", oil = "Files" },
+      } },
       lualine_b = { { 'branch', icon = '', color = { fg = colors.yellow }, }, 'diff' },
       lualine_c = { { 'filename', path = 1 } },
       lualine_x = { {

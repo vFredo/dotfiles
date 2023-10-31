@@ -95,6 +95,11 @@ fg("CmpItemKindEvent", colors.yellow)
 -- BlankIndent Lines
 fg("IblIndent", colors.bgAlt2)
 
+-- Leap
+fg("LeapMatch", colors.orangeAlt, "bold,underline,nocombine")
+fg_bg("LeapLabelPrimary", colors.bg, colors.orangeAlt, "bold")
+fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
+
 -- LSP config
 fg_bg("DiagnosticError", colors.red, "NONE")
 fg_bg("DiagnosticWarn", colors.yellow, "NONE")

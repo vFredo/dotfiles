@@ -35,7 +35,17 @@ return {
     },
     opts = { auto_save = 'current' }
   },
-
+  {
+    -- Easy navigation between lines with 's' and motions
+    "ggandor/leap.nvim",
+    keys = {
+      { "gs", "<Plug>(leap-from-window)" },
+      { "s", "<Plug>(leap-forward-to)" },
+      { "S", "<Plug>(leap-backward-to)" },
+      { mode = "x", "x","<Plug>(leap-forward-to)" },
+      { mode = "x", "X", "<Plug>(leap-backward-to)" },
+    },
+  },
   -- '.' command for repeating macros with plugins
   { "tpope/vim-repeat", keys = { "." } },
 }
