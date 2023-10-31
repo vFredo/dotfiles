@@ -6,62 +6,63 @@ return {
     { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
     'nvim-treesitter/nvim-treesitter-textobjects'
   },
-  opts = {
-    auto_install = false,
-    ensure_installed = {
-      "bash", "c", "cpp", "make", "comment", "regex",
-      "css", "dockerfile", "go", "gomod", "latex",
-      "vimdoc", "html", "json", "javascript", "php", "bibtex",
-      "typescript", "python", "rust", "vim", "lua", "vue",
-      "yaml", "markdown", "markdown_inline", "org"
-    },
-    highlight = {
-      enable = true,
-      language_tree = true,
-      additional_vim_regex_highlighting = { 'org' },
-    },
-    indent = { enable = true },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-      config = {
-        c = "// %s",
-        cpp = "// %s",
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      auto_install = false,
+      ensure_installed = {
+        "bash", "c", "cpp", "make", "comment", "regex",
+        "css", "dockerfile", "go", "gomod", "latex",
+        "vimdoc", "html", "json", "javascript", "php", "bibtex",
+        "typescript", "python", "rust", "vim", "lua",
+        "yaml", "markdown", "markdown_inline", "org"
+      },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = { 'org' },
+      },
+      indent = { enable = true },
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+        config = {
+          c = "// %s",
+          cpp = "// %s",
+        }
+      },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true, -- Automatically jump forward to textobj
+          keymaps = {
+            ['aa'] = '@parameter.outer',
+            ['ia'] = '@parameter.inner',
+            ['af'] = '@function.outer',
+            ['if'] = '@function.inner',
+            ['ac'] = '@class.outer',
+            ['ic'] = '@class.inner',
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            [']m'] = '@function.outer',
+            [']]'] = '@class.outer',
+          },
+          goto_next_end = {
+            [']M'] = '@function.outer',
+            [']['] = '@class.outer',
+          },
+          goto_previous_start = {
+            ['[m'] = '@function.outer',
+            ['[['] = '@class.outer',
+          },
+          goto_previous_end = {
+            ['[M'] = '@function.outer',
+            ['[]'] = '@class.outer',
+          },
+        },
       }
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true, -- Automatically jump forward to textobj
-        keymaps = {
-          ['aa'] = '@parameter.outer',
-          ['ia'] = '@parameter.inner',
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-        },
-      },
-      move = {
-        enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
-        goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
-        },
-        goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
-        },
-        goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
-        },
-        goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
-        },
-      },
-    }
-  }
+    })
+  end
 }

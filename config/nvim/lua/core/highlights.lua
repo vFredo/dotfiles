@@ -118,24 +118,10 @@ fg("GitSignsDelete", colors.red)
 fg("DiffRemoved", colors.red)
 fg("fugitiveStagedHeading", colors.green)
 
--- Lsp Highlight colors
-fg("Function", colors.blue)
+-- Treesitter overrides for highlight colors
+fg("@variable", colors.fg)
 fg("Repeat", colors.purple)
-fg("Statement", colors.purple)
-fg("Operator", colors. orange)
-fg("@lsp.type.property", colors.red)
-fg("@lsp.type.variable", colors.fg)
-fg("@lsp.type.class", colors.yellow)
-fg("@lsp.type.enum", colors.yellow)
-fg("@lsp.type.interface", colors.yellow)
-fg("@lsp.typemod.variable.global", colors.yellow)
-fg("@attribute", colors.orange)
-
--- Treesitter/LSP highlight colors
-fg("Funcion", colors.blue)
-fg("Structure", colors.orange)
-fg("@lsp.type.function", colors.blue)
-fg("@lsp.type.method", colors.blue)
+fg("Operator", colors.orange)
 
 -- Telescope
 fg("TelescopePromptBorder", colors.bgAlt2)

@@ -42,7 +42,10 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "williamboman/mason.nvim", build = ":MasonUpdate", config = true },
+      {
+        "williamboman/mason.nvim", build = ":MasonUpdate",
+        opts = { ui = { border = 'rounded' } }
+      },
       {
         "williamboman/mason-lspconfig.nvim",
         opts = { ensure_installed = vim.tbl_keys(servers), automatic_installation = true }

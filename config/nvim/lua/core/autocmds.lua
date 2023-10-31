@@ -82,6 +82,10 @@ autocmd("LspAttach", {
     -- Enable completion default trigger by <c-x><c-o>
     vim.bo[event.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+    -- Delete highlight semantic tokens since treesitter takes care of it
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+
     -- Mappings
     local opts = { noremap = true, buffer = event.buf, silent = true }
     local desc = require("core.utils").desc
