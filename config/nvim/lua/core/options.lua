@@ -20,13 +20,12 @@ opt.signcolumn    = "yes" -- show signcolumn and the number is the max signs to 
 opt.mouse         = "a" -- Mouse support for neovim
 opt.number        = true -- Line number
 opt.hidden        = true -- Change between buffers even if I don't save the current one
--- opt.updatetime    = 300 -- ms to wait for trigger an event
--- opt.timeoutlen    = 500 -- By default timeoutlen is 1000 ms
+opt.updatetime    = 300 -- Fast update time
+opt.timeoutlen    = 300 -- By default timeoutlen is 1000 ms
 opt.joinspaces    = false -- don't auto insert two spaces after punctuation
 opt.wildmode      = { "list", "longest:full", "full" }
-opt.wildignore    = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' } -- files to ignore
+opt.wildignore    = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' }
 opt.spelllang     = { 'en_us', 'es' } -- spell check on this languages
-opt.spellsuggest  = { "best", 9 } -- best spell candidates and quantity
 opt.complete = { ".", "w", "b", "u", "t", "i", "kspell" }
 opt.completeopt   = { -- Options for insert mode completion.
   'menu', -- Use the pop-up menu.
@@ -35,18 +34,19 @@ opt.completeopt   = { -- Options for insert mode completion.
 }
 
 -- Viewport
-opt.scrolloff     = 3    -- start scrolling 3 lines before edge of the rows viewport
-opt.sidescrolloff = 3    -- start scrolling 3 lines before edge of the columns viewport
-opt.splitbelow    = true -- open horizontal splits below current window
-opt.splitright    = true -- open vertical splits to the right current window
+opt.scrolloff     = 3    -- scroll 3 lines until edge of the rows viewport
+opt.sidescrolloff = 3    -- scroll 3 lines until edge of the columns viewport
+opt.splitbelow    = true -- horizontal splits below current window
+opt.splitright    = true -- vertical splits to the right current window
 
 -- Tabs (\t) and indentation
-opt.smartindent   = true -- Makes indenting smart
-opt.smarttab      = true -- Makes tabbing smarter, it will realize if you have 2 vs 4
-opt.expandtab     = true -- Converts tabs to spaces
+opt.smarttab      = true -- Copy indent from current line doing operations
 opt.autoindent    = true -- Good auto indent
-opt.shiftwidth    = 2    -- Change the number of space characters inserted for indentation
-opt.tabstop       = 2    -- insert 2 spaces for a tab
+opt.smartindent   = true -- Makes indenting smart
+opt.expandtab     = true -- Converts tabs to spaces
+opt.tabstop       = 2    -- number of spaces for a <Tab>
+opt.softtabstop   = 2    -- number of spaces inserted for operation
+opt.shiftwidth    = 2    -- number of spaces inserted for indentation
 
 -- Abreviations
 opt.shortmess:append('I')      -- no splash screen

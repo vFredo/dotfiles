@@ -3,6 +3,11 @@ if [[ -e $HOME/.local_aliases ]]; then
   source $HOME/.local_aliases
 fi
 
+if command -v zoxide &> /dev/null
+then
+  eval "$(zoxide init zsh)"
+fi
+
 # basics
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -19,7 +24,7 @@ alias fgrep='fgrep --color=auto'
 alias mv='mv --interactive --verbose'
 alias cp='cp --interactive --verbose'
 alias ln='ln --interactive --verbose'
-alias ls="ls --classify --color=auto --group-directories-first --literal --time-style='+%y-%b-%d %H:%M'"
+alias ls="ls --classify --color=auto --group-directories-first --literal --time-style='+%Y-%b-%d %H:%M'"
 alias la='ls --almost-all'
 alias ll='ls -l --almost-all --human-readable --no-group'
 alias llg='ls -l --almost-all --human-readable'

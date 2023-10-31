@@ -18,17 +18,6 @@ return {
     end
   },
   {
-    -- Easy navigation between lines with 's' and motions
-    "ggandor/leap.nvim",
-    keys = {
-      { "gs", "<Plug>(leap-from-window)" },
-      { "s","<Plug>(leap-forward-to)" },
-      { "S","<Plug>(leap-backward-to)" },
-      { mode = "x", "x", "<Plug>(leap-forward-to)" },
-      { mode = "x", "X", "<Plug>(leap-backward-to)" },
-    },
-  },
-  {
     -- Motions between parenthesis, brackets, etc...
     "kylechui/nvim-surround",
     version = "*",

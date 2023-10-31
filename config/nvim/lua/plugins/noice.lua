@@ -2,7 +2,6 @@ return {
   {
     -- Improve default notifications
     "rcarriga/nvim-notify",
-    event = "BufEnter",
     opts = {
       fps = 60,
       timeout = 4000,

@@ -139,11 +139,6 @@ fg("TelescopeResultsBorder", colors.bgAlt2)
 fg("TelescopeTitle", colors.fgAlt2)
 bg("TelescopeSelection", colors.bgAlt2)
 
--- Leap
-fg("LeapMatch", colors.orangeAlt, "bold,underline,nocombine")
-fg_bg("LeapLabelPrimary", colors.bg, colors.orangeAlt, "bold")
-fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
-
 -- Noice
 fg("NoiceCmdlinePopupBorder", colors.grey)
 fg_bg("NoiceCmdlineicon", colors.red, colors.bg)

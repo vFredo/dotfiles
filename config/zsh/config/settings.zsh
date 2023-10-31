@@ -6,25 +6,6 @@ setopt AUTO_RESUME             # allow simple commands to resume backgrounded jo
 setopt CORRECT                 # [default] command auto-correction
 setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
 
-# Make completion:
-# - Try exact (case-sensitive) match first.
-# - Then fall back to case-insensitive.
-# - Accept abbreviations after . or _ or - (ie. f.b -> foo.bar).
-# - Substring complete (ie. bar -> foobar).
-zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-
-# Allow completion of ..<Tab> to ../ and beyond.
-zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)'
-
-# $CDPATH is overpowered (can allow us to jump to 100s of directories) so tends
-# to dominate completion; exclude path-directories from the tag-order so that
-# they will only be used as a fallback if no completions are found.
-zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories'
-
-# Enable keyboard navigation of completions in menu
-# (not just tab/shift-tab but cursor keys as well):
-zstyle ':completion:*' menu select
-
 setopt COMPLETE_ALIASES # Prevent aliases from being substituted before completion is attempted.
 setopt COMPLETE_IN_WORD # Attempt to start completion from both ends of a word.
 setopt GLOB_COMPLETE # Don't insert anything resulting from a glob pattern, show completion menu.

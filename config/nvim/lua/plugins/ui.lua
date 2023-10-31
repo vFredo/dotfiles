@@ -69,16 +69,13 @@ return {
     -- show key combinations menu if to slow with their description
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
+    init = function() vim.o.timeout = true end,
     config = true
   },
   {
     -- working with directories in buffers
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = true
+    opts = { view_options = { show_hidden = true } }
   }
 }

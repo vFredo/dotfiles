@@ -60,8 +60,8 @@ return {
             description = '[t]odo',
             template = '* TODO %?\n  DEADLINE: %u\n  %a',
           },
-          w = {
-            description = '[w]ork',
+          e = {
+            description = '[e]vent',
             template = '* TODO %?\n  SCHEDULED: %u',
           },
         },
