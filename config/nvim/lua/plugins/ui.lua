@@ -1,7 +1,7 @@
 return {
   {
     -- Icons for patch fonts
-    "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons",
     event = "VeryLazy",
     opts = {
       override = {
@@ -76,6 +76,7 @@ return {
     -- working with directories in buffers
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = { view_options = { show_hidden = true } }
+    keys = { { "-", "<cmd>Oil<cr>", desc = "Open tree directory view" } },
+    opts = { view_options = { show_hidden = true }, }
   }
 }

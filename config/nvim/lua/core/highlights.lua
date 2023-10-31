@@ -120,6 +120,8 @@ fg("fugitiveStagedHeading", colors.green)
 
 -- Treesitter overrides for highlight colors
 fg("@variable", colors.fg)
+fg("@tag.attribute", colors.yellow)
+fg("Tag", colors.red)
 fg("Repeat", colors.purple)
 fg("Operator", colors.orange)
 

@@ -3,7 +3,7 @@ local gruvbox_custom = {
   normal = {
     a = { bg = colors.fgAlt, fg = colors.bg, gui = 'bold' },
     b = { bg = colors.bgAlt2, fg = colors.fgAlt },
-    c = { bg = colors.bgAlt, fg = colors.fgAlt },
+    c = { bg = colors.bg, fg = colors.fgAlt },
   },
   inactive = {
     a = { bg = colors.bgAlt, fg = colors.fgAlt, gui = 'italic' },
@@ -18,7 +18,7 @@ local gruvbox_custom = {
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = "kyazdani42/nvim-web-devicons",
+  after = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
       theme = gruvbox_custom,
@@ -29,16 +29,14 @@ return {
     },
     sections = {
       lualine_a = { {
-        'buffers',
-        icons_enabled = false,
+        'filename',
+        path = 1,
         right_padding = 2,
-        left_padding = 2,
-        separator = { right = '', left = '' },
-        max_length = vim.o.columns * 4 / 9,
-        filetype_names = { fugitive = "Git", oil = "Files" },
+        separator = { left = '', right = '' },
+        symbols = { modified = '●', readonly = '󰌾' }
       } },
       lualine_b = { { 'branch', icon = '', color = { fg = colors.yellow }, }, 'diff' },
-      lualine_c = { { 'filename', path = 1 } },
+      lualine_c = {},
       lualine_x = { {
         'diagnostics',
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },

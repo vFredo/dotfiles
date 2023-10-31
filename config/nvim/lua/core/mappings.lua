@@ -69,9 +69,6 @@ vim.keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", desc(opt, "[f]
 vim.keymap.set("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", desc(opt, "[f]ind [h]elp"))
 vim.keymap.set("n", "<Leader>fk", "<cmd>Telescope keymaps<cr>", desc(opt, "[f]ind [k]eymap"))
 
--- Oil
-vim.keymap.set("n", "-", "<cmd>Oil<cr>", desc(opt, "Open tree directory"))
-
 --
 -- User commands
 --
