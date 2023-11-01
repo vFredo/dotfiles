@@ -27,11 +27,11 @@ opt.wildmode      = { "list", "longest:full", "full" }
 opt.wildignore    = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' }
 opt.spelllang     = { 'en_us', 'es' } -- spell check on this languages
 opt.complete      = { ".", "w", "b", "u", "t", "i", "kspell" }
-opt.completeopt   = {  -- Options for insert mode completion.
-  'menu',              -- Use the pop-up menu.
-  'menuone',           -- Use the pop-up menu also when there is only one match.
-  'noselect',          -- Do not select a match if the menu appears
-}
+
+-- Completion options
+opt.completeopt:append('menu')     -- Use the pop-up menu.
+opt.completeopt:append('menuone')  -- Use the pop-up menu when there is only one match.
+opt.completeopt:append('noselect') -- Do not select a match if the menu appears
 
 -- Viewport
 opt.scrolloff     = 3    -- scroll 3 lines until edge of the rows viewport
@@ -49,39 +49,35 @@ opt.softtabstop   = 2    -- number of spaces inserted for operation
 opt.shiftwidth    = 2    -- number of spaces inserted for indentation
 
 -- Abreviations
-opt.shortmess:append('I')      -- no splash screen
-opt.shortmess:append('a')      -- Abreviations eg. `[RO]` instead of `[readonly]`
-opt.shortmess:append('c')      -- avoid show extra message in completion
-opt.shortmess:append('f')      -- Use "(3 of 5)" instead of "(file 3 of 5)"
-opt.shortmess:append('m')      -- Use "[+]" instead of "[Modified]".
-opt.shortmess:append('r')      -- Use "[RO]" instead of "[readonly]".
-opt.shortmess:append('w')      -- Use "[w]", "[a]" instead of "written", "appended".
-opt.diffopt:append('vertical') -- Show diffs in vertical splits
+opt.shortmess:append('I') -- no splash screen
+opt.shortmess:append('a') -- Abreviations eg. `[RO]` instead of `[readonly]`
+opt.shortmess:append('c') -- avoid show extra message in completion
+opt.shortmess:append('f') -- Use "(3 of 5)" instead of "(file 3 of 5)"
+opt.shortmess:append('m') -- Use "[+]" instead of "[Modified]".
+opt.shortmess:append('r') -- Use "[RO]" instead of "[readonly]".
+opt.shortmess:append('w') -- Use "[w]", "[a]" instead of "written", "appended".
+
+-- Diff options
+opt.diffopt:append('vertical')     -- Show diffs in vertical splits
+opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
 
 -- Folds
-opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
 opt.foldmethod  = "expr"
 opt.foldexpr    = "nvim_treesitter#foldexpr()"
-opt.foldenable  = false
+opt.foldenable  = false -- don't fold when open file
 
 --
 -- Characters
 --
 opt.joinspaces  = false -- don't autoinsert two spaces after '.', '?', '!' for join command
-opt.linebreak   = true -- wrap long lines at characters in 'breakat'
-opt.breakindent = true -- Indent wrap text
-opt.showbreak   = '↳ ' -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3)
-opt.list        = true -- show whitespace and everything on the listchars
-opt.listchars   = {
-  nbsp     = '⦸',
-  extends  = '»',
-  precedes = '«',
-  tab      = "▏ ",
-  trail    = '•'
-}
-opt.fillchars   = {
-  diff = '∙', -- BULLET OPERATOR (U+2219)
-  eob  = ' ', -- NO-BREAK SPACE (U+00A0) to suppress ~ at EndOfBuffer
-  fold = '·', -- MIDDLE DOT (U+00B7)
-  vert = '┃', -- BOX DRAWINGS HEAVY VERTICAL (U+2503)
-}
+opt.linebreak   = true -- wrap long lines at words, not in the middle
+opt.breakindent = true -- continue indent on wrapped lines
+opt.showbreak   = '↳ ' -- prefix at the start when lines have been wrapped
+opt.fillchars:append { diff = '∙' } -- deleted lines on diff
+opt.fillchars:append { eob = ' ', } -- empty lines at the end of the buffer
+opt.fillchars:append { fold = '·' } -- fill foldtext
+opt.list = true -- show whitespace and everything on the listchars
+opt.listchars:append { nbsp = '⦸' } -- for a non-breakable space character
+opt.listchars:append { extends = '»', precedes = '«' }
+opt.listchars:append { tab = '▏ ' }
+opt.listchars:append { trail = '•' }

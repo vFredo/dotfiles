@@ -20,18 +20,36 @@ vim.opt.rtp:prepend(lazypath)
 return require('lazy').setup(
   'plugins',
   {
-    ui = { border = "rounded" },
+    ui = {
+      icons = {
+        ft = "",
+        lazy = "󰂠 ",
+        loaded = "",
+        not_loaded = "",
+      },
+      border = "rounded"
+    },
     performance = {
       rtp = {
         paths = { vim.fn.stdpath("data") .. "/site" },
         disabled_plugins = {
+          'zip',
           'gzip',
+          'zipPlugin',
+          'tar',
+          'tarPlugin',
           'tohtml',
           'matchit',
-          'rplugin',
-          'tarPlugin',
-          'zipPlugin',
           'tutor',
+          'vimball',
+          'vimballPlugin',
+          'rplugin',
+          'optwin',
+          'netrw',
+          'netrwPlugin',
+          'netrwSettings',
+          'netrwFileHandlers',
+          '2html_plugin'
         },
       }
     }

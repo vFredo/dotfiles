@@ -20,10 +20,10 @@ return {
           },
         },
       }
-      -- Lazy load Snippets
+      -- Lazy load snippets vscode format
       require("luasnip.loaders.from_vscode").lazy_load()
-      -- Load custom snippets
-      require("luasnip.loaders.from_lua").load { paths = "~/dotfiles/config/nvim/snippets" }
+      -- Lazy load custom snippets lua format
+      require("luasnip.loaders.from_lua").lazy_load { paths = "~/.config/nvim/snippets/" }
     end
   },
   {
@@ -78,8 +78,7 @@ return {
           }),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              local entry = cmp.get_selected_entry()
-              if not entry then
+              if not cmp.get_selected_entry() then
                 cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
               else
                 cmp.confirm({ select = true })
