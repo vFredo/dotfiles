@@ -27,7 +27,7 @@ return {
       component_separators = '|',
       section_separators = { left = '', right = '' },
     },
-    sections = {
+    tabline = {
       lualine_a = { {
         'filename',
         path = 1,
@@ -36,8 +36,7 @@ return {
         symbols = { modified = '●', readonly = '󰌾' }
       } },
       lualine_b = { { 'branch', icon = '', color = { fg = colors.yellow }, }, 'diff' },
-      lualine_c = {},
-      lualine_x = { {
+      lualine_c = { {
         'diagnostics',
         symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
         diagnostics_color = {
@@ -47,10 +46,19 @@ return {
           hint  = 'DiagnosticHint',
         },
       } },
+      lualine_x = {},
       lualine_y = { 'filetype', 'progress' },
       lualine_z = {
         { 'location', separator = { right = '' }, left_padding = 2 },
       },
-    }
+    },
+    sections = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
+    },
   }
 }
