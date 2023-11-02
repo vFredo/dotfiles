@@ -76,7 +76,6 @@ return {
     -- working with directories in buffers
     'stevearc/oil.nvim',
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = { { "-", "<cmd>Oil<cr>", desc = "Open tree directory view" } },
     opts = {
       view_options = { show_hidden = true },
       keymaps = { ["q"] = "actions.close" }

@@ -62,6 +62,9 @@ vim.keymap.set({ "n", "v" }, "<C-l>", "<cmd>NavigatorRight<cr>", opt)
 vim.keymap.set({ "n", "v" }, "<C-k>", "<cmd>NavigatorUp<cr>", opt)
 vim.keymap.set({ "n", "v" }, "<C-j>", "<cmd>NavigatorDown<cr>", opt)
 
+-- oil
+vim.keymap.set({ "n", "v" }, "-", "<cmd>Oil<cr>", { desc = "Open tree directory view" })
+
 -- Telescope
 vim.keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", desc(opt, "[f]ind [f]ile"))
 vim.keymap.set("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", desc(opt, "[f]ind [b]uffer"))
