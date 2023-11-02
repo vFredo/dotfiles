@@ -26,9 +26,9 @@ opt.joinspaces    = false   -- don't auto insert two spaces after punctuation
 opt.wildmode      = { "list", "longest:full", "full" }
 opt.wildignore    = { 'node_modules/*', '.git/*', '*.o', '*.pdf', '*.so', '*.rej' }
 opt.spelllang     = { 'en_us', 'es' } -- spell check on this languages
-opt.complete      = { ".", "w", "b", "u", "t", "i", "kspell" }
 
 -- Completion options
+opt.complete      = { ".", "w", "b", "u", "t", "i", "kspell" }
 opt.completeopt:append('menu')     -- Use the pop-up menu.
 opt.completeopt:append('menuone')  -- Use the pop-up menu when there is only one match.
 opt.completeopt:append('noselect') -- Do not select a match if the menu appears

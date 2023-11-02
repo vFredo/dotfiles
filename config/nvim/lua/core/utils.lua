@@ -17,25 +17,26 @@ M.preserve = function(cmd)
 end
 
 -- Toggle spelling on buffer
-M.toggleSpelling = function(option)
+M.toggleSpelling = function(language)
   local opts = { noremap = true, silent = true, buffer = 0 }
 
-  -- using a vim buffer variable to store value of spell_toggle
-  if vim.b.spell_toggle and option ~= "ft" then
+  if vim.b.spell_active then
     vim.cmd([[ setlocal nospell ]])
-    vim.b.spell_toggle = false
+    vim.b.spell_active = false
     vim.notify("Spell OFF...")
-    vim.keymap.set("i", "<C-l>", "<Nop>", opts) -- delete instert mapping
+
+    -- Remove the insert mode mapping for spell correction
+    vim.keymap.set("i", "<C-l>", "<Nop>", opts)
   else
-    if option == "es" then
-      vim.cmd([[ setlocal spell spelllang=es ]])
-      vim.notify("Spell ON: Español")
-    else
-      vim.cmd([[ setlocal spell spelllang=en_us ]])
-      vim.notify("Spell ON: English")
-    end
-    vim.b.spell_toggle = true
-    -- mapping for fix last spell error on insert mode
+    -- Set the default language to English, if no specific language is provided
+    language = language or "en_us"
+
+    -- Turn on spell checking with the specified language
+    vim.cmd("setlocal spell spelllang=" .. language)
+    vim.notify("Spell ON: " .. string.upper(language))
+    vim.b.spell_active = true
+
+    -- Mapping for fixing the last spell error in insert mode
     vim.keymap.set("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", opts)
   end
 end
