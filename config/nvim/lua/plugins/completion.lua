@@ -24,6 +24,20 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
       -- Lazy load custom snippets lua format
       require("luasnip.loaders.from_lua").lazy_load { paths = "~/.config/nvim/snippets/" }
+
+      -- Automatically unlink the current snippet from the buffer
+      -- when the insert mode is left, but only if there are any
+      -- current nodes in the Luasnip session for the buffer
+      vim.api.nvim_create_autocmd("InsertLeave", {
+        callback = function()
+          if
+              require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+              and not require("luasnip").session.jump_active
+          then
+            require("luasnip").unlink_current()
+          end
+        end,
+      })
     end
   },
   {
@@ -36,7 +50,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
       { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" }, -- snippets engine
-      "saadparwaiz1/cmp_luasnip",              -- integrations
+      "saadparwaiz1/cmp_luasnip", -- luasnip integration
     },
     config = function()
       local cmp = require("cmp")
@@ -65,12 +79,12 @@ return {
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-p>'] = cmp.mapping({
-            i = cmp.mapping.select_prev_item(),
-            c = cmp.mapping.select_prev_item()
+            i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+            c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select })
           }),
           ['<C-n>'] = cmp.mapping({
-            i = cmp.mapping.select_next_item(),
-            c = cmp.mapping.select_next_item()
+            i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+            c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select })
           }),
           ['<C-e>'] = cmp.mapping({
             i = cmp.mapping.close(),
@@ -78,11 +92,7 @@ return {
           }),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-              if not cmp.get_selected_entry() then
-                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-              else
-                cmp.confirm({ select = true })
-              end
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
             elseif luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump() -- jump next snippet placeholder
             else

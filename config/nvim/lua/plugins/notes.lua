@@ -51,6 +51,7 @@ return {
           ['CANCELLED'] = ':foreground ' .. colors.fgAlt .. ' :weight bold',
         },
         org_deadline_warning_days = 5,
+        win_split_mode = 'vertical',
         mappings = {
           org = { org_toggle_checkbox = "<Leader>tc" }
         },
