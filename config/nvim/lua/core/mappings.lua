@@ -14,6 +14,7 @@ local desc = require("core.utils").desc
 -- Yank and paste text from clipboard
 vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]], desc(opt, "Cop[y] to clipboard"))
 vim.keymap.set({ "n", "v" }, "<Leader>p", [["+p]], desc(opt, "[p]aste from clipboard"))
+vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]], desc(opt, "[d]elete to null register"))
 
 -- use ESC in normal mode to turn off search highlighting and notifycations
 vim.keymap.set("n", "<Esc>", function()

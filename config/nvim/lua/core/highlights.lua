@@ -95,10 +95,13 @@ fg("CmpItemKindEvent", colors.yellow)
 -- BlankIndent Lines
 fg("IblIndent", colors.bgAlt2)
 
+-- Orgmode
+fg("OrgAgendaDay", colors.purple)
+
 -- Leap
-fg("LeapMatch", colors.orangeAlt, "bold,underline,nocombine")
-fg_bg("LeapLabelPrimary", colors.bg, colors.orangeAlt, "bold")
-fg_bg("LeapLabelSecondary", colors.bg, colors.blue, "bold")
+fg("LeapMatch", colors.greenAlt, "underline")
+fg_bg("LeapLabelPrimary", colors.bg, colors.greenAlt, "bold")
+fg_bg("LeapLabelSecondary", colors.bg, colors.blueAlt, "bold")
 
 -- LSP config
 fg_bg("DiagnosticError", colors.red, "NONE")
