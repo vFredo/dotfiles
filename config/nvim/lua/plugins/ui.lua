@@ -15,7 +15,9 @@ return {
         woff2 = { icon = "", name = "WebOpenFontFormat2", },
         mp3 = { icon = "", name = "mp3", },
         mp4 = { icon = "", name = "mp4", },
-        norg = { icon = "◉", color = "#4878be", name = "neorg" }
+        jpg = { icon = '󰋩', color = '#16a085', name = 'Jpg' },
+        svg = { icon = '󰋩', color = '#3affdb', name = 'Svg' },
+        norg = { icon = "◉", color = "#4878be", name = "neorg" },
       }
     }
   },
