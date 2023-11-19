@@ -3,7 +3,6 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    { "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
     'nvim-treesitter/nvim-treesitter-textobjects'
   },
   config = function()
@@ -22,14 +21,6 @@ return {
         additional_vim_regex_highlighting = { 'org' },
       },
       indent = { enable = true },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-        config = {
-          c = "// %s",
-          cpp = "// %s",
-        }
-      },
       textobjects = {
         select = {
           enable = true,
