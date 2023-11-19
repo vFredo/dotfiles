@@ -22,6 +22,8 @@ return {
   {
     -- Note taking and TODO's
     'nvim-orgmode/orgmode',
+    ft = 'org',
+    keys = { '<Leader>oa', '<Leader>oc' },
     dependencies = {
       'akinsho/org-bullets.nvim',
       opts = {
