@@ -23,7 +23,10 @@ return {
     -- Note taking and TODO's
     'nvim-orgmode/orgmode',
     ft = 'org',
-    keys = { '<Leader>oa', '<Leader>oc' },
+    keys = {
+      { '<Leader>oa', desc = "[o]rg [a]genda" },
+      { '<Leader>oc', desc = "[o]rg [c]apture" }
+    },
     dependencies = {
       'akinsho/org-bullets.nvim',
       opts = {
@@ -49,7 +52,7 @@ return {
         org_todo_keywords = { 'TODO(t)', 'WAITING', 'PROGRESS', '|', 'DONE(d)', 'CANCELLED' },
         org_todo_keyword_faces = {
           ['PROGRESS'] = ':foreground ' .. colors.yellow .. ' :weight bold',
-          ['WAITING'] = ':foreground '.. colors.orange ..' :weight bold',
+          ['WAITING'] = ':foreground ' .. colors.orange .. ' :weight bold',
           ['CANCELLED'] = ':foreground ' .. colors.fgAlt .. ' :weight bold',
         },
         org_deadline_warning_days = 5,
