@@ -2,8 +2,9 @@ return {
   {
     -- Snippets engine
     "L3MON4D3/LuaSnip",
-    version = "1.*",
+    version = "v2.*",
     dependencies = { "rafamadriz/friendly-snippets" },
+    build = "make install_jsregexp",
     config = function()
       -- Luasnip configuration
       require("luasnip").config.set_config {
