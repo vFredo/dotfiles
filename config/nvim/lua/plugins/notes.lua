@@ -3,7 +3,7 @@ return {
     -- Latex integration
     "lervag/vimtex",
     ft = "tex",
-    config = function()
+    init = function()
       vim.g.tex_flavor = 'latex'
       vim.g.tex_conceal = 'abdmg'
       vim.g.vimtex_quickfix_mode = 0
