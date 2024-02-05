@@ -1,5 +1,8 @@
 -- Servers configurations and ensured they are installed
 local servers = {
+  jdtls = {
+    root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+  },
   bashls = {},
   clangd = {},
   pyright = {},

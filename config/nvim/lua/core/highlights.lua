@@ -73,6 +73,7 @@ bg("PmenuThumb", colors.fgAlt)                    -- thumb scrollbar
 --
 -- Plugins Highlights
 --
+fg("LazyCommit", colors.orange)
 
 -- nvim-cmp completion menu
 fg("CmpItemAbbr", colors.grey)                           -- text autocomplete
