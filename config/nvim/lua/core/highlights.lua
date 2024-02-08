@@ -125,9 +125,18 @@ fg("fugitiveStagedHeading", colors.green)
 -- Treesitter overrides for highlight colors
 fg("@variable", colors.fg)
 fg("@tag.attribute", colors.yellow)
+fg("@attribute", colors.orange)
 fg("Tag", colors.red)
 fg("Repeat", colors.purple)
 fg("Operator", colors.orange)
+
+-- Treesitter markdown
+fg("@markup.heading", colors.purple, "bold")
+fg("@markup.list", colors.red, "bold")
+fg("@markup.raw", colors.green)
+fg("@markup.link", colors.blue, "underline")
+ui("@markup.italic", "italic")
+ui("@markup.strong", "bold")
 
 -- Telescope
 fg("TelescopePromptBorder", colors.bgAlt2)

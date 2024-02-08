@@ -16,7 +16,7 @@ vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]], desc(opt, "Cop[y] to clipboar
 vim.keymap.set({ "n", "v" }, "<Leader>p", [["+p]], desc(opt, "[p]aste from clipboard"))
 vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]], desc(opt, "[d]elete to null register"))
 
--- use ESC in normal mode to turn off search highlighting and notifycations
+-- use ESC in normal mode to turn off search highlighting and notifications
 vim.keymap.set("n", "<Esc>", function()
   require("notify").dismiss()
   vim.cmd.nohlsearch()
