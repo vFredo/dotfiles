@@ -6,6 +6,7 @@ return {
     opts = {
       override = {
         [""] = { icon = "", color = "#d5c4a1", name = "", },
+        [".gitignore"] = { icon = "", color = "#ea6962", name = "Gitignore" },
         ["robots.txt"] = { icon = "ﮧ", color = "#ea6962", name = "robots", },
         ["out"] = { icon = "", color = "#ea6962", name = "out", },
         ["in"] = { icon = "", color = "#a9b665", name = "in", },

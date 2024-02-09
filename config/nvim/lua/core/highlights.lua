@@ -124,6 +124,7 @@ fg("fugitiveStagedHeading", colors.green)
 
 -- Treesitter overrides for highlight colors
 fg("@variable", colors.fg)
+fg("@variable.member", colors.red)
 fg("@tag.attribute", colors.yellow)
 fg("@attribute", colors.orange)
 fg("Tag", colors.red)
@@ -144,6 +145,7 @@ fg("TelescopePreviewBorder", colors.bgAlt2)
 fg("TelescopeResultsBorder", colors.bgAlt2)
 fg("TelescopeTitle", colors.fgAlt2)
 bg("TelescopeSelection", colors.bgAlt2)
+fg_bg("TelescopeSelectionCaret", colors.red, colors.bgAlt2)
 
 -- Noice
 fg("NoiceCmdlinePopupBorder", colors.grey)
