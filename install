@@ -79,7 +79,7 @@ function install_bspwm() {
   # ./packages/installer.sh bspwm
 
   progress "Creating necessary folders"
-  mkdir -p ~/.config/dunst ~/.config/bspwm ~/.config/sxhkd ~/.config/picom
+  mkdir -p ~/.config/dunst ~/.config/bspwm ~/.config/sxhkd ~/.config/picom ~/.config/rofi
 
   progress "Creating symbolic links for bspwm and polybar config files"
   create_link "$(pwd)/config/bspwm/bspwmrc" "$HOME/.config/bspwm/bspwmrc"
@@ -90,6 +90,18 @@ function install_bspwm() {
   create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
 
   success "Bspwm config installed"
+}
+
+function install_qtile() {
+  progress "Creating necessary folders"
+  mkdir -p ~/.config/dunst ~/.config/qtile ~/.config/rofi
+
+  progress "Creating symbolic links for qtile, rofi and dunst config files"
+  create_link "$(pwd)/config/qtile" "$HOME/.config/qtile"
+  create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
+  create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
+
+  success "Qtile config installed"
 }
 
 function install_neovim(){
@@ -155,9 +167,9 @@ function install_zsh(){
 function help_tag(){
   echo "Options for the installation:"
   echo "      --bspwm    Install config files for bspwm including sxhkd."
+  echo "      --qtile    Install qtile config files."
   echo "      --nvim     Install config files for nvim."
   echo "      --zsh      Install config files for zsh."
-  echo "      --all      To install all the config files."
   echo "More information about the files on the README."
 }
 
@@ -173,15 +185,14 @@ then
       --bspwm)
         install_bspwm
         ;;
+      --qtile)
+        install_qtile
+        ;;
       --nvim)
         install_neovim
         ;;
       --zsh)
         install_zsh
-        ;;
-      --all)
-        install_zsh
-        install_neovim
         ;;
       *) error "Choose a valid option, see options with --help or -h flags.";;
     esac
