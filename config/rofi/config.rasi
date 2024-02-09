@@ -3,7 +3,6 @@
  */
 
 configuration {
-  font: "Iosevka Nerd Font Medium 12";
   width: 30;
   padding: 20px;
   line-padding: 10px;
@@ -17,6 +16,7 @@ configuration {
 }
 
 @import "colors.rasi"
+@import "fonts.rasi"
 
 window {
   padding: 10px;

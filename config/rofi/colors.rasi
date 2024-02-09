@@ -1,7 +1,10 @@
 * {
-  background:                 #1D2021;
-  background-alt:             #282828;
-  foreground:                 #FBF1C7;
-  accent:                     #7DAEA3;
-  urgent:                     #DA4453;
+  background:       #1D2021;
+  background-alt:   #282828;
+  foreground:       #FBF1C7;
+  accent:           #7DAEA3;
+  urgent:           #DA4453;
+  selected:         #61AFEF;
+  active:           #98C379;
+  urgent:           #E06C75;
 }

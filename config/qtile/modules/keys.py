@@ -13,7 +13,7 @@ keys = [
     Key([mod], "d", lazy.spawn("rofi -show drun")),
 
     # Powermenu
-    Key([mod], "0", lazy.spawn(os.path.expanduser('~/.config/rofi/powermenu.sh'))),
+    Key([mod], "0", lazy.spawn(os.path.expanduser('~/.config/rofi/scripts/powermenu.sh'))),
 
     # Cycle keyboard layouts selected in the widget keyboardlayout
     Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard()),
