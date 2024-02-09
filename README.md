@@ -46,6 +46,12 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
   * nodejs
   * xclip
 * Zsh
+  * Zoxide
+* Qtile
+  * qtile-extra
+  * betterlockscreen
+  * gruvbox-material-gtk
+  * Shutter (screenshot)
 * Bspwm
   * [Capitaine Cursor](https://github.com/keeferrourke/capitaine-cursors)
   * [Rofi](https://github.com/davatorium/rofi).
