@@ -18,7 +18,10 @@ vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]], desc(opt, "[d]elete to null r
 
 -- use ESC in normal mode to turn off search highlighting and notifications
 vim.keymap.set("n", "<Esc>", function()
-  require("notify").dismiss()
+  local ok, notify = pcall(require, "notify")
+  if ok then
+    notify.dismiss()
+  end
   vim.cmd.nohlsearch()
 end, opt)
 
@@ -43,7 +46,7 @@ vim.keymap.set("n", "]c", "<cmd>cnext<CR>", desc(opt, "Next qui[c]kfix list"))
 -- Buffers
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", desc(opt, "Previous in [b]uffer list"))
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", desc(opt, "Next in [b]uffer list"))
-vim.keymap.set("n", "<Leader><Leader>", "<C-^>", desc(opt, "Previous file"))
+vim.keymap.set("n", "<Leader><Leader>", "<C-^>", desc(opt, "Previous buffer"))
 vim.keymap.set("n", "<Leader>L", "<C-w>L", desc(opt, "Move buffer to the RIGHT"))
 vim.keymap.set("n", "<Leader>H", "<C-w>H", desc(opt, "Move buffer to the LEFT"))
 
