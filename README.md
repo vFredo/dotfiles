@@ -20,7 +20,6 @@ you want, the script removes it. For the moment, most dependencies of the OS hav
 * Neovim config files.
 * Tmux config.
 * Kitty terminal configuration.
-* Firefox theme
 
 ### ❖ Zsh
 <div align="center">
@@ -35,11 +34,6 @@ This are the plugins that I'm using:
 
 For updating all submodules use `git pull --recurse-submodules`
 
-### ❖ Firefox
-You can install the custom Firefox CSS by first enabling toolkit.
-`legacyUserProfileCustomizations.stylesheets` in `about:config` and move
-the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-release/chrome`.
-
 ## ❖ Dependencies
 * Neovim
   * [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -52,6 +46,9 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
   * betterlockscreen
   * gruvbox-material-gtk
   * Shutter (screenshot)
+  * Fonts
+    * JetBrains Mono Nerd Font
+    * Lilex
 * Bspwm
   * [Capitaine Cursor](https://github.com/keeferrourke/capitaine-cursors)
   * [Rofi](https://github.com/davatorium/rofi).
@@ -70,7 +67,6 @@ the contents of `misc/firefox` to `$HOME/.mozilla/firefox/xxxxxxxx.default-relea
   * Xclip `pacman -S xclip`(copy on clipboard from tmux paste mode).
 
 # ❖ Inspired
-* The firefox theme and some other configurations comes from Janleight's [dotfiles](https://github.com/janleigh/dotfiles).
 * Other Neovim lua configuration comes from [NvChad](https://github.com/NvChad/NvChad).
 * Kutsan's [dotfiles](https://github.com/kutsan/dotfiles). I'm using a lot of things of his Zsh configuration.
 * Some nvim lazy loading configs comes from Ray-x's [dotfiles](https://github.com/ray-x/nvim).

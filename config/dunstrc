@@ -1,5 +1,5 @@
 [global]
-    font = CaskaydiaCove Nerd Font 10
+    font = JetBrains Mono Nerd Font 10
 
     # Allow a small subset of html markup:
     # <b>bold</b>
