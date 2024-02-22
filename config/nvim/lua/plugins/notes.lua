@@ -15,29 +15,28 @@ return {
     ft = "tex",
     dependencies = {
       "L3MON4D3/LuaSnip",
-      "nvim-treesitter/nvim-treesitter"
+      "nvim-treesitter/nvim-treesitter",
+      "lervag/vimtex"
     },
-    opts = { use_treesitter = true }
+    config = true
   },
   {
     -- Note taking and TODO's
     'nvim-orgmode/orgmode',
-    ft = 'org',
-    keys = {
-      { '<Leader>oa', desc = "[o]rg [a]genda" },
-      { '<Leader>oc', desc = "[o]rg [c]apture" }
-    },
     dependencies = {
-      'akinsho/org-bullets.nvim',
-      opts = {
-        concealcursor = true,
-        symbols = {
-          headlines = { "◈", "◇", "❖", "⋄", "◆", "⟡" },
-          checkboxes = {
-            half = { "", "OrgTSCheckboxHalfChecked" },
-            done = { "", "OrgDone" },
-            todo = { " ", "OrgTODO" },
-          },
+      { "nvim-treesitter/nvim-treesitter" },
+      {
+        'akinsho/org-bullets.nvim',
+        opts = {
+          concealcursor = true,
+          symbols = {
+            headlines = { "◈", "◇", "❖", "⋄", "◆", "⟡" },
+            checkboxes = {
+              half = { "", "OrgTSCheckboxHalfChecked" },
+              done = { "", "OrgDone" },
+              todo = { " ", "OrgTODO" },
+            },
+          }
         }
       }
     },
