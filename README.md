@@ -22,14 +22,14 @@ For updating all submodules use `git pull --recurse-submodules`
 ## ❖ Showcase
 <div align="center">
    <details>
-   <summary>Screenshots</summary>
-
-   <h1>━━━━  ❖  ━━━━</h1>
+   <summary align="center">Desktop</summary>
    <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/bspwm-rice.png" />
    <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/nvim-screenshot.png" />
+   </details>
 
+   <details>
+   <summary align="center">Terminal</summary>
    <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/zsh-prompt.png"/>
-   <h1>━━━━  ❖  ━━━━</h1>
    </details>
 </div>
 
@@ -61,7 +61,7 @@ For updating all submodules use `git pull --recurse-submodules`
 
 - qtile-extra
 - betterlockscreen
-- [Rofi](https://github.com/davatorium/rofi).
+- [rofi](https://github.com/davatorium/rofi).
 - colloid-gtk-theme
 - Shutter (screenshot)
 - picom
@@ -75,7 +75,7 @@ For updating all submodules use `git pull --recurse-submodules`
 <details>
 <summary>Bspwm</summary>
 
-- [Rofi](https://github.com/davatorium/rofi).
+- [rofi](https://github.com/davatorium/rofi).
 - [polybar](https://github.com/polybar/polybar).
 - [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
 - picom
