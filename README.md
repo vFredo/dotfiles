@@ -11,23 +11,27 @@ you want, the script removes it. For the moment, most dependencies of the OS hav
 For updating all submodules use `git pull --recurse-submodules`
 
 ## ❖ Features
-* Bspwm config files.
-  * Polybar config.
-* Rofi configurations.
-* Neovim config files.
-* Tmux config.
-* Kitty terminal configuration.
+* Bspwm config files
+  * Polybar config
+* Qtile config files
+* Rofi configurations
+* Neovim config files
+* Tmux config
+* Kitty terminal configuration
 
-<details align="center">
-<summary>Showcase</summary>
+## ❖ Showcase
+<div align="center">
+   <details>
+   <summary>Screenshots</summary>
 
-<h1>━━━━  ❖  ━━━━</h1>
-<img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/bspwm-rice.png" />
-<img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/nvim-screenshot.png" />
+   <h1>━━━━  ❖  ━━━━</h1>
+   <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/bspwm-rice.png" />
+   <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/nvim-screenshot.png" />
 
-<img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/zsh-prompt.png"/>
-<h1>━━━━  ❖  ━━━━</h1>
-</details>
+   <img src="https://raw.githubusercontent.com/vFredo/dotfiles/main/.github/assets/zsh-prompt.png"/>
+   <h1>━━━━  ❖  ━━━━</h1>
+   </details>
+</div>
 
 ## ❖ Dependencies
 <details>
@@ -74,14 +78,14 @@ For updating all submodules use `git pull --recurse-submodules`
 - [Rofi](https://github.com/davatorium/rofi).
 - [polybar](https://github.com/polybar/polybar).
 - [bitwarden-rofi](https://github.com/mattydebie/bitwarden-rofi).
-- Picom
-- Dunst
-- Nitrogen
+- picom
+- dunst
+- nitrogen
 - arandr
 - xorg-xsetroot
 - pavucontrol
 - lxappearance-gtk3
-- Blueman (bluetooth manager with applet).
+- blueman (bluetooth manager with applet).
 - sxhkd
 </details>
 
