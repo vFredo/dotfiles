@@ -116,14 +116,8 @@ function install_term(){
   # echo "Installling terminal dependencies..."
   # ./packages/installer.sh term
 
-  progress "Creating folders need it"
-  mkdir -p "$HOME"/.local/share/fonts
-
   # progress "User profile configurations"
   create_link "$(pwd)/misc/profile" "$HOME/.profile"
-
-  progress "Installing fonts..."
-  cp -r "$(pwd)"/fonts/* "$HOME"/.local/share/fonts
 
   if command -v tmux &> /dev/null
   then
@@ -141,9 +135,6 @@ function install_term(){
   else
     ignoring "Ignore kitty installation of config files"
   fi
-
-  progress "Updating font cache"
-  fc-cache -f -v
 
   success "Terminal config installed"
 }

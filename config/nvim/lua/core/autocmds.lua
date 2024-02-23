@@ -23,6 +23,15 @@ autocmd("BufReadPost", {
   end,
 })
 
+-- Trim extra spaces left in the file before save
+autocmd("BufWritePre", {
+  group = gen_group,
+  pattern = { "*" },
+  callback = function()
+    require("core.utils").preserve('%s/\\s\\+$//ge')
+  end,
+})
+
 -- Check if file changed when its window is focus, better than 'autoread'
 autocmd("FocusGained", { group = gen_group, command = "checktime" })
 

@@ -80,13 +80,6 @@ vim.keymap.set("n", "<Leader>fk", "<cmd>Telescope keymaps<cr>", desc(opt, "[f]in
 -- User commands
 --
 
--- Command 'TrimSpaces' well... it's self-explanatory what this does
-vim.api.nvim_create_user_command(
-  "TrimSpaces",
-  function() require("core.utils").preserve('%s/\\s\\+$//ge') end,
-  { desc = "Trim extra whitespaces" }
-)
-
 -- Fix indentation of the current buffer
 vim.api.nvim_create_user_command(
   "Reindent",
