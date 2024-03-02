@@ -3,10 +3,9 @@ return {
     -- Improve default notifications
     "rcarriga/nvim-notify",
     opts = {
-      fps = 60,
       timeout = 4000,
       stages = "fade_in_slide_out",
-      render = "simple",
+      render = "wrapped-compact",
       icons = {
         DEBUG = "",
         ERROR = "",
@@ -31,7 +30,6 @@ return {
       popupmenu = { backend = 'nui' },
       cmdline = {
         format = {
-          IncRename = { title = ' Rename ' },
           substitute = { pattern = '^:[%%]*s/', icon = ' ', ft = 'regex', title = '' },
           input = { icon = ' ', lang = 'text', view = 'cmdline_popup', title = '' },
         },
@@ -60,8 +58,6 @@ return {
       routes = {
         -- messages text like "written" on mini view
         { filter = { event = "msg_show", find = "%d+L, %d+B" }, view = "mini" },
-        -- show recording macros 'recording @' on mini view
-        { filter = { event = "msg_showmode", find = "recording" }, view = "mini" },
         -- delete visual indentation message
         { filter = { event = "msg_show", find = "%s+[><]ed%s" }, skip = true },
         { filter = { event = "msg_show", find = "search hit BOTTOM" }, skip = true },
@@ -77,6 +73,7 @@ return {
         bottom_search = true,
         command_palette = true,
         long_message_to_split = true,
+        inc_rename = true
       },
     }
   },

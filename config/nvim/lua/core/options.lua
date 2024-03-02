@@ -8,6 +8,7 @@ vim.cmd([[filetype plugin indent on]])
 --
 g.mapleader       = " "     -- Map leader is <Space>
 g.maplocalleader  = ","     -- Local leader map to ','
+opt.showmode      = false
 opt.background    = "dark"
 opt.cmdheight     = 1       -- More space for displaying messages
 opt.cursorline    = true    -- Current line highlight
@@ -76,6 +77,9 @@ opt.showbreak   = '↳ ' -- prefix at the start when lines have been wrapped
 opt.fillchars:append { diff = '∙' } -- deleted lines on diff
 opt.fillchars:append { eob = ' ', } -- empty lines at the end of the buffer
 opt.fillchars:append { fold = '·' } -- fill foldtext
+opt.fillchars:append { foldopen = "" }
+opt.fillchars:append { foldclose = "" }
+opt.fillchars:append { foldsep = " " }
 opt.list = true -- show whitespace and everything on the listchars
 opt.listchars:append { nbsp = '⦸' } -- for a non-breakable space character
 opt.listchars:append { extends = '»', precedes = '«' }

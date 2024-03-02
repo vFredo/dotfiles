@@ -1,7 +1,7 @@
 -- Servers configurations and ensured they are installed
 local servers = {
   jdtls = {
-    root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+    root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
   },
   bashls = {},
   clangd = {},
@@ -60,10 +60,10 @@ return {
 
     require("mason-lspconfig").setup_handlers({
       function(server_name)
-        require('lspconfig')[server_name].setup {
+        require('lspconfig')[server_name].setup({
           capabilities = capabilities,
           settings = servers[server_name],
-        }
+        })
       end,
     })
 

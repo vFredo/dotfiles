@@ -43,7 +43,7 @@ fg_bg("VertSplit", colors.fgAlt, "NONE")
 bg("SignColumn", "NONE")
 fg("Underlined", colors.cyan)
 fg("EndOfBuffer", colors.bg)
-bg("MatchParen", colors.bgAlt2, "bold,underline")
+fg_bg("MatchParen", colors.bg, colors.orange, "bold,underline")
 
 -- Cursorline
 fg_bg("CursorLineNr", colors.fgAlt2, colors.bg, "italic,bold")

@@ -73,7 +73,7 @@ autocmd("FileType", {
   pattern = {
     "alpha", "fugitive", "help",
     "lspinfo", "mason", "notify",
-    "qf", "tsplayground",
+    "qf", "tsplayground", "checkhealth"
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

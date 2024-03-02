@@ -50,15 +50,16 @@ return {
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-cmdline",
-      { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" }, -- snippets engine
-      "saadparwaiz1/cmp_luasnip", -- luasnip integration
+      -- snippets engine
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
     },
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local lspkind = require("lspkind")
 
-      cmp.setup {
+      cmp.setup({
         view = { entries = "custom" },
         window = {
           documentation = cmp.config.window.bordered(),
@@ -137,7 +138,7 @@ return {
         experimental = {
           ghost_text = { hl_group = "Comment" } -- nice comment color text of completion
         },
-      }
+      })
 
       -- Use buffer source for /,?
       cmp.setup.cmdline({ '/', '?' }, {
