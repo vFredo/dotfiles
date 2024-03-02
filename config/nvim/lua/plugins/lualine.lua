@@ -19,46 +19,54 @@ local gruvbox_custom = {
 return {
   "nvim-lualine/lualine.nvim",
   after = "nvim-tree/nvim-web-devicons",
-  opts = {
-    options = {
-      theme = gruvbox_custom,
-      globalstatus = true,
-      icons_enabled = true,
-      component_separators = '|',
-      section_separators = { left = '', right = '' },
-    },
-    tabline = {
-      lualine_a = { {
-        'filename',
-        path = 1,
-        right_padding = 2,
-        separator = { left = '', right = '' },
-        symbols = { modified = '●', readonly = '󰌾' }
-      } },
-      lualine_b = { { 'branch', icon = '', color = { fg = colors.yellow }, }, 'diff' },
-      lualine_c = { {
-        'diagnostics',
-        symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
-        diagnostics_color = {
-          error = 'DiagnosticError',
-          warn  = 'DiagnosticWarn',
-          info  = 'DiagnosticInfo',
-          hint  = 'DiagnosticHint',
-        },
-      } },
-      lualine_x = {},
-      lualine_y = { 'filetype', 'progress' },
-      lualine_z = {
-        { 'location', separator = { right = '' }, left_padding = 2 },
+  config = function()
+    require("lualine").setup({
+      options = {
+        theme = gruvbox_custom,
+        globalstatus = true,
+        icons_enabled = true,
+        component_separators = '|',
+        section_separators = { left = '', right = '' },
       },
-    },
-    sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {}
-    },
-  }
+      tabline = {
+        lualine_a = { {
+          'filename',
+          path = 1,
+          right_padding = 2,
+          separator = { left = '', right = '' },
+          symbols = { modified = '●', readonly = '󰌾' }
+        } },
+        lualine_b = { { 'branch', icon = '', color = { fg = colors.yellow }, }, 'diff' },
+        lualine_c = { {
+          'diagnostics',
+          symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+          diagnostics_color = {
+            error = 'DiagnosticError',
+            warn  = 'DiagnosticWarn',
+            info  = 'DiagnosticInfo',
+            hint  = 'DiagnosticHint',
+          },
+        } },
+        lualine_x = {
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
+          },
+        },
+        lualine_y = { 'filetype', 'progress' },
+        lualine_z = {
+          { 'location', separator = { right = '' }, left_padding = 2 },
+        },
+      },
+      sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+      },
+    })
+  end
 }
