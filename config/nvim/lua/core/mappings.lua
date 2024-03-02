@@ -11,11 +11,6 @@ local opt = { noremap = true, silent = true }
 local opt_expr = vim.tbl_extend("force", opt, { expr = true })
 local desc = require("core.utils").desc
 
--- Yank and paste text from clipboard
-vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]], desc(opt, "Cop[y] to clipboard"))
-vim.keymap.set({ "n", "v" }, "<Leader>p", [["+p]], desc(opt, "[p]aste from clipboard"))
-vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]], desc(opt, "[d]elete to null register"))
-
 -- use ESC in normal mode to turn off search highlighting and notifications
 vim.keymap.set("n", "<Esc>", function()
   local ok, notify = pcall(require, "notify")
@@ -25,6 +20,14 @@ vim.keymap.set("n", "<Esc>", function()
   vim.cmd.nohlsearch()
 end, opt)
 
+-- Yank and paste text from clipboard
+vim.keymap.set({ "n", "v" }, "<Leader>y", [["+y]], desc(opt, "Cop[y] to clipboard"))
+vim.keymap.set({ "n", "v" }, "<Leader>p", [["+p]], desc(opt, "[p]aste from clipboard"))
+
+-- Don't save delete elements into the copy register
+vim.keymap.set({ "n", "v" }, "<Leader>d", [["_d]], desc(opt, "[d]elete to null register"))
+vim.keymap.set("n", "x", [["_x]], opt)
+
 -- Allow moving the cursor through wrapped visual lines with 'j' and 'k',
 -- also don't use g[j|k] when in operator pending mode (using 10j or 10k)
 vim.keymap.set("", "j", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', opt_expr)
@@ -33,6 +36,12 @@ vim.keymap.set("", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', opt_expr
 -- Consistent movement
 vim.keymap.set({ "n", "v" }, "gh", "^", desc(opt, "Beginning of the line"))
 vim.keymap.set({ "n", "v" }, "gl", "$", desc(opt, "End of the line"))
+
+-- Move Lines
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Easy edits
 vim.keymap.set("v", "<", "<gv", opt)
@@ -47,8 +56,6 @@ vim.keymap.set("n", "]c", "<cmd>cnext<CR>", desc(opt, "Next qui[c]kfix list"))
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", desc(opt, "Previous in [b]uffer list"))
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", desc(opt, "Next in [b]uffer list"))
 vim.keymap.set("n", "<Leader><Leader>", "<C-^>", desc(opt, "Previous buffer"))
-vim.keymap.set("n", "<Leader>L", "<C-w>L", desc(opt, "Move buffer to the RIGHT"))
-vim.keymap.set("n", "<Leader>H", "<C-w>H", desc(opt, "Move buffer to the LEFT"))
 
 -- Toggle spelling (spanish and english)
 vim.keymap.set("n", "<Leader>ss",
@@ -59,22 +66,6 @@ vim.keymap.set("n", "<Leader>se",
   function() require('core.utils').toggleSpelling('en_us') end,
   desc(opt, "[s]pelling [e]nglish")
 )
-
--- Navigate between vim buffers, vim splits and tmux panes
-vim.keymap.set({ "n", "v" }, "<C-h>", "<cmd>NavigatorLeft<cr>", opt)
-vim.keymap.set({ "n", "v" }, "<C-l>", "<cmd>NavigatorRight<cr>", opt)
-vim.keymap.set({ "n", "v" }, "<C-k>", "<cmd>NavigatorUp<cr>", opt)
-vim.keymap.set({ "n", "v" }, "<C-j>", "<cmd>NavigatorDown<cr>", opt)
-
--- oil
-vim.keymap.set({ "n", "v" }, "-", "<cmd>Oil<cr>", { desc = "Open tree directory view" })
-
--- Telescope
-vim.keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", desc(opt, "[f]ind [f]ile"))
-vim.keymap.set("n", "<Leader>fb", "<cmd>Telescope buffers<cr>", desc(opt, "[f]ind [b]uffer"))
-vim.keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", desc(opt, "[f]ind [g]rep"))
-vim.keymap.set("n", "<Leader>fh", "<cmd>Telescope help_tags<cr>", desc(opt, "[f]ind [h]elp"))
-vim.keymap.set("n", "<Leader>fk", "<cmd>Telescope keymaps<cr>", desc(opt, "[f]ind [k]eymap"))
 
 --
 -- User commands

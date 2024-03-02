@@ -14,6 +14,13 @@ return {
       end,
     }
   },
+  keys = {
+    { "<Leader>ff", "<cmd>Telescope find_files<cr>", desc = "[f]ind [f]iles" },
+    { "<Leader>fb", "<cmd>Telescope buffers<cr>", desc = "[f]ind [b]uffers" },
+    { "<Leader>fg", "<cmd>Telescope live_grep<cr>", desc = "[f]ind [g]rep" },
+    { "<Leader>fh", "<cmd>Telescope help_tags<cr>", desc = "[f]ind [h]elp" },
+    { "<Leader>fk", "<cmd>Telescope keymaps<cr>", desc = "[f]ind [k]eymap" },
+  },
   opts = {
     defaults = {
       prompt_prefix = "   ",
