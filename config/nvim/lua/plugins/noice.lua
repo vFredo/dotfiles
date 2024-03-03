@@ -56,17 +56,20 @@ return {
       },
       messages = { view_search = "mini" },
       routes = {
+        { filter = {
+            event = "msg_show",
+            any = {
+              { find = "%s+[><]ed%s" }, -- visual indentation
+              { find = "search hit BOTTOM" },
+              { find = "search hit TOP" },
+              { find = '^Hunk %d+ of %d'  } -- gitsign hunk message
+            }
+        }, skip = true },
         -- messages text like "written" on mini view
         { filter = { event = "msg_show", find = "%d+L, %d+B" }, view = "mini" },
-        -- delete visual indentation message
-        { filter = { event = "msg_show", find = "%s+[><]ed%s" }, skip = true },
-        { filter = { event = "msg_show", find = "search hit BOTTOM" }, skip = true },
-        { filter = { event = "msg_show", find = "search hit TOP" }, skip = true },
         -- LSP annoying messages
         { filter = { event = "notify", find = "No information available" }, skip = true },
         { filter = { find = "No signature help" }, skip = true },
-        -- Gitsign hunk message
-        { filter = { event = 'msg_show', find = '^Hunk %d+ of %d' }, skip = true },
       },
       presets = {
         lsp_doc_border = true,

@@ -7,7 +7,7 @@ return {
     build = "make install_jsregexp",
     config = function()
       -- Luasnip configuration
-      require("luasnip").config.set_config {
+      require("luasnip").config.set_config({
         history = true,
         enable_autosnippets = true,
         updateevents = "TextChanged,TextChangedI",
@@ -20,11 +20,11 @@ return {
             active = { virt_text = { { "↺", "Comment" } } },
           },
         },
-      }
+      })
       -- Lazy load snippets vscode format
       require("luasnip.loaders.from_vscode").lazy_load()
       -- Lazy load custom snippets lua format
-      require("luasnip.loaders.from_lua").lazy_load { paths = "~/.config/nvim/snippets/" }
+      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
 
       -- Automatically unlink the current snippet from the buffer
       -- when the insert mode is left, but only if there are any

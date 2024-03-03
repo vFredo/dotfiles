@@ -62,11 +62,6 @@ opt.shortmess:append('w') -- Use "[w]", "[a]" instead of "written", "appended".
 opt.diffopt:append('vertical')     -- Show diffs in vertical splits
 opt.diffopt:append('foldcolumn:0') -- don't show foldcolumn in diff view
 
--- Folds
-opt.foldmethod  = "expr"
-opt.foldexpr    = "nvim_treesitter#foldexpr()"
-opt.foldenable  = false -- don't fold when open file
-
 --
 -- Characters
 --
