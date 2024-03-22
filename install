@@ -94,12 +94,13 @@ function install_bspwm() {
 
 function install_qtile() {
   progress "Creating necessary folders"
-  mkdir -p ~/.config/dunst ~/.config/qtile ~/.config/rofi
+  mkdir -p ~/.config/dunst ~/.config/qtile ~/.config/rofi ~/.config/picom
 
   progress "Creating symbolic links for qtile, rofi and dunst config files"
   create_link "$(pwd)/config/qtile" "$HOME/.config/qtile"
   create_link "$(pwd)/config/rofi" "$HOME/.config/rofi"
   create_link "$(pwd)/config/dunstrc" "$HOME/.config/dunst/dunstrc"
+  create_link "$(pwd)/config/picom/picom.conf" "$HOME/.config/picom/picom.conf"
 
   success "Qtile config installed"
 }

@@ -59,7 +59,7 @@ For updating all submodules use `git pull --recurse-submodules`
 <details>
 <summary>Qtile</summary>
 
-- qtile-extra
+- qtile-extras
 - betterlockscreen
 - [rofi](https://github.com/davatorium/rofi).
 - colloid-gtk-theme
