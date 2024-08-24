@@ -1,5 +1,5 @@
 from libqtile.config import DropDown, Key, Group, ScratchPad
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from .keys import keys, mod, terminal
 
 groups = [Group(i) for i in "123456789"]
