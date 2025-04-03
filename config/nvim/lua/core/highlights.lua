@@ -96,9 +96,6 @@ fg("CmpItemKindEvent", colors.yellow)
 -- BlankIndent Lines
 fg("IblIndent", colors.bgAlt2)
 
--- Orgmode
-fg("OrgAgendaDay", colors.purple)
-
 -- Leap
 fg("LeapMatch", colors.greenAlt, "underline")
 fg_bg("LeapLabelPrimary", colors.bg, colors.greenAlt, "bold")

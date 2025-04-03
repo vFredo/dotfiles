@@ -7,7 +7,7 @@ local servers = {
   clangd = {},
   pyright = {},
   cssls = {},
-  tsserver = {},
+  ts_ls = {},
   tailwindcss = {},
   rust_analyzer = {},
   emmet_ls = {
@@ -88,8 +88,8 @@ return {
         vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", desc(opts, "[g]o [r]eferences"))
         vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", desc(opts, "[g]o [i]mplementations"))
         vim.keymap.set("n", "ga", vim.lsp.buf.code_action, desc(opts, "[g]o [a]ction in code"))
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, desc(opts, "Previous [d]iagnostic"))
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, desc(opts, "Next [d]iagnostic"))
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({count=-1, float=true}) end, desc(opts, "Previous [d]iagnostic"))
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({count=1, float=true}) end, desc(opts, "Next [d]iagnostic"))
         vim.keymap.set('n', '<Leader>fd', "<cmd>Telescope diagnostics<cr>", desc(opts, "[f]ind [d]iagnostic"))
         vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, desc(opts, "[r]e[n]ame in current position"))
         vim.keymap.set('n', '<Leader>F', function() vim.lsp.buf.format { async = true } end,
@@ -97,23 +97,29 @@ return {
       end
     })
 
-    -- Change the default lsp diagnostic symbols
-    local signs = {
-      Error = "",
-      Info = "",
-      Warn = "",
-      Hint = "",
-    }
-
-    for type, icon in pairs(signs) do
-      local hl = 'DiagnosticSign' .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
-
     vim.diagnostic.config({
-      -- virtual_text = { prefix = "", spacing = 2 },
-      virtual_text = false,
-      signs = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = ""
+        },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = ""
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = "DiagnosticError",
+          [vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+          [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+          [vim.diagnostic.severity.HINT] = "DiagnosticHint"
+        }
+      },
+      -- virtual_text = false,
+      virtual_text = { prefix = "", spacing = 2 },
       underline = true,
       update_in_insert = false,
       severity_sort = true,
