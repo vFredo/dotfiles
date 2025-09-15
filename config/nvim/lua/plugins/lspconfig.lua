@@ -24,18 +24,23 @@ local servers = {
     },
   },
   lua_ls = {
-    Lua = {
-      runtime = { version = "LuaJIT" },
-      diagnostics = { globals = { "vim" } },
-      telemetry = { enable = false },
-      workspace = {
-        checkThirdParty = false,
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-        }
-      },
+    settings = {
+      Lua = {
+        runtime = { version = "LuaJIT" },
+        diagnostics = { globals = { "vim" } },
+        telemetry = { enable = false },
+        workspace = {
+          checkThirdParty = false,
+          -- Make the server aware of Neovim runtime files
+          library = {
+            vim.env.VIMRUNTIME,
+            -- "${3rd}/luv/library",
+            -- "${3rd}/busted/library",
+            -- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            -- [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+          }
+        },
+      }
     }
   }
 }
@@ -51,20 +56,24 @@ return {
     },
     {
       "williamboman/mason-lspconfig.nvim",
-      opts = { ensure_installed = vim.tbl_keys(servers), automatic_installation = true }
+      -- opts = { ensure_installed = vim.tbl_keys(servers), automatic_installation = true }
     }
   },
   config = function()
     -- nvim-cmp supports additional completion capabilities
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        require('lspconfig')[server_name].setup({
-          capabilities = capabilities,
-          settings = servers[server_name],
-        })
-      end,
+    require("mason-lspconfig").setup({
+      ensure_installed = vim.tbl_keys(servers),
+      automatic_installation = true,
+      handlers = {
+        function(server_name)
+          require('lspconfig')[server_name].setup({
+            capabilities = capabilities,
+            settings = servers[server_name],
+          })
+        end,
+      }
     })
 
     -- Lsp buffer keymaps and options for buffer
@@ -88,8 +97,10 @@ return {
         vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", desc(opts, "[g]o [r]eferences"))
         vim.keymap.set('n', 'gi', "<cmd>Telescope lsp_implementations<cr>", desc(opts, "[g]o [i]mplementations"))
         vim.keymap.set("n", "ga", vim.lsp.buf.code_action, desc(opts, "[g]o [a]ction in code"))
-        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({count=-1, float=true}) end, desc(opts, "Previous [d]iagnostic"))
-        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({count=1, float=true}) end, desc(opts, "Next [d]iagnostic"))
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end,
+          desc(opts, "Previous [d]iagnostic"))
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end,
+          desc(opts, "Next [d]iagnostic"))
         vim.keymap.set('n', '<Leader>fd', "<cmd>Telescope diagnostics<cr>", desc(opts, "[f]ind [d]iagnostic"))
         vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, desc(opts, "[r]e[n]ame in current position"))
         vim.keymap.set('n', '<Leader>F', function() vim.lsp.buf.format { async = true } end,
@@ -118,8 +129,8 @@ return {
           [vim.diagnostic.severity.HINT] = "DiagnosticHint"
         }
       },
-      -- virtual_text = false,
-      virtual_text = { prefix = "", spacing = 2 },
+      virtual_text = false,
+      -- virtual_text = { prefix = "", spacing = 2 },
       underline = true,
       update_in_insert = false,
       severity_sort = true,
